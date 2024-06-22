@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34729.46
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lifora", "Lifora\Lifora.csproj", "{D96185C3-98DD-4810-B70C-B4F3E69178E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logica", "logica\logica.csproj", "{91BE9F21-0E12-415D-85B9-CBA87B52C6C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "persistencia", "persistencia\persistencia.csproj", "{B94B1865-99F1-4AE3-8B40-1E95C5ED990D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D96185C3-98DD-4810-B70C-B4F3E69178E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96185C3-98DD-4810-B70C-B4F3E69178E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96185C3-98DD-4810-B70C-B4F3E69178E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96185C3-98DD-4810-B70C-B4F3E69178E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91BE9F21-0E12-415D-85B9-CBA87B52C6C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91BE9F21-0E12-415D-85B9-CBA87B52C6C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91BE9F21-0E12-415D-85B9-CBA87B52C6C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91BE9F21-0E12-415D-85B9-CBA87B52C6C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94B1865-99F1-4AE3-8B40-1E95C5ED990D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94B1865-99F1-4AE3-8B40-1E95C5ED990D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94B1865-99F1-4AE3-8B40-1E95C5ED990D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94B1865-99F1-4AE3-8B40-1E95C5ED990D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {782767B1-CAC7-47ED-B245-214F2B569446}
+	EndGlobalSection
+EndGlobal
