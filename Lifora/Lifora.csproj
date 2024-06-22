@@ -60,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="backoffice.resx">
+      <DependentUpon>backoffice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +90,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fotos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\logica\logica.csproj">
+      <Project>{91be9f21-0e12-415d-85b9-cba87b52c6c9}</Project>
+      <Name>logica</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\persistencia\persistencia.csproj">
+      <Project>{b94b1865-99f1-4ae3-8b40-1e95c5ed990d}</Project>
+      <Name>persistencia</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

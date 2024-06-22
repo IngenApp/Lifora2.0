@@ -36,5 +36,23 @@ namespace Lifora
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            backoffice backoffice = new backoffice();
+            backoffice.FormClosed += (s, args) => this.Show();
+            if (checkBox1.Checked)
+            {
+                loginpassword.ResetText();
+            }
+            else
+            {
+                loginmail.ResetText();
+                loginpassword.ResetText();
+            }
+            
+            this.Hide();
+            backoffice.Show();
+        }
     }
 }
