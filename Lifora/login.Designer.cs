@@ -58,14 +58,15 @@ namespace Lifora
             this.CmbBoxYear = new System.Windows.Forms.ComboBox();
             this.CmbBoxMonth = new System.Windows.Forms.ComboBox();
             this.CmBoxDay = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAccess
             // 
-            this.btnAccess.Location = new System.Drawing.Point(336, 543);
+            this.btnAccess.Location = new System.Drawing.Point(202, 546);
             this.btnAccess.Name = "btnAccess";
-            this.btnAccess.Size = new System.Drawing.Size(186, 59);
+            this.btnAccess.Size = new System.Drawing.Size(140, 44);
             this.btnAccess.TabIndex = 0;
             this.btnAccess.Text = "Access";
             this.btnAccess.UseVisualStyleBackColor = true;
@@ -301,11 +302,22 @@ namespace Lifora
             this.CmBoxDay.Size = new System.Drawing.Size(68, 21);
             this.CmBoxDay.TabIndex = 28;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(385, 546);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 44);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Access";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CmBoxDay);
             this.Controls.Add(this.CmbBoxMonth);
             this.Controls.Add(this.CmbBoxYear);
@@ -376,6 +388,7 @@ namespace Lifora
         private System.Windows.Forms.ComboBox CmbBoxYear;
         private System.Windows.Forms.ComboBox CmbBoxMonth;
         private System.Windows.Forms.ComboBox CmBoxDay;
+        private System.Windows.Forms.Button button1;
     }
 }
 

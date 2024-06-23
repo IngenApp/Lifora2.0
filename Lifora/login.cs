@@ -230,6 +230,27 @@ namespace Lifora
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Perfil perfil = new Perfil();
+            string mail = loginMail.Text.Trim();
+            string password = loginPassword.Text;
+            if (VerifyAcces(mail, password))
+            {
+                MessageBox.Show("Acceso permitido. ¡Bienvenido!");
+                perfil.FormClosed += (s, args) => this.Show();
+                loginMail.ResetText();
+                loginPassword.ResetText();
+                this.Hide();
+                perfil.Show();
+            }
+            if (!VerifyAcces(mail, password))
+            {
+                MessageBox.Show("Acceso denegado. Verifica tus credenciales.");
+            }
+        }
     }
+    
 }
 
