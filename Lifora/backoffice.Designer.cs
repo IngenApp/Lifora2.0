@@ -30,8 +30,9 @@ namespace Lifora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backoffice));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearchUser = new System.Windows.Forms.Button();
-            this.txtBoxSearch = new System.Windows.Forms.TextBox();
             this.btnBlockTheUser = new System.Windows.Forms.Button();
             this.btnUnlockTheUser = new System.Windows.Forms.Button();
             this.btnTheAudio = new System.Windows.Forms.Button();
@@ -45,15 +46,10 @@ namespace Lifora
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.listViewDataUser = new System.Windows.Forms.ListView();
-            this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Year = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Month = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Days = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridViewInfoUser = new System.Windows.Forms.DataGridView();
+            this.txtBoxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSearchUser
@@ -66,14 +62,6 @@ namespace Lifora
             this.btnSearchUser.UseVisualStyleBackColor = true;
             this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
             // 
-            // txtBoxSearch
-            // 
-            this.txtBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txtBoxSearch.Location = new System.Drawing.Point(281, 254);
-            this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(280, 38);
-            this.txtBoxSearch.TabIndex = 1;
-            // 
             // btnBlockTheUser
             // 
             this.btnBlockTheUser.Location = new System.Drawing.Point(150, 592);
@@ -82,6 +70,7 @@ namespace Lifora
             this.btnBlockTheUser.TabIndex = 3;
             this.btnBlockTheUser.Text = "Block user";
             this.btnBlockTheUser.UseVisualStyleBackColor = true;
+            this.btnBlockTheUser.Click += new System.EventHandler(this.btnBlockTheUser_Click);
             // 
             // btnUnlockTheUser
             // 
@@ -193,64 +182,49 @@ namespace Lifora
             this.label3.TabIndex = 15;
             this.label3.Text = "BACKOFFICE";
             // 
-            // listViewDataUser
+            // dataGridViewInfoUser
             // 
-            this.listViewDataUser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Mail,
-            this.Name,
-            this.Surname,
-            this.Phone,
-            this.Year,
-            this.Month,
-            this.Days});
-            this.listViewDataUser.HideSelection = false;
-            this.listViewDataUser.Location = new System.Drawing.Point(80, 334);
-            this.listViewDataUser.Name = "listViewDataUser";
-            this.listViewDataUser.Size = new System.Drawing.Size(480, 204);
-            this.listViewDataUser.TabIndex = 16;
-            this.listViewDataUser.UseCompatibleStateImageBehavior = false;
-            this.listViewDataUser.View = System.Windows.Forms.View.Details;
+            this.dataGridViewInfoUser.AllowUserToOrderColumns = true;
+            this.dataGridViewInfoUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInfoUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewInfoUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewInfoUser.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewInfoUser.Location = new System.Drawing.Point(74, 298);
+            this.dataGridViewInfoUser.Name = "dataGridViewInfoUser";
+            this.dataGridViewInfoUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataGridViewInfoUser.Size = new System.Drawing.Size(487, 288);
+            this.dataGridViewInfoUser.TabIndex = 16;
             // 
-            // Mail
+            // txtBoxSearch
             // 
-            this.Mail.Text = "Mail";
-            // 
-            // Name
-            // 
-            this.Name.Text = "Name";
-            this.Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // Surname
-            // 
-            this.Surname.Text = "Surname";
-            this.Surname.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // Phone
-            // 
-            this.Phone.Text = "Phone";
-            this.Phone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // Year
-            // 
-            this.Year.Text = "Year";
-            this.Year.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // Month
-            // 
-            this.Month.Text = "Month";
-            this.Month.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // Days
-            // 
-            this.Days.Text = "Days";
-            this.Days.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearch.Location = new System.Drawing.Point(277, 254);
+            this.txtBoxSearch.Name = "txtBoxSearch";
+            this.txtBoxSearch.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtBoxSearch.Size = new System.Drawing.Size(284, 38);
+            this.txtBoxSearch.TabIndex = 17;
             // 
             // backoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.listViewDataUser);
+            this.Controls.Add(this.txtBoxSearch);
+            this.Controls.Add(this.dataGridViewInfoUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -264,7 +238,6 @@ namespace Lifora
             this.Controls.Add(this.btnTheAudio);
             this.Controls.Add(this.btnUnlockTheUser);
             this.Controls.Add(this.btnBlockTheUser);
-            this.Controls.Add(this.txtBoxSearch);
             this.Controls.Add(this.btnSearchUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -275,6 +248,7 @@ namespace Lifora
             this.Text = "Interface";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,7 +257,6 @@ namespace Lifora
         #endregion
 
         private System.Windows.Forms.Button btnSearchUser;
-        private System.Windows.Forms.TextBox txtBoxSearch;
         private System.Windows.Forms.Button btnBlockTheUser;
         private System.Windows.Forms.Button btnUnlockTheUser;
         private System.Windows.Forms.Button btnTheAudio;
@@ -297,13 +270,7 @@ namespace Lifora
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView listViewDataUser;
-        private System.Windows.Forms.ColumnHeader Mail;
-        private System.Windows.Forms.ColumnHeader Name;
-        private System.Windows.Forms.ColumnHeader Surname;
-        private System.Windows.Forms.ColumnHeader Phone;
-        private System.Windows.Forms.ColumnHeader Year;
-        private System.Windows.Forms.ColumnHeader Month;
-        private System.Windows.Forms.ColumnHeader Days;
+        private System.Windows.Forms.DataGridView dataGridViewInfoUser;
+        private System.Windows.Forms.TextBox txtBoxSearch;
     }
 }

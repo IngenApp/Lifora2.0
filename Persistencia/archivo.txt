@@ -5,3 +5,6 @@
 5, asfjb@asc, vvvv, ascva, ascasv, 093318901, 1990, Enero, 1
 6, cQVQE, SSSS, ASCA, ASCAS, 093318901, 1990, Enero, 1
 7, ASCASD, SSSS, ASCAS, ASCAC, 093318901, 1990, Enero, 1
+8, calubar20@gmail.com, calubar, claudia, Barboza, 12255655, 1989, Septiembre, 30
+9, calubar20@gmail,com, calubar, claudia, barboza, 1233225, 1989, Septiembre, 30
+10, stiv@gmail.com, 123456, stiv, Artigas, 092500428, 2002, Junio, 14

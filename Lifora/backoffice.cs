@@ -23,11 +23,11 @@ namespace Lifora
                 MessageBox.Show("Usuario no encontrado.");
                 return;
             }
+            
+                MessageBox.Show("Usuario encontrado.");
+                DisplayData(userData);
 
-            MessageBox.Show("Usuario encontrado.");
-            DisplayData(userData);
         }
-
         private string[] SearchUser(string mail)
         {
             try
@@ -38,7 +38,7 @@ namespace Lifora
                     while ((linea = sr.ReadLine()) != null)
                     {
                         string[] datos = linea.Split(',');
-                        if (datos.Length >= 9 && datos[1].Trim() == mail) 
+                        if (datos.Length >= 3 && datos[1].Trim() == mail)
                         {
                             return datos;
                         }
@@ -51,38 +51,24 @@ namespace Lifora
             }
             return null;
         }
-
         private void DisplayData(string[] userData)
         {
-            listViewDataUser.Items.Clear();
+            dataGridViewInfoUser.Rows.Clear();
+            dataGridViewInfoUser.Columns.Add("Data_Register", "Data Register");
+            dataGridViewInfoUser.Columns.Add("User_Information", "User Information"); 
 
-            ListViewItem item = new ListViewItem("Mail");
-            item.SubItems.Add(userData[1].Trim());
-            listViewDataUser.Items.Add(item);
+            dataGridViewInfoUser.Rows.Add("Mail", userData[1].Trim());
+            dataGridViewInfoUser.Rows.Add("Name", userData[2].Trim());
+            dataGridViewInfoUser.Rows.Add("Surname", userData[3].Trim());
+            dataGridViewInfoUser.Rows.Add("Phone", userData[4].Trim());
+            dataGridViewInfoUser.Rows.Add("Year", userData[5].Trim());
+            dataGridViewInfoUser.Rows.Add("Month", userData[6].Trim());
+            dataGridViewInfoUser.Rows.Add("Day", userData[7].Trim());
+        }
 
-            item = new ListViewItem("Name");
-            item.SubItems.Add(userData[3].Trim());
-            listViewDataUser.Items.Add(item);
+        private void btnBlockTheUser_Click(object sender, EventArgs e)
+        {
 
-            item = new ListViewItem("Surname");
-            item.SubItems.Add(userData[4].Trim());
-            listViewDataUser.Items.Add(item);
-
-            item = new ListViewItem("Phone");
-            item.SubItems.Add(userData[5].Trim());
-            listViewDataUser.Items.Add(item);
-
-            item = new ListViewItem("Year");
-            item.SubItems.Add(userData[6].Trim());
-            listViewDataUser.Items.Add(item);
-
-            item = new ListViewItem("Month");
-            item.SubItems.Add(userData[7].Trim());
-            listViewDataUser.Items.Add(item);
-
-            item = new ListViewItem("Day");
-            item.SubItems.Add(userData[8].Trim());
-            listViewDataUser.Items.Add(item);
         }
 
     }
