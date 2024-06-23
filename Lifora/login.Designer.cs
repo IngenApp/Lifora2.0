@@ -55,7 +55,7 @@ namespace Lifora
             this.label12 = new System.Windows.Forms.Label();
             this.txtBoxSurname = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.CmbBoxAge = new System.Windows.Forms.ComboBox();
+            this.CmbBoxYear = new System.Windows.Forms.ComboBox();
             this.CmbBoxMonth = new System.Windows.Forms.ComboBox();
             this.CmBoxDay = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -277,13 +277,13 @@ namespace Lifora
             this.checkBox1.Text = "Remember me";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // CmbBoxAge
+            // CmbBoxYear
             // 
-            this.CmbBoxAge.FormattingEnabled = true;
-            this.CmbBoxAge.Location = new System.Drawing.Point(884, 304);
-            this.CmbBoxAge.Name = "CmbBoxAge";
-            this.CmbBoxAge.Size = new System.Drawing.Size(68, 21);
-            this.CmbBoxAge.TabIndex = 26;
+            this.CmbBoxYear.FormattingEnabled = true;
+            this.CmbBoxYear.Location = new System.Drawing.Point(884, 304);
+            this.CmbBoxYear.Name = "CmbBoxYear";
+            this.CmbBoxYear.Size = new System.Drawing.Size(68, 21);
+            this.CmbBoxYear.TabIndex = 26;
             // 
             // CmbBoxMonth
             // 
@@ -308,7 +308,7 @@ namespace Lifora
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.CmBoxDay);
             this.Controls.Add(this.CmbBoxMonth);
-            this.Controls.Add(this.CmbBoxAge);
+            this.Controls.Add(this.CmbBoxYear);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.txtBoxSurname);
             this.Controls.Add(this.label12);
@@ -372,7 +372,7 @@ namespace Lifora
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBoxSurname;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox CmbBoxAge;
+        private System.Windows.Forms.ComboBox CmbBoxYear;
         private System.Windows.Forms.ComboBox CmbBoxMonth;
         private System.Windows.Forms.ComboBox CmBoxDay;
     }

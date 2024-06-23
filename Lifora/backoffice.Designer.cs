@@ -30,95 +30,103 @@ namespace Lifora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backoffice));
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnSearchUser = new System.Windows.Forms.Button();
+            this.txtBoxSearch = new System.Windows.Forms.TextBox();
+            this.btnBlockTheUser = new System.Windows.Forms.Button();
+            this.btnUnlockTheUser = new System.Windows.Forms.Button();
+            this.btnTheAudio = new System.Windows.Forms.Button();
+            this.btnTheVideo = new System.Windows.Forms.Button();
+            this.btnThePhoto = new System.Windows.Forms.Button();
+            this.btnTheText = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnBlockThePost = new System.Windows.Forms.Button();
+            this.btnUnlockThePost = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listViewDataUser = new System.Windows.Forms.ListView();
+            this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Year = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Month = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Days = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSearchUser
             // 
-            this.button1.Location = new System.Drawing.Point(74, 254);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Search User";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearchUser.Location = new System.Drawing.Point(74, 254);
+            this.btnSearchUser.Name = "btnSearchUser";
+            this.btnSearchUser.Size = new System.Drawing.Size(186, 38);
+            this.btnSearchUser.TabIndex = 0;
+            this.btnSearchUser.Text = "Search User";
+            this.btnSearchUser.UseVisualStyleBackColor = true;
+            this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
             // 
-            // textBox1
+            // txtBoxSearch
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.textBox1.Location = new System.Drawing.Point(281, 254);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(280, 38);
-            this.textBox1.TabIndex = 1;
+            this.txtBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.txtBoxSearch.Location = new System.Drawing.Point(281, 254);
+            this.txtBoxSearch.Name = "txtBoxSearch";
+            this.txtBoxSearch.Size = new System.Drawing.Size(280, 38);
+            this.txtBoxSearch.TabIndex = 1;
             // 
-            // button2
+            // btnBlockTheUser
             // 
-            this.button2.Location = new System.Drawing.Point(150, 592);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 50);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Block user";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBlockTheUser.Location = new System.Drawing.Point(150, 592);
+            this.btnBlockTheUser.Name = "btnBlockTheUser";
+            this.btnBlockTheUser.Size = new System.Drawing.Size(148, 50);
+            this.btnBlockTheUser.TabIndex = 3;
+            this.btnBlockTheUser.Text = "Block user";
+            this.btnBlockTheUser.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnUnlockTheUser
             // 
-            this.button3.Location = new System.Drawing.Point(304, 592);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 50);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Unlock user";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnUnlockTheUser.Location = new System.Drawing.Point(304, 592);
+            this.btnUnlockTheUser.Name = "btnUnlockTheUser";
+            this.btnUnlockTheUser.Size = new System.Drawing.Size(148, 50);
+            this.btnUnlockTheUser.TabIndex = 4;
+            this.btnUnlockTheUser.Text = "Unlock user";
+            this.btnUnlockTheUser.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnTheAudio
             // 
-            this.button4.Location = new System.Drawing.Point(637, 592);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 50);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Audio";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnTheAudio.Location = new System.Drawing.Point(637, 592);
+            this.btnTheAudio.Name = "btnTheAudio";
+            this.btnTheAudio.Size = new System.Drawing.Size(149, 50);
+            this.btnTheAudio.TabIndex = 5;
+            this.btnTheAudio.Text = "Audio";
+            this.btnTheAudio.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnTheVideo
             // 
-            this.button5.Location = new System.Drawing.Point(792, 592);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(149, 50);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Video";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnTheVideo.Location = new System.Drawing.Point(792, 592);
+            this.btnTheVideo.Name = "btnTheVideo";
+            this.btnTheVideo.Size = new System.Drawing.Size(149, 50);
+            this.btnTheVideo.TabIndex = 6;
+            this.btnTheVideo.Text = "Video";
+            this.btnTheVideo.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnThePhoto
             // 
-            this.button6.Location = new System.Drawing.Point(947, 592);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(149, 50);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Photo";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnThePhoto.Location = new System.Drawing.Point(947, 592);
+            this.btnThePhoto.Name = "btnThePhoto";
+            this.btnThePhoto.Size = new System.Drawing.Size(149, 50);
+            this.btnThePhoto.TabIndex = 7;
+            this.btnThePhoto.Text = "Photo";
+            this.btnThePhoto.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnTheText
             // 
-            this.button7.Location = new System.Drawing.Point(1102, 592);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(149, 50);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "Text";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnTheText.Location = new System.Drawing.Point(1102, 592);
+            this.btnTheText.Name = "btnTheText";
+            this.btnTheText.Size = new System.Drawing.Size(149, 50);
+            this.btnTheText.TabIndex = 8;
+            this.btnTheText.Text = "Text";
+            this.btnTheText.UseVisualStyleBackColor = true;
             // 
             // listBox2
             // 
@@ -128,23 +136,23 @@ namespace Lifora
             this.listBox2.Size = new System.Drawing.Size(613, 537);
             this.listBox2.TabIndex = 9;
             // 
-            // button8
+            // btnBlockThePost
             // 
-            this.button8.Location = new System.Drawing.Point(947, 648);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(149, 50);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "Block post";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnBlockThePost.Location = new System.Drawing.Point(947, 648);
+            this.btnBlockThePost.Name = "btnBlockThePost";
+            this.btnBlockThePost.Size = new System.Drawing.Size(149, 50);
+            this.btnBlockThePost.TabIndex = 10;
+            this.btnBlockThePost.Text = "Block post";
+            this.btnBlockThePost.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnUnlockThePost
             // 
-            this.button9.Location = new System.Drawing.Point(1102, 648);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(149, 50);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "Unlock post";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnUnlockThePost.Location = new System.Drawing.Point(1102, 648);
+            this.btnUnlockThePost.Name = "btnUnlockThePost";
+            this.btnUnlockThePost.Size = new System.Drawing.Size(149, 50);
+            this.btnUnlockThePost.TabIndex = 11;
+            this.btnUnlockThePost.Text = "Unlock post";
+            this.btnUnlockThePost.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -185,35 +193,79 @@ namespace Lifora
             this.label3.TabIndex = 15;
             this.label3.Text = "BACKOFFICE";
             // 
-            // listBox1
+            // listViewDataUser
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(74, 305);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(487, 264);
-            this.listBox1.TabIndex = 16;
+            this.listViewDataUser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Mail,
+            this.Name,
+            this.Surname,
+            this.Phone,
+            this.Year,
+            this.Month,
+            this.Days});
+            this.listViewDataUser.HideSelection = false;
+            this.listViewDataUser.Location = new System.Drawing.Point(80, 334);
+            this.listViewDataUser.Name = "listViewDataUser";
+            this.listViewDataUser.Size = new System.Drawing.Size(480, 204);
+            this.listViewDataUser.TabIndex = 16;
+            this.listViewDataUser.UseCompatibleStateImageBehavior = false;
+            this.listViewDataUser.View = System.Windows.Forms.View.Details;
+            // 
+            // Mail
+            // 
+            this.Mail.Text = "Mail";
+            // 
+            // Name
+            // 
+            this.Name.Text = "Name";
+            this.Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // Surname
+            // 
+            this.Surname.Text = "Surname";
+            this.Surname.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // Phone
+            // 
+            this.Phone.Text = "Phone";
+            this.Phone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // Year
+            // 
+            this.Year.Text = "Year";
+            this.Year.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // Month
+            // 
+            this.Month.Text = "Month";
+            this.Month.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // Days
+            // 
+            this.Days.Text = "Days";
+            this.Days.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // backoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listViewDataUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnUnlockThePost);
+            this.Controls.Add(this.btnBlockThePost);
             this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTheText);
+            this.Controls.Add(this.btnThePhoto);
+            this.Controls.Add(this.btnTheVideo);
+            this.Controls.Add(this.btnTheAudio);
+            this.Controls.Add(this.btnUnlockTheUser);
+            this.Controls.Add(this.btnBlockTheUser);
+            this.Controls.Add(this.txtBoxSearch);
+            this.Controls.Add(this.btnSearchUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -230,21 +282,28 @@ namespace Lifora
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnSearchUser;
+        private System.Windows.Forms.TextBox txtBoxSearch;
+        private System.Windows.Forms.Button btnBlockTheUser;
+        private System.Windows.Forms.Button btnUnlockTheUser;
+        private System.Windows.Forms.Button btnTheAudio;
+        private System.Windows.Forms.Button btnTheVideo;
+        private System.Windows.Forms.Button btnThePhoto;
+        private System.Windows.Forms.Button btnTheText;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnBlockThePost;
+        private System.Windows.Forms.Button btnUnlockThePost;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListView listViewDataUser;
+        private System.Windows.Forms.ColumnHeader Mail;
+        private System.Windows.Forms.ColumnHeader Name;
+        private System.Windows.Forms.ColumnHeader Surname;
+        private System.Windows.Forms.ColumnHeader Phone;
+        private System.Windows.Forms.ColumnHeader Year;
+        private System.Windows.Forms.ColumnHeader Month;
+        private System.Windows.Forms.ColumnHeader Days;
     }
 }

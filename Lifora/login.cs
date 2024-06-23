@@ -2,10 +2,8 @@
 using System.IO;
 using System.Windows.Forms;
 using CapaDeDatos;
-
 namespace Lifora
 {
-
     public partial class login : Form
     {
         private string rutaArchivo = @"C:\Users\Andres\Desktop\Proyecto LiForA\Red_Social\Lifora\Persistencia\archivo.txt";
@@ -15,21 +13,17 @@ namespace Lifora
 
             for (int year = 1940; year <= 2040; year++)
             {
-                CmbBoxAge.Items.Add(year.ToString());
+                CmbBoxYear.Items.Add(year.ToString());
             }
-            CmbBoxAge.SelectedIndex = CmbBoxAge.Items.Count - 51;
-           
+            CmbBoxYear.SelectedIndex = CmbBoxYear.Items.Count - 51;          
             string[] meses = {
                 "Enero", "Febrero", "Marzo", "Abril",
                 "Mayo", "Junio", "Julio", "Agosto",
                 "Septiembre", "Octubre", "Noviembre", "Diciembre"
             };
             CmbBoxMonth.Items.AddRange(meses);
-
             CmbBoxMonth.SelectedIndexChanged += CmbBoxMonth_SelectedIndexChanged;
-
-            LlenarDias(1); 
-       
+            CompleteDays(1); 
             CmbBoxMonth.SelectedIndex = 0;
             CmBoxDay.SelectedIndex = 0;
         }
@@ -37,9 +31,9 @@ namespace Lifora
         {
             int indiceMes = CmbBoxMonth.SelectedIndex + 1;
 
-            LlenarDias(indiceMes + 1); 
+            CompleteDays(indiceMes + 1); 
         }
-        private void LlenarDias(int mes)
+        private void CompleteDays(int mes)
         {
             int cantidadDias = DateTime.DaysInMonth(DateTime.Now.Year, mes); 
             CmBoxDay.Items.Clear();
@@ -51,19 +45,24 @@ namespace Lifora
         }
         private void btnAccess_Click(object sender, EventArgs e)
     {
-        string mail = loginMail.Text.Trim();
+            backoffice backoffice = new backoffice();
+            string mail = loginMail.Text.Trim();
             string password = loginPassword.Text;
-
-            if (VerificarAcceso(mail, password))
+            if (VerifyAcces(mail, password))
             {
                 MessageBox.Show("Acceso permitido. ¡Bienvenido!");
+                backoffice.FormClosed += (s, args) => this.Show();
+                loginMail.ResetText();
+                loginPassword.ResetText();
+                this.Hide();
+                backoffice.Show();
             }
-            if (!VerificarAcceso(mail, password))
+            if (!VerifyAcces(mail, password))
             {
                 MessageBox.Show("Acceso denegado. Verifica tus credenciales.");
             }
         }
-        private bool VerificarAcceso(string mail, string password)
+        private bool VerifyAcces(string mail, string password)
         {
             try
             {
@@ -88,17 +87,15 @@ namespace Lifora
         }
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
             string mail = txtBoxMail.Text.Trim();
             string password = txtBoxPassword.Text;
             string confirmPassword = txtBoxConfirmPassword.Text;
             string name = txtBoxName.Text;
             string surname = txtBoxSurname.Text;
             string phone = txtBoxPhone.Text;
-            string age = CmbBoxAge.SelectedItem?.ToString();
+            string age = CmbBoxYear.SelectedItem?.ToString();
             string month = CmbBoxMonth.SelectedItem?.ToString();
             string day = CmBoxDay.SelectedItem?.ToString();
-
             if (password != confirmPassword)
             {
                 MessageBox.Show("Las contraseñas no coinciden. Por favor, verifica.");
@@ -110,13 +107,22 @@ namespace Lifora
                 return;
             }
                 string datosNuevos = $"{mail}, {password}, {name}, {surname}, {phone}, {age}, {month}, {day}";
-            if (CamposCompletos() == false)
+            if (!CamposCompletos())
             {
                 MessageBox.Show("Debe rellenar todos los campos para registrarce.");
                 return;
             }
-
-                try
+            if (MailRegister(mail))
+            {
+                MessageBox.Show("El correo electrónico ya está registrado.");
+                return;
+            }
+            if (TelefonoRegistrado(phone))
+            {
+                MessageBox.Show("El número de teléfono ya está registrado.");
+                return;
+            }
+            try
                 {
                     Controlador.Create(datosNuevos);
                     MessageBox.Show("Usuario registrado exitosamente.");
@@ -125,8 +131,53 @@ namespace Lifora
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error al registrar usuario: {ex.Message}");
+                } 
+        }
+        private bool MailRegister(string mail)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(rutaArchivo))
+                {
+                    string linea;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        string[] datos = linea.Split(',');
+                        if (datos.Length >= 3 && datos[1].Trim() == mail)
+                        {
+                            return true;
+                        }
+                    }
                 }
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al verificar correo registrado: {ex.Message}");
+            }
+            return false;
+        }
+        private bool TelefonoRegistrado(string phone)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(rutaArchivo))
+                {
+                    string linea;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        string[] datos = linea.Split(',');
+                        if (datos.Length >= 6 && datos[5].Trim() == phone.Trim())
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al verificar Teléfono registrado: {ex.Message}");
+            }
+            return false;
         }
         private bool CamposCompletos()
         {
@@ -136,7 +187,7 @@ namespace Lifora
                 string.IsNullOrWhiteSpace(txtBoxName.Text) ||
                 string.IsNullOrWhiteSpace(txtBoxSurname.Text) ||
                 string.IsNullOrWhiteSpace(txtBoxPhone.Text) ||
-                CmbBoxAge.SelectedItem == null ||
+                CmbBoxYear.SelectedItem == null ||
                 CmbBoxMonth.SelectedItem == null ||
                 CmBoxDay.SelectedItem == null)
             {
@@ -163,7 +214,7 @@ namespace Lifora
             txtBoxName.Text = "";
             txtBoxSurname.Text = "";
             txtBoxPhone.Text = "";
-            CmbBoxAge.SelectedIndex = -1;
+            CmbBoxYear.SelectedIndex = -1;
             CmbBoxMonth.SelectedIndex = -1;
             CmBoxDay.SelectedIndex = -1;
         }

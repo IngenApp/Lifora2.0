@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Data;
 using System.IO;
-
 namespace CapaDeDatos
 {
     public class Controlador
     {
         private static string rutaArchivo = @"C:\Users\Andres\Desktop\Proyecto LiForA\Red_Social\Lifora\Persistencia\archivo.txt";
-
         public static void Create(string idUser)
         {
             try
@@ -20,7 +18,6 @@ namespace CapaDeDatos
                 Console.WriteLine($"Error al Crear Archivo: {ex.Message}");
             }
         }
-
         public static void Delete(string id)
         {
             try
@@ -40,7 +37,7 @@ namespace CapaDeDatos
                 Console.WriteLine($"Error al Eliminar Archivo: {ex.Message}");
             }
         }
-            private static int ObtenerSiguienteId()
+        private static int ObtenerSiguienteId()
         {
             int siguienteId = 1;
             try
@@ -57,6 +54,26 @@ namespace CapaDeDatos
                 Console.WriteLine($"Error al obtener siguiente ID: {ex.Message}");
             }
             return siguienteId;
+        }
+        public static string[] BuscarUsuarioPorMail(string mail)
+        {
+            try
+            {
+                string[] lineas = File.ReadAllLines(rutaArchivo);
+                foreach (string linea in lineas)
+                {
+                    string[] datos = linea.Split(',');
+                    if (datos.Length >= 1 && datos[1].Trim() == mail.Trim())
+                    {
+                        return datos;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al buscar usuario por mail: {ex.Message}");
+            }
+            return null;
         }
         private static void SaveToFile(string datos)
         {
