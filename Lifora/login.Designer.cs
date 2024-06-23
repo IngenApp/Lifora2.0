@@ -30,44 +30,46 @@ namespace Lifora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAccess = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.loginmail = new System.Windows.Forms.TextBox();
-            this.loginpassword = new System.Windows.Forms.TextBox();
+            this.loginMail = new System.Windows.Forms.TextBox();
+            this.loginPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtBoxMail = new System.Windows.Forms.TextBox();
+            this.txtBoxPassword = new System.Windows.Forms.TextBox();
+            this.txtBoxConfirmPassword = new System.Windows.Forms.TextBox();
+            this.txtBoxName = new System.Windows.Forms.TextBox();
+            this.txtBoxPhone = new System.Windows.Forms.TextBox();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtBoxSurname = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CmbBoxAge = new System.Windows.Forms.ComboBox();
+            this.CmbBoxMonth = new System.Windows.Forms.ComboBox();
+            this.CmBoxDay = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAccess
             // 
-            this.button1.Location = new System.Drawing.Point(336, 543);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 59);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAccess.Location = new System.Drawing.Point(336, 543);
+            this.btnAccess.Name = "btnAccess";
+            this.btnAccess.Size = new System.Drawing.Size(186, 59);
+            this.btnAccess.TabIndex = 0;
+            this.btnAccess.Text = "Access";
+            this.btnAccess.UseVisualStyleBackColor = true;
+            this.btnAccess.Click += new System.EventHandler(this.btnAccess_Click);
             // 
             // label1
             // 
@@ -87,19 +89,19 @@ namespace Lifora
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
             // 
-            // loginmail
+            // loginMail
             // 
-            this.loginmail.Location = new System.Drawing.Point(202, 426);
-            this.loginmail.Name = "loginmail";
-            this.loginmail.Size = new System.Drawing.Size(320, 20);
-            this.loginmail.TabIndex = 3;
+            this.loginMail.Location = new System.Drawing.Point(202, 426);
+            this.loginMail.Name = "loginMail";
+            this.loginMail.Size = new System.Drawing.Size(320, 20);
+            this.loginMail.TabIndex = 3;
             // 
-            // loginpassword
+            // loginPassword
             // 
-            this.loginpassword.Location = new System.Drawing.Point(202, 465);
-            this.loginpassword.Name = "loginpassword";
-            this.loginpassword.Size = new System.Drawing.Size(320, 20);
-            this.loginpassword.TabIndex = 4;
+            this.loginPassword.Location = new System.Drawing.Point(202, 465);
+            this.loginPassword.Name = "loginPassword";
+            this.loginPassword.Size = new System.Drawing.Size(320, 20);
+            this.loginPassword.TabIndex = 4;
             // 
             // label3
             // 
@@ -109,7 +111,6 @@ namespace Lifora
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Mail";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -119,7 +120,6 @@ namespace Lifora
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Pasword";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -129,7 +129,6 @@ namespace Lifora
             this.label5.Size = new System.Drawing.Size(91, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Confirm Password";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -158,56 +157,51 @@ namespace Lifora
             this.label8.TabIndex = 10;
             this.label8.Text = "Birthday";
             // 
-            // textBox3
+            // txtBoxMail
             // 
-            this.textBox3.Location = new System.Drawing.Point(884, 138);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(233, 20);
-            this.textBox3.TabIndex = 11;
+            this.txtBoxMail.Location = new System.Drawing.Point(884, 138);
+            this.txtBoxMail.Name = "txtBoxMail";
+            this.txtBoxMail.Size = new System.Drawing.Size(233, 20);
+            this.txtBoxMail.TabIndex = 11;
             // 
-            // textBox4
+            // txtBoxPassword
             // 
-            this.textBox4.Location = new System.Drawing.Point(884, 171);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(233, 20);
-            this.textBox4.TabIndex = 12;
+            this.txtBoxPassword.Location = new System.Drawing.Point(884, 171);
+            this.txtBoxPassword.Name = "txtBoxPassword";
+            this.txtBoxPassword.Size = new System.Drawing.Size(233, 20);
+            this.txtBoxPassword.TabIndex = 12;
             // 
-            // textBox5
+            // txtBoxConfirmPassword
             // 
-            this.textBox5.Location = new System.Drawing.Point(884, 204);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(233, 20);
-            this.textBox5.TabIndex = 13;
+            this.txtBoxConfirmPassword.Location = new System.Drawing.Point(884, 204);
+            this.txtBoxConfirmPassword.Name = "txtBoxConfirmPassword";
+            this.txtBoxConfirmPassword.Size = new System.Drawing.Size(233, 20);
+            this.txtBoxConfirmPassword.TabIndex = 13;
             // 
-            // textBox6
+            // txtBoxName
             // 
-            this.textBox6.Location = new System.Drawing.Point(884, 238);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(83, 20);
-            this.textBox6.TabIndex = 14;
+            this.txtBoxName.Location = new System.Drawing.Point(884, 238);
+            this.txtBoxName.Name = "txtBoxName";
+            this.txtBoxName.Size = new System.Drawing.Size(83, 20);
+            this.txtBoxName.TabIndex = 14;
             // 
-            // textBox7
+            // txtBoxPhone
             // 
-            this.textBox7.Location = new System.Drawing.Point(884, 271);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(233, 20);
-            this.textBox7.TabIndex = 15;
+            this.txtBoxPhone.Location = new System.Drawing.Point(884, 271);
+            this.txtBoxPhone.Name = "txtBoxPhone";
+            this.txtBoxPhone.Size = new System.Drawing.Size(233, 20);
+            this.txtBoxPhone.TabIndex = 15;
+            this.txtBoxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPhone_KeyPress);
             // 
-            // textBox8
+            // btnRegister
             // 
-            this.textBox8.Location = new System.Drawing.Point(884, 305);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(233, 20);
-            this.textBox8.TabIndex = 16;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(931, 389);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 59);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRegister.Location = new System.Drawing.Point(931, 389);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(186, 59);
+            this.btnRegister.TabIndex = 17;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // linkLabel1
             // 
@@ -228,7 +222,6 @@ namespace Lifora
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label9
             // 
@@ -267,12 +260,12 @@ namespace Lifora
             this.label12.TabIndex = 23;
             this.label12.Text = "Surname";
             // 
-            // textBox9
+            // txtBoxSurname
             // 
-            this.textBox9.Location = new System.Drawing.Point(1034, 238);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(83, 20);
-            this.textBox9.TabIndex = 24;
+            this.txtBoxSurname.Location = new System.Drawing.Point(1037, 238);
+            this.txtBoxSurname.Name = "txtBoxSurname";
+            this.txtBoxSurname.Size = new System.Drawing.Size(80, 20);
+            this.txtBoxSurname.TabIndex = 24;
             // 
             // checkBox1
             // 
@@ -284,37 +277,63 @@ namespace Lifora
             this.checkBox1.Text = "Remember me";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // CmbBoxAge
+            // 
+            this.CmbBoxAge.FormattingEnabled = true;
+            this.CmbBoxAge.Location = new System.Drawing.Point(884, 304);
+            this.CmbBoxAge.Name = "CmbBoxAge";
+            this.CmbBoxAge.Size = new System.Drawing.Size(68, 21);
+            this.CmbBoxAge.TabIndex = 26;
+            // 
+            // CmbBoxMonth
+            // 
+            this.CmbBoxMonth.FormattingEnabled = true;
+            this.CmbBoxMonth.Location = new System.Drawing.Point(963, 304);
+            this.CmbBoxMonth.Name = "CmbBoxMonth";
+            this.CmbBoxMonth.Size = new System.Drawing.Size(68, 21);
+            this.CmbBoxMonth.TabIndex = 27;
+            // 
+            // CmBoxDay
+            // 
+            this.CmBoxDay.FormattingEnabled = true;
+            this.CmBoxDay.Location = new System.Drawing.Point(1049, 304);
+            this.CmBoxDay.Name = "CmBoxDay";
+            this.CmBoxDay.Size = new System.Drawing.Size(68, 21);
+            this.CmBoxDay.TabIndex = 28;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.CmBoxDay);
+            this.Controls.Add(this.CmbBoxMonth);
+            this.Controls.Add(this.CmbBoxAge);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.txtBoxSurname);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.txtBoxPhone);
+            this.Controls.Add(this.txtBoxName);
+            this.Controls.Add(this.txtBoxConfirmPassword);
+            this.Controls.Add(this.txtBoxPassword);
+            this.Controls.Add(this.txtBoxMail);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.loginpassword);
-            this.Controls.Add(this.loginmail);
+            this.Controls.Add(this.loginPassword);
+            this.Controls.Add(this.loginMail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAccess);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -328,32 +347,34 @@ namespace Lifora
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAccess;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox loginmail;
-        private System.Windows.Forms.TextBox loginpassword;
+        private System.Windows.Forms.TextBox loginMail;
+        private System.Windows.Forms.TextBox loginPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtBoxMail;
+        private System.Windows.Forms.TextBox txtBoxPassword;
+        private System.Windows.Forms.TextBox txtBoxConfirmPassword;
+        private System.Windows.Forms.TextBox txtBoxName;
+        private System.Windows.Forms.TextBox txtBoxPhone;
+        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtBoxSurname;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox CmbBoxAge;
+        private System.Windows.Forms.ComboBox CmbBoxMonth;
+        private System.Windows.Forms.ComboBox CmBoxDay;
     }
 }
 

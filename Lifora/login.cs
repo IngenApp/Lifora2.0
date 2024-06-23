@@ -1,58 +1,179 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using CapaDeDatos;
 
 namespace Lifora
 {
+
     public partial class login : Form
     {
+        private string rutaArchivo = @"C:\Users\Andres\Desktop\Proyecto LiForA\Red_Social\Lifora\Persistencia\archivo.txt";
         public login()
         {
             InitializeComponent();
-        }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            backoffice backoffice = new backoffice();
-            backoffice.FormClosed += (s, args) => this.Show();
-            if (checkBox1.Checked)
+            for (int year = 1940; year <= 2040; year++)
             {
-                loginpassword.ResetText();
+                CmbBoxAge.Items.Add(year.ToString());
             }
-            else
+            CmbBoxAge.SelectedIndex = CmbBoxAge.Items.Count - 51;
+           
+            string[] meses = {
+                "Enero", "Febrero", "Marzo", "Abril",
+                "Mayo", "Junio", "Julio", "Agosto",
+                "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            };
+            CmbBoxMonth.Items.AddRange(meses);
+
+            CmbBoxMonth.SelectedIndexChanged += CmbBoxMonth_SelectedIndexChanged;
+
+            LlenarDias(1); 
+       
+            CmbBoxMonth.SelectedIndex = 0;
+            CmBoxDay.SelectedIndex = 0;
+        }
+        private void CmbBoxMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indiceMes = CmbBoxMonth.SelectedIndex + 1;
+
+            LlenarDias(indiceMes + 1); 
+        }
+        private void LlenarDias(int mes)
+        {
+            int cantidadDias = DateTime.DaysInMonth(DateTime.Now.Year, mes); 
+            CmBoxDay.Items.Clear();
+            for (int dia = 1; dia <= cantidadDias; dia++)
             {
-                loginmail.ResetText();
-                loginpassword.ResetText();
+                CmBoxDay.Items.Add(dia.ToString());
             }
+            CmBoxDay.SelectedIndex = 0;
+        }
+        private void btnAccess_Click(object sender, EventArgs e)
+    {
+        string mail = loginMail.Text.Trim();
+            string password = loginPassword.Text;
+
+            if (VerificarAcceso(mail, password))
+            {
+                MessageBox.Show("Acceso permitido. ¡Bienvenido!");
+            }
+            if (!VerificarAcceso(mail, password))
+            {
+                MessageBox.Show("Acceso denegado. Verifica tus credenciales.");
+            }
+        }
+        private bool VerificarAcceso(string mail, string password)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(rutaArchivo))
+                {
+                    string linea;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        string[] datos = linea.Split(',');
+                        if (datos.Length >= 3 && datos[1].Trim() == mail && datos[2].Trim() == password)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al verificar acceso: {ex.Message}");
+            }
+            return false;
+        }
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
+            string mail = txtBoxMail.Text.Trim();
+            string password = txtBoxPassword.Text;
+            string confirmPassword = txtBoxConfirmPassword.Text;
+            string name = txtBoxName.Text;
+            string surname = txtBoxSurname.Text;
+            string phone = txtBoxPhone.Text;
+            string age = CmbBoxAge.SelectedItem?.ToString();
+            string month = CmbBoxMonth.SelectedItem?.ToString();
+            string day = CmBoxDay.SelectedItem?.ToString();
+
+            if (password != confirmPassword)
+            {
+                MessageBox.Show("Las contraseñas no coinciden. Por favor, verifica.");
+                return;
+            }
+            if (!EsNumero(phone))
+            {
+                MessageBox.Show("El teléfono debe contener solo números.");
+                return;
+            }
+                string datosNuevos = $"{mail}, {password}, {name}, {surname}, {phone}, {age}, {month}, {day}";
+            if (CamposCompletos() == false)
+            {
+                MessageBox.Show("Debe rellenar todos los campos para registrarce.");
+                return;
+            }
+
+                try
+                {
+                    Controlador.Create(datosNuevos);
+                    MessageBox.Show("Usuario registrado exitosamente.");
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al registrar usuario: {ex.Message}");
+                }
             
-            this.Hide();
-            backoffice.Show();
+        }
+        private bool CamposCompletos()
+        {
+            if (string.IsNullOrWhiteSpace(txtBoxMail.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxConfirmPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxName.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxSurname.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxPhone.Text) ||
+                CmbBoxAge.SelectedItem == null ||
+                CmbBoxMonth.SelectedItem == null ||
+                CmBoxDay.SelectedItem == null)
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool EsNumero(string texto)
+        {
+            foreach (char c in texto)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void LimpiarCampos()
+        {
+            txtBoxMail.Text = "";
+            txtBoxPassword.Text = "";
+            txtBoxConfirmPassword.Text = "";
+            txtBoxName.Text = "";
+            txtBoxSurname.Text = "";
+            txtBoxPhone.Text = "";
+            CmbBoxAge.SelectedIndex = -1;
+            CmbBoxMonth.SelectedIndex = -1;
+            CmBoxDay.SelectedIndex = -1;
+        }
+        private void txtBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Cancelar la tecla presionada
+            }
         }
     }
 }
+

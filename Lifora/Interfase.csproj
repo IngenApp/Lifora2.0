@@ -91,5 +91,11 @@
   <ItemGroup>
     <Folder Include="fotos\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaLogica\CapaLogica.csproj">
+      <Project>{AD87CD6D-FCD9-42BA-B697-A86F541333D2}</Project>
+      <Name>CapaLogica</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
