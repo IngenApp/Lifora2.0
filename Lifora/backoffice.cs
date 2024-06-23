@@ -6,7 +6,7 @@ namespace Lifora
 {
     public partial class backoffice : Form
     {
-        private string rutaArchivo = @"C:\Users\Andres\Desktop\Proyecto LiForA\Red_Social\Lifora\Persistencia\archivo.txt";
+        private string rutaArchivo = @"D:\IngenApp\archivo.txt";
 
         public backoffice()
         {
@@ -15,6 +15,7 @@ namespace Lifora
 
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
+            dataGridViewInfoUser.Columns.Clear();
             string mail = txtBoxSearch.Text.Trim();
             string[] userData = SearchUser(mail);
 
@@ -24,7 +25,7 @@ namespace Lifora
                 return;
             }
             
-                MessageBox.Show("Usuario encontrado.");
+                
                 DisplayData(userData);
 
         }
@@ -32,6 +33,7 @@ namespace Lifora
         {
             try
             {
+                
                 using (StreamReader sr = new StreamReader(rutaArchivo))
                 {
                     string linea;
@@ -58,18 +60,27 @@ namespace Lifora
             dataGridViewInfoUser.Columns.Add("User_Information", "User Information"); 
 
             dataGridViewInfoUser.Rows.Add("Mail", userData[1].Trim());
-            dataGridViewInfoUser.Rows.Add("Name", userData[2].Trim());
-            dataGridViewInfoUser.Rows.Add("Surname", userData[3].Trim());
-            dataGridViewInfoUser.Rows.Add("Phone", userData[4].Trim());
-            dataGridViewInfoUser.Rows.Add("Year", userData[5].Trim());
-            dataGridViewInfoUser.Rows.Add("Month", userData[6].Trim());
-            dataGridViewInfoUser.Rows.Add("Day", userData[7].Trim());
+            dataGridViewInfoUser.Rows.Add("Name", userData[3].Trim());
+            dataGridViewInfoUser.Rows.Add("Surname", userData[4].Trim());
+            dataGridViewInfoUser.Rows.Add("Phone", userData[5].Trim());
+            dataGridViewInfoUser.Rows.Add("Year", userData[6].Trim());
+            dataGridViewInfoUser.Rows.Add("Month", userData[7].Trim());
+            dataGridViewInfoUser.Rows.Add("Day", userData[8].Trim());
         }
 
         private void btnBlockTheUser_Click(object sender, EventArgs e)
         {
-            jasfjbjasnlcknlKNASclkn;
+            
         }
 
+        private void backoffice_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewInfoUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace CapaDatos
     {
         public static void Main(string[] args)
         {
-            string rutaArchivo = @"C:\Users\Andres\Desktop\Proyecto LiForA\Red_Social\Lifora\Persistencia\archivo.txt";
+            string rutaArchivo = @"D:\IngenApp\archivo.txt";
 
             ManejoDePersistencia archivo = new ManejoDePersistencia(rutaArchivo);
 

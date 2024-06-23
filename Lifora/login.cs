@@ -6,7 +6,7 @@ namespace Lifora
 {
     public partial class login : Form
     {
-        private string rutaArchivo = @"C:\Users\Andres\Desktop\Proyecto LiForA\Red_Social\Lifora\Persistencia\archivo.txt";
+        private string rutaArchivo = @"D:\IngenApp\archivo.txt";
         public login()
         {
             InitializeComponent();
@@ -224,6 +224,11 @@ namespace Lifora
             {
                 e.Handled = true; // Cancelar la tecla presionada
             }
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

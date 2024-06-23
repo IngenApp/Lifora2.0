@@ -5,7 +5,7 @@ namespace CapaDeDatos
 {
     public class Controlador
     {
-        private static string rutaArchivo = @"C:\Users\Andres\Desktop\Proyecto LiForA\Red_Social\Lifora\Persistencia\archivo.txt";
+        private static string rutaArchivo = @"D:\IngenApp\archivo.txt";
         public static void Create(string idUser)
         {
             try

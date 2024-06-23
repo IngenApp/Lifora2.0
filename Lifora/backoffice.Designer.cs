@@ -185,6 +185,7 @@ namespace Lifora
             // dataGridViewInfoUser
             // 
             this.dataGridViewInfoUser.AllowUserToOrderColumns = true;
+            this.dataGridViewInfoUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewInfoUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -206,8 +207,10 @@ namespace Lifora
             this.dataGridViewInfoUser.Location = new System.Drawing.Point(74, 298);
             this.dataGridViewInfoUser.Name = "dataGridViewInfoUser";
             this.dataGridViewInfoUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataGridViewInfoUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewInfoUser.Size = new System.Drawing.Size(487, 288);
             this.dataGridViewInfoUser.TabIndex = 16;
+            this.dataGridViewInfoUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInfoUser_CellContentClick);
             // 
             // txtBoxSearch
             // 
@@ -246,7 +249,7 @@ namespace Lifora
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Interface";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.backoffice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).EndInit();
             this.ResumeLayout(false);
