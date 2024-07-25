@@ -105,9 +105,9 @@
     <Folder Include="fotos\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CapaLogica\CapaLogica.csproj">
+    <ProjectReference Include="..\CapaLogica\Controladores.csproj">
       <Project>{AD87CD6D-FCD9-42BA-B697-A86F541333D2}</Project>
-      <Name>CapaLogica</Name>
+      <Name>Controladores</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

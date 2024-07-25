@@ -30,11 +30,8 @@ namespace Lifora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
-            this.btnAccess = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.loginMail = new System.Windows.Forms.TextBox();
-            this.loginPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,7 +43,6 @@ namespace Lifora
             this.txtBoxConfirmPassword = new System.Windows.Forms.TextBox();
             this.txtBoxName = new System.Windows.Forms.TextBox();
             this.txtBoxPhone = new System.Windows.Forms.TextBox();
-            this.btnRegister = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,22 +51,14 @@ namespace Lifora
             this.label12 = new System.Windows.Forms.Label();
             this.txtBoxSurname = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.CmbBoxYear = new System.Windows.Forms.ComboBox();
-            this.CmbBoxMonth = new System.Windows.Forms.ComboBox();
-            this.CmBoxDay = new System.Windows.Forms.ComboBox();
+            this.loginPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtBoxBirthday = new System.Windows.Forms.TextBox();
+            this.BotonCrearUsuario = new System.Windows.Forms.Button();
+            this.TxtMailLogin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnAccess
-            // 
-            this.btnAccess.Location = new System.Drawing.Point(202, 546);
-            this.btnAccess.Name = "btnAccess";
-            this.btnAccess.Size = new System.Drawing.Size(140, 44);
-            this.btnAccess.TabIndex = 0;
-            this.btnAccess.Text = "Access";
-            this.btnAccess.UseVisualStyleBackColor = true;
-            this.btnAccess.Click += new System.EventHandler(this.btnAccess_Click);
             // 
             // label1
             // 
@@ -89,20 +77,6 @@ namespace Lifora
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
-            // 
-            // loginMail
-            // 
-            this.loginMail.Location = new System.Drawing.Point(202, 426);
-            this.loginMail.Name = "loginMail";
-            this.loginMail.Size = new System.Drawing.Size(320, 20);
-            this.loginMail.TabIndex = 3;
-            // 
-            // loginPassword
-            // 
-            this.loginPassword.Location = new System.Drawing.Point(202, 465);
-            this.loginPassword.Name = "loginPassword";
-            this.loginPassword.Size = new System.Drawing.Size(320, 20);
-            this.loginPassword.TabIndex = 4;
             // 
             // label3
             // 
@@ -194,16 +168,6 @@ namespace Lifora
             this.txtBoxPhone.TabIndex = 15;
             this.txtBoxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPhone_KeyPress);
             // 
-            // btnRegister
-            // 
-            this.btnRegister.Location = new System.Drawing.Point(931, 389);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(186, 59);
-            this.btnRegister.TabIndex = 17;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -278,49 +242,65 @@ namespace Lifora
             this.checkBox1.Text = "Remember me";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // CmbBoxYear
+            // loginPassword
             // 
-            this.CmbBoxYear.FormattingEnabled = true;
-            this.CmbBoxYear.Location = new System.Drawing.Point(884, 304);
-            this.CmbBoxYear.Name = "CmbBoxYear";
-            this.CmbBoxYear.Size = new System.Drawing.Size(68, 21);
-            this.CmbBoxYear.TabIndex = 26;
-            // 
-            // CmbBoxMonth
-            // 
-            this.CmbBoxMonth.FormattingEnabled = true;
-            this.CmbBoxMonth.Location = new System.Drawing.Point(963, 304);
-            this.CmbBoxMonth.Name = "CmbBoxMonth";
-            this.CmbBoxMonth.Size = new System.Drawing.Size(68, 21);
-            this.CmbBoxMonth.TabIndex = 27;
-            // 
-            // CmBoxDay
-            // 
-            this.CmBoxDay.FormattingEnabled = true;
-            this.CmBoxDay.Location = new System.Drawing.Point(1049, 304);
-            this.CmBoxDay.Name = "CmBoxDay";
-            this.CmBoxDay.Size = new System.Drawing.Size(68, 21);
-            this.CmBoxDay.TabIndex = 28;
+            this.loginPassword.Location = new System.Drawing.Point(202, 465);
+            this.loginPassword.Name = "loginPassword";
+            this.loginPassword.Size = new System.Drawing.Size(320, 20);
+            this.loginPassword.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(385, 546);
+            this.button1.Location = new System.Drawing.Point(218, 529);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 44);
+            this.button1.Size = new System.Drawing.Size(139, 52);
             this.button1.TabIndex = 29;
-            this.button1.Text = "Access";
+            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(386, 529);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(139, 52);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // txtBoxBirthday
+            // 
+            this.txtBoxBirthday.Location = new System.Drawing.Point(884, 309);
+            this.txtBoxBirthday.Name = "txtBoxBirthday";
+            this.txtBoxBirthday.Size = new System.Drawing.Size(233, 20);
+            this.txtBoxBirthday.TabIndex = 32;
+            // 
+            // BotonCrearUsuario
+            // 
+            this.BotonCrearUsuario.Location = new System.Drawing.Point(978, 358);
+            this.BotonCrearUsuario.Name = "BotonCrearUsuario";
+            this.BotonCrearUsuario.Size = new System.Drawing.Size(139, 52);
+            this.BotonCrearUsuario.TabIndex = 34;
+            this.BotonCrearUsuario.Text = "Crear Usuario";
+            this.BotonCrearUsuario.UseVisualStyleBackColor = true;
+            this.BotonCrearUsuario.Click += new System.EventHandler(this.BotonCrearUsuario_Click);
+            // 
+            // TxtMailLogin
+            // 
+            this.TxtMailLogin.Location = new System.Drawing.Point(205, 426);
+            this.TxtMailLogin.Name = "TxtMailLogin";
+            this.TxtMailLogin.Size = new System.Drawing.Size(320, 20);
+            this.TxtMailLogin.TabIndex = 35;
             // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.TxtMailLogin);
+            this.Controls.Add(this.BotonCrearUsuario);
+            this.Controls.Add(this.txtBoxBirthday);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.CmBoxDay);
-            this.Controls.Add(this.CmbBoxMonth);
-            this.Controls.Add(this.CmbBoxYear);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.txtBoxSurname);
             this.Controls.Add(this.label12);
@@ -329,7 +309,6 @@ namespace Lifora
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtBoxPhone);
             this.Controls.Add(this.txtBoxName);
             this.Controls.Add(this.txtBoxConfirmPassword);
@@ -342,10 +321,8 @@ namespace Lifora
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.loginPassword);
-            this.Controls.Add(this.loginMail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAccess);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -359,12 +336,8 @@ namespace Lifora
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAccess;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox loginMail;
-        private System.Windows.Forms.TextBox loginPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -376,7 +349,6 @@ namespace Lifora
         private System.Windows.Forms.TextBox txtBoxConfirmPassword;
         private System.Windows.Forms.TextBox txtBoxName;
         private System.Windows.Forms.TextBox txtBoxPhone;
-        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
@@ -385,10 +357,12 @@ namespace Lifora
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBoxSurname;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox CmbBoxYear;
-        private System.Windows.Forms.ComboBox CmbBoxMonth;
-        private System.Windows.Forms.ComboBox CmBoxDay;
+        private System.Windows.Forms.TextBox loginPassword;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtBoxBirthday;
+        private System.Windows.Forms.Button BotonCrearUsuario;
+        private System.Windows.Forms.TextBox TxtMailLogin;
     }
 }
 
