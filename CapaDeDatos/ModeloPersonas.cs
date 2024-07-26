@@ -19,7 +19,7 @@ namespace Modelo
 
         public void GuardarCuentaUsuario()
         {
-            string sql = $"insert into cuenta_usuario (telefono, nombre, apellido, fecha_nacimiento, contrasena) values('{this.telefono}','{this.nombre}','{this.apellido}','{this.fecha_nac}','{this.contrasena}')";
+            string sql = $"insert into cuenta_usuario (email, telefono, nombre, apellido, fecha_nacimiento, contrasena) values('{this.email}','{this.telefono}','{this.nombre}','{this.apellido}','{this.fecha_nac}','{this.contrasena}')";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
