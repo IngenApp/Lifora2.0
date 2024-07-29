@@ -52,6 +52,21 @@ namespace Lifora
             {
                 MessageBox.Show("Complete los campos");
             }
+            txtBoxBirthday.Text = ("");
+            txtBoxConfirmPassword.Text = ("");
+            txtBoxMail.Text = ("");
+            txtBoxPassword.Text = ("");
+            txtBoxPhone.Text = ("");
+            txtBoxSurname.Text = ("");
+            txtBoxName.Text = ("");
+        }
+
+        private void buttonBackOffice_Click(object sender, EventArgs e)
+        {
+            backoffice backoff = new backoffice();
+            this.Enabled = false;
+            backoff.Show();
+            backoff.FormClosed += (s, args) => this.Enabled = true;
         }
     }
     

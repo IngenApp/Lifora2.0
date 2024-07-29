@@ -47,7 +47,6 @@ namespace Lifora
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBoxSurname = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -57,6 +56,7 @@ namespace Lifora
             this.txtBoxBirthday = new System.Windows.Forms.TextBox();
             this.BotonCrearUsuario = new System.Windows.Forms.Button();
             this.TxtMailLogin = new System.Windows.Forms.TextBox();
+            this.buttonBackOffice = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,15 +207,6 @@ namespace Lifora
             this.label10.TabIndex = 21;
             this.label10.Text = "Live for Art";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(382, 159);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(186, 13);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Bienvenida mas descripcion de la app";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -291,11 +282,22 @@ namespace Lifora
             this.TxtMailLogin.Size = new System.Drawing.Size(320, 20);
             this.TxtMailLogin.TabIndex = 35;
             // 
+            // buttonBackOffice
+            // 
+            this.buttonBackOffice.Location = new System.Drawing.Point(83, 292);
+            this.buttonBackOffice.Name = "buttonBackOffice";
+            this.buttonBackOffice.Size = new System.Drawing.Size(139, 52);
+            this.buttonBackOffice.TabIndex = 36;
+            this.buttonBackOffice.Text = "Acceso a Backofice";
+            this.buttonBackOffice.UseVisualStyleBackColor = true;
+            this.buttonBackOffice.Click += new System.EventHandler(this.buttonBackOffice_Click);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(1284, 701);
+            this.Controls.Add(this.buttonBackOffice);
             this.Controls.Add(this.TxtMailLogin);
             this.Controls.Add(this.BotonCrearUsuario);
             this.Controls.Add(this.txtBoxBirthday);
@@ -304,7 +306,6 @@ namespace Lifora
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.txtBoxSurname);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
@@ -353,7 +354,6 @@ namespace Lifora
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBoxSurname;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -363,6 +363,7 @@ namespace Lifora
         private System.Windows.Forms.TextBox txtBoxBirthday;
         private System.Windows.Forms.Button BotonCrearUsuario;
         private System.Windows.Forms.TextBox TxtMailLogin;
+        private System.Windows.Forms.Button buttonBackOffice;
     }
 }
 

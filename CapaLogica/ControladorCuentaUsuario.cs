@@ -80,7 +80,7 @@ namespace Controladores
                 fila["apellido"] = p.apellido;
                 fila["telefono"] = p.telefono;
                 fila["email"] = p.email;
-                fila["fecha_nac"] = p.fecha_nac; 
+                fila["fecha_nacimiento"] = p.fecha_nac; 
                 fila["habilitado"] = p.habilitacion;
                 tabla.Rows.Add(fila);
             }
