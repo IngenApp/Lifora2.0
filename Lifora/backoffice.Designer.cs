@@ -54,9 +54,9 @@ namespace Lifora
             // 
             // btnSearchUser
             // 
-            this.btnSearchUser.Location = new System.Drawing.Point(74, 254);
+            this.btnSearchUser.Location = new System.Drawing.Point(74, 264);
             this.btnSearchUser.Name = "btnSearchUser";
-            this.btnSearchUser.Size = new System.Drawing.Size(186, 38);
+            this.btnSearchUser.Size = new System.Drawing.Size(176, 38);
             this.btnSearchUser.TabIndex = 0;
             this.btnSearchUser.Text = "Search User";
             this.btnSearchUser.UseVisualStyleBackColor = true;
@@ -176,7 +176,7 @@ namespace Lifora
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 34F);
-            this.label3.Location = new System.Drawing.Point(252, 155);
+            this.label3.Location = new System.Drawing.Point(256, 125);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(318, 53);
             this.label3.TabIndex = 15;
@@ -204,28 +204,29 @@ namespace Lifora
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewInfoUser.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewInfoUser.Location = new System.Drawing.Point(74, 298);
+            this.dataGridViewInfoUser.Location = new System.Drawing.Point(74, 308);
             this.dataGridViewInfoUser.Name = "dataGridViewInfoUser";
             this.dataGridViewInfoUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewInfoUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInfoUser.Size = new System.Drawing.Size(487, 288);
+            this.dataGridViewInfoUser.Size = new System.Drawing.Size(487, 278);
             this.dataGridViewInfoUser.TabIndex = 16;
             this.dataGridViewInfoUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInfoUser_CellContentClick);
             // 
             // txtBoxSearch
             // 
             this.txtBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearch.Location = new System.Drawing.Point(277, 254);
+            this.txtBoxSearch.Location = new System.Drawing.Point(277, 264);
             this.txtBoxSearch.Name = "txtBoxSearch";
             this.txtBoxSearch.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtBoxSearch.Size = new System.Drawing.Size(284, 38);
             this.txtBoxSearch.TabIndex = 17;
+            this.txtBoxSearch.TextChanged += new System.EventHandler(this.txtBoxSearch_TextChanged);
             // 
             // backoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(1284, 701);
             this.Controls.Add(this.txtBoxSearch);
             this.Controls.Add(this.dataGridViewInfoUser);
             this.Controls.Add(this.label3);
@@ -245,11 +246,9 @@ namespace Lifora
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "backoffice";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Interface";
-            this.Load += new System.EventHandler(this.backoffice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).EndInit();
             this.ResumeLayout(false);

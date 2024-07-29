@@ -60,6 +60,14 @@ namespace Lifora
             txtBoxSurname.Text = ("");
             txtBoxName.Text = ("");
         }
+
+        private void buttonBackOffice_Click(object sender, EventArgs e)
+        {
+            backoffice backoff = new backoffice();
+            this.Enabled = false;
+            backoff.Show();
+            backoff.FormClosed += (s, args) => this.Enabled = true;
+        }
     }
     
 }
