@@ -21,7 +21,16 @@ namespace Lifora
 
         private void btnBlockTheUser_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridViewInfoUser.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
+                int columna = 0;
+                var CellValue = seleccion.Cells[columna].Value;
+                string Id = CellValue.ToString();
+                int id = int.Parse(Id);
+                ControladorCuentaUsuario.DeshabilitaCuentaUsuario(id);
+
+            }
         }
 
         private void dataGridViewInfoUser_CellContentClick(object sender, DataGridViewCellEventArgs e)

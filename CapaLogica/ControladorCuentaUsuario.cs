@@ -25,10 +25,10 @@ namespace Controladores
 
             CuentaUsuario.GuardarCuentaUsuario();
         }
-       public static void DeshabilitaCuentaUsuario(string id)
+       public static void DeshabilitaCuentaUsuario(int id)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
+            CuentaUsuario.id_cuenta = id;
             CuentaUsuario.DeshabilitarCuentaUsuario();
         }
         public static void ModificarNombreUsuario(string id, string nombre)
