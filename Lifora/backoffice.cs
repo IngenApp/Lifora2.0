@@ -22,16 +22,26 @@ namespace Lifora
 
         private void btnBlockTheUser_Click(object sender, EventArgs e)
         {
-            if (dataGridViewInfoUser.SelectedRows.Count > 0)
+            DialogResult pregunta = MessageBox.Show("Bloquear este usuario?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(pregunta == DialogResult.Yes)
             {
-                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                int columna = 0;
-                var CellValue = seleccion.Cells[columna].Value;
-                string Id = CellValue.ToString();
-                int id = int.Parse(Id);
-                ControladorCuentaUsuario.DeshabilitaCuentaUsuario(id);
-                dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
-
+                if (dataGridViewInfoUser.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int id = int.Parse(Id);
+                    ControladorCuentaUsuario.DeshabilitaCuentaUsuario(id);
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+                }
+                if(dataGridViewInfoUser.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un usuario");
+                }
+            }if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se ah bloqueado el usuario");
             }
         }
 
@@ -47,7 +57,10 @@ namespace Lifora
 
         private void btnUnlockTheUser_Click(object sender, EventArgs e)
         {
-            if (dataGridViewInfoUser.SelectedRows.Count > 0)
+            DialogResult pregunta = MessageBox.Show("Habilitar este usuario?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                if (dataGridViewInfoUser.SelectedRows.Count > 0)
             {
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
                 int columna = 0;
@@ -56,10 +69,17 @@ namespace Lifora
                 int id = int.Parse(Id);
                 ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
                 dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
-
+                }
+                if (dataGridViewInfoUser.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un usuario");
+                }
             }
-        }
-
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se ah habilitado el usuario");
+            }    
+    }
         private void dataGridViewInfoUser_SelectionChanged_1(object sender, EventArgs e)
         {
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
