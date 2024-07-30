@@ -9,13 +9,8 @@ namespace Lifora
 {
     public partial class login : Form
     {
-        public string mail;
-        public string password;
-        public string confPasword;
-        public string name;
-        public string surname;
-        public string phone;
-        public string birthday;
+       
+        
         public login()
         {
             InitializeComponent();

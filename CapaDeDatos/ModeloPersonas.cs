@@ -30,6 +30,12 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+        public void HabilitarCuentaUsuario()
+        {
+            string sql = $"update cuenta_usuario set habilitacion = true where id_cuenta = '{this.id_cuenta}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
 
         public void ModificarNombreUsuario()
         {
@@ -46,6 +52,12 @@ namespace Modelo
         public void ModificarContrasenaUsuario()
         {
             string sql = $"update cuenta_usuario set contrasena = '{this.contrasena}' where id_cuenta ='{this.id_cuenta}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+        public void ModificarCuentaUsuarioBackoffice()
+        {
+            string sql = $"update cuenta_usuario set email = '{this.email}', telefono = '{this.telefono}', nombre = '{this.nombre}', apellido = '{this.apellido}' where id_cuenta = '{this.id_cuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }

@@ -48,6 +48,16 @@ namespace Lifora
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewInfoUser = new System.Windows.Forms.DataGridView();
             this.txtBoxSearch = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxCambiarNombre = new System.Windows.Forms.TextBox();
+            this.textBoxCambiarApellido = new System.Windows.Forms.TextBox();
+            this.textBoxCambiarTelefono = new System.Windows.Forms.TextBox();
+            this.textBoxCambiarEmail = new System.Windows.Forms.TextBox();
+            this.BtnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             this.SuspendLayout();
@@ -59,30 +69,31 @@ namespace Lifora
             this.btnSearchUser.Name = "btnSearchUser";
             this.btnSearchUser.Size = new System.Drawing.Size(264, 58);
             this.btnSearchUser.TabIndex = 0;
-            this.btnSearchUser.Text = "Search User";
+            this.btnSearchUser.Text = "Buscar Usuario";
             this.btnSearchUser.UseVisualStyleBackColor = true;
             this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
             // 
             // btnBlockTheUser
             // 
-            this.btnBlockTheUser.Location = new System.Drawing.Point(225, 911);
+            this.btnBlockTheUser.Location = new System.Drawing.Point(111, 795);
             this.btnBlockTheUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBlockTheUser.Name = "btnBlockTheUser";
             this.btnBlockTheUser.Size = new System.Drawing.Size(222, 77);
             this.btnBlockTheUser.TabIndex = 3;
-            this.btnBlockTheUser.Text = "Block user";
+            this.btnBlockTheUser.Text = "Bloquear Usuario";
             this.btnBlockTheUser.UseVisualStyleBackColor = true;
             this.btnBlockTheUser.Click += new System.EventHandler(this.btnBlockTheUser_Click);
             // 
             // btnUnlockTheUser
             // 
-            this.btnUnlockTheUser.Location = new System.Drawing.Point(456, 911);
+            this.btnUnlockTheUser.Location = new System.Drawing.Point(341, 795);
             this.btnUnlockTheUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUnlockTheUser.Name = "btnUnlockTheUser";
             this.btnUnlockTheUser.Size = new System.Drawing.Size(222, 77);
             this.btnUnlockTheUser.TabIndex = 4;
-            this.btnUnlockTheUser.Text = "Unlock user";
+            this.btnUnlockTheUser.Text = "Habilitar Usuario";
             this.btnUnlockTheUser.UseVisualStyleBackColor = true;
+            this.btnUnlockTheUser.Click += new System.EventHandler(this.btnUnlockTheUser_Click);
             // 
             // btnTheAudio
             // 
@@ -131,7 +142,7 @@ namespace Lifora
             this.listBox2.Location = new System.Drawing.Point(957, 49);
             this.listBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(918, 824);
+            this.listBox2.Size = new System.Drawing.Size(918, 404);
             this.listBox2.TabIndex = 9;
             // 
             // btnBlockThePost
@@ -157,7 +168,7 @@ namespace Lifora
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(124, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(125, 63);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 257);
@@ -190,7 +201,7 @@ namespace Lifora
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 34F);
-            this.label3.Location = new System.Drawing.Point(384, 192);
+            this.label3.Location = new System.Drawing.Point(386, 242);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(467, 78);
@@ -227,9 +238,10 @@ namespace Lifora
             this.dataGridViewInfoUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewInfoUser.RowHeadersWidth = 62;
             this.dataGridViewInfoUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInfoUser.Size = new System.Drawing.Size(730, 428);
+            this.dataGridViewInfoUser.Size = new System.Drawing.Size(1766, 311);
             this.dataGridViewInfoUser.TabIndex = 16;
             this.dataGridViewInfoUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInfoUser_CellContentClick);
+            this.dataGridViewInfoUser.SelectionChanged += new System.EventHandler(this.dataGridViewInfoUser_SelectionChanged_1);
             // 
             // txtBoxSearch
             // 
@@ -242,12 +254,106 @@ namespace Lifora
             this.txtBoxSearch.TabIndex = 17;
             this.txtBoxSearch.TextChanged += new System.EventHandler(this.txtBoxSearch_TextChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(416, 381);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 20);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Ingresar email";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(111, 908);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Nombre";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(111, 939);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 20);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Apellido";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(105, 974);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 20);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Telefono";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(111, 1003);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 20);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Email";
+            // 
+            // textBoxCambiarNombre
+            // 
+            this.textBoxCambiarNombre.Location = new System.Drawing.Point(182, 905);
+            this.textBoxCambiarNombre.Name = "textBoxCambiarNombre";
+            this.textBoxCambiarNombre.Size = new System.Drawing.Size(381, 26);
+            this.textBoxCambiarNombre.TabIndex = 23;
+            // 
+            // textBoxCambiarApellido
+            // 
+            this.textBoxCambiarApellido.Location = new System.Drawing.Point(182, 939);
+            this.textBoxCambiarApellido.Name = "textBoxCambiarApellido";
+            this.textBoxCambiarApellido.Size = new System.Drawing.Size(381, 26);
+            this.textBoxCambiarApellido.TabIndex = 24;
+            // 
+            // textBoxCambiarTelefono
+            // 
+            this.textBoxCambiarTelefono.Location = new System.Drawing.Point(182, 971);
+            this.textBoxCambiarTelefono.Name = "textBoxCambiarTelefono";
+            this.textBoxCambiarTelefono.Size = new System.Drawing.Size(381, 26);
+            this.textBoxCambiarTelefono.TabIndex = 25;
+            // 
+            // textBoxCambiarEmail
+            // 
+            this.textBoxCambiarEmail.Location = new System.Drawing.Point(182, 1003);
+            this.textBoxCambiarEmail.Name = "textBoxCambiarEmail";
+            this.textBoxCambiarEmail.Size = new System.Drawing.Size(381, 26);
+            this.textBoxCambiarEmail.TabIndex = 26;
+            // 
+            // BtnModificar
+            // 
+            this.BtnModificar.Location = new System.Drawing.Point(580, 946);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(222, 77);
+            this.BtnModificar.TabIndex = 27;
+            this.BtnModificar.Text = "ModificarUsuario";
+            this.BtnModificar.UseVisualStyleBackColor = true;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+            // 
             // backoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.Controls.Add(this.BtnModificar);
+            this.Controls.Add(this.textBoxCambiarEmail);
+            this.Controls.Add(this.textBoxCambiarTelefono);
+            this.Controls.Add(this.textBoxCambiarApellido);
+            this.Controls.Add(this.textBoxCambiarNombre);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBoxSearch);
             this.Controls.Add(this.dataGridViewInfoUser);
             this.Controls.Add(this.label3);
@@ -270,7 +376,7 @@ namespace Lifora
             this.MaximizeBox = false;
             this.Name = "backoffice";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interface";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).EndInit();
@@ -297,5 +403,15 @@ namespace Lifora
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridViewInfoUser;
         private System.Windows.Forms.TextBox txtBoxSearch;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxCambiarNombre;
+        private System.Windows.Forms.TextBox textBoxCambiarApellido;
+        private System.Windows.Forms.TextBox textBoxCambiarTelefono;
+        private System.Windows.Forms.TextBox textBoxCambiarEmail;
+        private System.Windows.Forms.Button BtnModificar;
     }
 }

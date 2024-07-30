@@ -31,6 +31,12 @@ namespace Controladores
             CuentaUsuario.id_cuenta = id;
             CuentaUsuario.DeshabilitarCuentaUsuario();
         }
+        public static void HabilitaCuentaUsuario(int id)
+        {
+            ModeloPersonas CuentaUsuario = new ModeloPersonas();
+            CuentaUsuario.id_cuenta = id;
+            CuentaUsuario.HabilitarCuentaUsuario();
+        }
         public static void ModificarNombreUsuario(string id, string nombre)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
@@ -52,7 +58,17 @@ namespace Controladores
             CuentaUsuario.contrasena = contrasena;
             CuentaUsuario.ModificarContrasenaUsuario();
         }
-        public static int BuscarId(string email)
+        public static void ModificarCuentaDesdeBackoffice(string id, string nombre, string apellido, string email, string telefono)
+        {
+            ModeloPersonas CuentaUsuario = new ModeloPersonas();
+            CuentaUsuario.id_cuenta = Int32.Parse(id);
+            CuentaUsuario.telefono = Int32.Parse(telefono);
+            CuentaUsuario.nombre = nombre;
+            CuentaUsuario.apellido = apellido;
+            CuentaUsuario.email = email;
+            CuentaUsuario.ModificarCuentaUsuarioBackoffice();
+        }
+    public static int BuscarId(string email)
         {
             ModeloPersonas CuentaId = new ModeloPersonas();
             CuentaId.email = email;
