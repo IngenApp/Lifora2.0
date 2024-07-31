@@ -52,7 +52,8 @@ namespace Lifora
 
         private void txtBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            (dataGridViewInfoUser.DataSource as DataTable).DefaultView.RowFilter = string.Format("email LIKE '%{0}%'", txtBoxSearch.Text);
+            if (dataGridViewInfoUser.SelectedRows.Count > 0)
+                (dataGridViewInfoUser.DataSource as DataTable).DefaultView.RowFilter = string.Format("email LIKE '%{0}%'", txtBoxSearch.Text);
         }
 
         private void btnUnlockTheUser_Click(object sender, EventArgs e)
