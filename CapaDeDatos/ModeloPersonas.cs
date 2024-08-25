@@ -119,17 +119,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public int ObtenerIdPost()
-        {
-            string sql = $"select * from post where id_post = '{this.idPost}'";
-            this.Comando.CommandText = sql;
-            this.Lector = this.Comando.ExecuteReader();
-
-            ModeloPersonas mp = new ModeloPersonas();
-            mp.idPost = Int32.Parse(this.Lector["id_post"].ToString());
-
-            return idCuenta;
-        }
         public List<ModeloPersonas> ObtenerPostUsuario(int idUsuario)
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();

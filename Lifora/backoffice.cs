@@ -98,30 +98,72 @@ namespace Lifora
                 textBoxCambiarEmail.Text = seleccion.Cells[4].Value?.ToString();
                 textBoxFechaDeNacimiento.Text = seleccion.Cells[5].Value?.ToString();
                 id = seleccion.Cells[0].Value?.ToString();
+                buscarPost();
+                
             }
 
         }
-
-        private void btnBuscarPost_Click(object sender, EventArgs e)
+        private void buscarPost()
+        { 
+                int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
+                List<string> listaPosts = Controladores.ControladorCuentaUsuario.ListarPost(idUsuario);
+                listBoxPost.Items.Clear();
+                listBoxPost.Items.AddRange(listaPosts.ToArray());           
+        }
+        private void ActualizarListaDePosts()
         {
+            listBoxPost.Items.Clear();  
+
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
             {
-                // Obtén el ID del usuario seleccionado
                 int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
+                List<ControladorCuentaUsuario> estadoPosts = Controladores.ControladorCuentaUsuario.EstadoPost(idUsuario);
 
-                // Llama al controlador para obtener los posts del usuario
-                DataTable tablaPosts = Controladores.ControladorCuentaUsuario.ListarPost(idUsuario);
-
-                // Limpiar los items existentes en el ListBox
-                listBoxPost.Items.Clear();
-
-                // Añadir los posts al ListBox
-                foreach (DataRow row in tablaPosts.Rows)
+                foreach (var postInfo in estadoPosts)
                 {
-                    string itemText = $"ID Post: {row["id_post"]}, Texto: {row["texto_post"]}, Likes: {row["contador_like"]}";
-                    listBoxPost.Items.Add(itemText);
+                    if (!postInfo.EstaHabilitado)
+                    {
+                        listBoxPost.Items.Add(postInfo.TextoPost + " [Bloqueado]");
+                    }
+                    else
+                    {
+                        listBoxPost.Items.Add(postInfo.TextoPost); 
+                    }
                 }
             }
         }
+
+
+        private void btnBlockThePost_Click(object sender, EventArgs e)
+        {
+            if (listBoxPost.SelectedItem != null)
+            {
+                string selectedItem = listBoxPost.SelectedItem.ToString();
+                int idPost = ControladorCuentaUsuario.ExtraerIdPost(selectedItem);
+                    DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (pregunta == DialogResult.Yes)
+                    {
+                        Controladores.ControladorCuentaUsuario.DeshabilitarPost(idPost);
+                        ActualizarListaDePosts();
+                    }               
+            }
+        }
+
+        private void btnUnlockThePost_Click(object sender, EventArgs e)
+        {
+            if (listBoxPost.SelectedItem != null)
+            {
+                string selectedItem = listBoxPost.SelectedItem.ToString();
+                int idPost = ControladorCuentaUsuario.ExtraerIdPost(selectedItem);
+                DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (pregunta == DialogResult.Yes)
+                {
+                    Controladores.ControladorCuentaUsuario.HabilitarPost(idPost);
+                    ActualizarListaDePosts();
+                }
+            }
+
+        }
+
     }
 }

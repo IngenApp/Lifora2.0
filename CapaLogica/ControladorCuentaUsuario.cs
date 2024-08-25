@@ -11,6 +11,8 @@ namespace Controladores
 {
     public class ControladorCuentaUsuario
     {
+        public string TextoPost { get; set; }
+        public bool EstaHabilitado { get; set; }
         public static void AltaCuentaUsuario(String nombre, string apellido, int telefono, string email, string fecha_nac, string contrasena)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
@@ -105,32 +107,62 @@ namespace Controladores
             }
             return tabla;
         }
-        public static DataTable ListarPost(int idUsuario)
+        public static List<string> ListarPost(int idUsuario)
         {
-            DataTable tabla = new DataTable();
-            tabla.Columns.Add("id_post", typeof(int));
-            tabla.Columns.Add("id_usuario", typeof(int));
-            tabla.Columns.Add("id_cuenta", typeof(int));
-            tabla.Columns.Add("texto_post", typeof(string));
-            tabla.Columns.Add("contador_like", typeof(int));
-            tabla.Columns.Add("contador_comentarios", typeof(int));
-            tabla.Columns.Add("habilitado", typeof(Boolean));
-
+            List<string> listaPosts = new List<string>();
             ModeloPersonas ListarPost = new ModeloPersonas();
             foreach (ModeloPersonas p in ListarPost.ObtenerPostUsuario(idUsuario))
             {
-                DataRow fila = tabla.NewRow();
-                fila["id_post"] = p.idPost;
-                fila["id_usuario"] = p.idUsuario;
-                fila["id_cuenta"] = p.idCuenta;
-                fila["texto_post"] = p.post;
-                fila["contador_like"] = p.like;
-                fila["contador_comentarios"] = p.comentarios;
-                fila["habilitado"] = p.habilitado;
-                tabla.Rows.Add(fila);
+                string itemText = $"ID Post: {p.idPost}, Texto: {p.post}, Likes: {p.like}";
+                listaPosts.Add(itemText);
             }
-            return tabla;
+
+            return listaPosts;
         }
+
+        public static void DeshabilitarPost(int id)
+        {
+            ModeloPersonas Post = new ModeloPersonas();
+            Post.idCuenta = id;
+            Post.DeshabilitarPost();
+        }
+        public static void HabilitarPost(int id)
+        {
+            ModeloPersonas Post = new ModeloPersonas();
+            Post.idCuenta = id;
+            Post.HabilitarPost();
+        }
+        public static int ExtraerIdPost(string textoItem)
+        {
+            try
+            {
+                string[] partes = textoItem.Split(',');
+                string idParte = partes[0];
+                string idString = idParte.Split(':')[1].Trim();
+
+                return int.Parse(idString);
+            }
+            catch (Exception ex)
+            {
+               Console.Write("Error al extraer el ID del post. Verifique el formato del texto.", "Error");
+                return -1;
+            }
+        }
+        public static List<ControladorCuentaUsuario> EstadoPost(int idUsuario)
+        {
+            List<ControladorCuentaUsuario> estadoPosts = new List<ControladorCuentaUsuario>();
+            ModeloPersonas listarPost = new ModeloPersonas();
+
+            foreach (ModeloPersonas p in listarPost.ObtenerPostUsuario(idUsuario))
+            {
+                string itemText = $"ID Post: {p.idPost}, Texto: {p.post}";
+                bool estaHabilitado = p.habilitado == "true";
+                estadoPosts.Add(new ControladorCuentaUsuario { TextoPost = itemText, EstaHabilitado = estaHabilitado });
+            }
+
+            return estadoPosts;
+        }
+
 
     }
 }

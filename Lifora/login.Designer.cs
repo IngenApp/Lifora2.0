@@ -232,9 +232,9 @@ namespace Lifora
             // 
             // loginPassword
             // 
-            this.loginPassword.Location = new System.Drawing.Point(202, 465);
+            this.loginPassword.Location = new System.Drawing.Point(205, 465);
             this.loginPassword.Name = "loginPassword";
-            this.loginPassword.Size = new System.Drawing.Size(320, 20);
+            this.loginPassword.Size = new System.Drawing.Size(317, 20);
             this.loginPassword.TabIndex = 4;
             // 
             // txtBoxBirthday

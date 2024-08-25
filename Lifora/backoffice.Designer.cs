@@ -30,8 +30,8 @@ namespace Lifora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backoffice));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearchUser = new System.Windows.Forms.Button();
             this.btnBlockTheUser = new System.Windows.Forms.Button();
             this.btnUnlockTheUser = new System.Windows.Forms.Button();
@@ -60,7 +60,6 @@ namespace Lifora
             this.BtnModificar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxFechaDeNacimiento = new System.Windows.Forms.TextBox();
-            this.btnBuscarPost = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             this.SuspendLayout();
@@ -133,10 +132,12 @@ namespace Lifora
             // 
             // listBoxPost
             // 
+            this.listBoxPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxPost.FormattingEnabled = true;
-            this.listBoxPost.Location = new System.Drawing.Point(638, 32);
+            this.listBoxPost.ItemHeight = 24;
+            this.listBoxPost.Location = new System.Drawing.Point(668, 38);
             this.listBoxPost.Name = "listBoxPost";
-            this.listBoxPost.Size = new System.Drawing.Size(613, 264);
+            this.listBoxPost.Size = new System.Drawing.Size(613, 220);
             this.listBoxPost.TabIndex = 9;
             // 
             // btnBlockThePost
@@ -147,6 +148,7 @@ namespace Lifora
             this.btnBlockThePost.TabIndex = 10;
             this.btnBlockThePost.Text = "Block post";
             this.btnBlockThePost.UseVisualStyleBackColor = true;
+            this.btnBlockThePost.Click += new System.EventHandler(this.btnBlockThePost_Click);
             // 
             // btnUnlockThePost
             // 
@@ -156,6 +158,7 @@ namespace Lifora
             this.btnUnlockThePost.TabIndex = 11;
             this.btnUnlockThePost.Text = "Unlock post";
             this.btnUnlockThePost.UseVisualStyleBackColor = true;
+            this.btnUnlockThePost.Click += new System.EventHandler(this.btnUnlockThePost_Click);
             // 
             // pictureBox1
             // 
@@ -201,23 +204,23 @@ namespace Lifora
             this.dataGridViewInfoUser.AllowUserToOrderColumns = true;
             this.dataGridViewInfoUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewInfoUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewInfoUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInfoUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dataGridViewInfoUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewInfoUser.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewInfoUser.DefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridViewInfoUser.Location = new System.Drawing.Point(74, 308);
             this.dataGridViewInfoUser.MultiSelect = false;
             this.dataGridViewInfoUser.Name = "dataGridViewInfoUser";
@@ -351,23 +354,12 @@ namespace Lifora
             this.textBoxFechaDeNacimiento.Size = new System.Drawing.Size(254, 20);
             this.textBoxFechaDeNacimiento.TabIndex = 29;
             // 
-            // btnBuscarPost
-            // 
-            this.btnBuscarPost.Location = new System.Drawing.Point(381, 517);
-            this.btnBuscarPost.Name = "btnBuscarPost";
-            this.btnBuscarPost.Size = new System.Drawing.Size(148, 50);
-            this.btnBuscarPost.TabIndex = 30;
-            this.btnBuscarPost.Text = "Buscar Post";
-            this.btnBuscarPost.UseVisualStyleBackColor = true;
-            this.btnBuscarPost.Click += new System.EventHandler(this.btnBuscarPost_Click);
-            // 
             // backoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1293, 713);
-            this.Controls.Add(this.btnBuscarPost);
             this.Controls.Add(this.textBoxFechaDeNacimiento);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.BtnModificar);
@@ -440,6 +432,5 @@ namespace Lifora
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxFechaDeNacimiento;
-        private System.Windows.Forms.Button btnBuscarPost;
     }
 }
