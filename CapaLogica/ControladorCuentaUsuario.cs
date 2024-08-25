@@ -7,10 +7,8 @@ using System.IO;
 using Modelo;
 using System.Data;
 
-
 namespace Controladores
 {
-
     public class ControladorCuentaUsuario
     {
         public static void AltaCuentaUsuario(String nombre, string apellido, int telefono, string email, string fecha_nac, string contrasena)
@@ -58,7 +56,14 @@ namespace Controladores
             CuentaUsuario.contrasena = contrasena;
             CuentaUsuario.ModificarContrasenaUsuario();
         }
-        public static void ModificarCuentaDesdeBackoffice(string id, string nombre, string apellido, string email, string telefono)
+        public static void ModificarFechaNacimientoUsuario(string id, string fech_nac)
+        {
+            ModeloPersonas CuentaUsuario = new ModeloPersonas();
+            CuentaUsuario.id_cuenta = Int32.Parse(id);
+            CuentaUsuario.fecha_nac = fech_nac;
+            CuentaUsuario.ModificarFechaNacimientoUsuario();
+        }
+        public static void ModificarCuentaDesdeBackoffice(string id, string nombre, string apellido, string email, string telefono, string fecha_nac)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.id_cuenta = Int32.Parse(id);
@@ -66,15 +71,15 @@ namespace Controladores
             CuentaUsuario.nombre = nombre;
             CuentaUsuario.apellido = apellido;
             CuentaUsuario.email = email;
+            CuentaUsuario.fecha_nac = fecha_nac;
             CuentaUsuario.ModificarCuentaUsuarioBackoffice();
         }
-    public static int BuscarId(string email)
+        public static int BuscarId(string email)
         {
             ModeloPersonas CuentaId = new ModeloPersonas();
             CuentaId.email = email;
             return CuentaId.ObtenerIdUsuario();
         }
-
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
@@ -85,8 +90,6 @@ namespace Controladores
             tabla.Columns.Add("email", typeof(string));
             tabla.Columns.Add("fecha_nacimiento", typeof(string));
             tabla.Columns.Add("habilitado", typeof(Boolean));
-
-
             ModeloPersonas ListarPersonas = new ModeloPersonas();
             foreach (ModeloPersonas p in ListarPersonas.ObtenerTodos())
             {
@@ -100,10 +103,46 @@ namespace Controladores
                 fila["habilitado"] = p.habilitacion;
                 tabla.Rows.Add(fila);
             }
-
             return tabla;
         }
-       
+        public static DataTable ListarPost(int idUsuario)
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("id_post", typeof(int));
+            tabla.Columns.Add("id_usuario", typeof(int));
+            tabla.Columns.Add("id_cuenta", typeof(int));
+            tabla.Columns.Add("texto_post", typeof(string));
+            tabla.Columns.Add("contador_like", typeof(int));
+            tabla.Columns.Add("contador_comentarios", typeof(int));
+            tabla.Columns.Add("habilitado", typeof(Boolean));
+
+            ModeloPersonas ListarPost = new ModeloPersonas();
+            foreach (ModeloPersonas p in ListarPost.ObtenerPostUsuario(idUsuario))
+            {
+                DataRow fila = tabla.NewRow();
+                fila["id_post"] = p.idPost;
+                fila["id_usuario"] = p.idUsuario;
+                fila["id_cuenta"] = p.idCuenta;
+                fila["texto_post"] = p.post;
+                fila["contador_like"] = p.like;
+                fila["contador_comentarios"] = p.comentarios;
+                fila["habilitado"] = p.habilitado;
+                tabla.Rows.Add(fila);
+            }
+            return tabla;
+        }
 
     }
 }
+
+/*
+id_post  
+id_usuario 
+id_cuenta  
+texto_post
+contador_like 
+contador_comentarios 
+habilitado
+
+ */
+

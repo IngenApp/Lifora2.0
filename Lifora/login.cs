@@ -19,11 +19,6 @@ namespace Lifora
            
         }
 
-        private void txtBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-         
-        }
-
         private void login_Load(object sender, EventArgs e)
         {
 

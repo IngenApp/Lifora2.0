@@ -16,6 +16,14 @@ namespace Modelo
         public string fecha_nac;
         public string contrasena;
         public string habilitacion;
+        public int idPost;
+        public int idUsuario;
+        public int idCuenta;
+        public string post;
+        public int like;
+        public int comentarios;
+        public string habilitado;
+
 
         public void GuardarCuentaUsuario()
         {
@@ -23,7 +31,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
         public void DeshabilitarCuentaUsuario()
         {
             string sql = $"update cuenta_usuario set habilitacion = false where id_cuenta = '{this.id_cuenta}'";
@@ -36,7 +43,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
         public void ModificarNombreUsuario()
         {
             string sql = $"update cuenta_usuario set nombre = '{this.nombre}' where id_cuenta ='{this.id_cuenta}'";
@@ -55,9 +61,15 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+        public void ModificarFechaNacimientoUsuario()
+        {
+            string sql = $"update cuenta_usuario set fecha_nacimiento = '{this.fecha_nac}' where id_cuenta ='{this.id_cuenta}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
         public void ModificarCuentaUsuarioBackoffice()
         {
-            string sql = $"update cuenta_usuario set email = '{this.email}', telefono = '{this.telefono}', nombre = '{this.nombre}', apellido = '{this.apellido}' where id_cuenta = '{this.id_cuenta}'";
+            string sql = $"update cuenta_usuario set email = '{this.email}', telefono = '{this.telefono}', nombre = '{this.nombre}', apellido = '{this.apellido}', fecha_nacimiento = '{this.fecha_nac}' where id_cuenta = '{this.id_cuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
@@ -95,6 +107,49 @@ namespace Modelo
             return bd;
 
         }
+        public void DeshabilitarPost()
+        {
+            string sql = $"update post set habilitado = false where id_post = '{this.idPost}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+        public void HabilitarPost()
+        {
+            string sql = $"update post set habilitado = true where id_post = '{this.idPost}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+        public int ObtenerIdPost()
+        {
+            string sql = $"select * from post where id_post = '{this.idPost}'";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
 
+            ModeloPersonas mp = new ModeloPersonas();
+            mp.idPost = Int32.Parse(this.Lector["id_post"].ToString());
+
+            return idCuenta;
+        }
+        public List<ModeloPersonas> ObtenerPostUsuario(int idUsuario)
+        {
+            List<ModeloPersonas> bd = new List<ModeloPersonas>();
+
+            string sql = $"SELECT * FROM post WHERE id_usuario = {idUsuario}";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloPersonas mp = new ModeloPersonas();
+                mp.post = this.Lector["texto_post"].ToString();
+                mp.like = Int32.Parse(this.Lector["contador_like"].ToString());
+                mp.idPost = Int32.Parse(this.Lector["id_post"].ToString());
+                mp.idUsuario = Int32.Parse(this.Lector["id_usuario"].ToString());
+                mp.idCuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                mp.habilitado = this.Lector["habilitado"].ToString();
+                bd.Add(mp);
+            }
+            return bd;
+        }
     }
 }

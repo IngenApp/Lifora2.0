@@ -164,7 +164,6 @@ namespace Lifora
             this.txtBoxPhone.Name = "txtBoxPhone";
             this.txtBoxPhone.Size = new System.Drawing.Size(233, 20);
             this.txtBoxPhone.TabIndex = 15;
-            this.txtBoxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPhone_KeyPress);
             // 
             // linkLabel1
             // 
