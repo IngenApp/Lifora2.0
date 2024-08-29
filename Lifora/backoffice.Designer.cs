@@ -30,8 +30,8 @@ namespace Lifora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backoffice));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearchUser = new System.Windows.Forms.Button();
             this.btnBlockTheUser = new System.Windows.Forms.Button();
             this.btnUnlockTheUser = new System.Windows.Forms.Button();
@@ -132,13 +132,14 @@ namespace Lifora
             // 
             // listBoxPost
             // 
-            this.listBoxPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxPost.FormattingEnabled = true;
-            this.listBoxPost.ItemHeight = 24;
+            this.listBoxPost.ItemHeight = 16;
             this.listBoxPost.Location = new System.Drawing.Point(668, 38);
             this.listBoxPost.Name = "listBoxPost";
-            this.listBoxPost.Size = new System.Drawing.Size(613, 220);
+            this.listBoxPost.Size = new System.Drawing.Size(613, 212);
             this.listBoxPost.TabIndex = 9;
+            this.listBoxPost.SelectedIndexChanged += new System.EventHandler(this.listBoxPost_SelectedIndexChanged);
             // 
             // btnBlockThePost
             // 
@@ -204,23 +205,23 @@ namespace Lifora
             this.dataGridViewInfoUser.AllowUserToOrderColumns = true;
             this.dataGridViewInfoUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewInfoUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewInfoUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInfoUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewInfoUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewInfoUser.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewInfoUser.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewInfoUser.Location = new System.Drawing.Point(74, 308);
             this.dataGridViewInfoUser.MultiSelect = false;
             this.dataGridViewInfoUser.Name = "dataGridViewInfoUser";

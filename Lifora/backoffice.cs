@@ -165,5 +165,9 @@ namespace Lifora
 
         }
 
+        private void listBoxPost_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

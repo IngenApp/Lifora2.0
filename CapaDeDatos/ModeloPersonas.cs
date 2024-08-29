@@ -27,7 +27,14 @@ namespace Modelo
 
         public void GuardarCuentaUsuario()
         {
-            string sql = $"insert into cuenta_usuario (email, telefono, nombre, apellido, fecha_nacimiento, contrasena) values('{this.email}','{this.telefono}','{this.nombre}','{this.apellido}','{this.fecha_nac}','{this.contrasena}')";
+            string sql = $"insert into cuenta_usuario (email, telefono, nombre, apellido, fecha_nacimiento, contrasena) values(@email, @telefono, @nombre, @apellido, @fecha_nacimiento, @contrasena)";
+            this.Comando.Parameters.AddWithValue("@email", email);
+            this.Comando.Parameters.AddWithValue("@telefono", telefono);
+            this.Comando.Parameters.AddWithValue("@nombre", nombre);
+            this.Comando.Parameters.AddWithValue("@apellido", apellido);
+            this.Comando.Parameters.AddWithValue("@fecha_nacimiento", fecha_nac);
+            this.Comando.Parameters.AddWithValue("@contrasena", contrasena);
+            this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
@@ -72,6 +79,19 @@ namespace Modelo
             string sql = $"update cuenta_usuario set email = '{this.email}', telefono = '{this.telefono}', nombre = '{this.nombre}', apellido = '{this.apellido}', fecha_nacimiento = '{this.fecha_nac}' where id_cuenta = '{this.id_cuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
+        }
+        public bool Autenticar()
+        {
+            string sql = $"SELECT COUNT(*) FROM cuenta_usuario WHERE email = @email AND contrasena = @contrasena";
+            this.Comando.Parameters.AddWithValue("@email", this.email);
+            this.Comando.Parameters.AddWithValue("@contrasena", this.contrasena);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            string resultado = this.Comando.ExecuteScalar().ToString();
+            if (resultado == "0")
+                return false;
+            return true;           
         }
         public int ObtenerIdUsuario()
         {

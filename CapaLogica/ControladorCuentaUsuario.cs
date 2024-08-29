@@ -25,7 +25,14 @@ namespace Controladores
 
             CuentaUsuario.GuardarCuentaUsuario();
         }
-       public static void DeshabilitaCuentaUsuario(int id)
+        public static bool Login(string email, string contrasena)
+        {
+            ModeloPersonas mp = new ModeloPersonas();
+            mp.email = email;
+            mp.contrasena = contrasena;
+            return mp.Autenticar();
+        }
+        public static void DeshabilitaCuentaUsuario(int id)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.id_cuenta = id;

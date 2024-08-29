@@ -53,11 +53,18 @@ namespace Lifora
 
         private void buttonBackOffice_Click(object sender, EventArgs e)
         {
+            if(ControladorCuentaUsuario.Login(TxtMailLogin.Text, loginPassword.Text) == true)
+            {
             backoffice backoff = new backoffice();
             this.Enabled = false;
             backoff.Show();
             backoff.FormClosed += (s, args) => this.Enabled = true;
 
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas");
+            }
         }
     }
     
