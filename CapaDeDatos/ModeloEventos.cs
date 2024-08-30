@@ -40,6 +40,15 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+        public void ModificarNombreEvento()
+        {
+            string sql = $"update eventos set nombre = @nombre_evento where id_cuenta = @id_evento";
+            this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
+            this.Comando.Parameters.AddWithValue("@id_evento", id_evento);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
 
     }
 }
