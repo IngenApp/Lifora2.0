@@ -48,7 +48,7 @@ namespace Controladores
         {
             ModeloEventos ModLugar = new ModeloEventos();
             ModLugar.id_evento = id_evento;
-            ModLugar.nombre_evento = lugar;
+            ModLugar.lugar = lugar;
             ModLugar.ModificarLugarEvento();
         }
         public static void ModificarInformacionEvento(int id_evento, string informacion)
