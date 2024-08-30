@@ -49,6 +49,24 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+        public void ModificarLugarEvento()
+        {
+            string sql = $"update eventos set nombre = @lugar where id_cuenta = @id_evento";
+            this.Comando.Parameters.AddWithValue("@lugar", lugar);
+            this.Comando.Parameters.AddWithValue("@id_evento", id_evento);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+        public void ModificarInformacionEvento()
+        {
+            string sql = $"update eventos set nombre = @informacion where id_cuenta = @id_evento";
+            this.Comando.Parameters.AddWithValue("@informacion", nombre_evento);
+            this.Comando.Parameters.AddWithValue("@id_evento", id_evento);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
 
     }
 }
