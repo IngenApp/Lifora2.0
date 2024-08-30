@@ -32,5 +32,14 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+        public void HabilitarEvento()
+        {
+            string sql = $"update eventos set habilitado = true where id_cuenta = @id_evento";
+            this.Comando.Parameters.AddWithValue("@id_evento", id_evento);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+
     }
 }
