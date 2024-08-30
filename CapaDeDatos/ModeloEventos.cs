@@ -13,14 +13,15 @@ namespace Modelo
         public string nombre_evento;
         public string informacion;
         public string lugar;
-        public string fecha;
+        public string fecha_evento;
 
         public void CrearEvento()
         {
-            string sql = $"insert into eventos (nombre_evento, informacion, lugar) values(@nombre_evento, @informacion, @lugar)";
+            string sql = $"insert into eventos (nombre_evento, informacion, lugar, fecha_evento) values(@nombre_evento, @informacion, @lugar, @fecha_evento)";
             this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
             this.Comando.Parameters.AddWithValue("@informacion", informacion);
             this.Comando.Parameters.AddWithValue("@lugar", lugar);
+            this.Comando.Parameters.AddWithValue("@fecha_evento", fecha_evento);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
@@ -70,8 +71,8 @@ namespace Modelo
         }
         public void ModificarFechaEvento()
         {
-            string sql = $"update eventos set nombre = @fecha where id_cuenta = @id_evento";
-            this.Comando.Parameters.AddWithValue("@fecha", fecha);
+            string sql = $"update eventos set nombre = @fecha_evento where id_cuenta = @id_evento";
+            this.Comando.Parameters.AddWithValue("@fecha", fecha_evento);
             this.Comando.Parameters.AddWithValue("@id_evento", id_evento);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
