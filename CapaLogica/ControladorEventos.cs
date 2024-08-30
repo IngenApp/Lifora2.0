@@ -18,5 +18,23 @@ namespace CapaLogica
             CrearEvento.fecha = fecha;
             CrearEvento.CrearEvento();
         }
+        public static void DeshabilitarEvento(int id_evento)
+        {
+            ModeloEventos DeshabilitarEvento = new ModeloEventos();
+            DeshabilitarEvento.id_evento = id_evento;
+            DeshabilitarEvento.DeshabilitarEvento();
+        }
+        public static void HabilitarEvento(int id_evento)
+        {
+            ModeloEventos HabilitarEvento = new ModeloEventos();
+            HabilitarEvento.id_evento = id_evento;
+            HabilitarEvento.HabilitarEvento();
+        }
+        public static int BuscarIdEvento(string nombre_evento)
+        {
+            ModeloEventos BuscarIdEvento = new ModeloEventos();
+            BuscarIdEvento.nombre_evento = nombre_evento;
+            return BuscarIdEvento.ObtenerIdEvento();
+        }
     }
 }

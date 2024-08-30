@@ -77,6 +77,20 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+        public int ObtenerIdEvento()
+        {
+            string sql = $"select * from cuenta_usuario where nombre_evento = @nombre_evento";
+            this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            ModeloEventos me = new ModeloEventos();
+            me.id_evento = Int32.Parse(this.Lector["id_evento"].ToString());
+
+            return id_evento;
+        }
+
 
     }
 }
