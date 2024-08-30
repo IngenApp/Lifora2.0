@@ -14,14 +14,16 @@ namespace Modelo
         public string informacion;
         public string lugar;
         public string fecha_evento;
+        public int id_cuenta;
 
         public void CrearEvento()
         {
-            string sql = $"insert into eventos (nombre_evento, informacion, lugar, fecha_evento) values(@nombre_evento, @informacion, @lugar, @fecha_evento)";
+            string sql = $"insert into eventos (nombre_evento, informacion, lugar, fecha_evento, id_cuenta) values(@nombre_evento, @informacion, @lugar, @fecha_evento, @id_cuenta)";
             this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
             this.Comando.Parameters.AddWithValue("@informacion", informacion);
             this.Comando.Parameters.AddWithValue("@lugar", lugar);
             this.Comando.Parameters.AddWithValue("@fecha_evento", fecha_evento);
+            this.Comando.Parameters.AddWithValue("@id_cuenta", id_cuenta);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();

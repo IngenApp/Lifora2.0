@@ -9,13 +9,14 @@ namespace CapaLogica
 {
     class ControladorEventos
     {
-        public static void CrearEvento(String nombre_evento, string informacion, string lugar, string fecha_evento)
+        public static void CrearEvento(String nombre_evento, string informacion, string lugar, string fecha_evento, int id_cuenta)
         {
             ModeloEventos CrearEvento = new ModeloEventos();
             CrearEvento.nombre_evento = nombre_evento;
             CrearEvento.informacion = informacion;
             CrearEvento.lugar = lugar;
             CrearEvento.fecha_evento = fecha_evento;
+            CrearEvento.id_cuenta = id_cuenta;
             CrearEvento.CrearEvento();
         }
         public static void DeshabilitarEvento(int id_evento)
