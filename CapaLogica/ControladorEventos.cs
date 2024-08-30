@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Modelo;
 
-namespace CapaLogica
+namespace Controladores
 {
-    class ControladorEventos
+    public class ControladorEventos
     {
-        public static void CrearEvento(String nombre_evento, string informacion, string lugar, string fecha_evento, int id_cuenta)
+        public static void CrearEvento(int id_cuenta, string nombre_evento, string informacion, string lugar, string fecha_evento)
         {
             ModeloEventos CrearEvento = new ModeloEventos();
             CrearEvento.nombre_evento = nombre_evento;

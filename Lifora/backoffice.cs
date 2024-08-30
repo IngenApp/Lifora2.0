@@ -169,5 +169,11 @@ namespace Lifora
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CrearEventoBackoffice ceb = new CrearEventoBackoffice();
+            ceb.Show();
+        }
     }
 }
