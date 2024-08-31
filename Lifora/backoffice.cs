@@ -203,5 +203,57 @@ namespace Lifora
             }
             dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Bloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                if (dataGridViewEventos.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int id_evento = int.Parse(Id);
+                    ControladorEventos.DeshabilitarEvento(id_evento);
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+                }
+                if (dataGridViewInfoUser.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un evento");
+                }
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se ah bloqueado el evento");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Desbloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                if (dataGridViewEventos.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int id_evento = int.Parse(Id);
+                    ControladorEventos.HabilitarEvento(id_evento);
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+                }
+                if (dataGridViewInfoUser.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un evento");
+                }
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se ah Habilitado el evento");
+            }
+        }
     }
 }
