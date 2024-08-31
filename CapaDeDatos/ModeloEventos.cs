@@ -16,6 +16,7 @@ namespace Modelo
         public string lugar;
         public string fecha_evento;
         public int id_cuenta;
+        public string habilitado;
 
         public void CrearEvento()
         {
@@ -89,7 +90,7 @@ namespace Modelo
             this.Comando.CommandText = sql;
             using (MySqlDataReader reader = this.Comando.ExecuteReader())
             {
-                if (reader.Read()) // Verifica si hay filas en el resultado
+                if (reader.Read())
                 {
                     int id_evento = Int32.Parse(reader["id_eventos"].ToString());
                     return id_evento;
@@ -99,6 +100,31 @@ namespace Modelo
                     return 0;
                 }
             }
+
+        }
+        public List<ModeloEventos> ObtenerEventos()
+        {
+            List<ModeloEventos> ListaEventos = new List<ModeloEventos>();
+
+            string sql = $"SELECT * FROM eventos";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloEventos me = new ModeloEventos();
+                me.id_evento = Int32.Parse(this.Lector["id_eventos"].ToString());
+                me.nombre_evento = this.Lector["nombre_evento"].ToString();
+                me.informacion = this.Lector["informacion"].ToString();
+                me.lugar = this.Lector["lugar"].ToString();
+                me.fecha_evento = this.Lector["fecha_evento"].ToString();
+                me.habilitado = this.Lector["habilitado"].ToString();
+                me.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+
+                ListaEventos.Add(me);
+            }
+            return ListaEventos;
+
         }
 
 

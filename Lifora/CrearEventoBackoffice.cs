@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using Controladores;
+using System.Data;
+using System.Collections.Generic;
 
 namespace Lifora
 {
@@ -20,9 +16,13 @@ namespace Lifora
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBoxId_cuenta.Text == "" || textBoxNombreEvento.Text=="" || textBoxInformacion.Text=="" || textBoxLugar.Text=="" || textBoxFecha.Text=="")
+            if (textBoxId_cuenta.Text == "" || textBoxNombreEvento.Text=="" || textBoxInformacion.Text=="" || textBoxLugar.Text=="" || textBoxFecha.Text == "")
+            {
                 MessageBox.Show("Debe completar todos los campos");
+            }
+            else { 
             ControladorEventos.CrearEvento(Int32.Parse(textBoxId_cuenta.Text), textBoxNombreEvento.Text, textBoxInformacion.Text, textBoxLugar.Text, textBoxFecha.Text);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -125,6 +125,19 @@ namespace Lifora
                 ControladorEventos.HabilitarEvento(ControladorEventos.BuscarIdEvento(textBoxEventoModificar.Text));
                 MessageBox.Show("Habilitacion efectuada con exito");
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+        }
+
+
+        private void textBoxBuscarEventos_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewEventos.SelectedRows.Count > 0)
+                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("nombre_evento LIKE '%{0}%'", textBoxBuscarEventos.Text);
+
         }
     }
     

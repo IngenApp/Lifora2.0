@@ -56,6 +56,10 @@ namespace Lifora
             this.textBoxNuevoNombreEvento = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.dataGridViewEventos = new System.Windows.Forms.DataGridView();
+            this.textBoxBuscarEventos = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxId_cuenta
@@ -288,11 +292,40 @@ namespace Lifora
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // dataGridViewEventos
+            // 
+            this.dataGridViewEventos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEventos.Location = new System.Drawing.Point(603, 91);
+            this.dataGridViewEventos.Name = "dataGridViewEventos";
+            this.dataGridViewEventos.Size = new System.Drawing.Size(586, 468);
+            this.dataGridViewEventos.TabIndex = 27;
+            // 
+            // textBoxBuscarEventos
+            // 
+            this.textBoxBuscarEventos.Location = new System.Drawing.Point(755, 65);
+            this.textBoxBuscarEventos.Name = "textBoxBuscarEventos";
+            this.textBoxBuscarEventos.Size = new System.Drawing.Size(306, 20);
+            this.textBoxBuscarEventos.TabIndex = 28;
+            this.textBoxBuscarEventos.TextChanged += new System.EventHandler(this.textBoxBuscarEventos_TextChanged);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(603, 62);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(144, 23);
+            this.button8.TabIndex = 29;
+            this.button8.Text = "Buscar Eventos";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // CrearEventoBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 584);
+            this.ClientSize = new System.Drawing.Size(1213, 584);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.textBoxBuscarEventos);
+            this.Controls.Add(this.dataGridViewEventos);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label6);
@@ -322,6 +355,7 @@ namespace Lifora
             this.Controls.Add(this.textBoxId_cuenta);
             this.Name = "CrearEventoBackoffice";
             this.Text = "CrearEventoBackoffice";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,5 +390,8 @@ namespace Lifora
         private System.Windows.Forms.TextBox textBoxNuevoNombreEvento;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView dataGridViewEventos;
+        private System.Windows.Forms.TextBox textBoxBuscarEventos;
+        private System.Windows.Forms.Button button8;
     }
 }

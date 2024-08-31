@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modelo;
+using System.Data;
 
 namespace Controladores
 {
@@ -65,5 +66,31 @@ namespace Controladores
             ModInformacion.fecha_evento = fecha_evento;
             ModInformacion.ModificarFechaEvento();
         }
+        public static DataTable ListarEventos()
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("id_eventos", typeof(int));
+            tabla.Columns.Add("nombre_evento", typeof(string));
+            tabla.Columns.Add("informacion", typeof(string));
+            tabla.Columns.Add("lugar", typeof(string));
+            tabla.Columns.Add("fecha_evento", typeof(string));
+            tabla.Columns.Add("habilitado", typeof(Boolean));
+            tabla.Columns.Add("id_cuenta", typeof(int));
+            ModeloEventos ListarEventos = new ModeloEventos();
+            foreach (ModeloEventos p in ListarEventos.ObtenerEventos())
+            {
+                DataRow fila = tabla.NewRow();
+                fila["id_eventos"] = p.id_evento;
+                fila["nombre_evento"] = p.nombre_evento;
+                fila["informacion"] = p.informacion;
+                fila["lugar"] = p.lugar;
+                fila["fecha_evento"] = p.fecha_evento;
+                fila["habilitado"] = p.habilitado;
+                fila["id_cuenta"] = p.id_cuenta;
+                tabla.Rows.Add(fila);
+            }
+            return tabla;
+        }
     }
+    
 }
