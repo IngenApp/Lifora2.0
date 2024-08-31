@@ -66,6 +66,17 @@ namespace Controladores
             ModInformacion.fecha_evento = fecha_evento;
             ModInformacion.ModificarFechaEvento();
         }
+        public static void ModificarEventoBackoffice(string id_evento, string nombre_evento, string informacion, string lugar, string fecha)
+        {
+            ModeloEventos ModEventoBO = new ModeloEventos();
+            ModEventoBO.id_evento = Int32.Parse(id_evento);
+            ModEventoBO.nombre_evento = nombre_evento;
+            ModEventoBO.informacion = informacion;
+            ModEventoBO.lugar = lugar;
+            ModEventoBO.fecha_evento = fecha;
+            ModEventoBO.ModificarEventoBackOffice();
+        }
+
         public static DataTable ListarEventos()
         {
             DataTable tabla = new DataTable();
@@ -75,7 +86,7 @@ namespace Controladores
             tabla.Columns.Add("lugar", typeof(string));
             tabla.Columns.Add("fecha_evento", typeof(string));
             tabla.Columns.Add("habilitado", typeof(Boolean));
-            tabla.Columns.Add("id_cuenta", typeof(int));
+            tabla.Columns.Add("id_cuenta", typeof(string));
             ModeloEventos ListarEventos = new ModeloEventos();
             foreach (ModeloEventos p in ListarEventos.ObtenerEventos())
             {

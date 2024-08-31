@@ -16,12 +16,12 @@ namespace Lifora
         }
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
-                dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
         private void btnBlockTheUser_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Bloquear este usuario?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(pregunta == DialogResult.Yes)
+            if (pregunta == DialogResult.Yes)
             {
                 if (dataGridViewInfoUser.SelectedRows.Count > 0)
                 {
@@ -33,11 +33,12 @@ namespace Lifora
                     ControladorCuentaUsuario.DeshabilitaCuentaUsuario(id);
                     dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
-                if(dataGridViewInfoUser.SelectedRows.Count == 0)
+                if (dataGridViewInfoUser.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Debes seleccionar un usuario");
                 }
-            }if (pregunta == DialogResult.No)
+            }
+            if (pregunta == DialogResult.No)
             {
                 MessageBox.Show("No se ah bloqueado el usuario");
             }
@@ -53,14 +54,14 @@ namespace Lifora
             if (pregunta == DialogResult.Yes)
             {
                 if (dataGridViewInfoUser.SelectedRows.Count > 0)
-            {
-                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                int columna = 0;
-                var CellValue = seleccion.Cells[columna].Value;
-                string Id = CellValue.ToString();
-                int id = int.Parse(Id);
-                ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
-                dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+                {
+                    DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int id = int.Parse(Id);
+                    ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
                 if (dataGridViewInfoUser.SelectedRows.Count == 0)
                 {
@@ -70,18 +71,18 @@ namespace Lifora
             if (pregunta == DialogResult.No)
             {
                 MessageBox.Show("No se ah habilitado el usuario");
-            }    
-    }   
+            }
+        }
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if(pregunta == DialogResult.Yes)
+            if (pregunta == DialogResult.Yes)
             {
-                 ControladorCuentaUsuario.ModificarCuentaDesdeBackoffice(id, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarEmail.Text, textBoxCambiarTelefono.Text, textBoxFechaDeNacimiento.Text);
+                ControladorCuentaUsuario.ModificarCuentaDesdeBackoffice(id, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarEmail.Text, textBoxCambiarTelefono.Text, textBoxFechaDeNacimiento.Text);
                 MessageBox.Show("Cambios realizados con exito");
             }
-            if(pregunta == DialogResult.No)
+            if (pregunta == DialogResult.No)
             {
                 MessageBox.Show("No se han realizado los cambios");
             }
@@ -97,22 +98,26 @@ namespace Lifora
                 textBoxCambiarTelefono.Text = seleccion.Cells[3].Value?.ToString();
                 textBoxCambiarEmail.Text = seleccion.Cells[4].Value?.ToString();
                 textBoxFechaDeNacimiento.Text = seleccion.Cells[5].Value?.ToString();
-                id = seleccion.Cells[0].Value?.ToString();
-                buscarPost();
+                string id = seleccion.Cells[0].Value?.ToString();
+                dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+                if (dataGridViewEventos.SelectedRows.Count > 0)
+                    (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
                 
+                buscarPost();
+
             }
 
         }
         private void buscarPost()
-        { 
-                int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
-                List<string> listaPosts = Controladores.ControladorCuentaUsuario.ListarPost(idUsuario);
-                listBoxPost.Items.Clear();
-                listBoxPost.Items.AddRange(listaPosts.ToArray());           
+        {
+            int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
+            List<string> listaPosts = Controladores.ControladorCuentaUsuario.ListarPost(idUsuario);
+            listBoxPost.Items.Clear();
+            listBoxPost.Items.AddRange(listaPosts.ToArray());
         }
         private void ActualizarListaDePosts()
         {
-            listBoxPost.Items.Clear();  
+            listBoxPost.Items.Clear();
 
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
             {
@@ -127,28 +132,25 @@ namespace Lifora
                     }
                     else
                     {
-                        listBoxPost.Items.Add(postInfo.TextoPost); 
+                        listBoxPost.Items.Add(postInfo.TextoPost);
                     }
                 }
             }
         }
-
-
         private void btnBlockThePost_Click(object sender, EventArgs e)
         {
             if (listBoxPost.SelectedItem != null)
             {
                 string selectedItem = listBoxPost.SelectedItem.ToString();
                 int idPost = ControladorCuentaUsuario.ExtraerIdPost(selectedItem);
-                    DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (pregunta == DialogResult.Yes)
-                    {
-                        Controladores.ControladorCuentaUsuario.DeshabilitarPost(idPost);
-                        ActualizarListaDePosts();
-                    }               
+                DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (pregunta == DialogResult.Yes)
+                {
+                    Controladores.ControladorCuentaUsuario.DeshabilitarPost(idPost);
+                    ActualizarListaDePosts();
+                }
             }
         }
-
         private void btnUnlockThePost_Click(object sender, EventArgs e)
         {
             if (listBoxPost.SelectedItem != null)
@@ -164,18 +166,42 @@ namespace Lifora
             }
 
         }
-
-        private void listBoxPost_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
             ceb.Show();
         }
+        private void dataGridViewEventos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewEventos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
+                textBoxNuevoNombreEvento.Text = seleccion.Cells[1].Value?.ToString();
+                textBoxNuevaInfoEvento.Text = seleccion.Cells[2].Value?.ToString();
+                textBoxNuevoLugarEvento.Text = seleccion.Cells[3].Value?.ToString();
+                textBoxNuevaFechaEvento.Text = seleccion.Cells[4].Value?.ToString();
 
-        
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (pregunta == DialogResult.Yes)
+            {
+                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
+                int columna = 0;
+                var CellValue = seleccion.Cells[columna].Value;
+                string id_evento = CellValue.ToString();
+                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, textBoxNuevaInfoEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
+                MessageBox.Show("Cambios realizados con exito");
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+            }
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+        }
     }
 }

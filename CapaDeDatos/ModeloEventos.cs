@@ -82,6 +82,18 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+        public void ModificarEventoBackOffice()
+        {
+            string sql = $"update eventos set nombre_evento = @nombre_evento, informacion = @informacion, lugar = @lugar, fecha_evento = @fecha_evento where id_eventos = @id_eventos";
+            this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
+            this.Comando.Parameters.AddWithValue("@informacion", informacion);
+            this.Comando.Parameters.AddWithValue("@lugar", lugar);
+            this.Comando.Parameters.AddWithValue("@fecha_evento", fecha_evento);
+            this.Comando.Parameters.AddWithValue("@id_eventos", id_evento);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
         public int ObtenerIdEvento()
         {
             string sql = $"select * from eventos where nombre_evento = @nombre_evento";
