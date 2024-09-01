@@ -16,14 +16,6 @@ namespace Modelo
         public string fecha_nac;
         public string contrasena;
         public string habilitacion;
-        public int idPost;
-        public int idUsuario;
-        public int idCuenta;
-        public string post;
-        public int like;
-        public int comentarios;
-        public string habilitado;
-
 
         public void GuardarCuentaUsuario()
         {
@@ -126,39 +118,6 @@ namespace Modelo
             }
             return bd;
 
-        }
-        public void DeshabilitarPost()
-        {
-            string sql = $"update post set habilitado = false where id_post = '{this.idPost}'";
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-        public void HabilitarPost()
-        {
-            string sql = $"update post set habilitado = true where id_post = '{this.idPost}'";
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-        public List<ModeloPersonas> ObtenerPostUsuario(int idUsuario)
-        {
-            List<ModeloPersonas> bd = new List<ModeloPersonas>();
-
-            string sql = $"SELECT * FROM post WHERE id_usuario = {idUsuario}";
-            this.Comando.CommandText = sql;
-            this.Lector = this.Comando.ExecuteReader();
-
-            while (this.Lector.Read())
-            {
-                ModeloPersonas mp = new ModeloPersonas();
-                mp.post = this.Lector["texto_post"].ToString();
-                mp.like = Int32.Parse(this.Lector["contador_like"].ToString());
-                mp.idPost = Int32.Parse(this.Lector["id_post"].ToString());
-                mp.idUsuario = Int32.Parse(this.Lector["id_usuario"].ToString());
-                mp.idCuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
-                mp.habilitado = this.Lector["habilitado"].ToString();
-                bd.Add(mp);
-            }
-            return bd;
         }
     }
 }

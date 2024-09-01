@@ -102,70 +102,53 @@ namespace Lifora
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
                 if (dataGridViewEventos.SelectedRows.Count > 0)
                     (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
-                
+
                 buscarPost();
 
             }
 
         }
+
         private void buscarPost()
         {
             int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
-            List<string> listaPosts = Controladores.ControladorCuentaUsuario.ListarPost(idUsuario);
+            List<string> listaPosts = ControladorPost.ListarPost(idUsuario);
             listBoxPost.Items.Clear();
             listBoxPost.Items.AddRange(listaPosts.ToArray());
         }
-        private void ActualizarListaDePosts()
-        {
-            listBoxPost.Items.Clear();
-
-            if (dataGridViewInfoUser.SelectedRows.Count > 0)
-            {
-                int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
-                List<ControladorCuentaUsuario> estadoPosts = Controladores.ControladorCuentaUsuario.EstadoPost(idUsuario);
-
-                foreach (var postInfo in estadoPosts)
-                {
-                    if (!postInfo.EstaHabilitado)
-                    {
-                        listBoxPost.Items.Add(postInfo.TextoPost + " [Bloqueado]");
-                    }
-                    else
-                    {
-                        listBoxPost.Items.Add(postInfo.TextoPost);
-                    }
-                }
-            }
-        }
         private void btnBlockThePost_Click(object sender, EventArgs e)
         {
-            if (listBoxPost.SelectedItem != null)
+            if (listBoxPost.SelectedItem == null)
             {
-                string selectedItem = listBoxPost.SelectedItem.ToString();
-                int idPost = ControladorCuentaUsuario.ExtraerIdPost(selectedItem);
-                DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (pregunta == DialogResult.Yes)
-                {
-                    Controladores.ControladorCuentaUsuario.DeshabilitarPost(idPost);
-                    ActualizarListaDePosts();
-                }
+                MessageBox.Show("Debes seleccionar un post.");
+                return;
+            }
+            string selectedItem = listBoxPost.SelectedItem.ToString();
+            int idPost = ControladorPost.ExtraerIdPost(selectedItem);
+            DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                ControladorPost.DeshabilitarPost(idPost);
             }
         }
         private void btnUnlockThePost_Click(object sender, EventArgs e)
         {
-            if (listBoxPost.SelectedItem != null)
+            if (listBoxPost.SelectedItem == null)
             {
-                string selectedItem = listBoxPost.SelectedItem.ToString();
-                int idPost = ControladorCuentaUsuario.ExtraerIdPost(selectedItem);
-                DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (pregunta == DialogResult.Yes)
-                {
-                    Controladores.ControladorCuentaUsuario.HabilitarPost(idPost);
-                    ActualizarListaDePosts();
-                }
+                MessageBox.Show("Debes seleccionar un post.");
+                return;
+            }
+            string selectedItem = listBoxPost.SelectedItem.ToString();
+            int idPost = ControladorPost.ExtraerIdPost(selectedItem);
+            DialogResult pregunta = MessageBox.Show("¿Habilitar este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                ControladorPost.HabilitarPost(idPost);
             }
 
         }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
@@ -183,7 +166,6 @@ namespace Lifora
 
             }
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -203,7 +185,6 @@ namespace Lifora
             }
             dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Bloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -229,7 +210,6 @@ namespace Lifora
                 MessageBox.Show("No se ah bloqueado el evento");
             }
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Desbloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
