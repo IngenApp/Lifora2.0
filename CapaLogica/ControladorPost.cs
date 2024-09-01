@@ -7,60 +7,41 @@ namespace Controladores
 {
     public class ControladorPost
     {
-        public static void DeshabilitarPost(int id)
+        public static void DeshabilitarPost(int idPost)
         {
-            try
-            {
-                ModeloPost post = new ModeloPost { idPost = id };
-                post.DeshabilitarPost();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al deshabilitar el post: {ex.Message}");
-            }
+            ModeloPost DeshabilitarPost = new ModeloPost();
+            DeshabilitarPost.idPost = idPost;
+            DeshabilitarPost.DeshabilitarPost();
         }
 
-        public static void HabilitarPost(int id)
+        public static void HabilitarPost(int idPost)
         {
-            try
-            {
-                ModeloPost post = new ModeloPost { idPost = id };
-                post.HabilitarPost();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al habilitar el post: {ex.Message}");
-            }
+            ModeloPost HabilitarPost = new ModeloPost ();
+            HabilitarPost.idPost = idPost;
+            HabilitarPost.HabilitarPost();
         }
-
-        public static DataTable ListarPost(int idCuenta)
+        public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
+
             tabla.Columns.Add("id_post", typeof(int));
             tabla.Columns.Add("texto_post", typeof(string));
             tabla.Columns.Add("contador_like", typeof(int));
             tabla.Columns.Add("habilitado", typeof(bool));
+            tabla.Columns.Add("id_cuenta", typeof(string));
 
-            try
+            ModeloPost ListarPost = new ModeloPost();
+            foreach (ModeloPost p in ListarPost.ObtenerPost())
             {
-                ModeloPost modeloPost = new ModeloPost();
-                List<ModeloPost> posts = modeloPost.ObtenerPostUsuario(idCuenta);
+                DataRow fila = tabla.NewRow();
 
-                foreach (ModeloPost p in posts)
-                {
-                    DataRow fila = tabla.NewRow();
-                    fila["id_post"] = p.idPost;
-                    fila["texto_post"] = p.post;
-                    fila["contador_like"] = p.like;
-                    fila["habilitado"] = p.habilitado;
-                    tabla.Rows.Add(fila);
-                }
+                fila["id_post"] = p.idPost;
+                fila["texto_post"] = p.post;
+                fila["contador_like"] = p.like;
+                fila["habilitado"] = p.habilitado;
+                fila["id_cuenta"] = p.idCuenta;
+                tabla.Rows.Add(fila);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al listar los posts: {ex.Message}");
-            }
-
             return tabla;
         }
 

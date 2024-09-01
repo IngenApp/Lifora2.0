@@ -23,6 +23,12 @@ namespace Lifora
             else
             {
                 ControladorEventos.CrearEvento(Int32.Parse(textBoxId_cuenta.Text), textBoxNombreEvento.Text, textBoxInformacion.Text, textBoxLugar.Text, textBoxFecha.Text);
+                MessageBox.Show("Evento creado con exito");
+                textBoxId_cuenta.Text = "";
+                textBoxNombreEvento.Text = "";
+                textBoxInformacion.Text = "";
+                textBoxLugar.Text = "";
+                textBoxFecha.Text = "";
             }
         }        
     }        

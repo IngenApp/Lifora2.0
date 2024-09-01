@@ -62,7 +62,7 @@ namespace Lifora
             this.textBoxCambiarEmail = new System.Windows.Forms.TextBox();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnCrearEvento = new System.Windows.Forms.Button();
             this.textBoxFechaDeNacimiento = new System.Windows.Forms.TextBox();
             this.dataGridViewEventos = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,9 +73,9 @@ namespace Lifora
             this.textBoxNuevoLugarEvento = new System.Windows.Forms.TextBox();
             this.textBoxNuevaInfoEvento = new System.Windows.Forms.TextBox();
             this.textBoxNuevoNombreEvento = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BtnModificarEvento = new System.Windows.Forms.Button();
+            this.BtnBloquearEvento = new System.Windows.Forms.Button();
+            this.BtnDesbloquearEvento = new System.Windows.Forms.Button();
             this.dataGridViewPost = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
@@ -151,7 +151,7 @@ namespace Lifora
             // 
             // btnBlockThePost
             // 
-            this.btnBlockThePost.Location = new System.Drawing.Point(886, 665);
+            this.btnBlockThePost.Location = new System.Drawing.Point(649, 629);
             this.btnBlockThePost.Name = "btnBlockThePost";
             this.btnBlockThePost.Size = new System.Drawing.Size(101, 39);
             this.btnBlockThePost.TabIndex = 10;
@@ -161,7 +161,7 @@ namespace Lifora
             // 
             // btnUnlockThePost
             // 
-            this.btnUnlockThePost.Location = new System.Drawing.Point(993, 665);
+            this.btnUnlockThePost.Location = new System.Drawing.Point(756, 629);
             this.btnUnlockThePost.Name = "btnUnlockThePost";
             this.btnUnlockThePost.Size = new System.Drawing.Size(101, 39);
             this.btnUnlockThePost.TabIndex = 11;
@@ -356,15 +356,15 @@ namespace Lifora
             this.label9.TabIndex = 28;
             this.label9.Text = "Fecha Nac";
             // 
-            // button1
+            // BtnCrearEvento
             // 
-            this.button1.Location = new System.Drawing.Point(649, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 50);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Eventos";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnCrearEvento.Location = new System.Drawing.Point(649, 26);
+            this.BtnCrearEvento.Name = "BtnCrearEvento";
+            this.BtnCrearEvento.Size = new System.Drawing.Size(149, 50);
+            this.BtnCrearEvento.TabIndex = 29;
+            this.BtnCrearEvento.Text = "Eventos";
+            this.BtnCrearEvento.UseVisualStyleBackColor = true;
+            this.BtnCrearEvento.Click += new System.EventHandler(this.BtnCrearEvento_Click);
             // 
             // textBoxFechaDeNacimiento
             // 
@@ -472,35 +472,35 @@ namespace Lifora
             this.textBoxNuevoNombreEvento.Size = new System.Drawing.Size(237, 20);
             this.textBoxNuevoNombreEvento.TabIndex = 35;
             // 
-            // button3
+            // BtnModificarEvento
             // 
-            this.button3.Location = new System.Drawing.Point(1101, 376);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 50);
-            this.button3.TabIndex = 43;
-            this.button3.Text = "ModificarEvento";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.BtnModificarEvento.Location = new System.Drawing.Point(1101, 376);
+            this.BtnModificarEvento.Name = "BtnModificarEvento";
+            this.BtnModificarEvento.Size = new System.Drawing.Size(148, 50);
+            this.BtnModificarEvento.TabIndex = 43;
+            this.BtnModificarEvento.Text = "ModificarEvento";
+            this.BtnModificarEvento.UseVisualStyleBackColor = true;
+            this.BtnModificarEvento.Click += new System.EventHandler(this.BtnModificarEvento_Click_1);
             // 
-            // button2
+            // BtnBloquearEvento
             // 
-            this.button2.Location = new System.Drawing.Point(649, 272);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 50);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "Bloquear Evento";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.BtnBloquearEvento.Location = new System.Drawing.Point(649, 272);
+            this.BtnBloquearEvento.Name = "BtnBloquearEvento";
+            this.BtnBloquearEvento.Size = new System.Drawing.Size(148, 50);
+            this.BtnBloquearEvento.TabIndex = 44;
+            this.BtnBloquearEvento.Text = "Bloquear Evento";
+            this.BtnBloquearEvento.UseVisualStyleBackColor = false;
+            this.BtnBloquearEvento.Click += new System.EventHandler(this.BtnBloquearEvento_click);
             // 
-            // button4
+            // BtnDesbloquearEvento
             // 
-            this.button4.Location = new System.Drawing.Point(649, 328);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 50);
-            this.button4.TabIndex = 45;
-            this.button4.Text = "Habilitar Evento";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.BtnDesbloquearEvento.Location = new System.Drawing.Point(649, 328);
+            this.BtnDesbloquearEvento.Name = "BtnDesbloquearEvento";
+            this.BtnDesbloquearEvento.Size = new System.Drawing.Size(148, 50);
+            this.BtnDesbloquearEvento.TabIndex = 45;
+            this.BtnDesbloquearEvento.Text = "Habilitar Evento";
+            this.BtnDesbloquearEvento.UseVisualStyleBackColor = true;
+            this.BtnDesbloquearEvento.Click += new System.EventHandler(this.BtnDesbloquearEvento_click);
             // 
             // dataGridViewPost
             // 
@@ -524,7 +524,7 @@ namespace Lifora
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPost.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridViewPost.Location = new System.Drawing.Point(649, 451);
+            this.dataGridViewPost.Location = new System.Drawing.Point(649, 447);
             this.dataGridViewPost.MultiSelect = false;
             this.dataGridViewPost.Name = "dataGridViewPost";
             this.dataGridViewPost.ReadOnly = true;
@@ -541,9 +541,9 @@ namespace Lifora
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1293, 713);
             this.Controls.Add(this.dataGridViewPost);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.BtnDesbloquearEvento);
+            this.Controls.Add(this.BtnBloquearEvento);
+            this.Controls.Add(this.BtnModificarEvento);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
@@ -554,7 +554,7 @@ namespace Lifora
             this.Controls.Add(this.textBoxNuevoNombreEvento);
             this.Controls.Add(this.dataGridViewEventos);
             this.Controls.Add(this.textBoxFechaDeNacimiento);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnCrearEvento);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.textBoxCambiarEmail);
@@ -625,7 +625,7 @@ namespace Lifora
         private System.Windows.Forms.TextBox textBoxCambiarEmail;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnCrearEvento;
         private System.Windows.Forms.TextBox textBoxFechaDeNacimiento;
         private System.Windows.Forms.DataGridView dataGridViewEventos;
         private System.Windows.Forms.Label label10;
@@ -636,9 +636,9 @@ namespace Lifora
         private System.Windows.Forms.TextBox textBoxNuevoLugarEvento;
         private System.Windows.Forms.TextBox textBoxNuevaInfoEvento;
         private System.Windows.Forms.TextBox textBoxNuevoNombreEvento;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnModificarEvento;
+        private System.Windows.Forms.Button BtnBloquearEvento;
+        private System.Windows.Forms.Button BtnDesbloquearEvento;
         private System.Windows.Forms.DataGridView dataGridViewPost;
     }
 }

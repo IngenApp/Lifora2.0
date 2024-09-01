@@ -101,91 +101,67 @@ namespace Lifora
                 textBoxFechaDeNacimiento.Text = seleccion.Cells[5].Value?.ToString();
                 string id = seleccion.Cells[0].Value?.ToString();
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
-                buscarPost();
+                dataGridViewPost.DataSource = ControladorPost.ListarPost();
+
                 if (dataGridViewEventos.SelectedRows.Count > 0)
                     (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
-               
+                    (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
+
+
             }         
         }
 
-        private void buscarPost()
-        {
-            try
-            {
-
-                if (dataGridViewInfoUser.SelectedRows.Count > 0)
-            {
-                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                int columna = 0;
-                var CellValue = seleccion.Cells[columna].Value;
-                string Id = CellValue.ToString();
-                int id = int.Parse(Id);
-                dataGridViewInfoUser.DataSource = ControladorPost.ListarPost(id);
-            }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al buscar posts del usuario: {ex.Message}");
-            }
-        }
         private void btnBlockThePost_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult pregunta = MessageBox.Show("Bloquear este Post?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
             {
-                DialogResult pregunta = MessageBox.Show("¿Bloquear este Post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (pregunta == DialogResult.No)
+                if (dataGridViewPost.SelectedRows.Count > 0)
                 {
-                    Console.WriteLine("No se ha bloqueado el Post.");
-                    return;
+                    DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int idPost = int.Parse(Id);
+                    ControladorPost.DeshabilitarPost(idPost);
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
-                if (dataGridViewPost.SelectedRows.Count == 0)
+                if (dataGridViewInfoUser.SelectedRows.Count == 0)
                 {
-                    Console.WriteLine("Debes seleccionar un Post.");
-                    return;
+                    MessageBox.Show("Debes seleccionar un evento");
                 }
-
-                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
-                int id = Convert.ToInt32(seleccion.Cells[0].Value);
-                ControladorPost.DeshabilitarPost(id);
-                int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells[0].Value);
-                dataGridViewPost.DataSource = ControladorPost.ListarPost(idUsuario);
             }
-            catch (Exception ex)
+            if (pregunta == DialogResult.No)
             {
-                Console.WriteLine($"Error al bloquear el post: {ex.Message}");
+                MessageBox.Show("No se ah bloqueado el evento");
             }
         }
         private void btnUnlockThePost_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult pregunta = MessageBox.Show("Desbloquear este Post?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
             {
-                DialogResult pregunta = MessageBox.Show("¿Habilitar este Post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (pregunta == DialogResult.No)
+                if (dataGridViewPost.SelectedRows.Count > 0)
                 {
-                    MessageBox.Show("No se ha habilitado el Post.");
-                    return;
+                    DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int idPost = int.Parse(Id);
+                    ControladorPost.HabilitarPost(idPost);
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
-                if (dataGridViewPost.SelectedRows.Count == 0)
+                if (dataGridViewInfoUser.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Debes seleccionar un Post.");
-                    return;
+                    MessageBox.Show("Debes seleccionar un evento");
                 }
-
-                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
-                int id = Convert.ToInt32(seleccion.Cells[0].Value);
-                ControladorPost.HabilitarPost(id);
-                int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells[0].Value);
-                dataGridViewPost.DataSource = ControladorPost.ListarPost(idUsuario);
             }
-            catch (Exception ex)
+            if (pregunta == DialogResult.No)
             {
-                Console.WriteLine($"Error al habilitar el post: {ex.Message}");
+                MessageBox.Show("No se ah bloqueado el evento");
             }
         }
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnCrearEvento_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
             ceb.Show();
@@ -202,26 +178,7 @@ namespace Lifora
 
             }
         }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (pregunta == DialogResult.Yes)
-            {
-                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
-                int columna = 0;
-                var CellValue = seleccion.Cells[columna].Value;
-                string id_evento = CellValue.ToString();
-                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, textBoxNuevaInfoEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
-                MessageBox.Show("Cambios realizados con exito");
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se han realizado los cambios");
-            }
-            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
-        }
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnBloquearEvento_click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Bloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
@@ -246,7 +203,7 @@ namespace Lifora
                 MessageBox.Show("No se ah bloqueado el evento");
             }
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void BtnDesbloquearEvento_click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Desbloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
@@ -271,7 +228,25 @@ namespace Lifora
                 MessageBox.Show("No se ah Habilitado el evento");
             }
         }
+        private void BtnModificarEvento_Click_1(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-      
+            if (pregunta == DialogResult.Yes)
+            {
+                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
+                int columna = 0;
+                var CellValue = seleccion.Cells[columna].Value;
+                string id_evento = CellValue.ToString();
+                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, textBoxNuevaInfoEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
+                MessageBox.Show("Cambios realizados con exito");
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+            }
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+
+        }
     }
 }
