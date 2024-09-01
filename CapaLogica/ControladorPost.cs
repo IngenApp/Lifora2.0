@@ -1,59 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Modelo;
 using System.Data;
+using Modelo;
 
 namespace Controladores
 {
     public class ControladorPost
     {
-        public string TextoPost { get; set; }
-        public bool EstaHabilitado { get; set; }
-
-        public static List<string> ListarPost(int idUsuario)
-        {
-            List<string> listaPosts = new List<string>();
-            ModeloPost ListarPost = new ModeloPost();
-            foreach (ModeloPost p in ListarPost.ObtenerPostUsuario(idUsuario))
-            {
-                string itemText = $"ID Post: {p.idPost}, Texto: {p.post}, Likes: {p.like}";
-                listaPosts.Add(itemText);
-            }
-
-            return listaPosts;
-        }
-
         public static void DeshabilitarPost(int id)
-        {
-            ModeloPost Post = new ModeloPost();
-            Post.idCuenta = id;
-            Post.DeshabilitarPost();
-        }
-        public static void HabilitarPost(int id)
-        {
-            ModeloPost Post = new ModeloPost();
-            Post.idCuenta = id;
-            Post.HabilitarPost();
-        }
-        public static int ExtraerIdPost(string textoItem)
         {
             try
             {
-                string[] partes = textoItem.Split(',');
-                string idParte = partes[0];
-                string idString = idParte.Split(':')[1].Trim();
-
-                return int.Parse(idString);
+                ModeloPost post = new ModeloPost { idPost = id };
+                post.DeshabilitarPost();
             }
             catch (Exception ex)
             {
-                Console.Write("Error al extraer el ID del post. Verifique el formato del texto.", "Error");
-                return -1;
+                Console.WriteLine($"Error al deshabilitar el post: {ex.Message}");
             }
+        }
+
+        public static void HabilitarPost(int id)
+        {
+            try
+            {
+                ModeloPost post = new ModeloPost { idPost = id };
+                post.HabilitarPost();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al habilitar el post: {ex.Message}");
+            }
+        }
+
+        public static DataTable ListarPost(int idCuenta)
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("id_post", typeof(int));
+            tabla.Columns.Add("texto_post", typeof(string));
+            tabla.Columns.Add("contador_like", typeof(int));
+            tabla.Columns.Add("habilitado", typeof(bool));
+
+            try
+            {
+                ModeloPost modeloPost = new ModeloPost();
+                List<ModeloPost> posts = modeloPost.ObtenerPostUsuario(idCuenta);
+
+                foreach (ModeloPost p in posts)
+                {
+                    DataRow fila = tabla.NewRow();
+                    fila["id_post"] = p.idPost;
+                    fila["texto_post"] = p.post;
+                    fila["contador_like"] = p.like;
+                    fila["habilitado"] = p.habilitado;
+                    tabla.Rows.Add(fila);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al listar los posts: {ex.Message}");
+            }
+
+            return tabla;
         }
 
     }
 }
+

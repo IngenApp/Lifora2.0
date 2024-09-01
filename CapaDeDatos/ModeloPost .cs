@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Modelo
@@ -12,62 +15,64 @@ namespace Modelo
         public string post;
         public int like;
         public int comentarios;
-        public string habilitado;
+        public bool habilitado;
 
         public void DeshabilitarPost()
         {
-            string sql = "UPDATE post SET texto_post = CONCAT(texto_post, ' [BLOQUEADO]') WHERE id_post = @id_post";
-
-            using (MySqlCommand comando = new MySqlCommand(sql, this.Conexion))
+            try
             {
-                comando.Parameters.AddWithValue("@id_post", this.idPost);
-                comando.ExecuteNonQuery();
+                string sql = $"UPDATE post SET habilitado = false WHERE id_post = '{this.idPost}'";
+                this.Comando.CommandText = sql;
+                this.Comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al deshabilitar el post: {ex.Message}");
             }
         }
 
         public void HabilitarPost()
         {
-            string sql = "UPDATE post SET texto_post = TRIM(REPLACE(texto_post, ' [BLOQUEADO]', '')) WHERE id_post = @id_post";
-
-            using (MySqlCommand comando = new MySqlCommand(sql, this.Conexion))
+            try
             {
-                comando.Parameters.AddWithValue("@id_post", this.idPost);
-                comando.ExecuteNonQuery();
+                string sql = $"UPDATE post SET habilitado = true WHERE id_post = '{this.idPost}'";
+                this.Comando.CommandText = sql;
+                this.Comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al habilitar el post: {ex.Message}");
             }
         }
-
         public List<ModeloPost> ObtenerPostUsuario(int idUsuario)
         {
             List<ModeloPost> bd = new List<ModeloPost>();
 
-            string sql = "SELECT * FROM post WHERE id_usuario = @idUsuario AND habilitado = 'true'";
-
-            using (MySqlCommand command = new MySqlCommand(sql, this.Conexion))
+            try
             {
-                command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                string sql = $"SELECT * FROM post WHERE id_usuario = {idUsuario}";
+                this.Comando.CommandText = sql;
+                this.Lector = this.Comando.ExecuteReader();
 
-                try
+                while (this.Lector.Read())
                 {
-                    using (MySqlDataReader lector = command.ExecuteReader())
-                    {
-                        while (lector.Read())
-                        {
-                            ModeloPost mp = new ModeloPost
-                            {
-                                post = lector["texto_post"].ToString(),
-                                like = Convert.ToInt32(lector["contador_like"]),
-                                idPost = Convert.ToInt32(lector["id_post"]),
-                                idUsuario = Convert.ToInt32(lector["id_usuario"]),
-                                idCuenta = Convert.ToInt32(lector["id_cuenta"]),
-                                habilitado = lector["habilitado"].ToString()
-                            };
-                            bd.Add(mp);
-                        }
-                    }
+                    ModeloPost mp = new ModeloPost();
+                    mp.post = this.Lector["texto_post"].ToString();
+                    mp.like = Int32.Parse(this.Lector["contador_like"].ToString());
+                    mp.idPost = Int32.Parse(this.Lector["id_post"].ToString());
+                    mp.idUsuario = Int32.Parse(this.Lector["id_usuario"].ToString());
+                    mp.idCuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                    mp.habilitado = Convert.ToBoolean(this.Lector["habilitado"]);
+                    bd.Add(mp);
                 }
-                catch (Exception ex)
+                this.Lector.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener los posts del usuario: " + ex.Message);
+                if (this.Lector != null && !this.Lector.IsClosed)
                 {
-                    Console.WriteLine("Error al obtener los posts del usuario: " + ex.Message);
+                    this.Lector.Close();
                 }
             }
 
@@ -76,7 +81,6 @@ namespace Modelo
 
     }
 }
-
 
 
 

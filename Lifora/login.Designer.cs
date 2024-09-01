@@ -50,11 +50,11 @@ namespace Lifora
             this.label12 = new System.Windows.Forms.Label();
             this.txtBoxSurname = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.loginPassword = new System.Windows.Forms.TextBox();
             this.txtBoxBirthday = new System.Windows.Forms.TextBox();
             this.BotonCrearUsuario = new System.Windows.Forms.Button();
-            this.TxtMailLogin = new System.Windows.Forms.TextBox();
             this.buttonBackOffice = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,13 +230,6 @@ namespace Lifora
             this.checkBox1.Text = "Remember me";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // loginPassword
-            // 
-            this.loginPassword.Location = new System.Drawing.Point(205, 465);
-            this.loginPassword.Name = "loginPassword";
-            this.loginPassword.Size = new System.Drawing.Size(317, 20);
-            this.loginPassword.TabIndex = 4;
-            // 
             // txtBoxBirthday
             // 
             this.txtBoxBirthday.Location = new System.Drawing.Point(884, 309);
@@ -254,13 +247,6 @@ namespace Lifora
             this.BotonCrearUsuario.UseVisualStyleBackColor = true;
             this.BotonCrearUsuario.Click += new System.EventHandler(this.BotonCrearUsuario_Click);
             // 
-            // TxtMailLogin
-            // 
-            this.TxtMailLogin.Location = new System.Drawing.Point(205, 426);
-            this.TxtMailLogin.Name = "TxtMailLogin";
-            this.TxtMailLogin.Size = new System.Drawing.Size(320, 20);
-            this.TxtMailLogin.TabIndex = 35;
-            // 
             // buttonBackOffice
             // 
             this.buttonBackOffice.Location = new System.Drawing.Point(275, 515);
@@ -271,13 +257,28 @@ namespace Lifora
             this.buttonBackOffice.UseVisualStyleBackColor = true;
             this.buttonBackOffice.Click += new System.EventHandler(this.buttonBackOffice_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(201, 433);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(317, 20);
+            this.textBox1.TabIndex = 37;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(201, 472);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(317, 20);
+            this.textBox2.TabIndex = 38;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 701);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonBackOffice);
-            this.Controls.Add(this.TxtMailLogin);
             this.Controls.Add(this.BotonCrearUsuario);
             this.Controls.Add(this.txtBoxBirthday);
             this.Controls.Add(this.checkBox1);
@@ -298,7 +299,6 @@ namespace Lifora
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.loginPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -334,11 +334,11 @@ namespace Lifora
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBoxSurname;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox loginPassword;
         private System.Windows.Forms.TextBox txtBoxBirthday;
         private System.Windows.Forms.Button BotonCrearUsuario;
-        private System.Windows.Forms.TextBox TxtMailLogin;
         private System.Windows.Forms.Button buttonBackOffice;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

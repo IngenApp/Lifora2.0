@@ -10,6 +10,7 @@ namespace Lifora
     public partial class backoffice : Form
     {
         string id;
+
         public backoffice()
         {
             InitializeComponent();
@@ -76,7 +77,6 @@ namespace Lifora
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
             if (pregunta == DialogResult.Yes)
             {
                 ControladorCuentaUsuario.ModificarCuentaDesdeBackoffice(id, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarEmail.Text, textBoxCambiarTelefono.Text, textBoxFechaDeNacimiento.Text);
@@ -90,6 +90,7 @@ namespace Lifora
         }
         private void dataGridViewInfoUser_SelectionChanged(object sender, EventArgs e)
         {
+            
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
             {
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
@@ -100,52 +101,87 @@ namespace Lifora
                 textBoxFechaDeNacimiento.Text = seleccion.Cells[5].Value?.ToString();
                 string id = seleccion.Cells[0].Value?.ToString();
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+                buscarPost();
                 if (dataGridViewEventos.SelectedRows.Count > 0)
                     (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
-
-                buscarPost();
-
-            }
-
+               
+            }         
         }
 
         private void buscarPost()
         {
-            int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
-            List<string> listaPosts = ControladorPost.ListarPost(idUsuario);
-            listBoxPost.Items.Clear();
-            listBoxPost.Items.AddRange(listaPosts.ToArray());
+            try
+            {
+
+                if (dataGridViewInfoUser.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
+                int columna = 0;
+                var CellValue = seleccion.Cells[columna].Value;
+                string Id = CellValue.ToString();
+                int id = int.Parse(Id);
+                dataGridViewInfoUser.DataSource = ControladorPost.ListarPost(id);
+            }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al buscar posts del usuario: {ex.Message}");
+            }
         }
         private void btnBlockThePost_Click(object sender, EventArgs e)
         {
-            if (listBoxPost.SelectedItem == null)
+            try
             {
-                MessageBox.Show("Debes seleccionar un post.");
-                return;
+                DialogResult pregunta = MessageBox.Show("¿Bloquear este Post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (pregunta == DialogResult.No)
+                {
+                    Console.WriteLine("No se ha bloqueado el Post.");
+                    return;
+                }
+                if (dataGridViewPost.SelectedRows.Count == 0)
+                {
+                    Console.WriteLine("Debes seleccionar un Post.");
+                    return;
+                }
+
+                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                int id = Convert.ToInt32(seleccion.Cells[0].Value);
+                ControladorPost.DeshabilitarPost(id);
+                int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells[0].Value);
+                dataGridViewPost.DataSource = ControladorPost.ListarPost(idUsuario);
             }
-            string selectedItem = listBoxPost.SelectedItem.ToString();
-            int idPost = ControladorPost.ExtraerIdPost(selectedItem);
-            DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (pregunta == DialogResult.Yes)
+            catch (Exception ex)
             {
-                ControladorPost.DeshabilitarPost(idPost);
+                Console.WriteLine($"Error al bloquear el post: {ex.Message}");
             }
         }
         private void btnUnlockThePost_Click(object sender, EventArgs e)
         {
-            if (listBoxPost.SelectedItem == null)
+            try
             {
-                MessageBox.Show("Debes seleccionar un post.");
-                return;
-            }
-            string selectedItem = listBoxPost.SelectedItem.ToString();
-            int idPost = ControladorPost.ExtraerIdPost(selectedItem);
-            DialogResult pregunta = MessageBox.Show("¿Habilitar este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (pregunta == DialogResult.Yes)
-            {
-                ControladorPost.HabilitarPost(idPost);
-            }
+                DialogResult pregunta = MessageBox.Show("¿Habilitar este Post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (pregunta == DialogResult.No)
+                {
+                    MessageBox.Show("No se ha habilitado el Post.");
+                    return;
+                }
+                if (dataGridViewPost.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un Post.");
+                    return;
+                }
 
+                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                int id = Convert.ToInt32(seleccion.Cells[0].Value);
+                ControladorPost.HabilitarPost(id);
+                int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells[0].Value);
+                dataGridViewPost.DataSource = ControladorPost.ListarPost(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al habilitar el post: {ex.Message}");
+            }
         }
 
 
@@ -235,5 +271,7 @@ namespace Lifora
                 MessageBox.Show("No se ah Habilitado el evento");
             }
         }
+
+      
     }
 }
