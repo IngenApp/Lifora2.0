@@ -10,20 +10,39 @@ namespace Modelo
     public class ModeloPost : Modelo
     {
         public int idPost;
-        public int idUsuario;
         public int idCuenta;
         public string post;
         public int like;
         public int comentarios;
+        public string fecha;
         public string habilitado;
-
+        public void CrearPost()
+        {
+            string sql = $"insert into post (id_cuenta, texto_post, fecha) values(@id_cuenta, @texto_post, @fecha)";
+            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
+            this.Comando.Parameters.AddWithValue("@texto_post", post);
+            this.Comando.Parameters.AddWithValue("@fecha", fecha);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+        public void ModificarPostBackOffice()
+        {                
+            string sql = $"update post set id_cuenta = @id_cuenta, texto_post = @texto_post, fecha = @fecha where id_post = @id_post";
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
+            this.Comando.Parameters.AddWithValue("@texto_post", post);
+            this.Comando.Parameters.AddWithValue("@fecha", fecha);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
         public void DeshabilitarPost()
         {
             string sql = $"UPDATE post SET habilitado = false WHERE id_post = '{this.idPost}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
         public void HabilitarPost()
         {
             string sql = $"UPDATE post SET habilitado = true WHERE id_post = '{this.idPost}'";
@@ -47,7 +66,7 @@ namespace Modelo
                     ListaPost.Add(mp);
                 }
                 return ListaPost;
-            }
+        }
     }
 }
 

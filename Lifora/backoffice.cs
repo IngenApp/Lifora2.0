@@ -110,7 +110,7 @@ namespace Lifora
 
             }         
         }
-
+ 
         private void btnBlockThePost_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Bloquear este Post?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -161,6 +161,7 @@ namespace Lifora
                 MessageBox.Show("No se ah bloqueado el evento");
             }
         }
+  
         private void BtnCrearEvento_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
@@ -239,6 +240,29 @@ namespace Lifora
                 var CellValue = seleccion.Cells[columna].Value;
                 string id_evento = CellValue.ToString();
                 ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, textBoxNuevaInfoEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
+                MessageBox.Show("Cambios realizados con exito");
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+            }
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+        }
+        private void btnCrearPost_Click(object sender, EventArgs e)
+        {
+            CrearPostBackoffice ceb = new CrearPostBackoffice();
+            ceb.Show();
+        }
+        private void btnModificarPost_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                int columna = 0;
+                var CellValue = seleccion.Cells[columna].Value;
+                string idPost = CellValue.ToString();
+                ControladorPost.ModificarPostBackoffice(idPost, textBoxIdUser.Text, textBoxPost.Text, textBoxFecha.Text);
                 MessageBox.Show("Cambios realizados con exito");
             }
             if (pregunta == DialogResult.No)

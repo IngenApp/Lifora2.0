@@ -7,13 +7,29 @@ namespace Controladores
 {
     public class ControladorPost
     {
+        public static void CrearPost(int idCuenta, string postear, string fechaPost)
+        {
+            ModeloPost CreaPost = new ModeloPost();
+            CreaPost.idCuenta = idCuenta;
+            CreaPost.post = postear;
+            CreaPost.fecha = fechaPost;
+            CreaPost.CrearPost();
+        }
+        public static void ModificarPostBackoffice(string idPost, string idCuenta, string post, string fecha)
+        {
+            ModeloPost ModPostBO = new ModeloPost();
+            ModPostBO.idPost = Int32.Parse(idPost);
+            ModPostBO.idCuenta = Int32.Parse(idCuenta);
+            ModPostBO.post = post;
+            ModPostBO.fecha = fecha;
+            ModPostBO.ModificarPostBackOffice();
+        }
         public static void DeshabilitarPost(int idPost)
         {
             ModeloPost DeshabilitarPost = new ModeloPost();
             DeshabilitarPost.idPost = idPost;
             DeshabilitarPost.DeshabilitarPost();
         }
-
         public static void HabilitarPost(int idPost)
         {
             ModeloPost HabilitarPost = new ModeloPost ();

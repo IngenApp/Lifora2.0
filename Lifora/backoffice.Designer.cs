@@ -79,7 +79,7 @@ namespace Lifora
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCrearPost = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -89,6 +89,15 @@ namespace Lifora
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxIdUser = new System.Windows.Forms.TextBox();
+            this.textBoxPost = new System.Windows.Forms.TextBox();
+            this.textBoxFecha = new System.Windows.Forms.TextBox();
+            this.textBoxLike = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnModificarPost = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
@@ -108,9 +117,9 @@ namespace Lifora
             // 
             // btnBlockTheUser
             // 
-            this.btnBlockTheUser.Location = new System.Drawing.Point(310, 298);
+            this.btnBlockTheUser.Location = new System.Drawing.Point(378, 279);
             this.btnBlockTheUser.Name = "btnBlockTheUser";
-            this.btnBlockTheUser.Size = new System.Drawing.Size(148, 50);
+            this.btnBlockTheUser.Size = new System.Drawing.Size(114, 35);
             this.btnBlockTheUser.TabIndex = 3;
             this.btnBlockTheUser.Text = "Bloquear Usuario";
             this.btnBlockTheUser.UseVisualStyleBackColor = true;
@@ -118,9 +127,9 @@ namespace Lifora
             // 
             // btnUnlockTheUser
             // 
-            this.btnUnlockTheUser.Location = new System.Drawing.Point(464, 298);
+            this.btnUnlockTheUser.Location = new System.Drawing.Point(498, 279);
             this.btnUnlockTheUser.Name = "btnUnlockTheUser";
-            this.btnUnlockTheUser.Size = new System.Drawing.Size(148, 50);
+            this.btnUnlockTheUser.Size = new System.Drawing.Size(114, 34);
             this.btnUnlockTheUser.TabIndex = 4;
             this.btnUnlockTheUser.Text = "Habilitar Usuario";
             this.btnUnlockTheUser.UseVisualStyleBackColor = true;
@@ -128,9 +137,9 @@ namespace Lifora
             // 
             // btnBlockThePost
             // 
-            this.btnBlockThePost.Location = new System.Drawing.Point(310, 629);
+            this.btnBlockThePost.Location = new System.Drawing.Point(391, 547);
             this.btnBlockThePost.Name = "btnBlockThePost";
-            this.btnBlockThePost.Size = new System.Drawing.Size(148, 50);
+            this.btnBlockThePost.Size = new System.Drawing.Size(108, 33);
             this.btnBlockThePost.TabIndex = 10;
             this.btnBlockThePost.Text = "Deshabilitar Post";
             this.btnBlockThePost.UseVisualStyleBackColor = true;
@@ -138,9 +147,9 @@ namespace Lifora
             // 
             // btnUnlockThePost
             // 
-            this.btnUnlockThePost.Location = new System.Drawing.Point(464, 629);
+            this.btnUnlockThePost.Location = new System.Drawing.Point(505, 547);
             this.btnUnlockThePost.Name = "btnUnlockThePost";
-            this.btnUnlockThePost.Size = new System.Drawing.Size(148, 50);
+            this.btnUnlockThePost.Size = new System.Drawing.Size(107, 33);
             this.btnUnlockThePost.TabIndex = 11;
             this.btnUnlockThePost.Text = "Habilitar Post";
             this.btnUnlockThePost.UseVisualStyleBackColor = true;
@@ -214,7 +223,7 @@ namespace Lifora
             this.dataGridViewInfoUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewInfoUser.RowHeadersWidth = 62;
             this.dataGridViewInfoUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInfoUser.Size = new System.Drawing.Size(600, 147);
+            this.dataGridViewInfoUser.Size = new System.Drawing.Size(600, 128);
             this.dataGridViewInfoUser.TabIndex = 16;
             this.dataGridViewInfoUser.SelectionChanged += new System.EventHandler(this.dataGridViewInfoUser_SelectionChanged);
             // 
@@ -241,7 +250,7 @@ namespace Lifora
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 308);
+            this.label5.Location = new System.Drawing.Point(13, 284);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
@@ -251,7 +260,7 @@ namespace Lifora
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 330);
+            this.label6.Location = new System.Drawing.Point(13, 306);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
@@ -261,7 +270,7 @@ namespace Lifora
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 351);
+            this.label7.Location = new System.Drawing.Point(13, 327);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
@@ -271,7 +280,7 @@ namespace Lifora
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 372);
+            this.label8.Location = new System.Drawing.Point(13, 348);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
@@ -280,45 +289,45 @@ namespace Lifora
             // 
             // textBoxCambiarNombre
             // 
-            this.textBoxCambiarNombre.Location = new System.Drawing.Point(77, 305);
+            this.textBoxCambiarNombre.Location = new System.Drawing.Point(77, 281);
             this.textBoxCambiarNombre.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarNombre.Name = "textBoxCambiarNombre";
-            this.textBoxCambiarNombre.Size = new System.Drawing.Size(213, 20);
+            this.textBoxCambiarNombre.Size = new System.Drawing.Size(175, 20);
             this.textBoxCambiarNombre.TabIndex = 23;
             this.textBoxCambiarNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxCambiarApellido
             // 
-            this.textBoxCambiarApellido.Location = new System.Drawing.Point(77, 327);
+            this.textBoxCambiarApellido.Location = new System.Drawing.Point(77, 303);
             this.textBoxCambiarApellido.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarApellido.Name = "textBoxCambiarApellido";
-            this.textBoxCambiarApellido.Size = new System.Drawing.Size(213, 20);
+            this.textBoxCambiarApellido.Size = new System.Drawing.Size(175, 20);
             this.textBoxCambiarApellido.TabIndex = 24;
             this.textBoxCambiarApellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxCambiarTelefono
             // 
-            this.textBoxCambiarTelefono.Location = new System.Drawing.Point(77, 348);
+            this.textBoxCambiarTelefono.Location = new System.Drawing.Point(77, 324);
             this.textBoxCambiarTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarTelefono.Name = "textBoxCambiarTelefono";
-            this.textBoxCambiarTelefono.Size = new System.Drawing.Size(213, 20);
+            this.textBoxCambiarTelefono.Size = new System.Drawing.Size(175, 20);
             this.textBoxCambiarTelefono.TabIndex = 25;
             this.textBoxCambiarTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxCambiarEmail
             // 
-            this.textBoxCambiarEmail.Location = new System.Drawing.Point(77, 369);
+            this.textBoxCambiarEmail.Location = new System.Drawing.Point(77, 345);
             this.textBoxCambiarEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarEmail.Name = "textBoxCambiarEmail";
-            this.textBoxCambiarEmail.Size = new System.Drawing.Size(213, 20);
+            this.textBoxCambiarEmail.Size = new System.Drawing.Size(175, 20);
             this.textBoxCambiarEmail.TabIndex = 26;
             this.textBoxCambiarEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Location = new System.Drawing.Point(310, 354);
+            this.BtnModificar.Location = new System.Drawing.Point(258, 281);
             this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(148, 50);
+            this.BtnModificar.Size = new System.Drawing.Size(114, 33);
             this.BtnModificar.TabIndex = 27;
             this.BtnModificar.Text = "ModificarUsuario";
             this.BtnModificar.UseVisualStyleBackColor = true;
@@ -327,7 +336,7 @@ namespace Lifora
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 391);
+            this.label9.Location = new System.Drawing.Point(12, 367);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 28;
@@ -335,9 +344,9 @@ namespace Lifora
             // 
             // BtnCrearEvento
             // 
-            this.BtnCrearEvento.Location = new System.Drawing.Point(1101, 250);
+            this.BtnCrearEvento.Location = new System.Drawing.Point(1075, 185);
             this.BtnCrearEvento.Name = "BtnCrearEvento";
-            this.BtnCrearEvento.Size = new System.Drawing.Size(149, 50);
+            this.BtnCrearEvento.Size = new System.Drawing.Size(175, 37);
             this.BtnCrearEvento.TabIndex = 29;
             this.BtnCrearEvento.Text = "Eventos";
             this.BtnCrearEvento.UseVisualStyleBackColor = true;
@@ -345,10 +354,10 @@ namespace Lifora
             // 
             // textBoxFechaDeNacimiento
             // 
-            this.textBoxFechaDeNacimiento.Location = new System.Drawing.Point(77, 393);
+            this.textBoxFechaDeNacimiento.Location = new System.Drawing.Point(77, 369);
             this.textBoxFechaDeNacimiento.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFechaDeNacimiento.Name = "textBoxFechaDeNacimiento";
-            this.textBoxFechaDeNacimiento.Size = new System.Drawing.Size(213, 20);
+            this.textBoxFechaDeNacimiento.Size = new System.Drawing.Size(175, 20);
             this.textBoxFechaDeNacimiento.TabIndex = 30;
             this.textBoxFechaDeNacimiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -374,21 +383,21 @@ namespace Lifora
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewEventos.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewEventos.Location = new System.Drawing.Point(649, 39);
+            this.dataGridViewEventos.Location = new System.Drawing.Point(649, 12);
             this.dataGridViewEventos.MultiSelect = false;
             this.dataGridViewEventos.Name = "dataGridViewEventos";
             this.dataGridViewEventos.ReadOnly = true;
             this.dataGridViewEventos.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewEventos.RowHeadersWidth = 62;
             this.dataGridViewEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEventos.Size = new System.Drawing.Size(600, 148);
+            this.dataGridViewEventos.Size = new System.Drawing.Size(600, 128);
             this.dataGridViewEventos.TabIndex = 34;
             this.dataGridViewEventos.SelectionChanged += new System.EventHandler(this.dataGridViewEventos_SelectionChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(653, 278);
+            this.label10.Location = new System.Drawing.Point(645, 230);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 13);
             this.label10.TabIndex = 42;
@@ -397,7 +406,7 @@ namespace Lifora
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(653, 252);
+            this.label11.Location = new System.Drawing.Point(645, 204);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 13);
             this.label11.TabIndex = 41;
@@ -406,7 +415,7 @@ namespace Lifora
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(653, 226);
+            this.label12.Location = new System.Drawing.Point(645, 178);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(62, 13);
             this.label12.TabIndex = 40;
@@ -415,7 +424,7 @@ namespace Lifora
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(653, 200);
+            this.label13.Location = new System.Drawing.Point(645, 152);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(80, 13);
             this.label13.TabIndex = 39;
@@ -423,37 +432,37 @@ namespace Lifora
             // 
             // textBoxNuevaFechaEvento
             // 
-            this.textBoxNuevaFechaEvento.Location = new System.Drawing.Point(753, 271);
+            this.textBoxNuevaFechaEvento.Location = new System.Drawing.Point(731, 224);
             this.textBoxNuevaFechaEvento.Name = "textBoxNuevaFechaEvento";
-            this.textBoxNuevaFechaEvento.Size = new System.Drawing.Size(188, 20);
+            this.textBoxNuevaFechaEvento.Size = new System.Drawing.Size(175, 20);
             this.textBoxNuevaFechaEvento.TabIndex = 38;
             // 
             // textBoxNuevoLugarEvento
             // 
-            this.textBoxNuevoLugarEvento.Location = new System.Drawing.Point(753, 245);
+            this.textBoxNuevoLugarEvento.Location = new System.Drawing.Point(731, 197);
             this.textBoxNuevoLugarEvento.Name = "textBoxNuevoLugarEvento";
-            this.textBoxNuevoLugarEvento.Size = new System.Drawing.Size(188, 20);
+            this.textBoxNuevoLugarEvento.Size = new System.Drawing.Size(175, 20);
             this.textBoxNuevoLugarEvento.TabIndex = 37;
             // 
             // textBoxNuevaInfoEvento
             // 
-            this.textBoxNuevaInfoEvento.Location = new System.Drawing.Point(753, 219);
+            this.textBoxNuevaInfoEvento.Location = new System.Drawing.Point(731, 171);
             this.textBoxNuevaInfoEvento.Name = "textBoxNuevaInfoEvento";
-            this.textBoxNuevaInfoEvento.Size = new System.Drawing.Size(188, 20);
+            this.textBoxNuevaInfoEvento.Size = new System.Drawing.Size(175, 20);
             this.textBoxNuevaInfoEvento.TabIndex = 36;
             // 
             // textBoxNuevoNombreEvento
             // 
-            this.textBoxNuevoNombreEvento.Location = new System.Drawing.Point(753, 193);
+            this.textBoxNuevoNombreEvento.Location = new System.Drawing.Point(731, 145);
             this.textBoxNuevoNombreEvento.Name = "textBoxNuevoNombreEvento";
-            this.textBoxNuevoNombreEvento.Size = new System.Drawing.Size(188, 20);
+            this.textBoxNuevoNombreEvento.Size = new System.Drawing.Size(175, 20);
             this.textBoxNuevoNombreEvento.TabIndex = 35;
             // 
             // BtnModificarEvento
             // 
-            this.BtnModificarEvento.Location = new System.Drawing.Point(947, 249);
+            this.BtnModificarEvento.Location = new System.Drawing.Point(1140, 146);
             this.BtnModificarEvento.Name = "BtnModificarEvento";
-            this.BtnModificarEvento.Size = new System.Drawing.Size(148, 50);
+            this.BtnModificarEvento.Size = new System.Drawing.Size(109, 33);
             this.BtnModificarEvento.TabIndex = 43;
             this.BtnModificarEvento.Text = "ModificarEvento";
             this.BtnModificarEvento.UseVisualStyleBackColor = true;
@@ -461,9 +470,9 @@ namespace Lifora
             // 
             // BtnBloquearEvento
             // 
-            this.BtnBloquearEvento.Location = new System.Drawing.Point(947, 193);
+            this.BtnBloquearEvento.Location = new System.Drawing.Point(1026, 146);
             this.BtnBloquearEvento.Name = "BtnBloquearEvento";
-            this.BtnBloquearEvento.Size = new System.Drawing.Size(148, 50);
+            this.BtnBloquearEvento.Size = new System.Drawing.Size(108, 33);
             this.BtnBloquearEvento.TabIndex = 44;
             this.BtnBloquearEvento.Text = "Bloquear Evento";
             this.BtnBloquearEvento.UseVisualStyleBackColor = false;
@@ -471,9 +480,9 @@ namespace Lifora
             // 
             // BtnDesbloquearEvento
             // 
-            this.BtnDesbloquearEvento.Location = new System.Drawing.Point(1101, 193);
+            this.BtnDesbloquearEvento.Location = new System.Drawing.Point(912, 145);
             this.BtnDesbloquearEvento.Name = "BtnDesbloquearEvento";
-            this.BtnDesbloquearEvento.Size = new System.Drawing.Size(148, 50);
+            this.BtnDesbloquearEvento.Size = new System.Drawing.Size(108, 33);
             this.BtnDesbloquearEvento.TabIndex = 45;
             this.BtnDesbloquearEvento.Text = "Habilitar Evento";
             this.BtnDesbloquearEvento.UseVisualStyleBackColor = true;
@@ -501,23 +510,23 @@ namespace Lifora
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPost.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewPost.Location = new System.Drawing.Point(12, 449);
+            this.dataGridViewPost.Location = new System.Drawing.Point(12, 413);
             this.dataGridViewPost.MultiSelect = false;
             this.dataGridViewPost.Name = "dataGridViewPost";
             this.dataGridViewPost.ReadOnly = true;
             this.dataGridViewPost.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewPost.RowHeadersWidth = 62;
             this.dataGridViewPost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPost.Size = new System.Drawing.Size(600, 174);
+            this.dataGridViewPost.Size = new System.Drawing.Size(600, 128);
             this.dataGridViewPost.TabIndex = 46;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 629);
+            this.button1.Location = new System.Drawing.Point(1075, 461);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 50);
+            this.button1.Size = new System.Drawing.Size(173, 36);
             this.button1.TabIndex = 47;
-            this.button1.Text = "Post";
+            this.button1.Text = "Crear Grupo";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
@@ -542,56 +551,57 @@ namespace Lifora
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.Location = new System.Drawing.Point(649, 327);
+            this.dataGridView1.Location = new System.Drawing.Point(649, 279);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(600, 148);
+            this.dataGridView1.Size = new System.Drawing.Size(600, 128);
             this.dataGridView1.TabIndex = 48;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(947, 481);
+            this.button2.Location = new System.Drawing.Point(1026, 413);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 50);
+            this.button2.Size = new System.Drawing.Size(108, 33);
             this.button2.TabIndex = 49;
-            this.button2.Text = "Bloquear Evento";
+            this.button2.Text = "Bloquear Grupo";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1101, 481);
+            this.button3.Location = new System.Drawing.Point(1140, 413);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 50);
+            this.button3.Size = new System.Drawing.Size(108, 33);
             this.button3.TabIndex = 50;
-            this.button3.Text = "Habilitar Evento";
+            this.button3.Text = "Habilitar Grupo";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnCrearPost
             // 
-            this.button4.Location = new System.Drawing.Point(1101, 537);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 50);
-            this.button4.TabIndex = 51;
-            this.button4.Text = "Eventos";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnCrearPost.Location = new System.Drawing.Point(439, 586);
+            this.btnCrearPost.Name = "btnCrearPost";
+            this.btnCrearPost.Size = new System.Drawing.Size(173, 37);
+            this.btnCrearPost.TabIndex = 51;
+            this.btnCrearPost.Text = "Crear Post";
+            this.btnCrearPost.UseVisualStyleBackColor = true;
+            this.btnCrearPost.Click += new System.EventHandler(this.btnCrearPost_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(947, 537);
+            this.button5.Location = new System.Drawing.Point(912, 413);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(148, 50);
+            this.button5.Size = new System.Drawing.Size(108, 33);
             this.button5.TabIndex = 52;
-            this.button5.Text = "ModificarEvento";
+            this.button5.Text = "Modificar Grupo";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(653, 566);
+            this.label14.Location = new System.Drawing.Point(648, 498);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(37, 13);
             this.label14.TabIndex = 60;
@@ -600,7 +610,7 @@ namespace Lifora
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(653, 540);
+            this.label15.Location = new System.Drawing.Point(648, 472);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(34, 13);
             this.label15.TabIndex = 59;
@@ -609,7 +619,7 @@ namespace Lifora
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(653, 514);
+            this.label16.Location = new System.Drawing.Point(648, 446);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(62, 13);
             this.label16.TabIndex = 58;
@@ -618,7 +628,7 @@ namespace Lifora
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(653, 488);
+            this.label17.Location = new System.Drawing.Point(648, 420);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(80, 13);
             this.label17.TabIndex = 57;
@@ -626,31 +636,105 @@ namespace Lifora
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(753, 559);
+            this.textBox1.Location = new System.Drawing.Point(731, 491);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
+            this.textBox1.Size = new System.Drawing.Size(175, 20);
             this.textBox1.TabIndex = 56;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(753, 533);
+            this.textBox2.Location = new System.Drawing.Point(731, 465);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 20);
+            this.textBox2.Size = new System.Drawing.Size(175, 20);
             this.textBox2.TabIndex = 55;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(753, 507);
+            this.textBox3.Location = new System.Drawing.Point(731, 439);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(188, 20);
+            this.textBox3.Size = new System.Drawing.Size(175, 20);
             this.textBox3.TabIndex = 54;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(753, 481);
+            this.textBox4.Location = new System.Drawing.Point(731, 413);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(188, 20);
+            this.textBox4.Size = new System.Drawing.Size(175, 20);
             this.textBox4.TabIndex = 53;
+            // 
+            // textBoxIdUser
+            // 
+            this.textBoxIdUser.Location = new System.Drawing.Point(96, 551);
+            this.textBoxIdUser.Name = "textBoxIdUser";
+            this.textBoxIdUser.Size = new System.Drawing.Size(175, 20);
+            this.textBoxIdUser.TabIndex = 53;
+            // 
+            // textBoxPost
+            // 
+            this.textBoxPost.Location = new System.Drawing.Point(96, 573);
+            this.textBoxPost.Name = "textBoxPost";
+            this.textBoxPost.Size = new System.Drawing.Size(175, 20);
+            this.textBoxPost.TabIndex = 54;
+            // 
+            // textBoxFecha
+            // 
+            this.textBoxFecha.Location = new System.Drawing.Point(96, 595);
+            this.textBoxFecha.Name = "textBoxFecha";
+            this.textBoxFecha.Size = new System.Drawing.Size(175, 20);
+            this.textBoxFecha.TabIndex = 55;
+            // 
+            // textBoxLike
+            // 
+            this.textBoxLike.Location = new System.Drawing.Point(96, 618);
+            this.textBoxLike.Name = "textBoxLike";
+            this.textBoxLike.Size = new System.Drawing.Size(175, 20);
+            this.textBoxLike.TabIndex = 56;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(12, 554);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.TabIndex = 57;
+            this.label18.Text = "Id User";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(13, 576);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(28, 13);
+            this.label19.TabIndex = 58;
+            this.label19.Text = "Post";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 621);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(27, 13);
+            this.label20.TabIndex = 59;
+            this.label20.Text = "Like";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(12, 598);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(37, 13);
+            this.label21.TabIndex = 60;
+            this.label21.Text = "Fecha";
+            // 
+            // btnModificarPost
+            // 
+            this.btnModificarPost.Location = new System.Drawing.Point(277, 547);
+            this.btnModificarPost.Name = "btnModificarPost";
+            this.btnModificarPost.Size = new System.Drawing.Size(108, 33);
+            this.btnModificarPost.TabIndex = 61;
+            this.btnModificarPost.Text = "Modificar Post";
+            this.btnModificarPost.UseVisualStyleBackColor = true;
+            this.btnModificarPost.Click += new System.EventHandler(this.btnModificarPost_Click);
             // 
             // backoffice
             // 
@@ -658,16 +742,25 @@ namespace Lifora
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1293, 713);
+            this.Controls.Add(this.btnModificarPost);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.label14);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.label15);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label16);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
+            this.Controls.Add(this.textBoxLike);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxFecha);
+            this.Controls.Add(this.textBoxPost);
             this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxIdUser);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnCrearPost);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
@@ -769,7 +862,7 @@ namespace Lifora
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCrearPost;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -779,5 +872,14 @@ namespace Lifora
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxIdUser;
+        private System.Windows.Forms.TextBox textBoxPost;
+        private System.Windows.Forms.TextBox textBoxFecha;
+        private System.Windows.Forms.TextBox textBoxLike;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnModificarPost;
     }
 }
