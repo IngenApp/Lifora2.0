@@ -90,7 +90,7 @@ namespace Lifora
         }
         private void dataGridViewInfoUser_SelectionChanged(object sender, EventArgs e)
         {
-            
+
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
             {
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
@@ -105,12 +105,12 @@ namespace Lifora
 
                 if (dataGridViewEventos.SelectedRows.Count > 0)
                     (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
-                    (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
+                (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("cuenta LIKE '%{0}%'", id);
 
 
-            }         
+            }
         }
- 
+
         private void btnBlockThePost_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Bloquear este Post?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -161,7 +161,7 @@ namespace Lifora
                 MessageBox.Show("No se ah bloqueado el evento");
             }
         }
-  
+
         private void BtnCrearEvento_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
@@ -256,21 +256,33 @@ namespace Lifora
         private void btnModificarPost_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (pregunta == DialogResult.Yes)
             {
                 DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
                 int columna = 0;
                 var CellValue = seleccion.Cells[columna].Value;
-                string idPost = CellValue.ToString();
-                ControladorPost.ModificarPostBackoffice(idPost, textBoxIdUser.Text, textBoxPost.Text, textBoxFecha.Text);
+                string id_post = CellValue.ToString();
+                ControladorPost.ModificarPostBackoffice(textBoxPost.Text, textBoxIdPost.Text, textBoxIdCuenta.Text, textBoxFecha.Text, textBoxLike.Text);
                 MessageBox.Show("Cambios realizados con exito");
             }
             if (pregunta == DialogResult.No)
             {
                 MessageBox.Show("No se han realizado los cambios");
             }
-            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
-
+            dataGridViewPost.DataSource = ControladorPost.ListarPost();
+        }
+        private void dataGridViewPost_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewPost.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                textBoxPost.Text = seleccion.Cells[2].Value?.ToString();
+                textBoxIdPost.Text = seleccion.Cells[0].Value?.ToString();
+                textBoxIdCuenta.Text = seleccion.Cells[1].Value?.ToString();
+                textBoxFecha.Text = seleccion.Cells[3].Value?.ToString();
+                textBoxLike.Text = seleccion.Cells[4].Value?.ToString();
+            }
         }
     }
 }

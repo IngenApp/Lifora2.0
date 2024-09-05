@@ -15,15 +15,52 @@ namespace Controladores
             CreaPost.fecha = fechaPost;
             CreaPost.CrearPost();
         }
-        public static void ModificarPostBackoffice(string idPost, string idCuenta, string post, string fecha)
+        public static void ModificarPostBackoffice(string idPost, string post)
         {
             ModeloPost ModPostBO = new ModeloPost();
             ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.idCuenta = Int32.Parse(idCuenta);
             ModPostBO.post = post;
+            ModPostBO.ModificarPostBackOffice();
+        }
+        public static void ModificarIdPostBackoffice(string id, string IdPost)
+        {
+            ModeloPost ModPostBO = new ModeloPost();
+            ModPostBO.idPost = Int32.Parse(id);
+            ModPostBO.idPost = Int32.Parse(IdPost);
+            ModPostBO.ModificarPostBackOffice();
+        }
+        public static void ModificarIdCuentaBackoffice(string idPost, string IdCuenta)
+        {
+            ModeloPost ModPostBO = new ModeloPost();
+            ModPostBO.idPost = Int32.Parse(idPost);
+            ModPostBO.idCuenta = Int32.Parse(IdCuenta);
+            ModPostBO.ModificarPostBackOffice();
+        }
+        public static void ModificarFechaBackoffice(string idPost, string fecha)
+        {
+            ModeloPost ModPostBO = new ModeloPost();
+            ModPostBO.idPost = Int32.Parse(idPost);
             ModPostBO.fecha = fecha;
             ModPostBO.ModificarPostBackOffice();
         }
+        public static void ModificarLikeBackoffice(string idPost, string like)
+        {
+            ModeloPost ModPostBO = new ModeloPost();
+            ModPostBO.idPost = Int32.Parse(idPost);
+            ModPostBO.like = Int32.Parse(like);
+            ModPostBO.ModificarPostBackOffice();
+        }
+        public static void ModificarPostBackoffice(string post, string idPost, string idCuenta, string fecha, string like)
+        {
+            ModeloPost ModPostBO = new ModeloPost();
+            ModPostBO.post = post;
+            ModPostBO.idPost = Int32.Parse(idPost);
+            ModPostBO.idCuenta = Int32.Parse(idCuenta);
+            ModPostBO.fecha = fecha;
+            ModPostBO.like = Int32.Parse(like);
+            ModPostBO.ModificarPostUsuarioBackoffice();
+        }
+
         public static void DeshabilitarPost(int idPost)
         {
             ModeloPost DeshabilitarPost = new ModeloPost();
@@ -40,22 +77,24 @@ namespace Controladores
         {
             DataTable tabla = new DataTable();
 
-            tabla.Columns.Add("id_post", typeof(int));
-            tabla.Columns.Add("texto_post", typeof(string));
-            tabla.Columns.Add("contador_like", typeof(int));
+            tabla.Columns.Add("id", typeof(int));
+            tabla.Columns.Add("cuenta", typeof(string));
+            tabla.Columns.Add("post", typeof(string));
+            tabla.Columns.Add("fecha", typeof(string));
+            tabla.Columns.Add("like", typeof(int));
             tabla.Columns.Add("habilitado", typeof(bool));
-            tabla.Columns.Add("id_cuenta", typeof(string));
 
             ModeloPost ListarPost = new ModeloPost();
             foreach (ModeloPost p in ListarPost.ObtenerPost())
             {
                 DataRow fila = tabla.NewRow();
 
-                fila["id_post"] = p.idPost;
-                fila["texto_post"] = p.post;
-                fila["contador_like"] = p.like;
+                fila["id"] = p.idPost;
+                fila["cuenta"] = p.idCuenta;
+                fila["post"] = p.post;
+                fila["fecha"] = p.fecha;
+                fila["like"] = p.like;
                 fila["habilitado"] = p.habilitado;
-                fila["id_cuenta"] = p.idCuenta;
                 tabla.Rows.Add(fila);
             }
             return tabla;
