@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace InterfazUsuario
 {
-    public partial class Inicio : Form
+    public partial class Registrarse1 : Form
     {
-        public Inicio()
+        public Registrarse1()
         {
             InitializeComponent();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            PerfilPrincipal perfilPrincipal = new PerfilPrincipal();
+            Form Registrarse2 = new Registrarse2();
             this.Enabled = false;
-            perfilPrincipal.Show();
-            perfilPrincipal.FormClosed += (s, args) => this.Enabled = true;
+            Registrarse2.Show();
+            Registrarse2.FormClosed += (s, args) => this.Enabled = true;
         }
     }
 }
