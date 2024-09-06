@@ -2,6 +2,8 @@
 using System.IO;
 using System.Windows.Forms;
 using Controladores;
+using InterfazUsuario;
+
 
 
 
@@ -65,6 +67,13 @@ namespace Lifora
             {
                 MessageBox.Show("Credenciales incorrectas");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Login Login = new Login();
+            this.Enabled = false;
+            Login.Show();
         }
     }
     
