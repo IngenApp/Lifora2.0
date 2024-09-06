@@ -14,54 +14,61 @@ namespace Modelo
         public string post;
         public int like;
         public int comentarios;
+        public string textoComentarios;
         public string fecha;
         public string habilitado;
         public void CrearPost()
         {
-            string sql = $"insert into post (id_cuenta, texto_post, fecha) values(@id_cuenta, @texto_post, @fecha)";
+            string sql = $"insert into post (id_cuenta, texto_post, fecha) values(@id_cuenta, @texto_post, now())";
             this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
             this.Comando.Parameters.AddWithValue("@texto_post", post);
-            this.Comando.Parameters.AddWithValue("@fecha", fecha);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
-
-
         public void ModificarPostBackOffice()
         {
-            string sql = $"update post set texto_post = '{this.post}' where id_post ='{this.idPost}'";
+            string sql = "update post set texto_post = @texto_post where id_post = @id_post";
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@texto_post", post);
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public void ModificarIdPostBackOffice()
         {
-            string sql = $"update post set id_post = '{this.idPost}' where id_post ='{this.idPost}'";
+            string sql = $"update post set id_post = @id_post where id_post = @id_post";
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Comando.Parameters.AddWithValue("@id_post", idPost); 
             this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
+            this.Comando.ExecuteNonQuery(); 
         }
         public void ModificarIdCuentaBackOffice()
         {
-            string sql = $"update post set id_cuenta = '{this.idCuenta}' where id_post ='{this.idPost}'";
+            string sql = $"update post set id_cuenta = @id_duenta where id_post = @id_post";
+            this.Comando.Parameters.Clear();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public void ModificarFechaBackOffice()
         {
-            string sql = $"update post set fecha = '{this.fecha}' where id_post ='{this.idPost}'";
+            string sql = $"update post set fecha = @fecha where id_post = @id_post";
+            this.Comando.Parameters.Clear();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public void ModificarLikeBackOffice()
         {
-            string sql = $"update post set contador_comentario = '{this.comentarios}' where id_post ='{this.idPost}'";
+            string sql = $"update post set contador_comentario = @contador_comentario where id_post = @id_post";
+            this.Comando.Parameters.Clear();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public void ModificarPostUsuarioBackoffice()
         {
             string sql = $"update post set texto_post = @texto_post, id_cuenta = @id_cuenta,  fecha = @fecha, contador_like = @contador_like where id_post = @id_post";
+            this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@texto_post", post);
             this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
             this.Comando.Parameters.AddWithValue("@fecha", fecha);
@@ -73,13 +80,24 @@ namespace Modelo
         }
         public void DeshabilitarPost()
         {
-            string sql = $"UPDATE post SET habilitado = false WHERE id_post = '{this.idPost}'";
+            string sql = $"update post set habilitado = false where id_post = @id_post";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public void HabilitarPost()
         {
-            string sql = $"UPDATE post SET habilitado = true WHERE id_post = '{this.idPost}'";
+            string sql = $"update post set habilitado = true where id_post = @id_post";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+        public void ComentarPost()
+        {
+            string sql = $"insert into comentario (id_post , id_cuenta, texto_comentario, fecha) values(@idPost, @idCuenta, @textoComentario, now())";
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
+            this.Comando.Parameters.AddWithValue("@texto_comentario", textoComentarios);
+            this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }

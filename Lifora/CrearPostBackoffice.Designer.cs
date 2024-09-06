@@ -30,33 +30,22 @@ namespace Lifora
         private void InitializeComponent()
         {
             this.btnCrearPost = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.id_cuenta = new System.Windows.Forms.Label();
-            this.textBoxFecha = new System.Windows.Forms.TextBox();
             this.textBoxPostear = new System.Windows.Forms.TextBox();
             this.textBoxIdUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCrearPost
             // 
-            this.btnCrearPost.Location = new System.Drawing.Point(186, 136);
+            this.btnCrearPost.Location = new System.Drawing.Point(154, 122);
             this.btnCrearPost.Name = "btnCrearPost";
-            this.btnCrearPost.Size = new System.Drawing.Size(75, 23);
+            this.btnCrearPost.Size = new System.Drawing.Size(133, 40);
             this.btnCrearPost.TabIndex = 21;
             this.btnCrearPost.Text = "Crear";
             this.btnCrearPost.UseVisualStyleBackColor = true;
             this.btnCrearPost.Click += new System.EventHandler(this.btnCrearPost_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "fecha";
             // 
             // label3
             // 
@@ -84,13 +73,6 @@ namespace Lifora
             this.id_cuenta.TabIndex = 16;
             this.id_cuenta.Text = "Id Usuario";
             // 
-            // textBoxFecha
-            // 
-            this.textBoxFecha.Location = new System.Drawing.Point(86, 103);
-            this.textBoxFecha.Name = "textBoxFecha";
-            this.textBoxFecha.Size = new System.Drawing.Size(306, 20);
-            this.textBoxFecha.TabIndex = 15;
-            // 
             // textBoxPostear
             // 
             this.textBoxPostear.Location = new System.Drawing.Point(86, 77);
@@ -109,15 +91,14 @@ namespace Lifora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 408);
+            this.ClientSize = new System.Drawing.Size(453, 290);
             this.Controls.Add(this.btnCrearPost);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.id_cuenta);
-            this.Controls.Add(this.textBoxFecha);
             this.Controls.Add(this.textBoxPostear);
             this.Controls.Add(this.textBoxIdUsuario);
+            this.MaximizeBox = false;
             this.Name = "CrearPostBackoffice";
             this.Text = "CrearPostBackoffice";
             this.ResumeLayout(false);
@@ -128,11 +109,9 @@ namespace Lifora
         #endregion
 
         private System.Windows.Forms.Button btnCrearPost;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label id_cuenta;
-        private System.Windows.Forms.TextBox textBoxFecha;
         private System.Windows.Forms.TextBox textBoxPostear;
         private System.Windows.Forms.TextBox textBoxIdUsuario;
     }

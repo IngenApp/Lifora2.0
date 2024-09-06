@@ -79,6 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComentarPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComentarPost.Designer.cs">
+      <DependentUpon>ComentarPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearEventoBackoffice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="backoffice.resx">
       <DependentUpon>backoffice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComentarPost.resx">
+      <DependentUpon>ComentarPost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEventoBackoffice.resx">
       <DependentUpon>CrearEventoBackoffice.cs</DependentUpon>

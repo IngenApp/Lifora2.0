@@ -9,7 +9,7 @@ namespace Lifora
 {
     public partial class backoffice : Form
     {
-        string id;
+        public string id;
 
         public backoffice()
         {
@@ -250,8 +250,8 @@ namespace Lifora
         }
         private void btnCrearPost_Click(object sender, EventArgs e)
         {
-            CrearPostBackoffice ceb = new CrearPostBackoffice();
-            ceb.Show();
+            CrearPostBackoffice cpb = new CrearPostBackoffice();
+            cpb.Show();
         }
         private void btnModificarPost_Click(object sender, EventArgs e)
         {
@@ -282,7 +282,13 @@ namespace Lifora
                 textBoxIdCuenta.Text = seleccion.Cells[1].Value?.ToString();
                 textBoxFecha.Text = seleccion.Cells[3].Value?.ToString();
                 textBoxLike.Text = seleccion.Cells[4].Value?.ToString();
+
             }
+        }
+        private void btnComentarPost_Click(object sender, EventArgs e)
+        {
+           ComentarPost cp = new ComentarPost();
+            cp.Show();
         }
     }
 }

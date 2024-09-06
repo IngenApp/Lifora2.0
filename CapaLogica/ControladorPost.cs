@@ -7,12 +7,11 @@ namespace Controladores
 {
     public class ControladorPost
     {
-        public static void CrearPost(int idCuenta, string postear, string fechaPost)
+        public static void CrearPost(int idCuenta, string postear)
         {
             ModeloPost CreaPost = new ModeloPost();
             CreaPost.idCuenta = idCuenta;
             CreaPost.post = postear;
-            CreaPost.fecha = fechaPost;
             CreaPost.CrearPost();
         }
         public static void ModificarPostBackoffice(string idPost, string post)
@@ -60,7 +59,6 @@ namespace Controladores
             ModPostBO.like = Int32.Parse(like);
             ModPostBO.ModificarPostUsuarioBackoffice();
         }
-
         public static void DeshabilitarPost(int idPost)
         {
             ModeloPost DeshabilitarPost = new ModeloPost();
@@ -99,6 +97,15 @@ namespace Controladores
             }
             return tabla;
         }
+        public static void ComentarPost(int idPost, int idCuenta, string comentar)
+        {
+            ModeloPost ComentarPost = new ModeloPost();
+            ComentarPost.idPost = idPost;
+            ComentarPost.idCuenta = idCuenta;
+            ComentarPost.textoComentarios = comentar;
+            ComentarPost.ComentarPost();
+        }
+
 
     }
 }
