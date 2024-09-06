@@ -76,6 +76,18 @@
     <Compile Include="PerfilSecundario.Designer.cs">
       <DependentUpon>PerfilSecundario.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPost.Designer.cs">
+      <DependentUpon>CrearPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Post.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Post.Designer.cs">
+      <DependentUpon>Post.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrarse1.cs">
@@ -104,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PerfilSecundario.resx">
       <DependentUpon>PerfilSecundario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearPost.resx">
+      <DependentUpon>CrearPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Post.resx">
+      <DependentUpon>Post.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
