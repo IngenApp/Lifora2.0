@@ -17,6 +17,7 @@ namespace Modelo
         public string textoComentarios;
         public string fecha;
         public string habilitado;
+        public string nombre;
         public void CrearPost()
         {
             string sql = $"insert into post (id_cuenta, texto_post, fecha) values(@id_cuenta, @texto_post, now())";
@@ -92,7 +93,7 @@ namespace Modelo
         }
         public void ComentarPost()
         {
-            string sql = $"insert into comentario (id_post , id_cuenta, texto_comentario, fecha) values(@idPost, @idCuenta, @textoComentario, now())";
+            string sql = $"insert into comentario (id_post , id_cuenta, texto_comentario, fecha) values(@id_post, @id_cuenta, @texto_comentario, now())";
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
@@ -120,6 +121,35 @@ namespace Modelo
                 }
                 return ListaPost;
         }
+        public List<ModeloPost> ObtenerComentarios(int idPost)
+        {
+            List<ModeloPost> ListaComentarios = new List<ModeloPost>();
+            string sql = "SELECT c.id_comentario, c.texto_comentario, c.fecha, cu.nombre, p.texto_post " +
+                         "FROM comentario c " +
+                         "JOIN post p ON c.id_post = p.id_post " +
+                         "JOIN cuenta_usuario cu ON c.id_cuenta = cu.id_cuenta " +
+                         "WHERE c.id_post = @id_post;";
+            this.Comando.CommandText = sql;
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloPost mc = new ModeloPost();
+                mc.comentarios = Int32.Parse(this.Lector["id_comentario"].ToString());
+                mc.textoComentarios = this.Lector["texto_comentario"].ToString();
+                mc.fecha = this.Lector["fecha"].ToString();
+                mc.nombre = this.Lector["nombre"].ToString();
+                mc.post = this.Lector["texto_post"].ToString();
+
+                ListaComentarios.Add(mc);
+            }
+
+            this.Lector.Close();
+            return ListaComentarios;
+        }
+
+
     }
 }
 

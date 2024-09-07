@@ -105,6 +105,29 @@ namespace Controladores
             ComentarPost.textoComentarios = comentar;
             ComentarPost.ComentarPost();
         }
+        public static DataTable ListarComentarios(int idPost)
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("IdComentarios", typeof(int));
+            tabla.Columns.Add("Usuario", typeof(string));
+            tabla.Columns.Add("Comentario", typeof(string));
+            tabla.Columns.Add("fecha", typeof(string));
+            tabla.Columns.Add("post", typeof(string));
+            ModeloPost modelo = new ModeloPost();
+            foreach (ModeloPost p in modelo.ObtenerComentarios(idPost))
+            {
+                DataRow fila = tabla.NewRow();
+                fila["IdComentarios"] = p.comentarios;
+                fila["Usuario"] = p.nombre;
+                fila["Comentario"] = p.textoComentarios;
+                fila["fecha"] = p.fecha;
+                fila["post"] = p.post;
+
+                tabla.Rows.Add(fila);
+            }
+            return tabla;
+        }
+
 
 
     }

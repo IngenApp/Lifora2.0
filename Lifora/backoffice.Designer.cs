@@ -38,6 +38,8 @@ namespace Lifora
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearchUser = new System.Windows.Forms.Button();
             this.btnBlockTheUser = new System.Windows.Forms.Button();
             this.btnUnlockTheUser = new System.Windows.Forms.Button();
@@ -101,11 +103,13 @@ namespace Lifora
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxIdPost = new System.Windows.Forms.TextBox();
             this.btnComentarPost = new System.Windows.Forms.Button();
+            this.dataGridViewComentarios = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComentarios)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSearchUser
@@ -774,12 +778,46 @@ namespace Lifora
             this.btnComentarPost.UseVisualStyleBackColor = true;
             this.btnComentarPost.Click += new System.EventHandler(this.btnComentarPost_Click);
             // 
+            // dataGridViewComentarios
+            // 
+            this.dataGridViewComentarios.AllowUserToOrderColumns = true;
+            this.dataGridViewComentarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewComentarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComentarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewComentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewComentarios.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewComentarios.Location = new System.Drawing.Point(645, 538);
+            this.dataGridViewComentarios.MultiSelect = false;
+            this.dataGridViewComentarios.Name = "dataGridViewComentarios";
+            this.dataGridViewComentarios.ReadOnly = true;
+            this.dataGridViewComentarios.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataGridViewComentarios.RowHeadersWidth = 62;
+            this.dataGridViewComentarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewComentarios.Size = new System.Drawing.Size(600, 128);
+            this.dataGridViewComentarios.TabIndex = 72;
+            this.dataGridViewComentarios.SelectionChanged += new System.EventHandler(this.dataGridViewComentarios_SelectionChanged);
+            // 
             // backoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1293, 713);
+            this.Controls.Add(this.dataGridViewComentarios);
             this.Controls.Add(this.btnComentarPost);
             this.Controls.Add(this.textBoxLike);
             this.Controls.Add(this.textBoxFecha);
@@ -855,6 +893,7 @@ namespace Lifora
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComentarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -925,5 +964,6 @@ namespace Lifora
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBoxIdPost;
         private System.Windows.Forms.Button btnComentarPost;
+        private System.Windows.Forms.DataGridView dataGridViewComentarios;
     }
 }

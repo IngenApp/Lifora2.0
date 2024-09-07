@@ -13,23 +13,30 @@ namespace Lifora
 {
     public partial class ComentarPost : Form
     {
-        public ComentarPost()
+        private int idPost;
+        private int idCuenta;
+        public ComentarPost(int idPost, int idCuenta)
         {
             InitializeComponent();
+            this.idPost = idPost;
+            this.idCuenta = idCuenta;
         }
         private void btnComentarPost_Click(object sender, EventArgs e)
         {
-            if (textBoxComentarPost.Text != "" || textBoxIdPost.Text != "" || textBoxIdCuenta.Text != "")
+            if (textBoxComentarPost.Text != "")
             {
-                ControladorPost.ComentarPost(Int32.Parse(textBoxIdPost.Text), Int32.Parse(textBoxIdCuenta.Text), textBoxComentarPost.Text);
-                MessageBox.Show("Comentario creado con exito");
-                textBoxIdPost.Text = "";
-                textBoxIdCuenta.Text = "";
-                textBoxComentarPost.Text = "";
-                return;
+                try
+                {
+                    string comentario = textBoxComentarPost.Text;
+                    ControladorPost.ComentarPost(idPost, idCuenta, comentario);
+                    MessageBox.Show("Comentario creado con éxito");
+                    textBoxComentarPost.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
             }
-            MessageBox.Show("Debe completar todos los campos");
         }
     }
 }
-

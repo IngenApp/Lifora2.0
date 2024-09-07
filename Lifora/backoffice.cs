@@ -90,7 +90,6 @@ namespace Lifora
         }
         private void dataGridViewInfoUser_SelectionChanged(object sender, EventArgs e)
         {
-
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
             {
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
@@ -102,15 +101,11 @@ namespace Lifora
                 string id = seleccion.Cells[0].Value?.ToString();
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
                 dataGridViewPost.DataSource = ControladorPost.ListarPost();
-
                 if (dataGridViewEventos.SelectedRows.Count > 0)
                     (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
                 (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("cuenta LIKE '%{0}%'", id);
-
-
             }
         }
-
         private void btnBlockThePost_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Bloquear este Post?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -161,7 +156,6 @@ namespace Lifora
                 MessageBox.Show("No se ah bloqueado el evento");
             }
         }
-
         private void BtnCrearEvento_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
@@ -282,13 +276,25 @@ namespace Lifora
                 textBoxIdCuenta.Text = seleccion.Cells[1].Value?.ToString();
                 textBoxFecha.Text = seleccion.Cells[3].Value?.ToString();
                 textBoxLike.Text = seleccion.Cells[4].Value?.ToString();
-
+                int idPost = Convert.ToInt32(seleccion.Cells[0].Value);
+                dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
             }
         }
         private void btnComentarPost_Click(object sender, EventArgs e)
         {
-           ComentarPost cp = new ComentarPost();
+            if (dataGridViewPost.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar un post para comentar");
+                return;
+            }
+            DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+            int idPost = Convert.ToInt32(seleccion.Cells["id"].Value);
+            int idCuenta = Convert.ToInt32(seleccion.Cells["cuenta"].Value);
+            ComentarPost cp = new ComentarPost(idPost, idCuenta);
             cp.Show();
+        }
+        private void dataGridViewComentarios_SelectionChanged(object sender, EventArgs e)
+        {
         }
     }
 }
