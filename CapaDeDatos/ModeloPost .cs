@@ -66,11 +66,23 @@ namespace Modelo
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", this.idPost);
             this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
-
             int likeExists = Convert.ToInt32(this.Comando.ExecuteScalar());
             if (likeExists > 0)
-             return;
-            
+            {
+                string sqlDelete = "DELETE FROM like_post WHERE id_post = @id_post AND id_cuenta = @id_cuenta";
+                this.Comando.CommandText = sqlDelete;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", this.idPost);
+                this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
+                this.Comando.ExecuteNonQuery();
+
+                string sqlUpdate = "UPDATE post SET contador_like = contador_like - 1 WHERE id_post = @id_post";
+                this.Comando.CommandText = sqlUpdate;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", this.idPost);
+                this.Comando.ExecuteNonQuery();
+                return;
+            }
             string sqlInsert = "INSERT INTO like_post (id_post, id_cuenta, fecha) VALUES (@id_post, @id_cuenta, NOW())";
             this.Comando.CommandText = sqlInsert;
             this.Comando.Parameters.Clear();
@@ -78,14 +90,12 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
             this.Comando.ExecuteNonQuery();
 
-            string sqlUpdate = "UPDATE post SET contador_like = contador_like + 1 WHERE id_post = @id_post";
-            this.Comando.CommandText = sqlUpdate;
+            string sqlUpdateAdd = "UPDATE post SET contador_like = contador_like + 1 WHERE id_post = @id_post";
+            this.Comando.CommandText = sqlUpdateAdd;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", this.idPost);
             this.Comando.ExecuteNonQuery();
         }
-
-
         public void ModificarPostUsuarioBackoffice()
         {
             string sql = $"update post set texto_post = @texto_post, id_cuenta = @id_cuenta,  fecha = @fecha, contador_like = @contador_like where id_post = @id_post";
