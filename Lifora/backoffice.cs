@@ -10,7 +10,6 @@ namespace Lifora
     public partial class backoffice : Form
     {
         public string id;
-
         public backoffice()
         {
             InitializeComponent();
@@ -170,7 +169,6 @@ namespace Lifora
                 textBoxNuevaInfoEvento.Text = seleccion.Cells[2].Value?.ToString();
                 textBoxNuevoLugarEvento.Text = seleccion.Cells[3].Value?.ToString();
                 textBoxNuevaFechaEvento.Text = seleccion.Cells[4].Value?.ToString();
-
             }
         }
         private void BtnBloquearEvento_click(object sender, EventArgs e)
@@ -250,20 +248,17 @@ namespace Lifora
         private void btnModificarPost_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (pregunta == DialogResult.Yes)
+            if (pregunta != DialogResult.Yes)
             {
+                MessageBox.Show("No se han realizado los cambios");
+                return;
+            }
                 DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
                 int columna = 0;
                 var CellValue = seleccion.Cells[columna].Value;
                 string id_post = CellValue.ToString();
                 ControladorPost.ModificarPostBackoffice(textBoxPost.Text, textBoxIdPost.Text, textBoxIdCuenta.Text, textBoxFecha.Text, textBoxLike.Text);
-                MessageBox.Show("Cambios realizados con exito");
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se han realizado los cambios");
-            }
+                MessageBox.Show("Cambios realizados con exito");           
             dataGridViewPost.DataSource = ControladorPost.ListarPost();
         }
         private void dataGridViewPost_SelectionChanged(object sender, EventArgs e)
@@ -293,8 +288,16 @@ namespace Lifora
             ComentarPost cp = new ComentarPost(idPost, idCuenta);
             cp.Show();
         }
-        private void dataGridViewComentarios_SelectionChanged(object sender, EventArgs e)
+        private void btnLike_Click(object sender, EventArgs e)
         {
+            if (dataGridViewPost.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                int idPost = Convert.ToInt32(seleccion.Cells[0].Value); 
+                int idCuenta = Convert.ToInt32(seleccion.Cells[1].Value);
+                ControladorPost.DarLike(idPost, idCuenta);
+                dataGridViewPost.DataSource = ControladorPost.ListarPost();
+            }
         }
     }
 }

@@ -42,12 +42,11 @@ namespace Controladores
             ModPostBO.fecha = fecha;
             ModPostBO.ModificarPostBackOffice();
         }
-        public static void ModificarLikeBackoffice(string idPost, string like)
+        public static void DarLike(int idPost, int idCuenta)
         {
-            ModeloPost ModPostBO = new ModeloPost();
-            ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.like = Int32.Parse(like);
-            ModPostBO.ModificarPostBackOffice();
+            ModeloPost modeloPost = new ModeloPost();
+            modeloPost.idPost = idPost;
+            modeloPost.DarLike(idCuenta);
         }
         public static void ModificarPostBackoffice(string post, string idPost, string idCuenta, string fecha, string like)
         {

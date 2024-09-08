@@ -104,6 +104,7 @@ namespace Lifora
             this.textBoxIdPost = new System.Windows.Forms.TextBox();
             this.btnComentarPost = new System.Windows.Forms.Button();
             this.dataGridViewComentarios = new System.Windows.Forms.DataGridView();
+            this.btnLike = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
@@ -154,7 +155,7 @@ namespace Lifora
             // 
             // btnUnlockThePost
             // 
-            this.btnUnlockThePost.Location = new System.Drawing.Point(498, 540);
+            this.btnUnlockThePost.Location = new System.Drawing.Point(492, 538);
             this.btnUnlockThePost.Name = "btnUnlockThePost";
             this.btnUnlockThePost.Size = new System.Drawing.Size(107, 33);
             this.btnUnlockThePost.TabIndex = 11;
@@ -591,7 +592,7 @@ namespace Lifora
             // 
             this.btnCrearPost.Location = new System.Drawing.Point(264, 574);
             this.btnCrearPost.Name = "btnCrearPost";
-            this.btnCrearPost.Size = new System.Drawing.Size(173, 37);
+            this.btnCrearPost.Size = new System.Drawing.Size(108, 37);
             this.btnCrearPost.TabIndex = 51;
             this.btnCrearPost.Text = "Crear Post";
             this.btnCrearPost.UseVisualStyleBackColor = true;
@@ -770,9 +771,9 @@ namespace Lifora
             // 
             // btnComentarPost
             // 
-            this.btnComentarPost.Location = new System.Drawing.Point(440, 573);
+            this.btnComentarPost.Location = new System.Drawing.Point(378, 573);
             this.btnComentarPost.Name = "btnComentarPost";
-            this.btnComentarPost.Size = new System.Drawing.Size(173, 37);
+            this.btnComentarPost.Size = new System.Drawing.Size(108, 37);
             this.btnComentarPost.TabIndex = 70;
             this.btnComentarPost.Text = "Comentar Post";
             this.btnComentarPost.UseVisualStyleBackColor = true;
@@ -809,7 +810,16 @@ namespace Lifora
             this.dataGridViewComentarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewComentarios.Size = new System.Drawing.Size(600, 128);
             this.dataGridViewComentarios.TabIndex = 72;
-            this.dataGridViewComentarios.SelectionChanged += new System.EventHandler(this.dataGridViewComentarios_SelectionChanged);
+            // 
+            // btnLike
+            // 
+            this.btnLike.Location = new System.Drawing.Point(492, 573);
+            this.btnLike.Name = "btnLike";
+            this.btnLike.Size = new System.Drawing.Size(108, 37);
+            this.btnLike.TabIndex = 73;
+            this.btnLike.Text = "like";
+            this.btnLike.UseVisualStyleBackColor = true;
+            this.btnLike.Click += new System.EventHandler(this.btnLike_Click);
             // 
             // backoffice
             // 
@@ -817,6 +827,7 @@ namespace Lifora
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1293, 713);
+            this.Controls.Add(this.btnLike);
             this.Controls.Add(this.dataGridViewComentarios);
             this.Controls.Add(this.btnComentarPost);
             this.Controls.Add(this.textBoxLike);
@@ -965,5 +976,6 @@ namespace Lifora
         private System.Windows.Forms.TextBox textBoxIdPost;
         private System.Windows.Forms.Button btnComentarPost;
         private System.Windows.Forms.DataGridView dataGridViewComentarios;
+        private System.Windows.Forms.Button btnLike;
     }
 }
