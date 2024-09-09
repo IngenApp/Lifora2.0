@@ -48,6 +48,12 @@ namespace Controladores
             modeloPost.idPost = idPost;
             modeloPost.DarLike(idCuenta);
         }
+        public static void DarLikeComentarios(int comentarios, int idCuenta, int idPost)
+        {
+            ModeloPost mp = new ModeloPost();
+            mp.comentarios = comentarios;
+            mp.DarLikeComentario(idCuenta, idPost);
+        }
         public static void ModificarPostBackoffice(string post, string idPost, string idCuenta, string fecha, string like)
         {
             ModeloPost ModPostBO = new ModeloPost();
@@ -70,22 +76,27 @@ namespace Controladores
             HabilitarPost.idPost = idPost;
             HabilitarPost.HabilitarPost();
         }
+        public static void ComentarPost(int idPost, int idCuenta, string comentar)
+        {
+            ModeloPost ComentarPost = new ModeloPost();
+            ComentarPost.idPost = idPost;
+            ComentarPost.idCuenta = idCuenta;
+            ComentarPost.textoComentarios = comentar;
+            ComentarPost.ComentarPost();
+        }
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
-
             tabla.Columns.Add("id", typeof(int));
             tabla.Columns.Add("cuenta", typeof(string));
             tabla.Columns.Add("post", typeof(string));
             tabla.Columns.Add("fecha", typeof(string));
             tabla.Columns.Add("like", typeof(int));
             tabla.Columns.Add("habilitado", typeof(bool));
-
             ModeloPost ListarPost = new ModeloPost();
             foreach (ModeloPost p in ListarPost.ObtenerPost())
             {
                 DataRow fila = tabla.NewRow();
-
                 fila["id"] = p.idPost;
                 fila["cuenta"] = p.idCuenta;
                 fila["post"] = p.post;
@@ -96,14 +107,6 @@ namespace Controladores
             }
             return tabla;
         }
-        public static void ComentarPost(int idPost, int idCuenta, string comentar)
-        {
-            ModeloPost ComentarPost = new ModeloPost();
-            ComentarPost.idPost = idPost;
-            ComentarPost.idCuenta = idCuenta;
-            ComentarPost.textoComentarios = comentar;
-            ComentarPost.ComentarPost();
-        }
         public static DataTable ListarComentarios(int idPost)
         {
             DataTable tabla = new DataTable();
@@ -112,8 +115,9 @@ namespace Controladores
             tabla.Columns.Add("Comentario", typeof(string));
             tabla.Columns.Add("fecha", typeof(string));
             tabla.Columns.Add("post", typeof(string));
-            ModeloPost modelo = new ModeloPost();
-            foreach (ModeloPost p in modelo.ObtenerComentarios(idPost))
+            tabla.Columns.Add("like", typeof(int));
+            ModeloPost ListarComentarios = new ModeloPost();
+            foreach (ModeloPost p in ListarComentarios.ObtenerComentarios(idPost))
             {
                 DataRow fila = tabla.NewRow();
                 fila["IdComentarios"] = p.comentarios;
@@ -121,13 +125,12 @@ namespace Controladores
                 fila["Comentario"] = p.textoComentarios;
                 fila["fecha"] = p.fecha;
                 fila["post"] = p.post;
+                fila["like"] = p.contadorLike; 
 
                 tabla.Rows.Add(fila);
             }
             return tabla;
         }
-
-
 
     }
 }

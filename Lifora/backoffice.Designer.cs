@@ -105,6 +105,7 @@ namespace Lifora
             this.btnComentarPost = new System.Windows.Forms.Button();
             this.dataGridViewComentarios = new System.Windows.Forms.DataGridView();
             this.btnLike = new System.Windows.Forms.Button();
+            this.btnLikeComentarios = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
@@ -821,12 +822,23 @@ namespace Lifora
             this.btnLike.UseVisualStyleBackColor = true;
             this.btnLike.Click += new System.EventHandler(this.btnLike_Click);
             // 
+            // btnLikeComentarios
+            // 
+            this.btnLikeComentarios.Location = new System.Drawing.Point(491, 617);
+            this.btnLikeComentarios.Name = "btnLikeComentarios";
+            this.btnLikeComentarios.Size = new System.Drawing.Size(108, 37);
+            this.btnLikeComentarios.TabIndex = 74;
+            this.btnLikeComentarios.Text = "like Comentarios";
+            this.btnLikeComentarios.UseVisualStyleBackColor = true;
+            this.btnLikeComentarios.Click += new System.EventHandler(this.btnLikeComentarios_Click);
+            // 
             // backoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1293, 713);
+            this.Controls.Add(this.btnLikeComentarios);
             this.Controls.Add(this.btnLike);
             this.Controls.Add(this.dataGridViewComentarios);
             this.Controls.Add(this.btnComentarPost);
@@ -977,5 +989,6 @@ namespace Lifora
         private System.Windows.Forms.Button btnComentarPost;
         private System.Windows.Forms.DataGridView dataGridViewComentarios;
         private System.Windows.Forms.Button btnLike;
+        private System.Windows.Forms.Button btnLikeComentarios;
     }
 }

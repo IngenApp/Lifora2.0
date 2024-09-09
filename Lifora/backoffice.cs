@@ -296,8 +296,24 @@ namespace Lifora
                 int idPost = Convert.ToInt32(seleccion.Cells[0].Value); 
                 int idCuenta = Convert.ToInt32(seleccion.Cells[1].Value);
                 ControladorPost.DarLike(idPost, idCuenta);
-                dataGridViewPost.DataSource = ControladorPost.ListarPost();
+                dataGridViewComentarios.DataSource = ControladorPost.ListarPost();
             }
+        }
+        private void btnLikeComentarios_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewComentarios.SelectedRows.Count == 0 || dataGridViewPost.SelectedRows.Count == 0)
+                return;
+
+            DataGridViewRow seleccionComentarios = dataGridViewComentarios.SelectedRows[0];
+            int comentarios = Convert.ToInt32(seleccionComentarios.Cells["IdComentarios"].Value);
+
+            DataGridViewRow seleccionPost = dataGridViewPost.SelectedRows[0];
+            int idPost = Convert.ToInt32(seleccionPost.Cells["id"].Value);
+            int idCuenta = Convert.ToInt32(seleccionPost.Cells["cuenta"].Value);
+            
+            ControladorPost.DarLikeComentarios(idPost, comentarios, idCuenta);
+            dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
         }
     }
 }
+
