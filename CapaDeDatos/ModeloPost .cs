@@ -42,9 +42,9 @@ namespace Modelo
             string sql = $"update post set id_post = @id_post where id_post = @id_post";
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.Parameters.AddWithValue("@id_post", idPost); 
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery(); 
+            this.Comando.ExecuteNonQuery();
         }
         public void ModificarIdCuentaBackOffice()
         {
@@ -97,45 +97,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", this.idPost);
             this.Comando.ExecuteNonQuery();
         }
-        public void DarLikeComentario(int comentarios, int idCuenta)
-        {
-            string sqlCheckLike = "SELECT COUNT(*) FROM like_comentario WHERE id_comentario = @id_comentario AND id_cuenta = @id_cuenta";
-            this.Comando.CommandText = sqlCheckLike;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_comentario", comentarios);
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
-            int likeExists = Convert.ToInt32(this.Comando.ExecuteScalar());
-            if (likeExists > 0)
-            {
-                string sqlDelete = "DELETE FROM like_comentario WHERE id_comentario = @id_comentario AND id_cuenta = @id_cuenta";
-                this.Comando.CommandText = sqlDelete;
-                this.Comando.Parameters.Clear();
-                this.Comando.Parameters.AddWithValue("@id_comentario", comentarios);
-                this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
-                this.Comando.ExecuteNonQuery();
-
-                string sqlUpdate = "UPDATE comentario SET contador_like = contador_like - 1 WHERE id_comentario = @id_comentario";
-                this.Comando.CommandText = sqlUpdate;
-                this.Comando.Parameters.Clear();
-                this.Comando.Parameters.AddWithValue("@id_comentario", comentarios);
-                this.Comando.ExecuteNonQuery();
-            }
-            else
-            {
-                string sqlInsert = "INSERT INTO like_comentario (id_comentario, id_cuenta, fecha) VALUES (@id_comentario, @id_cuenta, NOW())";
-                this.Comando.CommandText = sqlInsert;
-                this.Comando.Parameters.Clear();
-                this.Comando.Parameters.AddWithValue("@id_comentario", comentarios);
-                this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
-                this.Comando.ExecuteNonQuery();
-
-                string sqlUpdateAdd = "UPDATE comentario SET contador_like = contador_like + 1 WHERE id_comentario = @id_comentario";
-                this.Comando.CommandText = sqlUpdateAdd;
-                this.Comando.Parameters.Clear();
-                this.Comando.Parameters.AddWithValue("@id_comentario", comentarios);
-                this.Comando.ExecuteNonQuery();
-            }
-        }
         public void ModificarPostUsuarioBackoffice()
         {
             string sql = $"update post set texto_post = @texto_post, id_cuenta = @id_cuenta,  fecha = @fecha, contador_like = @contador_like where id_post = @id_post";
@@ -178,18 +139,18 @@ namespace Modelo
             string sql = $"SELECT * FROM post";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
-                while (this.Lector.Read())
-                {
-                    ModeloPost mp = new ModeloPost();
+            while (this.Lector.Read())
+            {
+                ModeloPost mp = new ModeloPost();
                 mp.post = this.Lector["texto_post"].ToString();
                 mp.idPost = Int32.Parse(this.Lector["id_post"].ToString());
                 mp.idCuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                 mp.fecha = this.Lector["fecha"].ToString();
                 mp.like = Int32.Parse(this.Lector["contador_like"].ToString());
-                mp.habilitado = this.Lector["habilitado"].ToString(); 
-                    ListaPost.Add(mp);
-                }
-                return ListaPost;
+                mp.habilitado = this.Lector["habilitado"].ToString();
+                ListaPost.Add(mp);
+            }
+            return ListaPost;
         }
         public List<ModeloPost> ObtenerComentarios(int idPost)
         {
@@ -217,6 +178,37 @@ namespace Modelo
             }
             this.Lector.Close();
             return ListaComentarios;
+        }
+        public bool CompartirPost(int idCuentaCompartir, int idPost)
+        {
+            bool operacionExitosa = false;
+
+            string sqlSelect = "SELECT texto_post, fecha FROM post WHERE id_post = @id_post AND habilitado = 1";
+            this.Comando.CommandText = sqlSelect;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Lector = this.Comando.ExecuteReader();
+
+            if (!this.Lector.Read())
+            {
+                this.Lector.Close();
+                return false;
+            }
+            string textoOriginal = this.Lector["texto_post"].ToString();
+            string fechaOriginal = this.Lector["fecha"].ToString();
+            this.Lector.Close();
+            string sqlInsert = @"INSERT INTO post (id_cuenta, texto_post, texto_post_original, fecha, contador_like, contador_comentarios, habilitado) 
+                         VALUES (@id_cuenta, @texto_post, @texto_post_original, NOW(), 0, 0, 1)";
+            this.Comando.CommandText = sqlInsert;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuentaCompartir);
+            this.Comando.Parameters.AddWithValue("@texto_post", "[COMPARTIDO] " + textoOriginal);
+            this.Comando.Parameters.AddWithValue("@texto_post_original", textoOriginal);
+
+            int filasAfectadas = this.Comando.ExecuteNonQuery();
+            operacionExitosa = filasAfectadas > 0;
+
+            return operacionExitosa;
         }
 
     }

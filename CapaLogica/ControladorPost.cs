@@ -48,12 +48,6 @@ namespace Controladores
             modeloPost.idPost = idPost;
             modeloPost.DarLike(idCuenta);
         }
-        public static void DarLikeComentarios(int comentarios, int idCuenta, int idPost)
-        {
-            ModeloPost mp = new ModeloPost();
-            mp.comentarios = comentarios;
-            mp.DarLikeComentario(idCuenta, idPost);
-        }
         public static void ModificarPostBackoffice(string post, string idPost, string idCuenta, string fecha, string like)
         {
             ModeloPost ModPostBO = new ModeloPost();
