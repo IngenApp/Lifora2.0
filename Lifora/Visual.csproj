@@ -157,6 +157,10 @@
       <Project>{AD87CD6D-FCD9-42BA-B697-A86F541333D2}</Project>
       <Name>Controladores</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InterfazUsuario\InterfazUsuario.csproj">
+      <Project>{e548f4da-f56b-488a-a703-39d82d90a9f3}</Project>
+      <Name>InterfazUsuario</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

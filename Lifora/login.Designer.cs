@@ -1,4 +1,3 @@
-﻿
 namespace Lifora
 {
     partial class login
@@ -53,8 +52,7 @@ namespace Lifora
             this.txtBoxBirthday = new System.Windows.Forms.TextBox();
             this.BotonCrearUsuario = new System.Windows.Forms.Button();
             this.buttonBackOffice = new System.Windows.Forms.Button();
-            this.TxtMailLogin = new System.Windows.Forms.TextBox();
-            this.loginPassword = new System.Windows.Forms.TextBox();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -257,26 +255,14 @@ namespace Lifora
             this.buttonBackOffice.UseVisualStyleBackColor = true;
             this.buttonBackOffice.Click += new System.EventHandler(this.buttonBackOffice_Click);
             // 
-            // TxtMailLogin
-            // 
-            this.TxtMailLogin.Location = new System.Drawing.Point(201, 433);
-            this.TxtMailLogin.Name = "TxtMailLogin";
-            this.TxtMailLogin.Size = new System.Drawing.Size(317, 20);
-            this.TxtMailLogin.TabIndex = 37;
-            // 
-            // loginPassword
-            // 
-            this.loginPassword.Location = new System.Drawing.Point(201, 472);
-            this.loginPassword.Name = "loginPassword";
-            this.loginPassword.Size = new System.Drawing.Size(317, 20);
-            this.loginPassword.TabIndex = 38;
+
             // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 701);
-            this.Controls.Add(this.loginPassword);
+
             this.Controls.Add(this.TxtMailLogin);
             this.Controls.Add(this.buttonBackOffice);
             this.Controls.Add(this.BotonCrearUsuario);
@@ -337,8 +323,7 @@ namespace Lifora
         private System.Windows.Forms.TextBox txtBoxBirthday;
         private System.Windows.Forms.Button BotonCrearUsuario;
         private System.Windows.Forms.Button buttonBackOffice;
-        private System.Windows.Forms.TextBox TxtMailLogin;
-        private System.Windows.Forms.TextBox loginPassword;
+
     }
 }
 
