@@ -7,5 +7,15 @@ namespace ApiLifora.Models
 {
     public class ModeloApi
     {
+
+        public int id;
+        public string mail;
+        public int telefono;
+        public string contrasenia;
+        public string nombre;
+        public string apellido;
+        public string fechaNacimiento;
+        public bool habilitado;
+
     }
 }
