@@ -76,7 +76,6 @@ namespace Controladores
             ModEventoBO.fecha_evento = fecha;
             ModEventoBO.ModificarEventoBackOffice();
         }
-
         public static DataTable ListarEventos()
         {
             DataTable tabla = new DataTable();

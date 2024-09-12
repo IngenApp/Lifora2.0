@@ -9,7 +9,7 @@ namespace Lifora
 {
     public partial class backoffice : Form
     {
-        string id;
+        public string id;
         public backoffice()
         {
             InitializeComponent();
@@ -76,7 +76,6 @@ namespace Lifora
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
             if (pregunta == DialogResult.Yes)
             {
                 ControladorCuentaUsuario.ModificarCuentaDesdeBackoffice(id, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarEmail.Text, textBoxCambiarTelefono.Text, textBoxFechaDeNacimiento.Text);
@@ -100,73 +99,63 @@ namespace Lifora
                 textBoxFechaDeNacimiento.Text = seleccion.Cells[5].Value?.ToString();
                 string id = seleccion.Cells[0].Value?.ToString();
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+                dataGridViewPost.DataSource = ControladorPost.ListarPost();
                 if (dataGridViewEventos.SelectedRows.Count > 0)
                     (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
-                
-                buscarPost();
-
-            }
-
-        }
-        private void buscarPost()
-        {
-            int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
-            List<string> listaPosts = Controladores.ControladorCuentaUsuario.ListarPost(idUsuario);
-            listBoxPost.Items.Clear();
-            listBoxPost.Items.AddRange(listaPosts.ToArray());
-        }
-        private void ActualizarListaDePosts()
-        {
-            listBoxPost.Items.Clear();
-
-            if (dataGridViewInfoUser.SelectedRows.Count > 0)
-            {
-                int idUsuario = Convert.ToInt32(dataGridViewInfoUser.SelectedRows[0].Cells["id_cuenta"].Value);
-                List<ControladorCuentaUsuario> estadoPosts = Controladores.ControladorCuentaUsuario.EstadoPost(idUsuario);
-
-                foreach (var postInfo in estadoPosts)
-                {
-                    if (!postInfo.EstaHabilitado)
-                    {
-                        listBoxPost.Items.Add(postInfo.TextoPost + " [Bloqueado]");
-                    }
-                    else
-                    {
-                        listBoxPost.Items.Add(postInfo.TextoPost);
-                    }
-                }
+                (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("cuenta LIKE '%{0}%'", id);
             }
         }
         private void btnBlockThePost_Click(object sender, EventArgs e)
         {
-            if (listBoxPost.SelectedItem != null)
+            DialogResult pregunta = MessageBox.Show("Bloquear este Post?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
             {
-                string selectedItem = listBoxPost.SelectedItem.ToString();
-                int idPost = ControladorCuentaUsuario.ExtraerIdPost(selectedItem);
-                DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (pregunta == DialogResult.Yes)
+                if (dataGridViewPost.SelectedRows.Count > 0)
                 {
-                    Controladores.ControladorCuentaUsuario.DeshabilitarPost(idPost);
-                    ActualizarListaDePosts();
+                    DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int idPost = int.Parse(Id);
+                    ControladorPost.DeshabilitarPost(idPost);
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
+                if (dataGridViewInfoUser.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un evento");
+                }
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se ah bloqueado el evento");
             }
         }
         private void btnUnlockThePost_Click(object sender, EventArgs e)
         {
-            if (listBoxPost.SelectedItem != null)
+            DialogResult pregunta = MessageBox.Show("Desbloquear este Post?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
             {
-                string selectedItem = listBoxPost.SelectedItem.ToString();
-                int idPost = ControladorCuentaUsuario.ExtraerIdPost(selectedItem);
-                DialogResult pregunta = MessageBox.Show("¿Bloquear este post?", "¿Estás seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (pregunta == DialogResult.Yes)
+                if (dataGridViewPost.SelectedRows.Count > 0)
                 {
-                    Controladores.ControladorCuentaUsuario.HabilitarPost(idPost);
-                    ActualizarListaDePosts();
+                    DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int idPost = int.Parse(Id);
+                    ControladorPost.HabilitarPost(idPost);
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+                }
+                if (dataGridViewInfoUser.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un evento");
                 }
             }
-
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se ah bloqueado el evento");
+            }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnCrearEvento_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
             ceb.Show();
@@ -180,31 +169,9 @@ namespace Lifora
                 textBoxNuevaInfoEvento.Text = seleccion.Cells[2].Value?.ToString();
                 textBoxNuevoLugarEvento.Text = seleccion.Cells[3].Value?.ToString();
                 textBoxNuevaFechaEvento.Text = seleccion.Cells[4].Value?.ToString();
-
             }
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (pregunta == DialogResult.Yes)
-            {
-                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
-                int columna = 0;
-                var CellValue = seleccion.Cells[columna].Value;
-                string id_evento = CellValue.ToString();
-                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, textBoxNuevaInfoEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
-                MessageBox.Show("Cambios realizados con exito");
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se han realizado los cambios");
-            }
-            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnBloquearEvento_click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Bloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
@@ -229,8 +196,7 @@ namespace Lifora
                 MessageBox.Show("No se ah bloqueado el evento");
             }
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void BtnDesbloquearEvento_click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Desbloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
@@ -255,5 +221,85 @@ namespace Lifora
                 MessageBox.Show("No se ah Habilitado el evento");
             }
         }
+        private void BtnModificarEvento_Click_1(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (pregunta == DialogResult.Yes)
+            {
+                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
+                int columna = 0;
+                var CellValue = seleccion.Cells[columna].Value;
+                string id_evento = CellValue.ToString();
+                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, textBoxNuevaInfoEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
+                MessageBox.Show("Cambios realizados con exito");
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+            }
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+        }
+        private void btnCrearPost_Click(object sender, EventArgs e)
+        {
+            CrearPostBackoffice cpb = new CrearPostBackoffice();
+            cpb.Show();
+        }
+        private void btnModificarPost_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta != DialogResult.Yes)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+                return;
+            }
+                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                int columna = 0;
+                var CellValue = seleccion.Cells[columna].Value;
+                string id_post = CellValue.ToString();
+                ControladorPost.ModificarPostBackoffice(textBoxPost.Text, textBoxIdPost.Text, textBoxIdCuenta.Text, textBoxFecha.Text, textBoxLike.Text);
+                MessageBox.Show("Cambios realizados con exito");           
+            dataGridViewPost.DataSource = ControladorPost.ListarPost();
+        }
+        private void dataGridViewPost_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewPost.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                textBoxPost.Text = seleccion.Cells[2].Value?.ToString();
+                textBoxIdPost.Text = seleccion.Cells[0].Value?.ToString();
+                textBoxIdCuenta.Text = seleccion.Cells[1].Value?.ToString();
+                textBoxFecha.Text = seleccion.Cells[3].Value?.ToString();
+                textBoxLike.Text = seleccion.Cells[4].Value?.ToString();
+                int idPost = Convert.ToInt32(seleccion.Cells[0].Value);
+                dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
+            }
+        }
+        private void btnComentarPost_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPost.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar un post para comentar");
+                return;
+            }
+            DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+            int idPost = Convert.ToInt32(seleccion.Cells["id"].Value);
+            int idCuenta = Convert.ToInt32(seleccion.Cells["cuenta"].Value);
+            ComentarPost cp = new ComentarPost(idPost, idCuenta);
+            cp.Show();
+        }
+        private void btnLike_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPost.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
+                int idPost = Convert.ToInt32(seleccion.Cells[0].Value); 
+                int idCuenta = Convert.ToInt32(seleccion.Cells[1].Value);
+                ControladorPost.DarLike(idPost, idCuenta);
+                dataGridViewComentarios.DataSource = ControladorPost.ListarPost();
+            }
+        }
+       
     }
 }
+

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-
 namespace Modelo
 {
     public class ModeloEventos : Modelo
@@ -17,7 +16,7 @@ namespace Modelo
         public string fecha_evento;
         public int id_cuenta;
         public string habilitado;
-
+ 
         public void CrearEvento()
         {
             string sql = $"insert into eventos (nombre_evento, informacion, lugar, fecha_evento, id_cuenta) values(@nombre_evento, @informacion, @lugar, @fecha_evento, @id_cuenta)";
