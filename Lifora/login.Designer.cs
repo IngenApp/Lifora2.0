@@ -52,7 +52,8 @@ namespace Lifora
             this.txtBoxBirthday = new System.Windows.Forms.TextBox();
             this.BotonCrearUsuario = new System.Windows.Forms.Button();
             this.buttonBackOffice = new System.Windows.Forms.Button();
-
+            this.textBoxMail = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -255,15 +256,27 @@ namespace Lifora
             this.buttonBackOffice.UseVisualStyleBackColor = true;
             this.buttonBackOffice.Click += new System.EventHandler(this.buttonBackOffice_Click);
             // 
-
+            // textBoxMail
+            // 
+            this.textBoxMail.Location = new System.Drawing.Point(201, 430);
+            this.textBoxMail.Name = "textBoxMail";
+            this.textBoxMail.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMail.TabIndex = 37;
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Location = new System.Drawing.Point(201, 469);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPassword.TabIndex = 38;
             // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 701);
-
-            this.Controls.Add(this.TxtMailLogin);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxMail);
             this.Controls.Add(this.buttonBackOffice);
             this.Controls.Add(this.BotonCrearUsuario);
             this.Controls.Add(this.txtBoxBirthday);
@@ -323,7 +336,8 @@ namespace Lifora
         private System.Windows.Forms.TextBox txtBoxBirthday;
         private System.Windows.Forms.Button BotonCrearUsuario;
         private System.Windows.Forms.Button buttonBackOffice;
-
+        private System.Windows.Forms.TextBox textBoxMail;
+        private System.Windows.Forms.TextBox textBoxPassword;
     }
 }
 

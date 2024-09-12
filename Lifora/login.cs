@@ -55,7 +55,7 @@ namespace Lifora
 
         private void buttonBackOffice_Click(object sender, EventArgs e)
         {
-            if(ControladorCuentaUsuario.Login(TxtMailLogin.Text, loginPassword.Text) == true)
+            if(ControladorCuentaUsuario.Login(textBoxMail.Text, textBoxPassword.Text) == true)
             {
             backoffice backoff = new backoffice();
             this.Enabled = false;
