@@ -43,7 +43,7 @@ namespace InterfazUsuario
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(252, 275);
+            this.pictureBox1.Location = new System.Drawing.Point(278, 170);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(280, 280);
@@ -52,7 +52,7 @@ namespace InterfazUsuario
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(630, 464);
+            this.button1.Location = new System.Drawing.Point(614, 366);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(375, 53);
@@ -63,7 +63,7 @@ namespace InterfazUsuario
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(630, 334);
+            this.textBox1.Location = new System.Drawing.Point(614, 236);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(380, 20);
@@ -71,7 +71,7 @@ namespace InterfazUsuario
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(630, 401);
+            this.textBox2.Location = new System.Drawing.Point(614, 303);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(380, 20);
@@ -81,7 +81,7 @@ namespace InterfazUsuario
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(782, 561);
+            this.linkLabel1.Location = new System.Drawing.Point(766, 463);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(55, 13);
@@ -114,7 +114,7 @@ namespace InterfazUsuario
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(252, 559);
+            this.pictureBox2.Location = new System.Drawing.Point(278, 454);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(280, 53);
@@ -125,7 +125,7 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
