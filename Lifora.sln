@@ -22,6 +22,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiUsuario", "ApiLifora\ApiUsuario.csproj", "{22528601-46DA-40E1-B60C-79489042F912}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPost", "ApiPost\ApiPost.csproj", "{C09A4EA9-BCE0-4F70-B47F-5BEC42F991B5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AD87CD6D-FCD9-42BA-B697-A86F541333D2} = {AD87CD6D-FCD9-42BA-B697-A86F541333D2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

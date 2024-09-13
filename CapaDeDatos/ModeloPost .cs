@@ -28,7 +28,7 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public void ModificarPostBackOffice()
+        public void ModificarPost()
         {
             string sql = "update post set texto_post = @texto_post where id_post = @id_post";
             this.Comando.Parameters.Clear();
@@ -37,7 +37,7 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public void ModificarIdPostBackOffice()
+        public void ModificarIdPost()
         {
             string sql = $"update post set id_post = @id_post where id_post = @id_post";
             this.Comando.Parameters.Clear();
@@ -46,14 +46,14 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public void ModificarIdCuentaBackOffice()
+        public void ModificarIdCuenta()
         {
             string sql = $"update post set id_cuenta = @id_duenta where id_post = @id_post";
             this.Comando.Parameters.Clear();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public void ModificarFechaBackOffice()
+        public void ModificarFecha()
         {
             string sql = $"update post set fecha = @fecha where id_post = @id_post";
             this.Comando.Parameters.Clear();

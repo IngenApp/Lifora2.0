@@ -15,7 +15,7 @@ namespace ApiPost.Models
         public string textoComentarios;
         public int contadorLike;
         public string fecha;
-        public string habilitado;
+        public bool habilitado;
         public string nombre;
     }
 }
