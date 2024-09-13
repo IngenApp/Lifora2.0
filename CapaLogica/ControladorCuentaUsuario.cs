@@ -81,11 +81,11 @@ namespace Controladores
             CuentaUsuario.fecha_nac = fecha_nac;
             CuentaUsuario.ModificarCuentaUsuarioBackoffice();
         }
-        public static int BuscarId(string email)
+        public static Dictionary<string, string> BuscarPorId(int id)
         {
-            ModeloPersonas CuentaId = new ModeloPersonas();
-            CuentaId.email = email;
-            return CuentaId.ObtenerIdUsuario();
+            ModeloPersonas cuentaUsuario = new ModeloPersonas();
+            cuentaUsuario.id_cuenta = id;
+            return cuentaUsuario.ObtenerDatosPorId();
         }
         public static DataTable Listar()
         {
