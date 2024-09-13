@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfazUsuario", "InterfazUsuario\InterfazUsuario.csproj", "{E548F4DA-F56B-488A-A703-39D82D90A9F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiLifora", "ApiLifora\ApiLifora.csproj", "{22528601-46DA-40E1-B60C-79489042F912}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiUsuario", "ApiLifora\ApiUsuario.csproj", "{22528601-46DA-40E1-B60C-79489042F912}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
