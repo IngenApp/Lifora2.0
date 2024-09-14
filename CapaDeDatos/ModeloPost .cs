@@ -130,17 +130,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
-        public void ComentarPost()
-        {
-            string sql = $"insert into comentario (id_post , id_cuenta, texto_comentario, fecha) values(@id_post, @id_cuenta, @texto_comentario, now())";
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
-            this.Comando.Parameters.AddWithValue("@texto_comentario", textoComentarios);
-            this.Comando.Prepare();
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
         public Dictionary<string, string> ObtenerDatosPostPorId()
         {
             string sql = "SELECT id_post, id_cuenta, texto_post, contador_like, contador_comentarios, habilitado, fecha " +
@@ -188,33 +177,6 @@ namespace Modelo
             }
             return ListaPost;
         }
-        public List<ModeloPost> ObtenerComentarios(int idPost)
-        {
-            List<ModeloPost> ListaComentarios = new List<ModeloPost>();
-            string sql = "SELECT c.id_comentario, c.texto_comentario, c.fecha, cu.nombre, cu.id_cuenta, p.texto_post, " +
-                         "IFNULL((SELECT COUNT(*) FROM like_comentario lc WHERE lc.id_comentario = c.id_comentario), 0) AS contador_like " +
-                         "FROM comentario c " +
-                         "JOIN post p ON c.id_post = p.id_post " +
-                         "JOIN cuenta_usuario cu ON c.id_cuenta = cu.id_cuenta " +
-                         "WHERE c.id_post = @id_post;";
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Lector = this.Comando.ExecuteReader();
-            while (this.Lector.Read())
-            {
-                ModeloPost mc = new ModeloPost();
-                mc.comentarios = Convert.ToInt32(this.Lector["id_comentario"]);
-                mc.textoComentarios = this.Lector["texto_comentario"].ToString();
-                mc.fecha = this.Lector["fecha"].ToString();
-                mc.nombre = this.Lector["nombre"].ToString();
-                mc.post = this.Lector["texto_post"].ToString();
-                mc.contadorLike = Convert.ToInt32(this.Lector["contador_like"]);
-                ListaComentarios.Add(mc);
-            }
-            this.Lector.Close();
-            return ListaComentarios;
-        }
         public bool CompartirPost(int idCuentaCompartir, int idPost)
         {
             bool operacionExitosa = false;
@@ -245,6 +207,44 @@ namespace Modelo
             operacionExitosa = filasAfectadas > 0;
 
             return operacionExitosa;
+        }
+        public void ComentarPost()
+        {
+            string sql = $"insert into comentario (id_post , id_cuenta, texto_comentario, fecha) values(@id_post, @id_cuenta, @texto_comentario, now())";
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
+            this.Comando.Parameters.AddWithValue("@texto_comentario", textoComentarios);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+        public List<ModeloPost> ObtenerComentarios(int idPost)
+        {
+            List<ModeloPost> ListaComentarios = new List<ModeloPost>();
+            string sql = "SELECT c.id_comentario, c.texto_comentario, c.fecha, cu.nombre, cu.id_cuenta, p.texto_post, " +
+                         "IFNULL((SELECT COUNT(*) FROM like_comentario lc WHERE lc.id_comentario = c.id_comentario), 0) AS contador_like " +
+                         "FROM comentario c " +
+                         "JOIN post p ON c.id_post = p.id_post " +
+                         "JOIN cuenta_usuario cu ON c.id_cuenta = cu.id_cuenta " +
+                         "WHERE c.id_post = @id_post;";
+            this.Comando.CommandText = sql;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Lector = this.Comando.ExecuteReader();
+            while (this.Lector.Read())
+            {
+                ModeloPost mc = new ModeloPost();
+                mc.comentarios = Convert.ToInt32(this.Lector["id_comentario"]);
+                mc.textoComentarios = this.Lector["texto_comentario"].ToString();
+                mc.fecha = this.Lector["fecha"].ToString();
+                mc.nombre = this.Lector["nombre"].ToString();
+                mc.post = this.Lector["texto_post"].ToString();
+                mc.contadorLike = Convert.ToInt32(this.Lector["contador_like"]);
+                ListaComentarios.Add(mc);
+            }
+            this.Lector.Close();
+            return ListaComentarios;
         }
 
     }

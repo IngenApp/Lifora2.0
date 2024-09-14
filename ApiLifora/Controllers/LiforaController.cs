@@ -36,7 +36,6 @@ namespace ApiLifora.Controllers
             return listaUsuarios;
         }
 
-
         [Route("api/Lifora/CrearUsuario")]
         [HttpPost]
         public IHttpActionResult Post(ModeloApi usuario)
@@ -53,8 +52,6 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
-
-
         [Route("api/Lifora/ModificarUsuario{id:int}")]
         [HttpPut]
         public IHttpActionResult Put(int id, ModeloApi usuario)
@@ -68,7 +65,6 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
-
         [Route("api/Lifora/DesabilitarUsuario{id:int}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
@@ -78,7 +74,6 @@ namespace ApiLifora.Controllers
             resultado.Add("mensaje", "Usuario deshabilitado exitosamente");
             return Ok(resultado);
         }
-
 
         [Route("api/Lifora/BuscarUsuario/{id:int}")]
         [HttpGet]
