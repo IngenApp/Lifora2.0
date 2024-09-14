@@ -48,15 +48,20 @@ namespace Modelo
         }
         public void ModificarIdCuenta()
         {
-            string sql = $"update post set id_cuenta = @id_duenta where id_post = @id_post";
+            string sql = "update post set id_cuenta = @id_cuenta where id_post = @id_post";
             this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta); 
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+
         public void ModificarFecha()
         {
             string sql = $"update post set fecha = @fecha where id_post = @id_post";
             this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@fecha", fecha);
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }

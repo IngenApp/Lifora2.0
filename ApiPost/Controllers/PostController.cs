@@ -34,7 +34,6 @@ namespace ApiPost.Controllers
             return listaPosts;
         }
 
-
         [Route("api/Lifora/CrearPost")]
         [HttpPost]
         public IHttpActionResult Post(ModeloApiPost post)
@@ -45,17 +44,15 @@ namespace ApiPost.Controllers
             }
 
             ControladorPost.CrearPost(post.idCuenta, post.post);
-
             var resultado = new Dictionary<string, string>
             {
                 { "mensaje", "Post creado exitosamente" }
             };
-
             return Ok(resultado);
         }
 
 
-        [Route("api/Lifora/ModificarUsuario{id:int}")]
+        [Route("api/Lifora/ModificarPost{id:int}")]
         [HttpPut]
         public IHttpActionResult Put(int id, ModeloApiPost post)
         {
@@ -63,7 +60,6 @@ namespace ApiPost.Controllers
             ControladorPost.ModificarPost(id.ToString(), post.post);
             ControladorPost.ModificarIdCuenta(id.ToString(), post.idCuenta.ToString());
             ControladorPost.ModificarFecha(id.ToString(), post.fecha);
-
             resultado.Add("mensaje", "Usuario modificado exitosamente");
             return Ok(resultado);
         }
