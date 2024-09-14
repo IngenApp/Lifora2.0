@@ -45,14 +45,11 @@ namespace ApiLifora.Controllers
             {
                 return BadRequest("El campo 'email' es requerido.");
             }
-
             ControladorCuentaUsuario.AltaCuentaUsuario(usuario.nombre, usuario.apellido, usuario.telefono, usuario.mail, usuario.fechaNacimiento, usuario.contrasenia);
-
             Dictionary<string, string> resultado = new Dictionary<string, string>
     {
         { "mensaje", "Usuario creado exitosamente" }
     };
-
             return Ok(resultado);
         }
 
@@ -67,7 +64,6 @@ namespace ApiLifora.Controllers
             ControladorCuentaUsuario.ModificarApellidoUsuario(id.ToString(), usuario.apellido);
             ControladorCuentaUsuario.ModificarContrasenaUsuario(id.ToString(), usuario.contrasenia);
             ControladorCuentaUsuario.ModificarFechaNacimientoUsuario(id.ToString(), usuario.fechaNacimiento);
-
             resultado.Add("mensaje", "Usuario modificado exitosamente");
             return Ok(resultado);
         }

@@ -78,6 +78,12 @@ namespace Controladores
             ComentarPost.textoComentarios = comentar;
             ComentarPost.ComentarPost();
         }
+        public static Dictionary<string, string> BuscarPostPorId(int id)
+        {
+            ModeloPost post = new ModeloPost();
+            post.idPost = id;
+            return post.ObtenerDatosPostPorId();
+        }
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
