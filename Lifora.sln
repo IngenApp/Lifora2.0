@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiPost", "ApiPost\ApiPost.
 		{AD87CD6D-FCD9-42BA-B697-A86F541333D2} = {AD87CD6D-FCD9-42BA-B697-A86F541333D2}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiEventos", "ApiEventos\ApiEventos.csproj", "{E783EE1F-97A8-4041-98F8-6538FE65C6CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{C09A4EA9-BCE0-4F70-B47F-5BEC42F991B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C09A4EA9-BCE0-4F70-B47F-5BEC42F991B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C09A4EA9-BCE0-4F70-B47F-5BEC42F991B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E783EE1F-97A8-4041-98F8-6538FE65C6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E783EE1F-97A8-4041-98F8-6538FE65C6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E783EE1F-97A8-4041-98F8-6538FE65C6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E783EE1F-97A8-4041-98F8-6538FE65C6CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
