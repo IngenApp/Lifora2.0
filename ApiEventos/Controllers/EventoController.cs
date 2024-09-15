@@ -64,17 +64,21 @@ namespace ApiEventos.Controllers
         }
 
   
-        /*
-        [Route("api/Eventos/DesabilitarPost{id:int}")]
+       
+        [Route("api/Eventos/DesabilitarEvento{id:int}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
-            ControladorEventos.DeshabilitarPost(id);
-            resultado.Add("mensaje", "Post deshabilitado exitosamente");
+            ControladorEventos.DeshabilitarEvento(id);
+            resultado.Add("mensaje", "Evento deshabilitado exitosamente");
             return Ok(resultado);
         }
 
+
+
+
+        /*
         [Route("api/Eventos/BuscarPost/{id:int}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
