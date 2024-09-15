@@ -44,25 +44,27 @@ namespace ApiEventos.Controllers
             ControladorEventos.CrearEvento(evento.id_cuenta, evento.nombre_evento, evento.informacion, evento.lugar, evento.fecha_evento);
             Dictionary<string,string> resultado = new Dictionary<string, string>
             {
-                { "mensaje", "Post creado exitosamente" }
+                { "mensaje", "Evento creado exitosamente" }
             };
             return Ok(resultado);
         }
 
 
-        /*
-        [Route("api/Eventos/ModificarPost{id:int}")]
+        [Route("api/Eventos/ModificarEvento{id:int}")]
         [HttpPut]
-        public IHttpActionResult Put(int id, ModeloApiEventos post)
+        public IHttpActionResult Put(int id, ModeloApiEventos evento)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
-            ControladorEventos.ModificarPost(id.ToString(), post.post);
-            ControladorEventos.ModificarIdCuenta(id.ToString(), post.idCuenta.ToString());
-            ControladorEventos.ModificarFecha(id.ToString(), post.fecha);
-            resultado.Add("mensaje", "Post modificado exitosamente");
+            ControladorEventos.ModificarNombreEvento(id, evento.nombre_evento);
+            ControladorEventos.ModificarInformacionEvento(id, evento.informacion);
+            ControladorEventos.ModificarLugarEvento(id, evento.lugar.ToString());
+            ControladorEventos.ModificarFechaEvento(id, evento.fecha_evento);
+            resultado.Add("mensaje", "Evento modificado exitosamente");
             return Ok(resultado);
         }
 
+  
+        /*
         [Route("api/Eventos/DesabilitarPost{id:int}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
