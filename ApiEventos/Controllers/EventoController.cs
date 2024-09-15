@@ -12,28 +12,28 @@ namespace ApiEventos.Controllers
 {
     public class EventoController : ApiController
     {
-        [Route("api/Lifora/ListarPost")]
+        [Route("api/Lifora/ListarEventos")]
         [HttpGet]
         public List<ModeloApiEventos> Get()
         {
-            DataTable posts = ControladorEventos.ListarEventos();
-            List<ModeloApiEventos> listaPosts = new List<ModeloApiEventos>();
+            DataTable evento = ControladorEventos.ListarEventos();
+            List<ModeloApiEventos> listaEventos = new List<ModeloApiEventos>();
 
-            foreach (DataRow post in posts.Rows)
+            foreach (DataRow eventos in evento.Rows)
             {
-                ModeloApiEventos p = new ModeloApiEventos();
-                p.idPost = Int32.Parse(post["id"].ToString());
-                p.idCuenta = Int32.Parse(post["cuenta"].ToString());
-                p.post = post["post"].ToString();
-                p.fecha = post["fecha"].ToString();
-                p.like = Int32.Parse(post["like"].ToString());
-                p.habilitado = Boolean.Parse(post["habilitado"].ToString());
-
-                listaPosts.Add(p);
+                ModeloApiEventos me = new ModeloApiEventos();
+                me.id_evento = Int32.Parse(eventos["id_eventos"].ToString());
+                me.nombre_evento = eventos["nombre_evento"].ToString();
+                me.informacion = eventos["informacion"].ToString();
+                me.lugar = eventos["lugar"].ToString();
+                me.fecha_evento = eventos["fecha_evento"].ToString();
+                listaEventos.Add(me);
             }
-            return listaPosts;
+            return listaEventos;
         }
 
+
+/*
         [Route("api/Lifora/CrearPost")]
         [HttpPost]
         public IHttpActionResult Post(ModeloApiEventos post)
@@ -96,5 +96,6 @@ namespace ApiEventos.Controllers
             }
             return NotFound();
         }
+        */
     }
 }
