@@ -12,7 +12,7 @@ namespace ApiEventos.Controllers
 {
     public class EventoController : ApiController
     {
-        [Route("api/Lifora/ListarEventos")]
+        [Route("api/Eventos/ListarEventos")]
         [HttpGet]
         public List<ModeloApiEventos> Get()
         {
@@ -32,26 +32,26 @@ namespace ApiEventos.Controllers
             return listaEventos;
         }
 
-
-/*
-        [Route("api/Lifora/CrearPost")]
+        [Route("api/Eventos/CrearEventos")]
         [HttpPost]
-        public IHttpActionResult Post(ModeloApiEventos post)
+        public IHttpActionResult Post(ModeloApiEventos evento)
         {
-            if (post == null || string.IsNullOrEmpty(post.post))
+            if (evento == null || string.IsNullOrEmpty(evento.informacion))
             {
                 return BadRequest("El contenido del post es requerido.");
             }
 
-            ControladorEventos.CrearPost(post.idCuenta, post.post);
-            var resultado = new Dictionary<string, string>
+            ControladorEventos.CrearEvento(evento.id_cuenta, evento.nombre_evento, evento.informacion, evento.lugar, evento.fecha_evento);
+            Dictionary<string,string> resultado = new Dictionary<string, string>
             {
                 { "mensaje", "Post creado exitosamente" }
             };
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/ModificarPost{id:int}")]
+
+        /*
+        [Route("api/Eventos/ModificarPost{id:int}")]
         [HttpPut]
         public IHttpActionResult Put(int id, ModeloApiEventos post)
         {
@@ -63,7 +63,7 @@ namespace ApiEventos.Controllers
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/DesabilitarPost{id:int}")]
+        [Route("api/Eventos/DesabilitarPost{id:int}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
@@ -73,7 +73,7 @@ namespace ApiEventos.Controllers
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/BuscarPost/{id:int}")]
+        [Route("api/Eventos/BuscarPost/{id:int}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {

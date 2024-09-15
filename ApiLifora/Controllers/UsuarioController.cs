@@ -11,9 +11,9 @@ using System.Data;
 
 namespace ApiLifora.Controllers
 {
-    public class LiforaController : ApiController
+    public class UsuarioController : ApiController
     {
-        [Route("api/Lifora/ListarUsuarios")]
+        [Route("api/Usuario/ListarUsuarios")]
         [HttpGet]
         public List<ModeloApi> Get()
         {
@@ -36,7 +36,7 @@ namespace ApiLifora.Controllers
             return listaUsuarios;
         }
 
-        [Route("api/Lifora/CrearUsuario")]
+        [Route("api/Usuario/CrearUsuario")]
         [HttpPost]
         public IHttpActionResult Post(ModeloApi usuario)
         {
@@ -52,7 +52,7 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/ModificarUsuario{id:int}")]
+        [Route("api/Usuario/ModificarUsuario{id:int}")]
         [HttpPut]
         public IHttpActionResult Put(int id, ModeloApi usuario)
         {
@@ -65,7 +65,7 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/DesabilitarUsuario{id:int}")]
+        [Route("api/Usuario/DesabilitarUsuario{id:int}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
@@ -75,7 +75,7 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/BuscarUsuario/{id:int}")]
+        [Route("api/Usuario/BuscarUsuario/{id:int}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {

@@ -12,7 +12,7 @@ namespace ApiPost.Controllers
 {
     public class PostController : ApiController
     {
-        [Route("api/Lifora/ListarPost")]
+        [Route("api/Post/ListarPost")]
         [HttpGet]
         public List<ModeloApiPost> Get()
         {
@@ -34,7 +34,7 @@ namespace ApiPost.Controllers
             return listaPosts;
         }
 
-        [Route("api/Lifora/CrearPost")]
+        [Route("api/Post/CrearPost")]
         [HttpPost]
         public IHttpActionResult Post(ModeloApiPost post)
         {
@@ -44,14 +44,14 @@ namespace ApiPost.Controllers
             }
 
             ControladorPost.CrearPost(post.idCuenta, post.post);
-            var resultado = new Dictionary<string, string>
+            Dictionary<string, string> resultado = new Dictionary<string, string>
             {
                 { "mensaje", "Post creado exitosamente" }
             };
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/ModificarPost{id:int}")]
+        [Route("api/Post/ModificarPost{id:int}")]
         [HttpPut]
         public IHttpActionResult Put(int id, ModeloApiPost post)
         {
@@ -63,7 +63,7 @@ namespace ApiPost.Controllers
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/DesabilitarPost{id:int}")]
+        [Route("api/Post/DesabilitarPost{id:int}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
@@ -73,7 +73,7 @@ namespace ApiPost.Controllers
             return Ok(resultado);
         }
 
-        [Route("api/Lifora/BuscarPost/{id:int}")]
+        [Route("api/Post/BuscarPost/{id:int}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
