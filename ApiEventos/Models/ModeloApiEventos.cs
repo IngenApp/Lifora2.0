@@ -13,6 +13,6 @@ namespace ApiEventos.Models
         public string lugar;
         public string fecha_evento;
         public int id_cuenta;
-        public string habilitado;
+        public bool habilitado;
     }
 }

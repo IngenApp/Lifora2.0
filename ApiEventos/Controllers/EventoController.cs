@@ -49,7 +49,6 @@ namespace ApiEventos.Controllers
             return Ok(resultado);
         }
 
-
         [Route("api/Eventos/ModificarEvento{id:int}")]
         [HttpPut]
         public IHttpActionResult Put(int id, ModeloApiEventos evento)
@@ -62,8 +61,6 @@ namespace ApiEventos.Controllers
             resultado.Add("mensaje", "Evento modificado exitosamente");
             return Ok(resultado);
         }
-
-  
        
         [Route("api/Eventos/DesabilitarEvento{id:int}")]
         [HttpDelete]
@@ -74,34 +71,30 @@ namespace ApiEventos.Controllers
             resultado.Add("mensaje", "Evento deshabilitado exitosamente");
             return Ok(resultado);
         }
-
-
-
-
-        /*
-        [Route("api/Eventos/BuscarPost/{id:int}")]
+       
+        [Route("api/Eventos/BuscarEvento/{id:int}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            ModeloApiEventos post = new ModeloApiEventos();
-            Dictionary<string, string> datosPost = ControladorEventos.BuscarPostPorId(id);
+            ModeloApiEventos evento = new ModeloApiEventos();
+            Dictionary<string, string> datosEvento = ControladorEventos.BuscarEventoPorId(id);
 
-            if (datosPost != null && datosPost["resultado"] == "true")
+            if (datosEvento != null && datosEvento["resultado"] == "true")
             {
-                post.idPost = Int32.Parse(datosPost["id_post"]);
-                post.idCuenta = Int32.Parse(datosPost["id_cuenta"]);
-                post.post = datosPost["texto_post"];
-                post.like = Int32.Parse(datosPost["contador_like"]);
-                post.comentarios = Int32.Parse(datosPost["contador_comentarios"]);
-                post.fecha = datosPost["fecha"];
-                if (datosPost.ContainsKey("habilitado"))
+                evento.id_evento = Int32.Parse(datosEvento["id_evento"]);
+                evento.id_cuenta = Int32.Parse(datosEvento["id_cuenta"]);
+                evento.nombre_evento = datosEvento["nombre_evento"];
+                evento.lugar = datosEvento["lugar"];
+                evento.informacion = datosEvento["informacion"];
+                evento.fecha_evento = datosEvento["fecha_evento"];
+                if (datosEvento.ContainsKey("habilitado"))
                 {
-                    post.habilitado = Boolean.Parse(datosPost["habilitado"]);
+                    evento.habilitado = Boolean.Parse(datosEvento["habilitado"]);
                 }
-                return Ok(post);
+                return Ok(evento);
             }
             return NotFound();
         }
-        */
+
     }
 }
