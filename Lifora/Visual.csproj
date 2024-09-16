@@ -91,6 +91,12 @@
     <Compile Include="CrearEventoBackoffice.Designer.cs">
       <DependentUpon>CrearEventoBackoffice.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearGrupoBackoffice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearGrupoBackoffice.Designer.cs">
+      <DependentUpon>CrearGrupoBackoffice.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearPostBackoffice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEventoBackoffice.resx">
       <DependentUpon>CrearEventoBackoffice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearGrupoBackoffice.resx">
+      <DependentUpon>CrearGrupoBackoffice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearPostBackoffice.resx">
       <DependentUpon>CrearPostBackoffice.cs</DependentUpon>
