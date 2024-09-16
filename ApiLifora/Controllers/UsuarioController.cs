@@ -15,14 +15,14 @@ namespace ApiLifora.Controllers
     {
         [Route("api/Usuario/ListarUsuarios")]
         [HttpGet]
-        public List<ModeloApi> Get()
+        public List<ModeloApiUsuario> Get()
         {
             DataTable usuarios = ControladorCuentaUsuario.Listar();
-            List<ModeloApi> listaUsuarios = new List<ModeloApi>();
+            List<ModeloApiUsuario> listaUsuarios = new List<ModeloApiUsuario>();
 
             foreach (DataRow usuario in usuarios.Rows)
             {
-                ModeloApi u = new ModeloApi();
+                ModeloApiUsuario u = new ModeloApiUsuario();
                 u.id = Int32.Parse(usuario["id_cuenta"].ToString());
                 u.nombre = usuario["nombre"].ToString();
                 u.apellido = usuario["apellido"].ToString();
@@ -38,7 +38,7 @@ namespace ApiLifora.Controllers
 
         [Route("api/Usuario/CrearUsuario")]
         [HttpPost]
-        public IHttpActionResult Post(ModeloApi usuario)
+        public IHttpActionResult Post(ModeloApiUsuario usuario)
         {
             if (string.IsNullOrEmpty(usuario.mail))
             {
@@ -54,7 +54,7 @@ namespace ApiLifora.Controllers
 
         [Route("api/Usuario/ModificarUsuario{id:int}")]
         [HttpPut]
-        public IHttpActionResult Put(int id, ModeloApi usuario)
+        public IHttpActionResult Put(int id, ModeloApiUsuario usuario)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
             ControladorCuentaUsuario.ModificarNombreUsuario(id.ToString(), usuario.nombre);
@@ -79,7 +79,7 @@ namespace ApiLifora.Controllers
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            ModeloApi usuario = new ModeloApi();
+            ModeloApiUsuario usuario = new ModeloApiUsuario();
             Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
 
             if (datosUsuario != null && datosUsuario["resultado"] == "true")

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ApiLifora.Models
 {
-    public class ModeloApi
+    public class ModeloApiUsuario
     {
 
         public int id;
