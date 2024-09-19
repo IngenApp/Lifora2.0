@@ -55,7 +55,7 @@ namespace InterfazUsuario
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(26, 769);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 487);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
@@ -73,7 +73,7 @@ namespace InterfazUsuario
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(830, 869);
+            this.button5.Location = new System.Drawing.Point(830, 617);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(150, 50);
@@ -83,14 +83,14 @@ namespace InterfazUsuario
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(1012, 371);
+            this.monthCalendar1.Location = new System.Drawing.Point(1012, 250);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 68;
             // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1012, 715);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1012, 474);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(227, 150);
@@ -98,7 +98,7 @@ namespace InterfazUsuario
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(676, 869);
+            this.button11.Location = new System.Drawing.Point(676, 617);
             this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(150, 50);
@@ -108,7 +108,7 @@ namespace InterfazUsuario
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(522, 869);
+            this.button10.Location = new System.Drawing.Point(522, 617);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(150, 50);
@@ -118,7 +118,7 @@ namespace InterfazUsuario
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(368, 869);
+            this.button9.Location = new System.Drawing.Point(368, 617);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(150, 50);
@@ -128,7 +128,7 @@ namespace InterfazUsuario
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(214, 869);
+            this.button8.Location = new System.Drawing.Point(214, 617);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(150, 50);
@@ -141,12 +141,12 @@ namespace InterfazUsuario
             this.panel1.Location = new System.Drawing.Point(214, 65);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 800);
+            this.panel1.Size = new System.Drawing.Size(766, 538);
             this.panel1.TabIndex = 62;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(26, 65);
+            this.pictureBox2.Location = new System.Drawing.Point(26, 11);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(150, 150);
@@ -156,14 +156,14 @@ namespace InterfazUsuario
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(26, 220);
+            this.comboBox1.Location = new System.Drawing.Point(27, 166);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 21);
             this.comboBox1.TabIndex = 71;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 623);
+            this.button1.Location = new System.Drawing.Point(28, 417);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 65);
             this.button1.TabIndex = 72;
@@ -172,7 +172,7 @@ namespace InterfazUsuario
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(111, 623);
+            this.button2.Location = new System.Drawing.Point(111, 417);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 65);
             this.button2.TabIndex = 73;
@@ -181,7 +181,7 @@ namespace InterfazUsuario
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(27, 395);
+            this.panel2.Location = new System.Drawing.Point(28, 218);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(149, 138);
             this.panel2.TabIndex = 74;
@@ -189,15 +189,16 @@ namespace InterfazUsuario
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 258);
+            this.label1.Location = new System.Drawing.Point(77, 202);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 75;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(26, 557);
+            this.button3.Location = new System.Drawing.Point(26, 362);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 50);
@@ -209,7 +210,7 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
@@ -227,7 +228,7 @@ namespace InterfazUsuario
             this.Controls.Add(this.button8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Grupos";
             this.Text = "Grupos";

@@ -16,5 +16,12 @@ namespace InterfazUsuario
         {
             InitializeComponent();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Inicio inicio=new Inicio();
+            inicio.Show();
+            this.Enabled = false;
+        }
     }
 }

@@ -69,12 +69,12 @@ namespace InterfazUsuario
             this.panel1.Location = new System.Drawing.Point(226, 110);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 746);
+            this.panel1.Size = new System.Drawing.Size(766, 482);
             this.panel1.TabIndex = 16;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(39, 706);
+            this.pictureBox2.Location = new System.Drawing.Point(39, 471);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(150, 150);
@@ -84,7 +84,7 @@ namespace InterfazUsuario
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(39, 548);
+            this.button4.Location = new System.Drawing.Point(39, 388);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 50);
@@ -94,7 +94,7 @@ namespace InterfazUsuario
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(39, 474);
+            this.button3.Location = new System.Drawing.Point(39, 334);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 50);
@@ -104,7 +104,7 @@ namespace InterfazUsuario
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(39, 392);
+            this.button2.Location = new System.Drawing.Point(39, 280);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 50);
@@ -114,7 +114,7 @@ namespace InterfazUsuario
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(39, 281);
+            this.button1.Location = new System.Drawing.Point(39, 226);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 50);
@@ -153,7 +153,7 @@ namespace InterfazUsuario
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(226, 860);
+            this.button8.Location = new System.Drawing.Point(226, 597);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(150, 50);
@@ -163,7 +163,7 @@ namespace InterfazUsuario
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(380, 860);
+            this.button9.Location = new System.Drawing.Point(380, 597);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(150, 50);
@@ -173,7 +173,7 @@ namespace InterfazUsuario
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(534, 860);
+            this.button10.Location = new System.Drawing.Point(534, 597);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(150, 50);
@@ -183,7 +183,7 @@ namespace InterfazUsuario
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(688, 860);
+            this.button11.Location = new System.Drawing.Point(688, 597);
             this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(150, 50);
@@ -194,7 +194,7 @@ namespace InterfazUsuario
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1025, 706);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1025, 442);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(227, 150);
@@ -203,20 +203,20 @@ namespace InterfazUsuario
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(39, 889);
+            this.comboBox1.Location = new System.Drawing.Point(39, 626);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 21);
             this.comboBox1.TabIndex = 26;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(1025, 362);
+            this.monthCalendar1.Location = new System.Drawing.Point(1025, 246);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 27;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(842, 860);
+            this.button5.Location = new System.Drawing.Point(842, 597);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(150, 50);
@@ -237,7 +237,7 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.axWindowsMediaPlayer2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.monthCalendar1);
