@@ -61,8 +61,6 @@ namespace Controladores
             tabla.Columns.Add("habilitado", typeof(bool));
 
             ModeloGrupos modeloGrupos = new ModeloGrupos();
-            tabla.Clear(); 
-
             foreach (ModeloGrupos g in modeloGrupos.ObtenerTodos())
             {
                 DataRow fila = tabla.NewRow();

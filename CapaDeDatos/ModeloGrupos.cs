@@ -85,11 +85,9 @@ namespace Modelo
         public List<ModeloGrupos> ObtenerTodos()
         {
             List<ModeloGrupos> bd = new List<ModeloGrupos>();
-
             string sql = "SELECT * FROM grupo";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
-
             while (this.Lector.Read())
             {
                 ModeloGrupos mg = new ModeloGrupos();
@@ -97,9 +95,15 @@ namespace Modelo
                 mg.nombre = this.Lector["nombre"].ToString();
                 mg.descripcion = this.Lector["descripcion"].ToString();
                 mg.habilitado = Convert.ToBoolean(this.Lector["habilitado"]);
+                if (this.Lector["id_cuenta"] != DBNull.Value)
+                {
+                    mg.idCuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                }
                 bd.Add(mg);
             }
+            this.Lector.Close();
             return bd;
         }
+
     }
 }
