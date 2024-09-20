@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-
 namespace Modelo
 {
     public class ModeloEventos : Modelo
@@ -17,7 +16,7 @@ namespace Modelo
         public string fecha_evento;
         public int id_cuenta;
         public string habilitado;
-
+ 
         public void CrearEvento()
         {
             string sql = $"insert into eventos (nombre_evento, informacion, lugar, fecha_evento, id_cuenta) values(@nombre_evento, @informacion, @lugar, @fecha_evento, @id_cuenta)";
@@ -94,26 +93,37 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public int ObtenerIdEvento()
+        public Dictionary<string, string> ObtenerEventoPorId()
         {
-            string sql = $"select * from eventos where nombre_evento = @nombre_evento";
-            this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
-            this.Comando.Prepare();
+            string sql = "SELECT id_eventos, nombre_evento, informacion, lugar, fecha_evento, id_cuenta, habilitado FROM eventos WHERE id_eventos = @id_evento";
             this.Comando.CommandText = sql;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_evento", this.id_evento);
+            this.Comando.Prepare();
+            Dictionary<string, string> datosEvento = new Dictionary<string, string>();
             using (MySqlDataReader reader = this.Comando.ExecuteReader())
             {
                 if (reader.Read())
                 {
-                    int id_evento = Int32.Parse(reader["id_eventos"].ToString());
-                    return id_evento;
+                    datosEvento.Add("id_evento", reader["id_eventos"].ToString());
+                    datosEvento.Add("nombre_evento", reader["nombre_evento"].ToString());
+                    datosEvento.Add("informacion", reader["informacion"].ToString());
+                    datosEvento.Add("lugar", reader["lugar"].ToString());
+                    datosEvento.Add("fecha_evento", reader["fecha_evento"].ToString());
+                    datosEvento.Add("id_cuenta", reader["id_cuenta"].ToString());
+                    datosEvento.Add("habilitado", reader["habilitado"].ToString());
+                    datosEvento.Add("resultado", "true");
                 }
                 else
                 {
-                    return 0;
+                    datosEvento.Add("resultado", "false");
                 }
             }
 
+            return datosEvento;
         }
+
+
         public List<ModeloEventos> ObtenerEventos()
         {
             List<ModeloEventos> ListaEventos = new List<ModeloEventos>();

@@ -32,12 +32,13 @@ namespace Controladores
             HabilitarEvento.id_evento = id_evento;
             HabilitarEvento.HabilitarEvento();
         }
-        public static int BuscarIdEvento(string nombre_evento)
+        public static Dictionary<string, string> BuscarEventoPorId(int id_evento)
         {
-            ModeloEventos BuscarIdEvento = new ModeloEventos();
-            BuscarIdEvento.nombre_evento = nombre_evento;
-            return BuscarIdEvento.ObtenerIdEvento();
+            ModeloEventos modeloEvento = new ModeloEventos();
+            modeloEvento.id_evento = id_evento;
+            return modeloEvento.ObtenerEventoPorId();
         }
+
         public static void ModificarNombreEvento(int id_evento, string nombre_evento)
         {
             ModeloEventos NombreEvento = new ModeloEventos();
@@ -76,7 +77,6 @@ namespace Controladores
             ModEventoBO.fecha_evento = fecha;
             ModEventoBO.ModificarEventoBackOffice();
         }
-
         public static DataTable ListarEventos()
         {
             DataTable tabla = new DataTable();
