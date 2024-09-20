@@ -85,16 +85,31 @@ namespace Modelo
                 return false;
             return true;           
         }
-        public int ObtenerIdUsuario()
+        public Dictionary<string, string> ObtenerDatosPorId()
         {
-            string sql = $"select * from cuenta_usuario where email = '{this.email}'";
+            string sql = "SELECT id_cuenta, nombre, apellido, telefono, email, fecha_nacimiento, habilitacion FROM cuenta_usuario WHERE id_cuenta = @id";
             this.Comando.CommandText = sql;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id", this.id_cuenta);
             this.Lector = this.Comando.ExecuteReader();
-
-            ModeloPersonas mp = new ModeloPersonas();
-            mp.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
-
-            return id_cuenta;
+            Dictionary<string, string> datosUsuario = new Dictionary<string, string>();
+            if (this.Lector.Read())
+            {
+                datosUsuario["id_cuenta"] = this.Lector["id_cuenta"].ToString();
+                datosUsuario["nombre"] = this.Lector["nombre"].ToString();
+                datosUsuario["apellido"] = this.Lector["apellido"].ToString();
+                datosUsuario["telefono"] = this.Lector["telefono"].ToString();
+                datosUsuario["email"] = this.Lector["email"].ToString();
+                datosUsuario["fecha_nacimiento"] = this.Lector["fecha_nacimiento"].ToString();
+                datosUsuario["habilitacion"] = this.Lector["habilitacion"].ToString();
+                datosUsuario["resultado"] = "true";
+            }
+            else
+            {
+                datosUsuario["resultado"] = "false";
+            }
+            this.Lector.Close();
+            return datosUsuario;
         }
         public List<ModeloPersonas> ObtenerTodos()
         {

@@ -16,14 +16,6 @@ namespace Lifora
         public login()
         {
             InitializeComponent();
-            
-
-           
-        }
-
-        private void login_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void BotonCrearUsuario_Click(object sender, EventArgs e)

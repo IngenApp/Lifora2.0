@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="ControladorCuentaUsuario.cs" />
     <Compile Include="ControladorEventos.cs" />
+    <Compile Include="ControladorGrupos.cs" />
     <Compile Include="ControladorPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -14,33 +14,33 @@ namespace Controladores
             CreaPost.post = postear;
             CreaPost.CrearPost();
         }
-        public static void ModificarPostBackoffice(string idPost, string post)
+        public static void ModificarPost(string idPost, string post)
         {
             ModeloPost ModPostBO = new ModeloPost();
             ModPostBO.idPost = Int32.Parse(idPost);
             ModPostBO.post = post;
-            ModPostBO.ModificarPostBackOffice();
+            ModPostBO.ModificarPost();
         }
-        public static void ModificarIdPostBackoffice(string id, string IdPost)
+        public static void ModificarIdPost(string id, string IdPost)
         {
             ModeloPost ModPostBO = new ModeloPost();
             ModPostBO.idPost = Int32.Parse(id);
             ModPostBO.idPost = Int32.Parse(IdPost);
-            ModPostBO.ModificarPostBackOffice();
+            ModPostBO.ModificarIdPost();
         }
-        public static void ModificarIdCuentaBackoffice(string idPost, string IdCuenta)
+        public static void ModificarIdCuenta(string idPost, string IdCuenta)
         {
             ModeloPost ModPostBO = new ModeloPost();
             ModPostBO.idPost = Int32.Parse(idPost);
             ModPostBO.idCuenta = Int32.Parse(IdCuenta);
-            ModPostBO.ModificarPostBackOffice();
+            ModPostBO.ModificarIdCuenta();
         }
-        public static void ModificarFechaBackoffice(string idPost, string fecha)
+        public static void ModificarFecha(string idPost, string fecha)
         {
             ModeloPost ModPostBO = new ModeloPost();
             ModPostBO.idPost = Int32.Parse(idPost);
             ModPostBO.fecha = fecha;
-            ModPostBO.ModificarPostBackOffice();
+            ModPostBO.ModificarFecha();
         }
         public static void DarLike(int idPost, int idCuenta)
         {
@@ -77,6 +77,12 @@ namespace Controladores
             ComentarPost.idCuenta = idCuenta;
             ComentarPost.textoComentarios = comentar;
             ComentarPost.ComentarPost();
+        }
+        public static Dictionary<string, string> BuscarPostPorId(int id)
+        {
+            ModeloPost post = new ModeloPost();
+            post.idPost = id;
+            return post.ObtenerDatosPostPorId();
         }
         public static DataTable ListarPost()
         {
