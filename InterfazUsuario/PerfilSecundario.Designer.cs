@@ -44,6 +44,7 @@ namespace InterfazUsuario
             this.button8 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -52,7 +53,7 @@ namespace InterfazUsuario
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(26, 769);
+            this.pictureBox1.Location = new System.Drawing.Point(26, 451);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
@@ -90,7 +91,7 @@ namespace InterfazUsuario
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(830, 869);
+            this.button5.Location = new System.Drawing.Point(830, 605);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(150, 50);
@@ -100,7 +101,7 @@ namespace InterfazUsuario
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(1012, 371);
+            this.monthCalendar1.Location = new System.Drawing.Point(1012, 256);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 57;
             // 
@@ -115,7 +116,7 @@ namespace InterfazUsuario
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1012, 715);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1012, 451);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(227, 150);
@@ -123,7 +124,7 @@ namespace InterfazUsuario
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(676, 869);
+            this.button11.Location = new System.Drawing.Point(676, 605);
             this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(150, 50);
@@ -133,7 +134,7 @@ namespace InterfazUsuario
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(522, 869);
+            this.button10.Location = new System.Drawing.Point(522, 605);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(150, 50);
@@ -143,7 +144,7 @@ namespace InterfazUsuario
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(368, 869);
+            this.button9.Location = new System.Drawing.Point(368, 605);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(150, 50);
@@ -153,7 +154,7 @@ namespace InterfazUsuario
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(214, 869);
+            this.button8.Location = new System.Drawing.Point(214, 605);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(150, 50);
@@ -166,7 +167,7 @@ namespace InterfazUsuario
             this.panel1.Location = new System.Drawing.Point(214, 65);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 800);
+            this.panel1.Size = new System.Drawing.Size(766, 536);
             this.panel1.TabIndex = 50;
             // 
             // pictureBox2
@@ -178,11 +179,21 @@ namespace InterfazUsuario
             this.pictureBox2.TabIndex = 49;
             this.pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(79, 615);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "label1";
+            // 
             // PerfilSecundario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -197,7 +208,7 @@ namespace InterfazUsuario
             this.Controls.Add(this.button8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "PerfilSecundario";
             this.Text = "PerfilSecundario";
@@ -226,5 +237,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
     }
 }
