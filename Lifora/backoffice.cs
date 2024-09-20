@@ -101,8 +101,8 @@ namespace Lifora
                 dataGridViewGrupos.DataSource = ControladorGrupos.ListarGrupos();
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
                 dataGridViewPost.DataSource = ControladorPost.ListarPost();
-                if (dataGridViewGrupos.SelectedRows.Count > 0)
-                    (dataGridViewGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("idCuenta LIKE '%{0}%'", id);
+                if (dataGridViewGrupos.DataSource != null) 
+                    (dataGridViewGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(idCuenta, 'System.String') LIKE '%{0}%'", id);
                 if (dataGridViewEventos.SelectedRows.Count > 0)
                     (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
                 if (dataGridViewPost.SelectedRows.Count > 0)
