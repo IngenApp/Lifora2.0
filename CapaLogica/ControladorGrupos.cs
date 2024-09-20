@@ -53,6 +53,7 @@ namespace Controladores
         public static DataTable ListarGrupos()
         {
             DataTable tabla = new DataTable();
+            tabla.Columns.Add("idCuenta", typeof(int));
             tabla.Columns.Add("idGrupo", typeof(int));
             tabla.Columns.Add("nombre", typeof(string));
             tabla.Columns.Add("descripcion", typeof(string));
@@ -60,10 +61,13 @@ namespace Controladores
             tabla.Columns.Add("habilitado", typeof(bool));
 
             ModeloGrupos modeloGrupos = new ModeloGrupos();
+            tabla.Clear(); 
+
             foreach (ModeloGrupos g in modeloGrupos.ObtenerTodos())
             {
                 DataRow fila = tabla.NewRow();
-                fila["id_grupo"] = g.idGrupo;
+                fila["idCuenta"] = g.idCuenta;
+                fila["idGrupo"] = g.idGrupo;
                 fila["nombre"] = g.nombre;
                 fila["descripcion"] = g.descripcion;
                 fila["fecha"] = g.fecha;
@@ -72,5 +76,6 @@ namespace Controladores
             }
             return tabla;
         }
+
     }
 }

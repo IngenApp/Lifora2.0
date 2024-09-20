@@ -25,18 +25,20 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@nombre", nombre);
             this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
             this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery(); 
         }
 
         public void ModificarGrupo()
         {
             string sql = "UPDATE grupo SET nombre = @nombre, descripcion = @descripcion WHERE id_grupo = @id_grupo";
+            this.Comando.Parameters.Clear(); 
             this.Comando.Parameters.AddWithValue("@nombre", nombre);
             this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
             this.Comando.Parameters.AddWithValue("@id_grupo", idGrupo);
-            this.Comando.Prepare();
             this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
+            this.Comando.ExecuteNonQuery(); 
         }
+
 
         public void BloquearGrupo()
         {
