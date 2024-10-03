@@ -67,6 +67,13 @@ namespace Lifora
             this.Enabled = false;
             Login.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            VisualPost post = new VisualPost();
+            this.Enabled = false;
+            post.Show();
+        }
     }
     
 }

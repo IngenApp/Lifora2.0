@@ -87,7 +87,7 @@ namespace Controladores
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("id", typeof(int));
+            tabla.Columns.Add("id", typeof(string));
             tabla.Columns.Add("cuenta", typeof(string));
             tabla.Columns.Add("post", typeof(string));
             tabla.Columns.Add("fecha", typeof(string));

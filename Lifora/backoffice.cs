@@ -378,6 +378,21 @@ namespace Lifora
             }
             dataGridViewGrupos.DataSource = ControladorGrupos.ListarGrupos();
         }
+
+        private void dataGridViewPost_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewInfoUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewComentarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -232,6 +232,7 @@ namespace Lifora
             this.dataGridViewInfoUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewInfoUser.Size = new System.Drawing.Size(600, 128);
             this.dataGridViewInfoUser.TabIndex = 16;
+            this.dataGridViewInfoUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInfoUser_CellContentClick);
             this.dataGridViewInfoUser.SelectionChanged += new System.EventHandler(this.dataGridViewInfoUser_SelectionChanged);
             // 
             // txtBoxSearch
@@ -526,6 +527,7 @@ namespace Lifora
             this.dataGridViewPost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPost.Size = new System.Drawing.Size(600, 128);
             this.dataGridViewPost.TabIndex = 46;
+            this.dataGridViewPost.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPost_CellContentClick);
             this.dataGridViewPost.SelectionChanged += new System.EventHandler(this.dataGridViewPost_SelectionChanged);
             // 
             // btnCrearGrupo
@@ -797,6 +799,7 @@ namespace Lifora
             this.dataGridViewComentarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewComentarios.Size = new System.Drawing.Size(600, 128);
             this.dataGridViewComentarios.TabIndex = 72;
+            this.dataGridViewComentarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewComentarios_CellContentClick);
             // 
             // btnLike
             // 
@@ -821,7 +824,7 @@ namespace Lifora
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1293, 713);
+            this.ClientSize = new System.Drawing.Size(1284, 711);
             this.Controls.Add(this.btnLike);
             this.Controls.Add(this.dataGridViewComentarios);
             this.Controls.Add(this.btnComentarPost);
