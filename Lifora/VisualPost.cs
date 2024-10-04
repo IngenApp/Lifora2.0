@@ -9,13 +9,13 @@ namespace Lifora
 {
     public partial class VisualPost : Form
     {
+        
+
         public VisualPost()
         {
-            InitializeComponent();
+            InitializeComponent();        
             dataGridViewPost.DataSource = ControladorPost.ListarPost();
         }
-
-      
 
         private void btnModificarPost_Click(object sender, EventArgs e)
         {
@@ -122,14 +122,14 @@ namespace Lifora
         {
             {
                 if (dataGridViewPost.SelectedRows.Count > 0)
-                    (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("cuenta LIKE '%{0}%'", textBuscarPostId.Text);
+                    (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("cuenta LIKE '%{0}%'", txtBoxSearchIDCuenta.Text);
             }
         }
 
         private void textBuscarPostId_TextChanged(object sender, EventArgs e)
         {
             if (dataGridViewPost.SelectedRows.Count > 0)
-                (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("id LIKE '%{0}%'", txtBoxSearchIDCuenta.Text);
+                (dataGridViewPost.DataSource as DataTable).DefaultView.RowFilter = string.Format("id LIKE '%{0}%'", textBuscarPostId.Text);
 
         }
 
@@ -142,11 +142,6 @@ namespace Lifora
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridViewPost.DataSource = ControladorPost.ListarPost();
-        }
-
-        private void dataGridViewPost_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void dataGridViewPost_SelectionChanged(object sender, EventArgs e)
@@ -162,6 +157,59 @@ namespace Lifora
                 int idPost = Convert.ToInt32(seleccion.Cells[0].Value);
                 dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
             }
+        }
+
+        private void buttonHabilitarComentario_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Desbloquear este comentario?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                if (dataGridViewPost.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow seleccion = dataGridViewComentarios.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int idComentario = int.Parse(Id);
+                    ControladorPost.HabilitarComentario(idComentario);
+                    dataGridViewPost.DataSource = ControladorPost.ListarPost();
+                }
+                if (dataGridViewComentarios.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un comentario");
+                }
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se ah desbloqueado el comentario");
+            }
+        }
+
+        private void ButtonDeshabilitarComentario_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Bloquear este comentario?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                if (dataGridViewComentarios.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow seleccion = dataGridViewComentarios.SelectedRows[0];
+                    int columna = 0;
+                    var CellValue = seleccion.Cells[columna].Value;
+                    string Id = CellValue.ToString();
+                    int idComentario = int.Parse(Id);
+                    ControladorPost.DeshabilitarComentario(idComentario);
+                    dataGridViewPost.DataSource = ControladorPost.ListarPost();
+                }
+                if (dataGridViewComentarios.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debes seleccionar un comentario");
+                }
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se ah bloqueado el comentario");
+            }
+
         }
     }
 }

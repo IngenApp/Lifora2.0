@@ -28,7 +28,7 @@ namespace Lifora
                 try
                 {
                     string comentario = textBoxComentarPost.Text;
-                    ControladorPost.ComentarPost(idPost, idCuenta, comentario);
+                    ControladorPost.ComentarPost(idPost, 1, comentario);
                     MessageBox.Show("Comentario creado con éxito");
                     textBoxComentarPost.Text = "";
                 }

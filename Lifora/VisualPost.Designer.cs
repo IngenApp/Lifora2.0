@@ -64,6 +64,8 @@ namespace Lifora
             this.label7 = new System.Windows.Forms.Label();
             this.textBuscarContenidoPost = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonHabilitarComentario = new System.Windows.Forms.Button();
+            this.ButtonDeshabilitarComentario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComentarios)).BeginInit();
@@ -71,7 +73,7 @@ namespace Lifora
             // 
             // btnLike
             // 
-            this.btnLike.Location = new System.Drawing.Point(493, 662);
+            this.btnLike.Location = new System.Drawing.Point(510, 326);
             this.btnLike.Name = "btnLike";
             this.btnLike.Size = new System.Drawing.Size(108, 37);
             this.btnLike.TabIndex = 90;
@@ -81,7 +83,7 @@ namespace Lifora
             // 
             // btnComentarPost
             // 
-            this.btnComentarPost.Location = new System.Drawing.Point(377, 662);
+            this.btnComentarPost.Location = new System.Drawing.Point(510, 283);
             this.btnComentarPost.Name = "btnComentarPost";
             this.btnComentarPost.Size = new System.Drawing.Size(108, 37);
             this.btnComentarPost.TabIndex = 89;
@@ -91,7 +93,7 @@ namespace Lifora
             // 
             // textBoxLike
             // 
-            this.textBoxLike.Location = new System.Drawing.Point(481, 230);
+            this.textBoxLike.Location = new System.Drawing.Point(443, 178);
             this.textBoxLike.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxLike.Name = "textBoxLike";
             this.textBoxLike.Size = new System.Drawing.Size(175, 20);
@@ -100,7 +102,7 @@ namespace Lifora
             // 
             // textBoxFecha
             // 
-            this.textBoxFecha.Location = new System.Drawing.Point(481, 208);
+            this.textBoxFecha.Location = new System.Drawing.Point(443, 156);
             this.textBoxFecha.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFecha.Name = "textBoxFecha";
             this.textBoxFecha.Size = new System.Drawing.Size(175, 20);
@@ -109,7 +111,7 @@ namespace Lifora
             // 
             // textBoxIdCuenta
             // 
-            this.textBoxIdCuenta.Location = new System.Drawing.Point(481, 187);
+            this.textBoxIdCuenta.Location = new System.Drawing.Point(443, 135);
             this.textBoxIdCuenta.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxIdCuenta.Name = "textBoxIdCuenta";
             this.textBoxIdCuenta.Size = new System.Drawing.Size(175, 20);
@@ -118,7 +120,7 @@ namespace Lifora
             // 
             // textBoxIdPost
             // 
-            this.textBoxIdPost.Location = new System.Drawing.Point(481, 166);
+            this.textBoxIdPost.Location = new System.Drawing.Point(443, 114);
             this.textBoxIdPost.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxIdPost.Name = "textBoxIdPost";
             this.textBoxIdPost.Size = new System.Drawing.Size(175, 20);
@@ -128,42 +130,46 @@ namespace Lifora
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(418, 233);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(364, 178);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(27, 13);
+            this.label22.Size = new System.Drawing.Size(38, 20);
             this.label22.TabIndex = 84;
             this.label22.Text = "Like";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(416, 211);
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(362, 156);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(37, 13);
+            this.label18.Size = new System.Drawing.Size(54, 20);
             this.label18.TabIndex = 83;
             this.label18.Text = "Fecha";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(416, 188);
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(362, 133);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 13);
+            this.label20.Size = new System.Drawing.Size(80, 20);
             this.label20.TabIndex = 82;
             this.label20.Text = "id Usuario";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(416, 169);
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(362, 114);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(39, 13);
+            this.label21.Size = new System.Drawing.Size(57, 20);
             this.label21.TabIndex = 81;
             this.label21.Text = "id Post";
             // 
             // btnModificarPost
             // 
-            this.btnModificarPost.Location = new System.Drawing.Point(548, 266);
+            this.btnModificarPost.Location = new System.Drawing.Point(510, 209);
             this.btnModificarPost.Name = "btnModificarPost";
             this.btnModificarPost.Size = new System.Drawing.Size(108, 33);
             this.btnModificarPost.TabIndex = 80;
@@ -174,22 +180,23 @@ namespace Lifora
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(417, 146);
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(363, 91);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(28, 13);
+            this.label19.Size = new System.Drawing.Size(41, 20);
             this.label19.TabIndex = 79;
             this.label19.Text = "Post";
             // 
             // textBoxPost
             // 
-            this.textBoxPost.Location = new System.Drawing.Point(481, 143);
+            this.textBoxPost.Location = new System.Drawing.Point(443, 91);
             this.textBoxPost.Name = "textBoxPost";
             this.textBoxPost.Size = new System.Drawing.Size(175, 20);
             this.textBoxPost.TabIndex = 78;
             // 
             // btnCrearPost
             // 
-            this.btnCrearPost.Location = new System.Drawing.Point(36, 662);
+            this.btnCrearPost.Location = new System.Drawing.Point(706, 45);
             this.btnCrearPost.Name = "btnCrearPost";
             this.btnCrearPost.Size = new System.Drawing.Size(108, 37);
             this.btnCrearPost.TabIndex = 77;
@@ -219,20 +226,20 @@ namespace Lifora
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPost.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewPost.Location = new System.Drawing.Point(33, 315);
+            this.dataGridViewPost.Location = new System.Drawing.Point(649, 88);
             this.dataGridViewPost.MultiSelect = false;
             this.dataGridViewPost.Name = "dataGridViewPost";
             this.dataGridViewPost.ReadOnly = true;
             this.dataGridViewPost.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewPost.RowHeadersWidth = 62;
             this.dataGridViewPost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPost.Size = new System.Drawing.Size(623, 334);
+            this.dataGridViewPost.Size = new System.Drawing.Size(623, 607);
             this.dataGridViewPost.TabIndex = 76;
             this.dataGridViewPost.SelectionChanged += new System.EventHandler(this.dataGridViewPost_SelectionChanged);
             // 
             // btnUnlockThePost
             // 
-            this.btnUnlockThePost.Location = new System.Drawing.Point(150, 662);
+            this.btnUnlockThePost.Location = new System.Drawing.Point(890, 45);
             this.btnUnlockThePost.Name = "btnUnlockThePost";
             this.btnUnlockThePost.Size = new System.Drawing.Size(107, 33);
             this.btnUnlockThePost.TabIndex = 75;
@@ -242,7 +249,7 @@ namespace Lifora
             // 
             // btnBlockThePost
             // 
-            this.btnBlockThePost.Location = new System.Drawing.Point(263, 662);
+            this.btnBlockThePost.Location = new System.Drawing.Point(1003, 45);
             this.btnBlockThePost.Name = "btnBlockThePost";
             this.btnBlockThePost.Size = new System.Drawing.Size(108, 33);
             this.btnBlockThePost.TabIndex = 74;
@@ -253,7 +260,7 @@ namespace Lifora
             // txtBoxSearchIDCuenta
             // 
             this.txtBoxSearchIDCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchIDCuenta.Location = new System.Drawing.Point(33, 142);
+            this.txtBoxSearchIDCuenta.Location = new System.Drawing.Point(21, 133);
             this.txtBoxSearchIDCuenta.Name = "txtBoxSearchIDCuenta";
             this.txtBoxSearchIDCuenta.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtBoxSearchIDCuenta.Size = new System.Drawing.Size(284, 26);
@@ -263,7 +270,7 @@ namespace Lifora
             // textBuscarPostId
             // 
             this.textBuscarPostId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBuscarPostId.Location = new System.Drawing.Point(33, 193);
+            this.textBuscarPostId.Location = new System.Drawing.Point(21, 185);
             this.textBuscarPostId.Name = "textBuscarPostId";
             this.textBuscarPostId.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBuscarPostId.Size = new System.Drawing.Size(284, 26);
@@ -274,7 +281,7 @@ namespace Lifora
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(146, 66);
+            this.label3.Location = new System.Drawing.Point(158, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 25);
             this.label3.TabIndex = 98;
@@ -283,7 +290,7 @@ namespace Lifora
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 51);
+            this.label2.Location = new System.Drawing.Point(243, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 97;
@@ -293,7 +300,7 @@ namespace Lifora
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(99, 9);
+            this.label1.Location = new System.Drawing.Point(111, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 55);
             this.label1.TabIndex = 96;
@@ -302,7 +309,7 @@ namespace Lifora
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(84, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -313,7 +320,7 @@ namespace Lifora
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1123, 36);
+            this.label4.Location = new System.Drawing.Point(1123, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 55);
             this.label4.TabIndex = 99;
@@ -322,18 +329,20 @@ namespace Lifora
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 177);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(22, 162);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 13);
+            this.label5.Size = new System.Drawing.Size(165, 20);
             this.label5.TabIndex = 100;
             this.label5.Text = "Buscar por ID de Post";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 221);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(21, 214);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(149, 13);
+            this.label6.Size = new System.Drawing.Size(221, 20);
             this.label6.TabIndex = 103;
             this.label6.Text = "Buscar por contenido del Post";
             // 
@@ -359,29 +368,30 @@ namespace Lifora
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewComentarios.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewComentarios.Location = new System.Drawing.Point(690, 121);
+            this.dataGridViewComentarios.Location = new System.Drawing.Point(21, 369);
             this.dataGridViewComentarios.MultiSelect = false;
             this.dataGridViewComentarios.Name = "dataGridViewComentarios";
             this.dataGridViewComentarios.ReadOnly = true;
             this.dataGridViewComentarios.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewComentarios.RowHeadersWidth = 62;
             this.dataGridViewComentarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewComentarios.Size = new System.Drawing.Size(582, 565);
+            this.dataGridViewComentarios.Size = new System.Drawing.Size(597, 326);
             this.dataGridViewComentarios.TabIndex = 104;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 121);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(21, 114);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 13);
+            this.label7.Size = new System.Drawing.Size(188, 20);
             this.label7.TabIndex = 105;
             this.label7.Text = "Buscar por ID de Usuario";
             // 
             // textBuscarContenidoPost
             // 
             this.textBuscarContenidoPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBuscarContenidoPost.Location = new System.Drawing.Point(33, 237);
+            this.textBuscarContenidoPost.Location = new System.Drawing.Point(21, 237);
             this.textBuscarContenidoPost.Name = "textBuscarContenidoPost";
             this.textBuscarContenidoPost.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBuscarContenidoPost.Size = new System.Drawing.Size(284, 26);
@@ -390,19 +400,41 @@ namespace Lifora
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(548, 36);
+            this.button1.Location = new System.Drawing.Point(649, 33);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 68);
+            this.button1.Size = new System.Drawing.Size(51, 49);
             this.button1.TabIndex = 107;
             this.button1.Text = "<>";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // buttonHabilitarComentario
+            // 
+            this.buttonHabilitarComentario.Location = new System.Drawing.Point(26, 314);
+            this.buttonHabilitarComentario.Name = "buttonHabilitarComentario";
+            this.buttonHabilitarComentario.Size = new System.Drawing.Size(107, 45);
+            this.buttonHabilitarComentario.TabIndex = 109;
+            this.buttonHabilitarComentario.Text = "Habilitar Comentario";
+            this.buttonHabilitarComentario.UseVisualStyleBackColor = true;
+            this.buttonHabilitarComentario.Click += new System.EventHandler(this.buttonHabilitarComentario_Click);
+            // 
+            // ButtonDeshabilitarComentario
+            // 
+            this.ButtonDeshabilitarComentario.Location = new System.Drawing.Point(139, 314);
+            this.ButtonDeshabilitarComentario.Name = "ButtonDeshabilitarComentario";
+            this.ButtonDeshabilitarComentario.Size = new System.Drawing.Size(108, 45);
+            this.ButtonDeshabilitarComentario.TabIndex = 108;
+            this.ButtonDeshabilitarComentario.Text = "Deshabilitar Comentario";
+            this.ButtonDeshabilitarComentario.UseVisualStyleBackColor = true;
+            this.ButtonDeshabilitarComentario.Click += new System.EventHandler(this.ButtonDeshabilitarComentario_Click);
+            // 
             // VisualPost
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1284, 711);
+            this.Controls.Add(this.buttonHabilitarComentario);
+            this.Controls.Add(this.ButtonDeshabilitarComentario);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBuscarContenidoPost);
             this.Controls.Add(this.label7);
@@ -433,7 +465,10 @@ namespace Lifora
             this.Controls.Add(this.dataGridViewPost);
             this.Controls.Add(this.btnUnlockThePost);
             this.Controls.Add(this.btnBlockThePost);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "VisualPost";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ABMC POST";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -475,5 +510,7 @@ namespace Lifora
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBuscarContenidoPost;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonHabilitarComentario;
+        private System.Windows.Forms.Button ButtonDeshabilitarComentario;
     }
 }
