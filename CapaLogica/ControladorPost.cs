@@ -87,7 +87,7 @@ namespace Controladores
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("id", typeof(int));
+            tabla.Columns.Add("id", typeof(string));
             tabla.Columns.Add("cuenta", typeof(string));
             tabla.Columns.Add("post", typeof(string));
             tabla.Columns.Add("fecha", typeof(string));
@@ -116,6 +116,7 @@ namespace Controladores
             tabla.Columns.Add("fecha", typeof(string));
             tabla.Columns.Add("post", typeof(string));
             tabla.Columns.Add("like", typeof(int));
+            tabla.Columns.Add("habilitado", typeof(bool));
             ModeloPost ListarComentarios = new ModeloPost();
             foreach (ModeloPost p in ListarComentarios.ObtenerComentarios(idPost))
             {
@@ -125,11 +126,24 @@ namespace Controladores
                 fila["Comentario"] = p.textoComentarios;
                 fila["fecha"] = p.fecha;
                 fila["post"] = p.post;
-                fila["like"] = p.contadorLike; 
+                fila["like"] = p.contadorLike;
+                fila["habilitado"] = p.habilitado;
 
                 tabla.Rows.Add(fila);
             }
             return tabla;
+        }
+        public static void DeshabilitarComentario(int comentarios)
+        {
+            ModeloPost DeshabilitarComentario = new ModeloPost();
+            DeshabilitarComentario.comentarios = comentarios;
+            DeshabilitarComentario.DeshabilitarComentario();
+        }
+        public static void HabilitarComentario(int comentarios)
+        {
+            ModeloPost HabilitarComentario = new ModeloPost();
+            HabilitarComentario.comentarios = comentarios;
+            HabilitarComentario.HabilitarComentario();
         }
 
     }

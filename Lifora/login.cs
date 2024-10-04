@@ -67,6 +67,8 @@ namespace Lifora
             this.Enabled = false;
             Login.Show();
         }
+
+ 
     }
     
 }
