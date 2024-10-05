@@ -53,23 +53,25 @@ namespace Controladores
         public static DataTable ListarGrupos()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("idCuenta", typeof(int));
+            
             tabla.Columns.Add("idGrupo", typeof(int));
             tabla.Columns.Add("nombre", typeof(string));
             tabla.Columns.Add("descripcion", typeof(string));
             tabla.Columns.Add("fecha", typeof(string));
             tabla.Columns.Add("habilitado", typeof(bool));
+            tabla.Columns.Add("idCuenta", typeof(int));
 
             ModeloGrupos modeloGrupos = new ModeloGrupos();
             foreach (ModeloGrupos g in modeloGrupos.ObtenerTodos())
             {
                 DataRow fila = tabla.NewRow();
-                fila["idCuenta"] = g.idCuenta;
+                
                 fila["idGrupo"] = g.idGrupo;
                 fila["nombre"] = g.nombre;
                 fila["descripcion"] = g.descripcion;
                 fila["fecha"] = g.fecha;
                 fila["habilitado"] = g.habilitado;
+                fila["idCuenta"] = g.idCuenta;
                 tabla.Rows.Add(fila);
             }
             return tabla;

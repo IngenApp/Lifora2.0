@@ -29,7 +29,7 @@ namespace Lifora
             int columna = 0;
             var CellValue = seleccion.Cells[columna].Value;
             string id_post = CellValue.ToString();
-            ControladorPost.ModificarPostBackoffice(textBoxPost.Text, textBoxIdPost.Text, textBoxIdCuenta.Text, textBoxFecha.Text, textBoxLike.Text);
+            ControladorPost.ModificarPostBackoffice(richTextBoxPost.Text, textBoxIdPost.Text, textBoxIdCuenta.Text, textBoxFecha.Text, textBoxLike.Text);
             MessageBox.Show("Cambios realizados con exito");
             dataGridViewPost.DataSource = ControladorPost.ListarPost();
         }
@@ -149,7 +149,7 @@ namespace Lifora
             if (dataGridViewPost.SelectedRows.Count > 0)
             {
                 DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
-                textBoxPost.Text = seleccion.Cells[2].Value?.ToString();
+                richTextBoxPost.Text = seleccion.Cells[2].Value?.ToString();
                 textBoxIdPost.Text = seleccion.Cells[0].Value?.ToString();
                 textBoxIdCuenta.Text = seleccion.Cells[1].Value?.ToString();
                 textBoxFecha.Text = seleccion.Cells[3].Value?.ToString();

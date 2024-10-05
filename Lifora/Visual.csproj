@@ -162,6 +162,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VisualEventos.resx">
+      <DependentUpon>VisualEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualGrupos.resx">
+      <DependentUpon>VisualGrupos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VisualPost.resx">
       <DependentUpon>VisualPost.cs</DependentUpon>
     </EmbeddedResource>
