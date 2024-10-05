@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using Controladores;
 using InterfazUsuario;
-
+using System.Data;
 
 
 
@@ -41,7 +41,12 @@ namespace Lifora
             Login.Show();
         }
 
- 
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
     
 }

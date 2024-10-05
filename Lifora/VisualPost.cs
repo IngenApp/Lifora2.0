@@ -29,7 +29,8 @@ namespace Lifora
             int columna = 0;
             var CellValue = seleccion.Cells[columna].Value;
             string id_post = CellValue.ToString();
-            ControladorPost.ModificarPostBackoffice(richTextBoxPost.Text, textBoxIdPost.Text, textBoxIdCuenta.Text, textBoxFecha.Text, textBoxLike.Text);
+            string Fecha = DateTime.Now.ToString();
+            ControladorPost.ModificarPostBackoffice(richTextBoxPost.Text, textBoxIdPost.Text, textBoxIdCuenta.Text, Fecha , textBoxLike.Text);
             MessageBox.Show("Cambios realizados con exito");
             dataGridViewPost.DataSource = ControladorPost.ListarPost();
         }
@@ -152,7 +153,7 @@ namespace Lifora
                 richTextBoxPost.Text = seleccion.Cells[2].Value?.ToString();
                 textBoxIdPost.Text = seleccion.Cells[0].Value?.ToString();
                 textBoxIdCuenta.Text = seleccion.Cells[1].Value?.ToString();
-                textBoxFecha.Text = seleccion.Cells[3].Value?.ToString();
+                
                 textBoxLike.Text = seleccion.Cells[4].Value?.ToString();
                 int idPost = Convert.ToInt32(seleccion.Cells[0].Value);
                 dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);

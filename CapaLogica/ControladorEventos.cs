@@ -80,24 +80,24 @@ namespace Controladores
         public static DataTable ListarEventos()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("id_eventos", typeof(int));
-            tabla.Columns.Add("nombre_evento", typeof(string));
-            tabla.Columns.Add("informacion", typeof(string));
-            tabla.Columns.Add("lugar", typeof(string));
-            tabla.Columns.Add("fecha_evento", typeof(string));
+            tabla.Columns.Add("ID", typeof(int));
+            tabla.Columns.Add("Nombre", typeof(string));
+            tabla.Columns.Add("Informacion", typeof(string));
+            tabla.Columns.Add("Lugar", typeof(string));
+            tabla.Columns.Add("Fecha", typeof(string));
             tabla.Columns.Add("habilitado", typeof(Boolean));
-            tabla.Columns.Add("id_cuenta", typeof(string));
+            tabla.Columns.Add("ID Cuenta", typeof(string));
             ModeloEventos ListarEventos = new ModeloEventos();
             foreach (ModeloEventos p in ListarEventos.ObtenerEventos())
             {
                 DataRow fila = tabla.NewRow();
-                fila["id_eventos"] = p.id_evento;
-                fila["nombre_evento"] = p.nombre_evento;
-                fila["informacion"] = p.informacion;
-                fila["lugar"] = p.lugar;
-                fila["fecha_evento"] = p.fecha_evento;
+                fila["ID"] = p.id_evento;
+                fila["Nombre"] = p.nombre_evento;
+                fila["Informacion"] = p.informacion;
+                fila["Lugar"] = p.lugar;
+                fila["Fecha"] = p.fecha_evento;
                 fila["habilitado"] = p.habilitado;
-                fila["id_cuenta"] = p.id_cuenta;
+                fila["ID Cuenta"] = p.id_cuenta;
                 tabla.Rows.Add(fila);
             }
             return tabla;

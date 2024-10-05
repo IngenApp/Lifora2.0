@@ -29,27 +29,17 @@ namespace Lifora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.buttonBackOffice = new System.Windows.Forms.Button();
             this.textBoxMail = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(844, 381);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(104, 13);
-            this.linkLabel1.TabIndex = 18;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "I forgot my password";
             // 
             // pictureBox1
             // 
@@ -74,34 +64,27 @@ namespace Lifora
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(627, 258);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(572, 258);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 13);
+            this.label10.Size = new System.Drawing.Size(116, 25);
             this.label10.TabIndex = 21;
             this.label10.Text = "Live for Art";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(956, 303);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(94, 17);
-            this.checkBox1.TabIndex = 25;
-            this.checkBox1.Text = "Remember me";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // buttonBackOffice
             // 
-            this.buttonBackOffice.Location = new System.Drawing.Point(739, 326);
+            this.buttonBackOffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBackOffice.Location = new System.Drawing.Point(739, 328);
             this.buttonBackOffice.Name = "buttonBackOffice";
             this.buttonBackOffice.Size = new System.Drawing.Size(311, 52);
             this.buttonBackOffice.TabIndex = 36;
-            this.buttonBackOffice.Text = "Acceso a Backofice";
+            this.buttonBackOffice.Text = "Loggin";
             this.buttonBackOffice.UseVisualStyleBackColor = true;
             this.buttonBackOffice.Click += new System.EventHandler(this.buttonBackOffice_Click);
             // 
             // textBoxMail
             // 
+            this.textBoxMail.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBoxMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMail.Location = new System.Drawing.Point(739, 215);
             this.textBoxMail.Name = "textBoxMail";
@@ -111,8 +94,9 @@ namespace Lifora
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(739, 259);
+            this.textBoxPassword.Location = new System.Drawing.Point(739, 270);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(311, 38);
@@ -129,20 +113,40 @@ namespace Lifora
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(253, 560);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(274, 39);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Me gusta el arte,";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(395, 599);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(265, 39);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "todo tipo de arte";
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 701);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxMail);
             this.Controls.Add(this.buttonBackOffice);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.linkLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -155,15 +159,15 @@ namespace Lifora
         }
 
         #endregion
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button buttonBackOffice;
         private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

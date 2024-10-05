@@ -29,12 +29,11 @@ namespace Lifora
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualEventos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.BtnDesbloquearEvento = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnBloquearEvento = new System.Windows.Forms.Button();
             this.BtnModificarEvento = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,96 +52,96 @@ namespace Lifora
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewComentarios = new System.Windows.Forms.DataGridView();
             this.richTextBoxEvento = new System.Windows.Forms.RichTextBox();
+            this.btnUnlockThePost = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComentarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtnDesbloquearEvento
-            // 
-            this.BtnDesbloquearEvento.Location = new System.Drawing.Point(661, 364);
-            this.BtnDesbloquearEvento.Name = "BtnDesbloquearEvento";
-            this.BtnDesbloquearEvento.Size = new System.Drawing.Size(108, 30);
-            this.BtnDesbloquearEvento.TabIndex = 58;
-            this.BtnDesbloquearEvento.Text = "Habilitar Evento";
-            this.BtnDesbloquearEvento.UseVisualStyleBackColor = true;
-            this.BtnDesbloquearEvento.Click += new System.EventHandler(this.BtnDesbloquearEvento_Click);
-            // 
             // BtnBloquearEvento
             // 
-            this.BtnBloquearEvento.Location = new System.Drawing.Point(775, 364);
+            this.BtnBloquearEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBloquearEvento.Location = new System.Drawing.Point(783, 342);
             this.BtnBloquearEvento.Name = "BtnBloquearEvento";
-            this.BtnBloquearEvento.Size = new System.Drawing.Size(108, 30);
+            this.BtnBloquearEvento.Size = new System.Drawing.Size(114, 52);
             this.BtnBloquearEvento.TabIndex = 57;
-            this.BtnBloquearEvento.Text = "Bloquear Evento";
+            this.BtnBloquearEvento.Text = "Bloquear";
             this.BtnBloquearEvento.UseVisualStyleBackColor = false;
             this.BtnBloquearEvento.Click += new System.EventHandler(this.BtnBloquearEvento_Click);
             // 
             // BtnModificarEvento
             // 
-            this.BtnModificarEvento.Location = new System.Drawing.Point(1155, 289);
+            this.BtnModificarEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModificarEvento.Location = new System.Drawing.Point(1145, 342);
             this.BtnModificarEvento.Name = "BtnModificarEvento";
-            this.BtnModificarEvento.Size = new System.Drawing.Size(109, 33);
+            this.BtnModificarEvento.Size = new System.Drawing.Size(116, 52);
             this.BtnModificarEvento.TabIndex = 56;
-            this.BtnModificarEvento.Text = "ModificarEvento";
+            this.BtnModificarEvento.Text = "Modificar";
             this.BtnModificarEvento.UseVisualStyleBackColor = true;
             this.BtnModificarEvento.Click += new System.EventHandler(this.BtnModificarEvento_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1046, 260);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(983, 284);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 13);
+            this.label10.Size = new System.Drawing.Size(90, 31);
             this.label10.TabIndex = 55;
             this.label10.Text = "Fecha";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1049, 234);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(990, 239);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.Size = new System.Drawing.Size(83, 31);
             this.label11.TabIndex = 54;
             this.label11.Text = "Lugar";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1021, 134);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(924, 143);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 13);
+            this.label12.Size = new System.Drawing.Size(156, 31);
             this.label12.TabIndex = 53;
             this.label12.Text = "Informacion";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1003, 108);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(881, 100);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 13);
+            this.label13.Size = new System.Drawing.Size(199, 31);
             this.label13.TabIndex = 52;
             this.label13.Text = "Nombre evento";
             // 
             // textBoxNuevaFechaEvento
             // 
-            this.textBoxNuevaFechaEvento.Location = new System.Drawing.Point(1089, 254);
+            this.textBoxNuevaFechaEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNuevaFechaEvento.Location = new System.Drawing.Point(1086, 280);
             this.textBoxNuevaFechaEvento.Name = "textBoxNuevaFechaEvento";
-            this.textBoxNuevaFechaEvento.Size = new System.Drawing.Size(175, 20);
+            this.textBoxNuevaFechaEvento.Size = new System.Drawing.Size(175, 35);
             this.textBoxNuevaFechaEvento.TabIndex = 51;
             // 
             // textBoxNuevoLugarEvento
             // 
-            this.textBoxNuevoLugarEvento.Location = new System.Drawing.Point(1089, 227);
+            this.textBoxNuevoLugarEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNuevoLugarEvento.Location = new System.Drawing.Point(1086, 239);
             this.textBoxNuevoLugarEvento.Name = "textBoxNuevoLugarEvento";
-            this.textBoxNuevoLugarEvento.Size = new System.Drawing.Size(175, 20);
+            this.textBoxNuevoLugarEvento.Size = new System.Drawing.Size(175, 35);
             this.textBoxNuevoLugarEvento.TabIndex = 50;
             // 
             // textBoxNuevoNombreEvento
             // 
-            this.textBoxNuevoNombreEvento.Location = new System.Drawing.Point(1089, 101);
+            this.textBoxNuevoNombreEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNuevoNombreEvento.Location = new System.Drawing.Point(1086, 102);
             this.textBoxNuevoNombreEvento.Name = "textBoxNuevoNombreEvento";
-            this.textBoxNuevoNombreEvento.Size = new System.Drawing.Size(175, 20);
+            this.textBoxNuevoNombreEvento.Size = new System.Drawing.Size(175, 35);
             this.textBoxNuevoNombreEvento.TabIndex = 48;
             // 
             // dataGridViewEventos
@@ -150,23 +149,23 @@ namespace Lifora
             this.dataGridViewEventos.AllowUserToOrderColumns = true;
             this.dataGridViewEventos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewEventos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEventos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEventos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewEventos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEventos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEventos.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewEventos.Location = new System.Drawing.Point(12, 97);
             this.dataGridViewEventos.MultiSelect = false;
             this.dataGridViewEventos.Name = "dataGridViewEventos";
@@ -180,11 +179,12 @@ namespace Lifora
             // 
             // BtnCrearEvento
             // 
-            this.BtnCrearEvento.Location = new System.Drawing.Point(661, 321);
+            this.BtnCrearEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCrearEvento.Location = new System.Drawing.Point(661, 280);
             this.BtnCrearEvento.Name = "BtnCrearEvento";
-            this.BtnCrearEvento.Size = new System.Drawing.Size(93, 34);
+            this.BtnCrearEvento.Size = new System.Drawing.Size(236, 51);
             this.BtnCrearEvento.TabIndex = 46;
-            this.BtnCrearEvento.Text = "Eventos";
+            this.BtnCrearEvento.Text = "Nuevo Eventos";
             this.BtnCrearEvento.UseVisualStyleBackColor = true;
             this.BtnCrearEvento.Click += new System.EventHandler(this.BtnCrearEvento_Click);
             // 
@@ -242,23 +242,23 @@ namespace Lifora
             this.dataGridViewComentarios.AllowUserToOrderColumns = true;
             this.dataGridViewComentarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewComentarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComentarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComentarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewComentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewComentarios.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewComentarios.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewComentarios.Location = new System.Drawing.Point(661, 407);
             this.dataGridViewComentarios.MultiSelect = false;
             this.dataGridViewComentarios.Name = "dataGridViewComentarios";
@@ -271,17 +271,29 @@ namespace Lifora
             // 
             // richTextBoxEvento
             // 
-            this.richTextBoxEvento.Location = new System.Drawing.Point(1089, 131);
+            this.richTextBoxEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxEvento.Location = new System.Drawing.Point(1086, 143);
             this.richTextBoxEvento.Name = "richTextBoxEvento";
             this.richTextBoxEvento.Size = new System.Drawing.Size(175, 90);
             this.richTextBoxEvento.TabIndex = 112;
             this.richTextBoxEvento.Text = "";
+            // 
+            // btnUnlockThePost
+            // 
+            this.btnUnlockThePost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnlockThePost.Location = new System.Drawing.Point(661, 342);
+            this.btnUnlockThePost.Name = "btnUnlockThePost";
+            this.btnUnlockThePost.Size = new System.Drawing.Size(114, 52);
+            this.btnUnlockThePost.TabIndex = 113;
+            this.btnUnlockThePost.Text = "Habilitar";
+            this.btnUnlockThePost.UseVisualStyleBackColor = true;
             // 
             // VisualEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 711);
+            this.Controls.Add(this.btnUnlockThePost);
             this.Controls.Add(this.richTextBoxEvento);
             this.Controls.Add(this.dataGridViewComentarios);
             this.Controls.Add(this.label3);
@@ -289,7 +301,6 @@ namespace Lifora
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.BtnDesbloquearEvento);
             this.Controls.Add(this.BtnBloquearEvento);
             this.Controls.Add(this.BtnModificarEvento);
             this.Controls.Add(this.label10);
@@ -315,8 +326,6 @@ namespace Lifora
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BtnDesbloquearEvento;
         private System.Windows.Forms.Button BtnBloquearEvento;
         private System.Windows.Forms.Button BtnModificarEvento;
         private System.Windows.Forms.Label label10;
@@ -335,5 +344,6 @@ namespace Lifora
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridViewComentarios;
         private System.Windows.Forms.RichTextBox richTextBoxEvento;
+        private System.Windows.Forms.Button btnUnlockThePost;
     }
 }

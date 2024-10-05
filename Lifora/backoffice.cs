@@ -13,6 +13,8 @@ namespace Lifora
         public backoffice()
         {
             InitializeComponent();
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+
         }
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
@@ -44,9 +46,13 @@ namespace Lifora
             }
         }
         private void txtBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-            if (dataGridViewInfoUser.SelectedRows.Count > 0)
-                (dataGridViewInfoUser.DataSource as DataTable).DefaultView.RowFilter = string.Format("email LIKE '%{0}%'", txtBoxSearch.Text);
+        {          
+                if (dataGridViewInfoUser.SelectedRows.Count > 0)
+                {
+                    (dataGridViewInfoUser.DataSource as DataTable).DefaultView.RowFilter = string.Format("Mail LIKE '%{0}%'", txtBoxSearch.Text);
+                }
+               if (dataGridViewInfoUser.SelectedRows.Count == 0)
+                dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
         private void btnUnlockTheUser_Click(object sender, EventArgs e)
         {

@@ -19,11 +19,7 @@ namespace Lifora
             dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
         }
 
-        private void btnCrearGrupo_Click(object sender, EventArgs e)
-        {
-            CrearGrupoBackoffice cgb = new CrearGrupoBackoffice();
-            cgb.Show();
-        }
+        
 
         private void btnModificarGrupo_Click(object sender, EventArgs e)
         {
@@ -38,7 +34,7 @@ namespace Lifora
             var CellValue = seleccion.Cells[columna].Value;
             int idGrupo = Int32.Parse(CellValue.ToString());
             string nombre = textBoxNombreGrupo.Text;
-            string descripcion = textBoxIDescripcionGrupo.Text;
+            string descripcion = richTextBoxGrupo.Text;
             ControladorGrupos.ModificarGrupo(idGrupo, nombre, descripcion);
             dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
         }
@@ -103,10 +99,16 @@ namespace Lifora
             {
                 DataGridViewRow seleccion = dataGridGrupos.SelectedRows[0];
                 textBoxNombreGrupo.Text = seleccion.Cells[1].Value?.ToString();
-                textBoxIDescripcionGrupo.Text = seleccion.Cells[2].Value?.ToString();
-                textBox1.Text = seleccion.Cells[3].Value?.ToString();
+                richTextBoxGrupo.Text = seleccion.Cells[2].Value?.ToString();
+               
                 
             }
+        }
+
+        private void btnCrearPost_Click(object sender, EventArgs e)
+        {
+            CrearGrupoBackoffice cgb = new CrearGrupoBackoffice();
+            cgb.Show();
         }
     }
 }

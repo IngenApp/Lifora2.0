@@ -29,23 +29,19 @@ namespace Lifora
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualPost));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnLike = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnComentarPost = new System.Windows.Forms.Button();
             this.textBoxLike = new System.Windows.Forms.TextBox();
-            this.textBoxFecha = new System.Windows.Forms.TextBox();
             this.textBoxIdCuenta = new System.Windows.Forms.TextBox();
             this.textBoxIdPost = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.btnModificarPost = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
             this.btnCrearPost = new System.Windows.Forms.Button();
             this.dataGridViewPost = new System.Windows.Forms.DataGridView();
             this.btnUnlockThePost = new System.Windows.Forms.Button();
@@ -68,132 +64,100 @@ namespace Lifora
             this.label8 = new System.Windows.Forms.Label();
             this.richTextBoxPost = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComentarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnLike
-            // 
-            this.btnLike.Location = new System.Drawing.Point(767, 304);
-            this.btnLike.Name = "btnLike";
-            this.btnLike.Size = new System.Drawing.Size(108, 37);
-            this.btnLike.TabIndex = 90;
-            this.btnLike.Text = "like";
-            this.btnLike.UseVisualStyleBackColor = true;
-            this.btnLike.Click += new System.EventHandler(this.btnLike_Click);
-            // 
             // btnComentarPost
             // 
-            this.btnComentarPost.Location = new System.Drawing.Point(655, 304);
+            this.btnComentarPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComentarPost.Location = new System.Drawing.Point(274, 645);
             this.btnComentarPost.Name = "btnComentarPost";
-            this.btnComentarPost.Size = new System.Drawing.Size(106, 37);
+            this.btnComentarPost.Size = new System.Drawing.Size(114, 50);
             this.btnComentarPost.TabIndex = 89;
-            this.btnComentarPost.Text = "Comentar Post";
+            this.btnComentarPost.Text = "Comentar";
             this.btnComentarPost.UseVisualStyleBackColor = true;
             this.btnComentarPost.Click += new System.EventHandler(this.btnComentarPost_Click);
             // 
             // textBoxLike
             // 
-            this.textBoxLike.Location = new System.Drawing.Point(1214, 235);
+            this.textBoxLike.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLike.Location = new System.Drawing.Point(1212, 168);
             this.textBoxLike.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxLike.Name = "textBoxLike";
-            this.textBoxLike.Size = new System.Drawing.Size(45, 20);
+            this.textBoxLike.Size = new System.Drawing.Size(45, 31);
             this.textBoxLike.TabIndex = 88;
             this.textBoxLike.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBoxFecha
-            // 
-            this.textBoxFecha.Location = new System.Drawing.Point(1086, 259);
-            this.textBoxFecha.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxFecha.Name = "textBoxFecha";
-            this.textBoxFecha.Size = new System.Drawing.Size(173, 20);
-            this.textBoxFecha.TabIndex = 87;
-            this.textBoxFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // textBoxIdCuenta
             // 
-            this.textBoxIdCuenta.Location = new System.Drawing.Point(1214, 211);
+            this.textBoxIdCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIdCuenta.Location = new System.Drawing.Point(1212, 129);
             this.textBoxIdCuenta.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxIdCuenta.Name = "textBoxIdCuenta";
-            this.textBoxIdCuenta.Size = new System.Drawing.Size(45, 20);
+            this.textBoxIdCuenta.Size = new System.Drawing.Size(45, 31);
             this.textBoxIdCuenta.TabIndex = 86;
             this.textBoxIdCuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxIdPost
             // 
-            this.textBoxIdPost.Location = new System.Drawing.Point(1214, 190);
+            this.textBoxIdPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIdPost.Location = new System.Drawing.Point(1211, 95);
             this.textBoxIdPost.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxIdPost.Name = "textBoxIdPost";
-            this.textBoxIdPost.Size = new System.Drawing.Size(45, 20);
+            this.textBoxIdPost.Size = new System.Drawing.Size(45, 31);
             this.textBoxIdPost.TabIndex = 85;
             this.textBoxIdPost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(1171, 235);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(1142, 165);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(38, 20);
+            this.label22.Size = new System.Drawing.Size(64, 31);
             this.label22.TabIndex = 84;
             this.label22.Text = "Like";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(1027, 259);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(54, 20);
-            this.label18.TabIndex = 83;
-            this.label18.Text = "Fecha";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(1129, 209);
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(1070, 131);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(80, 20);
+            this.label20.Size = new System.Drawing.Size(136, 31);
             this.label20.TabIndex = 82;
             this.label20.Text = "id Usuario";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(1152, 190);
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(1109, 95);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(57, 20);
+            this.label21.Size = new System.Drawing.Size(97, 31);
             this.label21.TabIndex = 81;
             this.label21.Text = "id Post";
             // 
             // btnModificarPost
             // 
-            this.btnModificarPost.Location = new System.Drawing.Point(1151, 284);
+            this.btnModificarPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarPost.Location = new System.Drawing.Point(1143, 277);
             this.btnModificarPost.Name = "btnModificarPost";
-            this.btnModificarPost.Size = new System.Drawing.Size(108, 33);
+            this.btnModificarPost.Size = new System.Drawing.Size(116, 52);
             this.btnModificarPost.TabIndex = 80;
-            this.btnModificarPost.Text = "Modificar Post";
+            this.btnModificarPost.Text = "Modificar";
             this.btnModificarPost.UseVisualStyleBackColor = true;
             this.btnModificarPost.Click += new System.EventHandler(this.btnModificarPost_Click);
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(1039, 97);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 20);
-            this.label19.TabIndex = 79;
-            this.label19.Text = "Post";
-            // 
             // btnCrearPost
             // 
-            this.btnCrearPost.Location = new System.Drawing.Point(655, 254);
+            this.btnCrearPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearPost.Location = new System.Drawing.Point(12, 648);
             this.btnCrearPost.Name = "btnCrearPost";
-            this.btnCrearPost.Size = new System.Drawing.Size(106, 37);
+            this.btnCrearPost.Size = new System.Drawing.Size(236, 51);
             this.btnCrearPost.TabIndex = 77;
             this.btnCrearPost.Text = "Crear Post";
             this.btnCrearPost.UseVisualStyleBackColor = true;
@@ -204,71 +168,73 @@ namespace Lifora
             this.dataGridViewPost.AllowUserToOrderColumns = true;
             this.dataGridViewPost.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewPost.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPost.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPost.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewPost.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewPost.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewPost.Location = new System.Drawing.Point(12, 97);
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPost.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridViewPost.Location = new System.Drawing.Point(12, 100);
             this.dataGridViewPost.MultiSelect = false;
             this.dataGridViewPost.Name = "dataGridViewPost";
             this.dataGridViewPost.ReadOnly = true;
             this.dataGridViewPost.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewPost.RowHeadersWidth = 62;
             this.dataGridViewPost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPost.Size = new System.Drawing.Size(620, 600);
+            this.dataGridViewPost.Size = new System.Drawing.Size(620, 538);
             this.dataGridViewPost.TabIndex = 76;
             this.dataGridViewPost.SelectionChanged += new System.EventHandler(this.dataGridViewPost_SelectionChanged);
             // 
             // btnUnlockThePost
             // 
-            this.btnUnlockThePost.Location = new System.Drawing.Point(654, 166);
+            this.btnUnlockThePost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnlockThePost.Location = new System.Drawing.Point(394, 644);
             this.btnUnlockThePost.Name = "btnUnlockThePost";
-            this.btnUnlockThePost.Size = new System.Drawing.Size(107, 33);
+            this.btnUnlockThePost.Size = new System.Drawing.Size(114, 52);
             this.btnUnlockThePost.TabIndex = 75;
-            this.btnUnlockThePost.Text = "Habilitar Post";
+            this.btnUnlockThePost.Text = "Habilitar";
             this.btnUnlockThePost.UseVisualStyleBackColor = true;
             this.btnUnlockThePost.Click += new System.EventHandler(this.btnUnlockThePost_Click);
             // 
             // btnBlockThePost
             // 
-            this.btnBlockThePost.Location = new System.Drawing.Point(653, 205);
+            this.btnBlockThePost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlockThePost.Location = new System.Drawing.Point(518, 644);
             this.btnBlockThePost.Name = "btnBlockThePost";
-            this.btnBlockThePost.Size = new System.Drawing.Size(108, 33);
+            this.btnBlockThePost.Size = new System.Drawing.Size(114, 52);
             this.btnBlockThePost.TabIndex = 74;
-            this.btnBlockThePost.Text = "Deshabilitar Post";
+            this.btnBlockThePost.Text = "Bloquear";
             this.btnBlockThePost.UseVisualStyleBackColor = true;
             this.btnBlockThePost.Click += new System.EventHandler(this.btnBlockThePost_Click);
             // 
             // txtBoxSearchIDCuenta
             // 
-            this.txtBoxSearchIDCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchIDCuenta.Location = new System.Drawing.Point(758, 54);
+            this.txtBoxSearchIDCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearchIDCuenta.Location = new System.Drawing.Point(828, 133);
             this.txtBoxSearchIDCuenta.Name = "txtBoxSearchIDCuenta";
             this.txtBoxSearchIDCuenta.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtBoxSearchIDCuenta.Size = new System.Drawing.Size(47, 26);
+            this.txtBoxSearchIDCuenta.Size = new System.Drawing.Size(47, 31);
             this.txtBoxSearchIDCuenta.TabIndex = 92;
             this.txtBoxSearchIDCuenta.TextChanged += new System.EventHandler(this.txtBoxSearch_TextChanged);
             // 
             // textBuscarPostId
             // 
-            this.textBuscarPostId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBuscarPostId.Location = new System.Drawing.Point(758, 82);
+            this.textBuscarPostId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBuscarPostId.Location = new System.Drawing.Point(828, 168);
             this.textBuscarPostId.Name = "textBuscarPostId";
             this.textBuscarPostId.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBuscarPostId.Size = new System.Drawing.Size(47, 26);
+            this.textBuscarPostId.Size = new System.Drawing.Size(47, 31);
             this.textBuscarPostId.TabIndex = 94;
             this.textBuscarPostId.TextChanged += new System.EventHandler(this.textBuscarPostId_TextChanged);
             // 
@@ -324,46 +290,46 @@ namespace Lifora
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(668, 88);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(651, 168);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 20);
+            this.label5.Size = new System.Drawing.Size(141, 31);
             this.label5.TabIndex = 100;
             this.label5.Text = "ID de Post";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(650, 111);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(653, 205);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 20);
+            this.label6.Size = new System.Drawing.Size(138, 31);
             this.label6.TabIndex = 103;
-            this.label6.Text = "Contenido del Post";
+            this.label6.Text = "Contenido";
             // 
             // dataGridViewComentarios
             // 
             this.dataGridViewComentarios.AllowUserToOrderColumns = true;
             this.dataGridViewComentarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewComentarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComentarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComentarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewComentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewComentarios.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewComentarios.Location = new System.Drawing.Point(654, 406);
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewComentarios.DefaultCellStyle = dataGridViewCellStyle24;
+            this.dataGridViewComentarios.Location = new System.Drawing.Point(658, 348);
             this.dataGridViewComentarios.MultiSelect = false;
             this.dataGridViewComentarios.Name = "dataGridViewComentarios";
             this.dataGridViewComentarios.ReadOnly = true;
@@ -376,28 +342,28 @@ namespace Lifora
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(650, 60);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(651, 131);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 20);
+            this.label7.Size = new System.Drawing.Size(180, 31);
             this.label7.TabIndex = 105;
-            this.label7.Text = "D de Usuario";
+            this.label7.Text = "ID de Usuario";
             // 
             // textBuscarContenidoPost
             // 
-            this.textBuscarContenidoPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBuscarContenidoPost.Location = new System.Drawing.Point(654, 134);
+            this.textBuscarContenidoPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBuscarContenidoPost.Location = new System.Drawing.Point(797, 208);
             this.textBuscarContenidoPost.Name = "textBuscarContenidoPost";
             this.textBuscarContenidoPost.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBuscarContenidoPost.Size = new System.Drawing.Size(151, 26);
+            this.textBuscarContenidoPost.Size = new System.Drawing.Size(183, 31);
             this.textBuscarContenidoPost.TabIndex = 106;
             this.textBuscarContenidoPost.TextChanged += new System.EventHandler(this.textBuscarContenidoPost_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(584, 45);
+            this.button1.Location = new System.Drawing.Point(581, 38);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 49);
+            this.button1.Size = new System.Drawing.Size(51, 53);
             this.button1.TabIndex = 107;
             this.button1.Text = "<>";
             this.button1.UseVisualStyleBackColor = true;
@@ -405,21 +371,23 @@ namespace Lifora
             // 
             // buttonHabilitarComentario
             // 
-            this.buttonHabilitarComentario.Location = new System.Drawing.Point(655, 348);
+            this.buttonHabilitarComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHabilitarComentario.Location = new System.Drawing.Point(1023, 643);
             this.buttonHabilitarComentario.Name = "buttonHabilitarComentario";
-            this.buttonHabilitarComentario.Size = new System.Drawing.Size(107, 45);
+            this.buttonHabilitarComentario.Size = new System.Drawing.Size(114, 51);
             this.buttonHabilitarComentario.TabIndex = 109;
-            this.buttonHabilitarComentario.Text = "Habilitar Comentario";
+            this.buttonHabilitarComentario.Text = "Habilitar";
             this.buttonHabilitarComentario.UseVisualStyleBackColor = true;
             this.buttonHabilitarComentario.Click += new System.EventHandler(this.buttonHabilitarComentario_Click);
             // 
             // ButtonDeshabilitarComentario
             // 
-            this.ButtonDeshabilitarComentario.Location = new System.Drawing.Point(768, 348);
+            this.ButtonDeshabilitarComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonDeshabilitarComentario.Location = new System.Drawing.Point(1143, 644);
             this.ButtonDeshabilitarComentario.Name = "ButtonDeshabilitarComentario";
-            this.ButtonDeshabilitarComentario.Size = new System.Drawing.Size(108, 45);
+            this.ButtonDeshabilitarComentario.Size = new System.Drawing.Size(114, 51);
             this.ButtonDeshabilitarComentario.TabIndex = 108;
-            this.ButtonDeshabilitarComentario.Text = "Deshabilitar Comentario";
+            this.ButtonDeshabilitarComentario.Text = "Bloquear";
             this.ButtonDeshabilitarComentario.UseVisualStyleBackColor = true;
             this.ButtonDeshabilitarComentario.Click += new System.EventHandler(this.ButtonDeshabilitarComentario_Click);
             // 
@@ -427,7 +395,7 @@ namespace Lifora
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(648, 18);
+            this.label8.Location = new System.Drawing.Point(653, 92);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 31);
             this.label8.TabIndex = 110;
@@ -435,9 +403,10 @@ namespace Lifora
             // 
             // richTextBoxPost
             // 
-            this.richTextBoxPost.Location = new System.Drawing.Point(1086, 90);
+            this.richTextBoxPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxPost.Location = new System.Drawing.Point(1049, 204);
             this.richTextBoxPost.Name = "richTextBoxPost";
-            this.richTextBoxPost.Size = new System.Drawing.Size(172, 90);
+            this.richTextBoxPost.Size = new System.Drawing.Size(210, 61);
             this.richTextBoxPost.TabIndex = 111;
             this.richTextBoxPost.Text = "";
             // 
@@ -445,17 +414,28 @@ namespace Lifora
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(950, 348);
+            this.label9.Location = new System.Drawing.Point(649, 277);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(308, 55);
             this.label9.TabIndex = 112;
             this.label9.Text = "Comentarios";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(339, 38);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(236, 50);
+            this.button2.TabIndex = 113;
+            this.button2.Text = "Denuncias";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // VisualPost
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1284, 711);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.richTextBoxPost);
             this.Controls.Add(this.label8);
@@ -474,18 +454,14 @@ namespace Lifora
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBuscarPostId);
             this.Controls.Add(this.txtBoxSearchIDCuenta);
-            this.Controls.Add(this.btnLike);
             this.Controls.Add(this.btnComentarPost);
             this.Controls.Add(this.textBoxLike);
-            this.Controls.Add(this.textBoxFecha);
             this.Controls.Add(this.textBoxIdCuenta);
             this.Controls.Add(this.textBoxIdPost);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.btnModificarPost);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.btnCrearPost);
             this.Controls.Add(this.dataGridViewPost);
             this.Controls.Add(this.btnUnlockThePost);
@@ -504,19 +480,14 @@ namespace Lifora
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnLike;
         private System.Windows.Forms.Button btnComentarPost;
         private System.Windows.Forms.TextBox textBoxLike;
-        private System.Windows.Forms.TextBox textBoxFecha;
         private System.Windows.Forms.TextBox textBoxIdCuenta;
         private System.Windows.Forms.TextBox textBoxIdPost;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnModificarPost;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnCrearPost;
         private System.Windows.Forms.DataGridView dataGridViewPost;
         private System.Windows.Forms.Button btnUnlockThePost;
@@ -539,5 +510,6 @@ namespace Lifora
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox richTextBoxPost;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button2;
     }
 }
