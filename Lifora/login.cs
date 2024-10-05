@@ -15,10 +15,7 @@ namespace Lifora
         
         public login()
         {
-            InitializeComponent();
-            string videoPath = @"D:\IngenApp\ME GUSTA EL ARTE.mp4";
-            axWindowsMediaPlayer1.URL = videoPath;
-            axWindowsMediaPlayer1.Ctlcontrols.play();         
+            InitializeComponent();             
         }
 
         private void buttonBackOffice_Click(object sender, EventArgs e)
@@ -29,10 +26,8 @@ namespace Lifora
             this.Enabled = false;
             backoff.Show();
             backoff.FormClosed += (s, args) => this.Enabled = true;
-            axWindowsMediaPlayer1.Ctlcontrols.pause();
                 textBoxMail.Text = "";
-                textBoxPassword.Text = "";
-                
+                textBoxPassword.Text = "";    
             }
             else
             {
