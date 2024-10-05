@@ -122,6 +122,12 @@ namespace Lifora
             VisualGrupos vgb = new VisualGrupos();
             vgb.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            VisualCrearCuentaBackoffice ccb = new VisualCrearCuentaBackoffice();
+            ccb.Show();
+        }
     }
 }
 

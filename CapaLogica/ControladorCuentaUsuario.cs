@@ -90,24 +90,24 @@ namespace Controladores
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("id_cuenta", typeof(int));
-            tabla.Columns.Add("nombre", typeof(string));
-            tabla.Columns.Add("apellido", typeof(string));
-            tabla.Columns.Add("telefono", typeof(int));
-            tabla.Columns.Add("email", typeof(string));
-            tabla.Columns.Add("fecha_nacimiento", typeof(string));
-            tabla.Columns.Add("habilitado", typeof(Boolean));
+            tabla.Columns.Add("ID", typeof(int));
+            tabla.Columns.Add("Nombre", typeof(string));
+            tabla.Columns.Add("Apellido", typeof(string));
+            tabla.Columns.Add("Telefono", typeof(int));
+            tabla.Columns.Add("Mail", typeof(string));
+            tabla.Columns.Add("Fec Nac", typeof(string));
+            tabla.Columns.Add("Habilitado", typeof(Boolean));
             ModeloPersonas ListarPersonas = new ModeloPersonas();
             foreach (ModeloPersonas p in ListarPersonas.ObtenerTodos())
             {
                 DataRow fila = tabla.NewRow();
-                fila["id_cuenta"] = p.id_cuenta;
-                fila["nombre"] = p.nombre;
-                fila["apellido"] = p.apellido;
-                fila["telefono"] = p.telefono;
-                fila["email"] = p.email;
-                fila["fecha_nacimiento"] = p.fecha_nac; 
-                fila["habilitado"] = p.habilitacion;
+                fila["ID"] = p.id_cuenta;
+                fila["Nombre"] = p.nombre;
+                fila["Apellido"] = p.apellido;
+                fila["Telefono"] = p.telefono;
+                fila["Mail"] = p.email;
+                fila["Fec Nac"] = p.fecha_nac; 
+                fila["Habilitado"] = p.habilitacion;
                 tabla.Rows.Add(fila);
             }
             return tabla;
