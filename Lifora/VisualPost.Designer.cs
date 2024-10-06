@@ -198,7 +198,7 @@ namespace Lifora
             this.dataGridViewPost.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewPost.RowHeadersWidth = 62;
             this.dataGridViewPost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPost.Size = new System.Drawing.Size(620, 538);
+            this.dataGridViewPost.Size = new System.Drawing.Size(620, 530);
             this.dataGridViewPost.TabIndex = 76;
             this.dataGridViewPost.SelectionChanged += new System.EventHandler(this.dataGridViewPost_SelectionChanged);
             // 
@@ -287,11 +287,11 @@ namespace Lifora
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1110, 18);
+            this.label4.Location = new System.Drawing.Point(1138, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(149, 55);
+            this.label4.Size = new System.Drawing.Size(124, 55);
             this.label4.TabIndex = 99;
-            this.label4.Text = "Posts";
+            this.label4.Text = "Post";
             // 
             // label5
             // 

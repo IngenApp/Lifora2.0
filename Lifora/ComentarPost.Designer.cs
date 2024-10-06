@@ -36,7 +36,8 @@ namespace Lifora
             // 
             // btnComentarPost
             // 
-            this.btnComentarPost.Location = new System.Drawing.Point(168, 115);
+            this.btnComentarPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComentarPost.Location = new System.Drawing.Point(161, 151);
             this.btnComentarPost.Name = "btnComentarPost";
             this.btnComentarPost.Size = new System.Drawing.Size(132, 49);
             this.btnComentarPost.TabIndex = 25;
@@ -47,17 +48,19 @@ namespace Lifora
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 74);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(110, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(248, 31);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Comentar";
+            this.label1.Text = "Infresar comentario";
             // 
             // textBoxComentarPost
             // 
-            this.textBoxComentarPost.Location = new System.Drawing.Point(99, 71);
+            this.textBoxComentarPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxComentarPost.Location = new System.Drawing.Point(66, 114);
             this.textBoxComentarPost.Name = "textBoxComentarPost";
-            this.textBoxComentarPost.Size = new System.Drawing.Size(335, 20);
+            this.textBoxComentarPost.Size = new System.Drawing.Size(335, 31);
             this.textBoxComentarPost.TabIndex = 22;
             // 
             // ComentarPost

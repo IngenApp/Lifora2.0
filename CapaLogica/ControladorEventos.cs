@@ -86,7 +86,7 @@ namespace Controladores
             tabla.Columns.Add("Lugar", typeof(string));
             tabla.Columns.Add("Fecha", typeof(string));
             tabla.Columns.Add("habilitado", typeof(Boolean));
-            tabla.Columns.Add("ID Cuenta", typeof(string));
+            tabla.Columns.Add("IDCuenta", typeof(string));
             ModeloEventos ListarEventos = new ModeloEventos();
             foreach (ModeloEventos p in ListarEventos.ObtenerEventos())
             {
@@ -97,7 +97,7 @@ namespace Controladores
                 fila["Lugar"] = p.lugar;
                 fila["Fecha"] = p.fecha_evento;
                 fila["habilitado"] = p.habilitado;
-                fila["ID Cuenta"] = p.id_cuenta;
+                fila["IDCuenta"] = p.id_cuenta;
                 tabla.Rows.Add(fila);
             }
             return tabla;

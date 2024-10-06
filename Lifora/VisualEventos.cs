@@ -64,7 +64,36 @@ namespace Lifora
             }
         }
 
-        private void BtnDesbloquearEvento_Click(object sender, EventArgs e)
+        private void BtnModificarEvento_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (pregunta == DialogResult.Yes)
+            {
+                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
+                int columna = 0;
+                var CellValue = seleccion.Cells[columna].Value;
+                string id_evento = CellValue.ToString();
+                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, richTextBoxEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
+                MessageBox.Show("Cambios realizados con exito");
+                dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+            }
+            
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewEventos.SelectedRows.Count > 0)
+                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(ID, 'System.String') LIKE '%{0}%'", textBox3.Text);
+            if (dataGridViewEventos.SelectedRows.Count == 0)
+                dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+        }
+
+        private void btnUnlockThePost_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Desbloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
@@ -91,25 +120,20 @@ namespace Lifora
             }
         }
 
-        private void BtnModificarEvento_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (pregunta == DialogResult.Yes)
-            {
-                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
-                int columna = 0;
-                var CellValue = seleccion.Cells[columna].Value;
-                string id_evento = CellValue.ToString();
-                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, richTextBoxEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
-                MessageBox.Show("Cambios realizados con exito");
+            if (dataGridViewEventos.SelectedRows.Count > 0)
+                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("IDCuenta LIKE '%{0}%'", textBox2.Text);
+            if (dataGridViewEventos.SelectedRows.Count == 0)
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se han realizado los cambios");
-            }
-            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewEventos.SelectedRows.Count > 0)
+                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%'", textBox1.Text);
+            if (dataGridViewEventos.SelectedRows.Count == 0)
+                dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
         }
     }
 }
