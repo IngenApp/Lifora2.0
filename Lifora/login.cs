@@ -22,9 +22,8 @@ namespace Lifora
         {
             if(ControladorCuentaUsuario.Login(textBoxMail.Text, textBoxPassword.Text) == true)
             {
-            backoffice backoff = new backoffice();
-            backoff.Show();
-            
+                backoffice backoff = new backoffice();
+                backoff.Show();
                 textBoxMail.Text = "";
                 textBoxPassword.Text = "";
                 this.Hide();

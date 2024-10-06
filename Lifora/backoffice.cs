@@ -10,6 +10,7 @@ namespace Lifora
     public partial class backoffice : Form
     {
         public string id;
+
         public backoffice()
         {
             InitializeComponent();
@@ -136,10 +137,9 @@ namespace Lifora
             ccb.Show();
         }
 
-        private void backoffice_FormClosing(object sender, FormClosingEventArgs e)
+        public void backoffice_FormClosing(object sender, FormClosingEventArgs e)
         {
-            login login = new login();
-            login.Show();
+            ActiveForm.Show();
         }
     }
 }
