@@ -110,5 +110,29 @@ namespace Lifora
             CrearGrupoBackoffice cgb = new CrearGrupoBackoffice();
             cgb.Show();
         }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridGrupos.SelectedRows.Count > 0)
+                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(ID, 'System.String') LIKE '%{0}%'", textBox3.Text);
+            if (dataGridGrupos.SelectedRows.Count == 0)
+                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridGrupos.SelectedRows.Count > 0)
+                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(IDCuenta, 'System.String') LIKE '%{0}%'", textBox2.Text);
+            if (dataGridGrupos.SelectedRows.Count == 0)
+                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridGrupos.SelectedRows.Count > 0)
+                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%'", textBox1.Text);
+            if (dataGridGrupos.SelectedRows.Count == 0)
+                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
+        }
     }
 }

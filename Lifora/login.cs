@@ -15,7 +15,7 @@ namespace Lifora
         
         public login()
         {
-            InitializeComponent();             
+            InitializeComponent();
         }
 
         private void buttonBackOffice_Click(object sender, EventArgs e)
@@ -23,11 +23,12 @@ namespace Lifora
             if(ControladorCuentaUsuario.Login(textBoxMail.Text, textBoxPassword.Text) == true)
             {
             backoffice backoff = new backoffice();
-            this.Enabled = false;
             backoff.Show();
-            backoff.FormClosed += (s, args) => this.Enabled = true;
+            
                 textBoxMail.Text = "";
-                textBoxPassword.Text = "";    
+                textBoxPassword.Text = "";
+                this.Hide();
+                
             }
             else
             {
@@ -42,6 +43,22 @@ namespace Lifora
             Login.Show();
         }
 
+        private void textBoxPassword_Enter(object sender, EventArgs e)
+        {
+            if (ControladorCuentaUsuario.Login(textBoxMail.Text, textBoxPassword.Text) == true)
+            {
+                backoffice backoff = new backoffice();
+                this.Enabled = false;
+                backoff.Show();
+                backoff.FormClosed += (s, args) => this.Enabled = true;
+                textBoxMail.Text = "";
+                textBoxPassword.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas");
+            }
+        }
     }
     
 }

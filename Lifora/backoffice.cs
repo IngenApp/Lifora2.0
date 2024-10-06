@@ -14,6 +14,7 @@ namespace Lifora
         {
             InitializeComponent();
             dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+        
 
         }
         private void btnSearchUser_Click(object sender, EventArgs e)
@@ -133,6 +134,12 @@ namespace Lifora
         {
             VisualCrearCuentaBackoffice ccb = new VisualCrearCuentaBackoffice();
             ccb.Show();
+        }
+
+        private void backoffice_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            login login = new login();
+            login.Show();
         }
     }
 }

@@ -76,7 +76,7 @@ namespace Lifora
             this.buttonBackOffice.Name = "buttonBackOffice";
             this.buttonBackOffice.Size = new System.Drawing.Size(311, 52);
             this.buttonBackOffice.TabIndex = 36;
-            this.buttonBackOffice.Text = "Loggin";
+            this.buttonBackOffice.Text = "Log In";
             this.buttonBackOffice.UseVisualStyleBackColor = true;
             this.buttonBackOffice.Click += new System.EventHandler(this.buttonBackOffice_Click);
             // 
@@ -100,6 +100,7 @@ namespace Lifora
             this.textBoxPassword.Size = new System.Drawing.Size(311, 38);
             this.textBoxPassword.TabIndex = 38;
             this.textBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // button1
             // 

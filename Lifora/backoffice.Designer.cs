@@ -409,6 +409,7 @@ namespace Lifora
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interface";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.backoffice_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).EndInit();
             this.ResumeLayout(false);

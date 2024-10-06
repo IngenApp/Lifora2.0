@@ -54,24 +54,24 @@ namespace Controladores
         {
             DataTable tabla = new DataTable();
             
-            tabla.Columns.Add("idGrupo", typeof(int));
-            tabla.Columns.Add("nombre", typeof(string));
-            tabla.Columns.Add("descripcion", typeof(string));
-            tabla.Columns.Add("fecha", typeof(string));
-            tabla.Columns.Add("habilitado", typeof(bool));
-            tabla.Columns.Add("idCuenta", typeof(int));
+            tabla.Columns.Add("ID", typeof(int));
+            tabla.Columns.Add("Nombre", typeof(string));
+            tabla.Columns.Add("Descripcion", typeof(string));
+            tabla.Columns.Add("Fecha", typeof(string));
+            tabla.Columns.Add("Habilitado", typeof(bool));
+            tabla.Columns.Add("IDCuenta", typeof(int));
 
             ModeloGrupos modeloGrupos = new ModeloGrupos();
             foreach (ModeloGrupos g in modeloGrupos.ObtenerTodos())
             {
                 DataRow fila = tabla.NewRow();
                 
-                fila["idGrupo"] = g.idGrupo;
-                fila["nombre"] = g.nombre;
-                fila["descripcion"] = g.descripcion;
-                fila["fecha"] = g.fecha;
-                fila["habilitado"] = g.habilitado;
-                fila["idCuenta"] = g.idCuenta;
+                fila["ID"] = g.idGrupo;
+                fila["Nombre"] = g.nombre;
+                fila["Descripcion"] = g.descripcion;
+                fila["Fecha"] = g.fecha;
+                fila["Habilitado"] = g.habilitado;
+                fila["IDCuenta"] = g.idCuenta;
                 tabla.Rows.Add(fila);
             }
             return tabla;
