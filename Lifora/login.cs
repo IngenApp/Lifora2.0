@@ -31,7 +31,7 @@ namespace Lifora
             }
             else
             {
-                MessageBox.Show("Credenciales incorrectas");
+                MessageBox.Show("Credenciales incorrectas o usuario bloqueado");
             }
         }
 
@@ -40,23 +40,6 @@ namespace Lifora
             Login Login = new Login();
             this.Enabled = false;
             Login.Show();
-        }
-
-        private void textBoxPassword_Enter(object sender, EventArgs e)
-        {
-            if (ControladorCuentaUsuario.Login(textBoxMail.Text, textBoxPassword.Text) == true)
-            {
-                backoffice backoff = new backoffice();
-                this.Enabled = false;
-                backoff.Show();
-                backoff.FormClosed += (s, args) => this.Enabled = true;
-                textBoxMail.Text = "";
-                textBoxPassword.Text = "";
-            }
-            else
-            {
-                MessageBox.Show("Credenciales incorrectas");
-            }
         }
     }
     

@@ -9,8 +9,8 @@ namespace Modelo
 {
     public class ModeloPersonas : Modelo
     {
-        public int idCuenta, idUsuario;
-        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma;
+        public int idPerfil, idUsuario, idCuenta, id_foto_perfil;
+        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2;
         public bool habilitacion;
 
 
@@ -38,52 +38,48 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         public void DeshabilitarCuentaUsuario()
         {
-            string sql = $"update cuenta_lifora set habilitacion = false where id_cuenta = '{this.idCuenta}'";
+            string sql = $"update cuenta_lifora set habilitado = false where id_usuario = '{this.idUsuario}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public void HabilitarCuentaUsuario()
         {
-            string sql = $"update cuenta_lifora set habilitacion = true where id_cuenta = '{this.idCuenta}'";
+            string sql = $"update cuenta_lifora set habilitado = true where id_usuario = '{this.idUsuario}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        
-       
-        public void ModificarContrasenaUsuario()
-        {
-            string sql = $"update cuenta_lifora set contrasena = '{this.contrasena}' where id_cuenta ='{this.idCuenta}'";
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-       
+  
         public void ModificarCuentaUsuario()
         {
-            string sql = $"update cuenta_ set email = '{this.email}', telefono = '{this.telefono}', nombre = '{this.nombre}', apellido = '{this.apellido}', fecha_nacimiento = '{this.fechaNacimiento}' where id_cuenta = '{this.idCuenta}'";
+            string sql = $"CALL actualizar_usuario_cuenta(@email, @nombre, @apellido, @fecha_nacimiento, @telefono, @contrasenia);";
+            this.Comando.Parameters.AddWithValue("@email", email);
+            this.Comando.Parameters.AddWithValue("@nombre", nombre);
+            this.Comando.Parameters.AddWithValue("@apellido", apellido);
+            this.Comando.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
+            this.Comando.Parameters.AddWithValue("@telefono", telefono);
+            this.Comando.Parameters.AddWithValue("@contrasenia", contrasena);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+        public void ModificarPerfil()
+        {
+            string sql = $"CALL actualizar_perfil(@apodo, @email, @idioma, @id_foto_perfil, @atributo1, @atributo2);";
+            this.Comando.Parameters.AddWithValue("@apodo", apodo);
+            this.Comando.Parameters.AddWithValue("@email", email);
+            this.Comando.Parameters.AddWithValue("@idioma", idioma);
+            this.Comando.Parameters.AddWithValue("@id_foto_perfil", id_foto_perfil);
+            this.Comando.Parameters.AddWithValue("@atributo1", atributo1);
+            this.Comando.Parameters.AddWithValue("@atributo2", atributo2);
+            this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public bool Autenticar()
         {
-            string sql = $"SELECT COUNT(*) FROM cuenta_lifora WHERE email = @email AND contrasenia = @contrasenia";
+            string sql = $"SELECT COUNT(*) FROM cuenta_lifora WHERE email = @email AND contrasenia = @contrasenia AND habilitado = 1;";
             this.Comando.Parameters.AddWithValue("@email", this.email);
             this.Comando.Parameters.AddWithValue("@contrasenia", this.contrasena);
             this.Comando.Prepare();
@@ -99,7 +95,7 @@ namespace Modelo
             string sql = "SELECT id_cuenta, nombre, apellido, telefono, email, fecha_nacimiento, habilitacion FROM cuenta_usuario WHERE id_cuenta = @id";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id", this.idCuenta);
+            this.Comando.Parameters.AddWithValue("@id", this.idUsuario);
             this.Lector = this.Comando.ExecuteReader();
             Dictionary<string, string> datosUsuario = new Dictionary<string, string>();
             if (this.Lector.Read())
@@ -120,28 +116,39 @@ namespace Modelo
             this.Lector.Close();
             return datosUsuario;
         }
-        /*public List<ModeloPersonas> ObtenerTodos()
+        public List<ModeloPersonas> ObtenerTodos()
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();
 
-            string sql = $"SELECT * FROM cuenta_usuario";
+            string sql = @"SELECT p.id_perfil, 
+                          p.apodo, 
+                          p.email AS perfil_email, 
+                          u.telefono AS cuenta_telefono, 
+                          c.habilitado, 
+                          c.id_usuario 
+                   FROM perfil p 
+                   JOIN cuenta_usuario u ON p.email = u.email 
+                   JOIN cuenta_lifora c ON u.email = c.email 
+                   ORDER BY c.id_usuario;";
+
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
 
             while (this.Lector.Read())
             {
-                ModeloPersonas mp = new ModeloPersonas();
-                mp.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
-                mp.nombre = this.Lector["nombre"].ToString();
-                mp.apellido = this.Lector["apellido"].ToString();
-                mp.email = this.Lector["email"].ToString();
-                mp.telefono = Int32.Parse(this.Lector["telefono"].ToString());
-                mp.fecha_nac = this.Lector["fecha_nacimiento"].ToString();
-                mp.habilitacion = this.Lector["habilitacion"].ToString();
+                ModeloPersonas mp = new ModeloPersonas
+                {
+                    idPerfil = Convert.ToInt32(this.Lector["id_perfil"]),
+                    apodo = this.Lector["apodo"].ToString(),
+                    email = this.Lector["perfil_email"].ToString(), // Usando el alias
+                    telefono = this.Lector["cuenta_telefono"].ToString(), // Usando el alias
+                    habilitacion = this.Lector["habilitado"] != DBNull.Value && Convert.ToBoolean(this.Lector["habilitado"]),
+                    idUsuario = Convert.ToInt32(this.Lector["id_usuario"])
+                };
                 bd.Add(mp);
             }
+            this.Lector.Close(); // Asegúrate de cerrar el lector al final
             return bd;
-
-        }*/
+        }
     }
 }

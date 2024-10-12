@@ -20,7 +20,7 @@ namespace Lifora
         }
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
-           // dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+           dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
         private void btnBlockTheUser_Click(object sender, EventArgs e)
         {
@@ -30,12 +30,12 @@ namespace Lifora
                 if (dataGridViewInfoUser.SelectedRows.Count > 0)
                 {
                     DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                    int columna = 0;
+                    int columna = 5;
                     var CellValue = seleccion.Cells[columna].Value;
-                    string Id = CellValue.ToString();
-                    int id = int.Parse(Id);
+                    string idUsuario = CellValue.ToString();
+                    int id = int.Parse(idUsuario);
                     ControladorCuentaUsuario.DeshabilitaCuentaUsuario(id);
-                    //dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
                 if (dataGridViewInfoUser.SelectedRows.Count == 0)
                 {
@@ -51,10 +51,10 @@ namespace Lifora
         {          
                 if (dataGridViewInfoUser.SelectedRows.Count > 0)
                 {
-                    (dataGridViewInfoUser.DataSource as DataTable).DefaultView.RowFilter = string.Format("Mail LIKE '%{0}%'", txtBoxSearch.Text);
+                    (dataGridViewInfoUser.DataSource as DataTable).DefaultView.RowFilter = string.Format("email LIKE '%{0}%'", txtBoxSearch.Text);
                 }
-              // if (dataGridViewInfoUser.SelectedRows.Count == 0)
-                //dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+               if (dataGridViewInfoUser.SelectedRows.Count == 0)
+                dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
         private void btnUnlockTheUser_Click(object sender, EventArgs e)
         {
@@ -64,12 +64,12 @@ namespace Lifora
                 if (dataGridViewInfoUser.SelectedRows.Count > 0)
                 {
                     DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                    int columna = 0;
+                    int columna = 5;
                     var CellValue = seleccion.Cells[columna].Value;
-                    string Id = CellValue.ToString();
-                    int id = int.Parse(Id);
+                    string idUsuario = CellValue.ToString();
+                    int id = int.Parse(idUsuario);
                     ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
-                    //dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
                 if (dataGridViewInfoUser.SelectedRows.Count == 0)
                 {
