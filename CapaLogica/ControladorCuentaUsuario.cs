@@ -20,11 +20,8 @@ namespace Controladores
             CuentaUsuario.email = email;
             CuentaUsuario.telefono = telefono;
             CuentaUsuario.contrasena = contrasena;
-            CuentaUsuario.GuardarCuentaUsuario();
-            
-           
+            CuentaUsuario.GuardarCuentaUsuario();             
         }
-
 
         public static void CrearPerfil(string apodo, string email, string idioma)
         {
@@ -32,9 +29,7 @@ namespace Controladores
             crearPerfil.apodo = apodo;
             crearPerfil.email = email;
             crearPerfil.idioma = idioma;
-            crearPerfil.CrearPerfil();
-            
-            
+            crearPerfil.CrearPerfil();       
         }
 
 
@@ -81,7 +76,6 @@ namespace Controladores
             ModCuenta.apellido = apellido;
             ModCuenta.telefono = telefono;
             ModCuenta.ModificarCuentaUsuario();
-
         }
 
         public static void ModificarPerfil(string email, string apodo, int idFotoPerfil, string idioma, string atributo1, string atributo2, string contrasena)
@@ -97,15 +91,6 @@ namespace Controladores
             ModPerf.ModificarPerfilUsuario();
 
         }
-
-
-        public static Dictionary<string, string> BuscarPorId(int id)
-        {
-            ModeloPersonas cuentaUsuario = new ModeloPersonas();
-            cuentaUsuario.idPerfil = id;
-            return cuentaUsuario.ObtenerDatosPorId();
-        }
-
 
         public static DataTable Listar()
         {

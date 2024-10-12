@@ -110,32 +110,7 @@ namespace Modelo
                 return false;
             return true;
         }
-        public Dictionary<string, string> ObtenerDatosPorId()
-        {
-            string sql = "SELECT id_cuenta, nombre, apellido, telefono, email, fecha_nacimiento, habilitacion FROM cuenta_usuario WHERE id_cuenta = @id";
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id", this.idUsuario);
-            this.Lector = this.Comando.ExecuteReader();
-            Dictionary<string, string> datosUsuario = new Dictionary<string, string>();
-            if (this.Lector.Read())
-            {
-                datosUsuario["id_cuenta"] = this.Lector["id_cuenta"].ToString();
-                datosUsuario["nombre"] = this.Lector["nombre"].ToString();
-                datosUsuario["apellido"] = this.Lector["apellido"].ToString();
-                datosUsuario["telefono"] = this.Lector["telefono"].ToString();
-                datosUsuario["email"] = this.Lector["email"].ToString();
-                datosUsuario["fecha_nacimiento"] = this.Lector["fecha_nacimiento"].ToString();
-                datosUsuario["habilitacion"] = this.Lector["habilitacion"].ToString();
-                datosUsuario["resultado"] = "true";
-            }
-            else
-            {
-                datosUsuario["resultado"] = "false";
-            }
-            this.Lector.Close();
-            return datosUsuario;
-        }
+
         public List<ModeloPersonas> ObtenerTodos()
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();

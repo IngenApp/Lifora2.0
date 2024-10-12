@@ -10,7 +10,7 @@ namespace Lifora
     public partial class VisualPost : Form
     {
 
-        public string idPost;
+        public string idPost,idPerfil;
         public VisualPost()
         {
            
@@ -103,9 +103,9 @@ namespace Lifora
                 return;
             }
             DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
-            int idPost = Convert.ToInt32(seleccion.Cells["id"].Value);
-            int idCuenta = Convert.ToInt32(seleccion.Cells["cuenta"].Value);
-            ComentarPost cp = new ComentarPost(idPost, idCuenta);
+
+            idPost = seleccion.Cells["ID_Post"].ToString();
+            ComentarPost cp = new ComentarPost(idPost);
             cp.Show();
         }
 

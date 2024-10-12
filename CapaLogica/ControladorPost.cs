@@ -61,20 +61,26 @@ namespace Controladores
             HabilitarPost.idPost = idPost;
             HabilitarPost.HabilitarPost();
         }
-        public static void ComentarPost(int idPost, int idCuenta, string comentar)
+        public static void ComentarPost(string idPost, string idPerfil, string comentario)
         {
             ModeloPost ComentarPost = new ModeloPost();
-            ComentarPost.idPost = idPost;
-            ComentarPost.idPerfil = idCuenta;
-            //ComentarPost.textoComentarios = comentar;
+            int postID, perfilID;
+            if (!Int32.TryParse(idPost, out postID))
+            {
+                throw new Exception("El ID del post no es válido.");
+            }
+
+            // Verificar si idPerfil es un número válido
+            if (!Int32.TryParse(idPerfil, out perfilID))
+            {
+                throw new Exception("El ID del perfil no es válido.");
+            }
+            ComentarPost.idPost = postID;
+            ComentarPost.idPerfil = perfilID;
+            ComentarPost.comentario = comentario;
             ComentarPost.ComentarPost();
         }
-        public static Dictionary<string, string> BuscarPostPorId(int id)
-        {
-            ModeloPost post = new ModeloPost();
-            post.idPost = id;
-            return post.ObtenerDatosPostPorId();
-        }
+        
        
         public static DataTable ListarPost()
         {
@@ -107,26 +113,26 @@ namespace Controladores
         public static DataTable ListarComentarios(string idPost)
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("ID", typeof(int));
-            tabla.Columns.Add("Usuario", typeof(string));
+            tabla.Columns.Add("ID_Comentario", typeof(string));
             tabla.Columns.Add("Comentario", typeof(string));
-            tabla.Columns.Add("Fecha", typeof(string));
-            tabla.Columns.Add("Post", typeof(string));
-            tabla.Columns.Add("Like", typeof(int));
+            tabla.Columns.Add("Fecha", typeof(DateTime));
             tabla.Columns.Add("Habilitado", typeof(bool));
-            //ModeloPost ListarComentarios = new ModeloPost();
-            //foreach (ModeloPost p in ListarComentarios.ObtenerComentarios(idPost))
-            {
-                //DataRow fila = tabla.NewRow();
-               // fila["ID"] = p.comentarios;
-               // fila["Usuario"] = p.nombre;
-               // fila["Comentario"] = p.textoComentarios;
-                //fila["Fecha"] = p.fecha;
-               // fila["Post"] = p.post;
-               // fila["Like"] = p.contadorLike;
-                //fila["Habilitado"] = p.habilitado;
+            tabla.Columns.Add("Apodo", typeof(string));
+            tabla.Columns.Add("ID_perfil", typeof(string));
 
-                //tabla.Rows.Add(fila);
+            ModeloPost ListarComentarios = new ModeloPost();
+            foreach (ModeloPost p in ListarComentarios.ObtenerComentarios(idPost))
+            {
+                DataRow fila = tabla.NewRow();
+                fila["ID_Comentario"] = p.idComentario;
+                fila["Comentario"] = p.comentario;
+                fila["Fecha"] = p.fecha;
+                fila["Habilitado"] = p.habilitado;
+                fila["Apodo"] = p.apodo;
+                fila["ID_Perfil"] = p.idPerfil;
+               
+
+                tabla.Rows.Add(fila);
             }
             return tabla;
         }

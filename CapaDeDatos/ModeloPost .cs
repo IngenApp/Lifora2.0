@@ -9,9 +9,9 @@ namespace Modelo
 {
     public class ModeloPost : Modelo
     {
-        public int idPost, idPerfil;
+        public int idPost, idPerfil, idComentario;
 
-        public string post, descripcion, apodo, fecha;
+        public string post, descripcion, apodo, fecha, comentario;
         public bool habilitado;
 
         public void CrearPost()
@@ -121,33 +121,6 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
-        public Dictionary<string, string> ObtenerDatosPostPorId()
-        {
-            string sql = "";
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@pf.id_perfil", this.idPost);
-            this.Lector = this.Comando.ExecuteReader();
-
-            Dictionary<string, string> datosPost = new Dictionary<string, string>();
-            if (this.Lector.Read())
-            {
-                datosPost["id_post"] = this.Lector["id_post"].ToString();
-                datosPost["id_cuenta"] = this.Lector["id_cuenta"].ToString();
-                datosPost["texto_post"] = this.Lector["texto_post"].ToString();
-                datosPost["contador_like"] = this.Lector["contador_like"].ToString();
-                datosPost["contador_comentarios"] = this.Lector["contador_comentarios"].ToString();
-                datosPost["habilitado"] = this.Lector["habilitado"].ToString();
-                datosPost["fecha"] = this.Lector["fecha"].ToString();
-                datosPost["resultado"] = "true";
-            }
-            else
-            {
-                datosPost["resultado"] = "false";
-            }
-            this.Lector.Close();
-            return datosPost;
-        }
 
         public List<ModeloPost> ObtenerPost()
         {
@@ -179,15 +152,13 @@ namespace Modelo
         }
         
 
-        
-
         public void ComentarPost()
         {
-            string sql = $"insert into comentario (id_post , id_cuenta, texto_comentario, fecha) values(@id_post, @id_cuenta, @texto_comentario, now())";
+            string sql = $"insert into comentario (id_post , id_perfil, comentario, fecha_hora) values(@id_post, @id_perfil, @comentario, now()); commit;";
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idPerfil);
-          //  this.Comando.Parameters.AddWithValue("@texto_comentario", textoComentarios);
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+            this.Comando.Parameters.AddWithValue("@comentario", comentario);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
@@ -211,7 +182,36 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
-   
+        public List<ModeloPost> ObtenerComentarios(string idPost)
+        {
+            List<ModeloPost> Listacomentarios = new List<ModeloPost>();
+
+            string sql = "SELECT p.id_comentario, p.comentario, p.fecha_hora, p.habilitado, pf.apodo, pf.id_perfil FROM comentario p LEFT JOIN perfil pf ON p.id_perfil = pf.id_perfil WHERE p.id_post = @id_post";
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Comando.CommandText = sql;
+            using (this.Lector = this.Comando.ExecuteReader())
+            {
+                while (this.Lector.Read())
+                {
+                    ModeloPost mp = new ModeloPost
+                    {
+                        idPost = Convert.ToInt32(this.Lector["id_comentario"]),
+                        descripcion = this.Lector["contenido"].ToString(),
+                        fecha = this.Lector["fecha_hora"].ToString(),
+                        habilitado = Convert.ToBoolean(this.Lector["habilitado"]),
+                        apodo = this.Lector["apodo"].ToString(),
+                        idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
+                    };
+
+                    Listacomentarios.Add(mp);
+                }
+            }
+
+            return Listacomentarios;
+
+        }
+
+
 
     }
 }
