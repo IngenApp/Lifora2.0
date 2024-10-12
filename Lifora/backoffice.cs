@@ -86,15 +86,19 @@ namespace Lifora
             DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
             {
-                ControladorCuentaUsuario.ModificarCuentaDesdeBackoffice(id, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarEmail.Text, textBoxCambiarTelefono.Text, textBoxFechaDeNacimiento.Text);
+                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
+                string email = seleccion.Cells[2].Value?.ToString();
+                ControladorCuentaUsuario.ModificarCuenta(email, textBoxCambiarEmail.Text, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarTelefono.Text, textBoxApodo.Text, textBoxContrasena.Text); ;
                 MessageBox.Show("Cambios realizados con exito");
             }
             if (pregunta == DialogResult.No)
             {
                 MessageBox.Show("No se han realizado los cambios");
             }
-           // dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
+
+
         private void dataGridViewInfoUser_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
@@ -104,7 +108,8 @@ namespace Lifora
                 textBoxCambiarApellido.Text = seleccion.Cells[7].Value?.ToString();
                 textBoxCambiarTelefono.Text = seleccion.Cells[3].Value?.ToString();
                 textBoxCambiarEmail.Text = seleccion.Cells[2].Value?.ToString();
-                textBoxFechaDeNacimiento.Text = seleccion.Cells[8].Value?.ToString();
+                textBoxFechaDeNacimiento.Text = seleccion.Cells[9].Value?.ToString();
+                textBoxContrasena.Text = seleccion.Cells[8].Value?.ToString();
                 textBoxApodo.Text = seleccion.Cells[1].Value?.ToString();
                 id = seleccion.Cells[0].Value?.ToString();
                 

@@ -95,16 +95,18 @@ namespace Controladores
             CuentaUsuario.fechaNacimiento= fech_nac;
             
         }
-        public static void ModificarCuentaDesdeBackoffice(string id,string apodo. string nombre, string apellido, string email, string telefono, string fecha_nac)
+        public static void ModificarCuenta(string email, string emailNuevo, string nombre, string apellido, string telefono, string apodo, string contrasena)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.idUsuario = Int32.Parse(id);
-            CuentaUsuario.telefono = telefono;
+            CuentaUsuario.email = email;
+            CuentaUsuario.emailNuevo = emailNuevo;
             CuentaUsuario.nombre = nombre;
             CuentaUsuario.apellido = apellido;
-            CuentaUsuario.email = email;
-            CuentaUsuario.fechaNacimiento = fecha_nac;
-        
+            CuentaUsuario.telefono = telefono;
+            CuentaUsuario.apodo = apodo;
+            CuentaUsuario.contrasena = contrasena;
+            CuentaUsuario.ModificarCuentaUsuario();
+
         }
         public static Dictionary<string, string> BuscarPorId(int id)
         {
@@ -123,6 +125,7 @@ namespace Controladores
             tabla.Columns.Add("ID usuario", typeof(int));
             tabla.Columns.Add("Nombre", typeof(string));
             tabla.Columns.Add("Apellido", typeof(string));
+            tabla.Columns.Add("Contrasena", typeof(string));
             tabla.Columns.Add("Fecha Nacimiento", typeof(DateTime));
 
             ModeloPersonas ListarPersonas = new ModeloPersonas();
@@ -138,6 +141,7 @@ namespace Controladores
                 fila["ID usuario"] = p.idUsuario;
                 fila["Nombre"] = p.nombre;
                 fila["Apellido"] = p.apellido;
+                fila["Contrasena"] = p.contrasena;
                 fila["Fecha Nacimiento"] = p.fechaNacimiento;
                 tabla.Rows.Add(fila);
             }

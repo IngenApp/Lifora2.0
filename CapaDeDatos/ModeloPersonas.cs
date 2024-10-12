@@ -10,7 +10,7 @@ namespace Modelo
     public class ModeloPersonas : Modelo
     {
         public int idPerfil, idUsuario, idCuenta, id_foto_perfil;
-        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2;
+        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo;
         public bool habilitacion;
 
 
@@ -53,12 +53,13 @@ namespace Modelo
   
         public void ModificarCuentaUsuario()
         {
-            string sql = $"CALL actualizar_usuario_cuenta(@email, @nombre, @apellido, @fecha_nacimiento, @telefono, @contrasenia);";
+            string sql = $"CALL actualizar_usuario_cuenta(@email, @email_nuevo, @nombre, @apellido, @telefono, @apodo, @contrasenia);";
             this.Comando.Parameters.AddWithValue("@email", email);
+            this.Comando.Parameters.AddWithValue("@email_nuevo", emailNuevo);
             this.Comando.Parameters.AddWithValue("@nombre", nombre);
             this.Comando.Parameters.AddWithValue("@apellido", apellido);
-            this.Comando.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
             this.Comando.Parameters.AddWithValue("@telefono", telefono);
+            this.Comando.Parameters.AddWithValue("@apodo", apodo);
             this.Comando.Parameters.AddWithValue("@contrasenia", contrasena);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
@@ -133,7 +134,27 @@ namespace Modelo
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();
 
-            string sql = @"SELECT p.id_perfil, p.apodo, p.email AS perfil_email, u.telefono AS cuenta_telefono, c.habilitado, c.id_usuario, usr.nombre, usr.apellido, usr.fecha_nacimiento FROM perfil p JOIN cuenta_usuario u ON p.email = u.email JOIN cuenta_lifora c ON u.email = c.email JOIN usuario usr ON c.id_usuario = usr.id_usuario ORDER BY c.id_usuario;";
+            string sql = @"SELECT 
+    p.id_perfil, 
+    p.apodo, 
+    p.email AS perfil_email, 
+    u.telefono AS cuenta_telefono, 
+    c.habilitado, 
+    c.id_usuario, 
+    usr.nombre, 
+    usr.apellido, 
+    usr.fecha_nacimiento, 
+    c.contrasenia
+FROM 
+    perfil p 
+JOIN 
+    cuenta_usuario u ON p.email = u.email 
+JOIN 
+    cuenta_lifora c ON u.email = c.email 
+JOIN 
+    usuario usr ON c.id_usuario = usr.id_usuario 
+ORDER BY 
+    c.id_usuario;";
 
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
@@ -150,7 +171,8 @@ namespace Modelo
                     idUsuario = Convert.ToInt32(this.Lector["id_usuario"]),
                     nombre = this.Lector["nombre"].ToString(),
                     apellido = this.Lector["apellido"].ToString(),
-                    fechaNacimiento = this.Lector["fecha_nacimiento"].ToString()
+                    fechaNacimiento = this.Lector["fecha_nacimiento"].ToString(),
+                    contrasena = this.Lector["contrasenia"].ToString()
                 };
                 bd.Add(mp);
             }

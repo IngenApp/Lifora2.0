@@ -30,8 +30,8 @@ namespace Lifora
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backoffice));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearchUser = new System.Windows.Forms.Button();
             this.btnBlockTheUser = new System.Windows.Forms.Button();
             this.btnUnlockTheUser = new System.Windows.Forms.Button();
@@ -61,10 +61,10 @@ namespace Lifora
             this.button5 = new System.Windows.Forms.Button();
             this.textBoxApodo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxContrasena = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.labelApodo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             this.SuspendLayout();
@@ -145,23 +145,23 @@ namespace Lifora
             this.dataGridViewInfoUser.AllowUserToOrderColumns = true;
             this.dataGridViewInfoUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewInfoUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewInfoUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInfoUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewInfoUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewInfoUser.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewInfoUser.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewInfoUser.Location = new System.Drawing.Point(12, 186);
             this.dataGridViewInfoUser.MultiSelect = false;
             this.dataGridViewInfoUser.Name = "dataGridViewInfoUser";
@@ -241,7 +241,7 @@ namespace Lifora
             // textBoxCambiarNombre
             // 
             this.textBoxCambiarNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCambiarNombre.Location = new System.Drawing.Point(1042, 291);
+            this.textBoxCambiarNombre.Location = new System.Drawing.Point(1058, 291);
             this.textBoxCambiarNombre.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarNombre.Name = "textBoxCambiarNombre";
             this.textBoxCambiarNombre.Size = new System.Drawing.Size(212, 31);
@@ -251,7 +251,7 @@ namespace Lifora
             // textBoxCambiarApellido
             // 
             this.textBoxCambiarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCambiarApellido.Location = new System.Drawing.Point(1041, 326);
+            this.textBoxCambiarApellido.Location = new System.Drawing.Point(1057, 326);
             this.textBoxCambiarApellido.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarApellido.Name = "textBoxCambiarApellido";
             this.textBoxCambiarApellido.Size = new System.Drawing.Size(213, 31);
@@ -261,7 +261,7 @@ namespace Lifora
             // textBoxCambiarTelefono
             // 
             this.textBoxCambiarTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCambiarTelefono.Location = new System.Drawing.Point(1042, 256);
+            this.textBoxCambiarTelefono.Location = new System.Drawing.Point(1058, 256);
             this.textBoxCambiarTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarTelefono.Name = "textBoxCambiarTelefono";
             this.textBoxCambiarTelefono.Size = new System.Drawing.Size(213, 31);
@@ -271,7 +271,7 @@ namespace Lifora
             // textBoxCambiarEmail
             // 
             this.textBoxCambiarEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCambiarEmail.Location = new System.Drawing.Point(1042, 221);
+            this.textBoxCambiarEmail.Location = new System.Drawing.Point(1059, 221);
             this.textBoxCambiarEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarEmail.Name = "textBoxCambiarEmail";
             this.textBoxCambiarEmail.Size = new System.Drawing.Size(212, 31);
@@ -281,7 +281,7 @@ namespace Lifora
             // BtnModificar
             // 
             this.BtnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModificar.Location = new System.Drawing.Point(1085, 625);
+            this.BtnModificar.Location = new System.Drawing.Point(1100, 625);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(170, 52);
             this.BtnModificar.TabIndex = 27;
@@ -302,7 +302,7 @@ namespace Lifora
             // textBoxFechaDeNacimiento
             // 
             this.textBoxFechaDeNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFechaDeNacimiento.Location = new System.Drawing.Point(1042, 361);
+            this.textBoxFechaDeNacimiento.Location = new System.Drawing.Point(1058, 361);
             this.textBoxFechaDeNacimiento.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFechaDeNacimiento.Name = "textBoxFechaDeNacimiento";
             this.textBoxFechaDeNacimiento.Size = new System.Drawing.Size(213, 31);
@@ -377,7 +377,7 @@ namespace Lifora
             // textBoxApodo
             // 
             this.textBoxApodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxApodo.Location = new System.Drawing.Point(1042, 186);
+            this.textBoxApodo.Location = new System.Drawing.Point(1059, 186);
             this.textBoxApodo.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxApodo.Name = "textBoxApodo";
             this.textBoxApodo.Size = new System.Drawing.Size(213, 31);
@@ -395,47 +395,47 @@ namespace Lifora
             this.label10.TabIndex = 66;
             this.label10.Text = "Apodo";
             // 
-            // textBox2
+            // textBoxContrasena
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(1042, 396);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 31);
-            this.textBox2.TabIndex = 69;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContrasena.Location = new System.Drawing.Point(1058, 396);
+            this.textBoxContrasena.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxContrasena.Name = "textBoxContrasena";
+            this.textBoxContrasena.Size = new System.Drawing.Size(212, 31);
+            this.textBoxContrasena.TabIndex = 69;
+            this.textBoxContrasena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(920, 398);
+            this.label11.Location = new System.Drawing.Point(897, 398);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 31);
+            this.label11.Size = new System.Drawing.Size(155, 31);
             this.label11.TabIndex = 68;
-            this.label11.Text = "Atributo1";
+            this.label11.Text = "Contrasena";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(1043, 431);
+            this.textBox1.Location = new System.Drawing.Point(1059, 431);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(212, 31);
             this.textBox1.TabIndex = 71;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label12
+            // labelApodo
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(920, 431);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 31);
-            this.label12.TabIndex = 70;
-            this.label12.Text = "Atributo2";
+            this.labelApodo.AutoSize = true;
+            this.labelApodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApodo.Location = new System.Drawing.Point(920, 431);
+            this.labelApodo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelApodo.Name = "labelApodo";
+            this.labelApodo.Size = new System.Drawing.Size(92, 31);
+            this.labelApodo.TabIndex = 70;
+            this.labelApodo.Text = "Apodo";
             // 
             // backoffice
             // 
@@ -445,8 +445,8 @@ namespace Lifora
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1284, 711);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.labelApodo);
+            this.Controls.Add(this.textBoxContrasena);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBoxApodo);
             this.Controls.Add(this.label10);
@@ -523,9 +523,9 @@ namespace Lifora
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBoxApodo;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxContrasena;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelApodo;
     }
 }
