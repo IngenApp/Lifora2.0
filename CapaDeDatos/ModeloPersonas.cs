@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql;
 
 namespace Modelo
 {
@@ -14,7 +15,7 @@ namespace Modelo
 
 
         public void GuardarCuentaUsuario()
-        {
+        {   
             string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
             this.Comando.Parameters.AddWithValue("@nombre", nombre);
             this.Comando.Parameters.AddWithValue("@apellido", apellido);
@@ -23,9 +24,9 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@telefono", telefono);         
             this.Comando.Parameters.AddWithValue("@contrasenia", contrasena);
             this.Comando.Prepare();
-            this.Comando.CommandText = sql;
-           
+            this.Comando.CommandText = sql;       
             this.Comando.ExecuteNonQuery();
+            
         }
         public void CrearPerfil()
         {
@@ -35,9 +36,24 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@idioma", idioma);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
-
-            this.Comando.ExecuteNonQuery()
+            this.Comando.ExecuteNonQuery();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void DeshabilitarCuentaUsuario()
         {
             string sql = $"update cuenta_lifora set habilitacion = false where id_cuenta = '{this.idCuenta}'";

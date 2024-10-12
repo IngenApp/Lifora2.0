@@ -16,23 +16,24 @@ namespace Controladores
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.nombre = nombre;
             CuentaUsuario.apellido = apellido;
-            CuentaUsuario.telefono = telefono;
-            CuentaUsuario.email = email;
             CuentaUsuario.fechaNacimiento = fechaNacimiento;
+            CuentaUsuario.email = email;
+            CuentaUsuario.telefono = telefono;
             CuentaUsuario.contrasena = contrasena;
-
-            try
-            {
-                CuentaUsuario.GuardarCuentaUsuario();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                throw;
-            }
+            CuentaUsuario.GuardarCuentaUsuario();
+            
+           
         }
-        public static void CrearPerfil(string apodo, string email)
+        public static void CrearPerfil(string apodo, string email, string idioma)
         {
+            ModeloPersonas crearPerfil = new ModeloPersonas();
+            crearPerfil.apodo = apodo;
+            crearPerfil.email = email;
+            crearPerfil.idioma = idioma;
+
+            
+                crearPerfil.CrearPerfil();
+            
             
         }
         public static bool Login(string email, string contrasena)

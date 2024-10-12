@@ -32,9 +32,9 @@ namespace Lifora
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualCrearCuentaBackoffice));
             this.BotonCrearUsuario = new System.Windows.Forms.Button();
             this.txtBoxBirthday = new System.Windows.Forms.TextBox();
-            this.txtBoxSurname = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.txtBoxPhone = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtBoxSurname = new System.Windows.Forms.TextBox();
             this.txtBoxName = new System.Windows.Forms.TextBox();
             this.txtBoxConfirmPassword = new System.Windows.Forms.TextBox();
             this.txtBoxPassword = new System.Windows.Forms.TextBox();
@@ -50,6 +50,7 @@ namespace Lifora
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxApodo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,13 +73,13 @@ namespace Lifora
             this.txtBoxBirthday.Size = new System.Drawing.Size(233, 31);
             this.txtBoxBirthday.TabIndex = 48;
             // 
-            // txtBoxSurname
+            // txtBoxPhone
             // 
-            this.txtBoxSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSurname.Location = new System.Drawing.Point(189, 315);
-            this.txtBoxSurname.Name = "txtBoxSurname";
-            this.txtBoxSurname.Size = new System.Drawing.Size(235, 31);
-            this.txtBoxSurname.TabIndex = 47;
+            this.txtBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPhone.Location = new System.Drawing.Point(189, 355);
+            this.txtBoxPhone.Name = "txtBoxPhone";
+            this.txtBoxPhone.Size = new System.Drawing.Size(235, 31);
+            this.txtBoxPhone.TabIndex = 47;
             // 
             // label12
             // 
@@ -90,13 +91,13 @@ namespace Lifora
             this.label12.TabIndex = 46;
             this.label12.Text = "Apellido";
             // 
-            // txtBoxPhone
+            // txtBoxSurname
             // 
-            this.txtBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPhone.Location = new System.Drawing.Point(191, 352);
-            this.txtBoxPhone.Name = "txtBoxPhone";
-            this.txtBoxPhone.Size = new System.Drawing.Size(233, 31);
-            this.txtBoxPhone.TabIndex = 45;
+            this.txtBoxSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSurname.Location = new System.Drawing.Point(191, 318);
+            this.txtBoxSurname.Name = "txtBoxSurname";
+            this.txtBoxSurname.Size = new System.Drawing.Size(233, 31);
+            this.txtBoxSurname.TabIndex = 45;
             // 
             // txtBoxName
             // 
@@ -237,11 +238,22 @@ namespace Lifora
             this.textBoxApodo.Size = new System.Drawing.Size(233, 31);
             this.textBoxApodo.TabIndex = 103;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(24, 429);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(92, 31);
+            this.label10.TabIndex = 104;
+            this.label10.Text = "Apodo";
+            // 
             // VisualCrearCuentaBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 561);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.textBoxApodo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -249,9 +261,9 @@ namespace Lifora
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BotonCrearUsuario);
             this.Controls.Add(this.txtBoxBirthday);
-            this.Controls.Add(this.txtBoxSurname);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtBoxPhone);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtBoxSurname);
             this.Controls.Add(this.txtBoxName);
             this.Controls.Add(this.txtBoxConfirmPassword);
             this.Controls.Add(this.txtBoxPassword);
@@ -275,9 +287,9 @@ namespace Lifora
 
         private System.Windows.Forms.Button BotonCrearUsuario;
         private System.Windows.Forms.TextBox txtBoxBirthday;
-        private System.Windows.Forms.TextBox txtBoxSurname;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBoxPhone;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtBoxSurname;
         private System.Windows.Forms.TextBox txtBoxName;
         private System.Windows.Forms.TextBox txtBoxConfirmPassword;
         private System.Windows.Forms.TextBox txtBoxPassword;
@@ -293,5 +305,6 @@ namespace Lifora
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxApodo;
+        private System.Windows.Forms.Label label10;
     }
 }

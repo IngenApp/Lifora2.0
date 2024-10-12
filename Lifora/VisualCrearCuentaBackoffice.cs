@@ -13,18 +13,22 @@ namespace Lifora
 {
     public partial class VisualCrearCuentaBackoffice : Form
     {
+        public string idioma;
         public VisualCrearCuentaBackoffice()
         {
             InitializeComponent();
+            
         }
 
         private void BotonCrearUsuario_Click(object sender, EventArgs e)
         {
-            if (!txtBoxMail.Text.Equals("") && !txtBoxName.Text.Equals("") && !txtBoxSurname.Text.Equals("") && !txtBoxPhone.Text.Equals("") && !txtBoxPassword.Text.Equals("") && !txtBoxBirthday.Text.Equals(""))
+            if (!txtBoxMail.Text.Equals("") && !txtBoxName.Text.Equals("") && !txtBoxPhone.Text.Equals("") && !txtBoxSurname.Text.Equals("") && !txtBoxPassword.Text.Equals("") && !txtBoxBirthday.Text.Equals("") && !textBoxApodo.Text.Equals(""))
             {
                 if (txtBoxPassword.Text.Equals(txtBoxConfirmPassword.Text))
                 {
-                    ControladorCuentaUsuario.AltaCuentaUsuario(txtBoxName.Text, txtBoxSurname.Text, txtBoxBirthday.Text, txtBoxMail.Text, txtBoxPhone.Text, txtBoxPassword.Text);
+                    ControladorCuentaUsuario.AltaCuentaUsuario(txtBoxName.Text, txtBoxPhone.Text, txtBoxBirthday.Text, txtBoxMail.Text, txtBoxSurname.Text, txtBoxPassword.Text);
+                    idioma = "espanol";
+                    ControladorCuentaUsuario.CrearPerfil(textBoxApodo.Text, txtBoxMail.Text, idioma);
                     MessageBox.Show("Cuenta creada con exito");
                     this.Close();
                 }
@@ -41,9 +45,10 @@ namespace Lifora
             txtBoxConfirmPassword.Text = ("");
             txtBoxMail.Text = ("");
             txtBoxPassword.Text = ("");
-            txtBoxPhone.Text = ("");
             txtBoxSurname.Text = ("");
+            txtBoxPhone.Text = ("");
             txtBoxName.Text = ("");
+            textBoxApodo.Text = ("");
         }
     }
 }
