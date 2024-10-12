@@ -21,27 +21,7 @@ namespace Controladores
             ModPostBO.descripcion = descripcion;
             ModPostBO.ModificarPost();
         }
-        public static void ModificarIdPost(string id, string IdPost)
-        {
-            ModeloPost ModPostBO = new ModeloPost();
-            ModPostBO.idPost = Int32.Parse(id);
-            ModPostBO.idPost = Int32.Parse(IdPost);
-            ModPostBO.ModificarIdPost();
-        }
-        public static void ModificarIdCuenta(string idPost, string IdCuenta)
-        {
-            ModeloPost ModPostBO = new ModeloPost();
-            ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.idPerfil = Int32.Parse(IdCuenta);
-            ModPostBO.ModificarIdCuenta();
-        }
-        public static void ModificarFecha(string idPost, string fecha)
-        {
-            ModeloPost ModPostBO = new ModeloPost();
-            ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.fecha = fecha;
-            ModPostBO.ModificarFecha();
-        }
+        
         public static void DarLike(int idPost, int idCuenta)
         {
             ModeloPost modeloPost = new ModeloPost();

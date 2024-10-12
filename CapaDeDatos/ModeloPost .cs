@@ -166,7 +166,7 @@ namespace Modelo
 
         public void DeshabilitarComentario()
         {
-            string sql = "UPDATE comentario SET habilitado = false WHERE id_comentario = @id_comentario";
+            string sql = "UPDATE comentario SET habilitado = false WHERE id_comentario = @id_comentario; commit;";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
@@ -175,7 +175,7 @@ namespace Modelo
 
         public void HabilitarComentario()
         {
-            string sql = "UPDATE comentario SET habilitado = true WHERE id_comentario = @id_comentario";
+            string sql = "UPDATE comentario SET habilitado = true WHERE id_comentario = @id_comentario; commit;";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
