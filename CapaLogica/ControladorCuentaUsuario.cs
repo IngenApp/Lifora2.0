@@ -41,6 +41,13 @@ namespace Controladores
             mp.contrasena = contrasena;
             return mp.Autenticar();
         }
+        public static bool LoginBackoffice(string email, string contrasena)
+        {
+            ModeloPersonas mp = new ModeloPersonas();
+            mp.email = email;
+            mp.contrasena = contrasena;
+            return mp.AutenticarBackoffice();
+        }
         public static void DeshabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
@@ -104,9 +111,12 @@ namespace Controladores
             tabla.Columns.Add("ID perfil", typeof(int));
             tabla.Columns.Add("apodo", typeof(string));
             tabla.Columns.Add("Email", typeof(string));
-            tabla.Columns.Add("Telefono", typeof(string)); // Cambiado a string para mayor flexibilidad
+            tabla.Columns.Add("Telefono", typeof(string));
             tabla.Columns.Add("Habilitado", typeof(bool));
             tabla.Columns.Add("ID usuario", typeof(int));
+            tabla.Columns.Add("Nombre", typeof(string));
+            tabla.Columns.Add("Apellido", typeof(string));
+            tabla.Columns.Add("Fecha Nacimiento", typeof(DateTime));
 
             ModeloPersonas ListarPersonas = new ModeloPersonas();
 
@@ -116,9 +126,12 @@ namespace Controladores
                 fila["ID perfil"] = p.idPerfil;
                 fila["apodo"] = p.apodo;
                 fila["Email"] = p.email;
-                fila["Telefono"] = p.telefono ?? "Sin teléfono"; // Manejo de nulos, ajusta según tu lógica
+                fila["Telefono"] = p.telefono;
                 fila["Habilitado"] = p.habilitacion;
                 fila["ID usuario"] = p.idUsuario;
+                fila["Nombre"] = p.nombre;
+                fila["Apellido"] = p.apellido;
+                fila["Fecha Nacimiento"] = p.fechaNacimiento;
                 tabla.Rows.Add(fila);
             }
 

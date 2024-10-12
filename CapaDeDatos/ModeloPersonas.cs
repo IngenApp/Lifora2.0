@@ -79,7 +79,7 @@ namespace Modelo
         }
         public bool Autenticar()
         {
-            string sql = $"SELECT COUNT(*) FROM cuenta_lifora WHERE email = @email AND contrasenia = @contrasenia AND habilitado = 1;";
+            string sql = $"SELECT COUNT(*) FROM cuenta_lifora c JOIN cuenta_usuario u ON c.email = u.email WHERE c.email = @email AND c.contrasenia = @contrasenia AND c.habilitado = 1;";
             this.Comando.Parameters.AddWithValue("@email", this.email);
             this.Comando.Parameters.AddWithValue("@contrasenia", this.contrasena);
             this.Comando.Prepare();
@@ -89,6 +89,19 @@ namespace Modelo
             if (resultado == "0")
                 return false;
             return true;           
+        }
+        public bool AutenticarBackoffice()
+        {
+            string sql = $"SELECT COUNT(*) FROM cuenta_lifora c JOIN backoffice u ON c.email = u.email WHERE c.email = @email AND c.contrasenia = @contrasenia AND c.habilitado = 1;";
+            this.Comando.Parameters.AddWithValue("@email", this.email);
+            this.Comando.Parameters.AddWithValue("@contrasenia", this.contrasena);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            string resultado = this.Comando.ExecuteScalar().ToString();
+            if (resultado == "0")
+                return false;
+            return true;
         }
         public Dictionary<string, string> ObtenerDatosPorId()
         {
@@ -120,16 +133,7 @@ namespace Modelo
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();
 
-            string sql = @"SELECT p.id_perfil, 
-                          p.apodo, 
-                          p.email AS perfil_email, 
-                          u.telefono AS cuenta_telefono, 
-                          c.habilitado, 
-                          c.id_usuario 
-                   FROM perfil p 
-                   JOIN cuenta_usuario u ON p.email = u.email 
-                   JOIN cuenta_lifora c ON u.email = c.email 
-                   ORDER BY c.id_usuario;";
+            string sql = @"SELECT p.id_perfil, p.apodo, p.email AS perfil_email, u.telefono AS cuenta_telefono, c.habilitado, c.id_usuario, usr.nombre, usr.apellido, usr.fecha_nacimiento FROM perfil p JOIN cuenta_usuario u ON p.email = u.email JOIN cuenta_lifora c ON u.email = c.email JOIN usuario usr ON c.id_usuario = usr.id_usuario ORDER BY c.id_usuario;";
 
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
@@ -140,14 +144,17 @@ namespace Modelo
                 {
                     idPerfil = Convert.ToInt32(this.Lector["id_perfil"]),
                     apodo = this.Lector["apodo"].ToString(),
-                    email = this.Lector["perfil_email"].ToString(), // Usando el alias
-                    telefono = this.Lector["cuenta_telefono"].ToString(), // Usando el alias
-                    habilitacion = this.Lector["habilitado"] != DBNull.Value && Convert.ToBoolean(this.Lector["habilitado"]),
-                    idUsuario = Convert.ToInt32(this.Lector["id_usuario"])
+                    email = this.Lector["perfil_email"].ToString(),
+                    telefono = this.Lector["cuenta_telefono"].ToString(),
+                    habilitacion = Convert.ToBoolean(this.Lector["habilitado"]),
+                    idUsuario = Convert.ToInt32(this.Lector["id_usuario"]),
+                    nombre = this.Lector["nombre"].ToString(),
+                    apellido = this.Lector["apellido"].ToString(),
+                    fechaNacimiento = this.Lector["fecha_nacimiento"].ToString()
                 };
                 bd.Add(mp);
             }
-            this.Lector.Close(); // Asegúrate de cerrar el lector al final
+            this.Lector.Close();
             return bd;
         }
     }

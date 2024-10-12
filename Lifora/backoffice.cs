@@ -14,7 +14,7 @@ namespace Lifora
         public backoffice()
         {
             InitializeComponent();
-           // dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+           dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         
 
         }
