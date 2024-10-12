@@ -169,7 +169,7 @@ namespace Modelo
             string sql = "UPDATE comentario SET habilitado = false WHERE id_comentario = @id_comentario";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
-          //  this.Comando.Parameters.AddWithValue("@id_comentario", comentarios);
+            this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
             this.Comando.ExecuteNonQuery();
         }
 
@@ -178,7 +178,7 @@ namespace Modelo
             string sql = "UPDATE comentario SET habilitado = true WHERE id_comentario = @id_comentario";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
-          //  this.Comando.Parameters.AddWithValue("@id_comentario", comentarios);
+            this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
             this.Comando.ExecuteNonQuery();
         }
 
@@ -195,8 +195,8 @@ namespace Modelo
                 {
                     ModeloPost mp = new ModeloPost
                     {
-                        idPost = Convert.ToInt32(this.Lector["id_comentario"]),
-                        descripcion = this.Lector["contenido"].ToString(),
+                        idComentario = Convert.ToInt32(this.Lector["id_comentario"]),
+                        comentario = this.Lector["comentario"].ToString(),
                         fecha = this.Lector["fecha_hora"].ToString(),
                         habilitado = Convert.ToBoolean(this.Lector["habilitado"]),
                         apodo = this.Lector["apodo"].ToString(),

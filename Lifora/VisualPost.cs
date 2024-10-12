@@ -149,7 +149,8 @@ namespace Lifora
             {
                 DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
                 richTextBoxPost.Text = seleccion.Cells[1].Value?.ToString();
-                
+                idPost= seleccion.Cells[0].Value?.ToString();
+
                 dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
             }
             

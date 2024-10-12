@@ -136,16 +136,16 @@ namespace Controladores
             }
             return tabla;
         }
-        public static void DeshabilitarComentario(int comentarios)
+        public static void DeshabilitarComentario(int idComentario)
         {
             ModeloPost DeshabilitarComentario = new ModeloPost();
-            //DeshabilitarComentario.comentarios = comentarios;
+            DeshabilitarComentario.idComentario = idComentario;
             DeshabilitarComentario.DeshabilitarComentario();
         }
-        public static void HabilitarComentario(int comentarios)
+        public static void HabilitarComentario(int idComentario)
         {
             ModeloPost HabilitarComentario = new ModeloPost();
-           // HabilitarComentario.comentarios = comentarios;
+            HabilitarComentario.idComentario = idComentario;
             HabilitarComentario.HabilitarComentario();
         }
 
