@@ -100,11 +100,12 @@ namespace Lifora
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
             {
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                textBoxCambiarNombre.Text = seleccion.Cells[1].Value?.ToString();
-                textBoxCambiarApellido.Text = seleccion.Cells[2].Value?.ToString();
+                textBoxCambiarNombre.Text = seleccion.Cells[6].Value?.ToString();
+                textBoxCambiarApellido.Text = seleccion.Cells[7].Value?.ToString();
                 textBoxCambiarTelefono.Text = seleccion.Cells[3].Value?.ToString();
-                textBoxCambiarEmail.Text = seleccion.Cells[4].Value?.ToString();
-                textBoxFechaDeNacimiento.Text = seleccion.Cells[5].Value?.ToString();
+                textBoxCambiarEmail.Text = seleccion.Cells[2].Value?.ToString();
+                textBoxFechaDeNacimiento.Text = seleccion.Cells[8].Value?.ToString();
+                textBoxApodo.Text = seleccion.Cells[1].Value?.ToString();
                 id = seleccion.Cells[0].Value?.ToString();
                 
             }

@@ -26,7 +26,7 @@ namespace Lifora
             {
                 if (txtBoxPassword.Text.Equals(txtBoxConfirmPassword.Text))
                 {
-                    ControladorCuentaUsuario.AltaCuentaUsuario(txtBoxName.Text, txtBoxPhone.Text, txtBoxBirthday.Text, txtBoxMail.Text, txtBoxSurname.Text, txtBoxPassword.Text);
+                    ControladorCuentaUsuario.AltaCuentaUsuario(txtBoxName.Text, txtBoxSurname.Text, txtBoxBirthday.Text,  txtBoxMail.Text, txtBoxPhone.Text, txtBoxPassword.Text);
                     idioma = "espanol";
                     ControladorCuentaUsuario.CrearPerfil(textBoxApodo.Text, txtBoxMail.Text, idioma);
                     MessageBox.Show("Cuenta creada con exito");

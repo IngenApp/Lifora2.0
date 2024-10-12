@@ -43,10 +43,10 @@ namespace Controladores
         }
         public static bool LoginBackoffice(string email, string contrasena)
         {
-            ModeloPersonas mp = new ModeloPersonas();
-            mp.email = email;
-            mp.contrasena = contrasena;
-            return mp.AutenticarBackoffice();
+            ModeloPersonas lb = new ModeloPersonas();
+            lb.email = email;
+            lb.contrasena = contrasena;
+            return lb.AutenticarBackoffice();
         }
         public static void DeshabilitaCuentaUsuario(int idUsuario)
         {
@@ -60,6 +60,13 @@ namespace Controladores
             CuentaUsuario.idUsuario = idUsuario;
             CuentaUsuario.HabilitarCuentaUsuario();
         }
+
+
+
+
+
+
+
         public static void ModificarNombreUsuario(string id, string nombre)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
@@ -88,7 +95,7 @@ namespace Controladores
             CuentaUsuario.fechaNacimiento= fech_nac;
             
         }
-        public static void ModificarCuentaDesdeBackoffice(string id, string nombre, string apellido, string email, string telefono, string fecha_nac)
+        public static void ModificarCuentaDesdeBackoffice(string id,string apodo. string nombre, string apellido, string email, string telefono, string fecha_nac)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.idUsuario = Int32.Parse(id);
