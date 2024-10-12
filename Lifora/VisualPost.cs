@@ -144,7 +144,7 @@ namespace Lifora
 
         private void dataGridViewPost_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridViewPost.SelectedRows.Count > 0)
+            /*if (dataGridViewPost.SelectedRows.Count > 0)
             {
                 DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
                 richTextBoxPost.Text = seleccion.Cells[2].Value?.ToString();
@@ -153,7 +153,7 @@ namespace Lifora
                 textBoxLike.Text = seleccion.Cells[4].Value?.ToString();
                 idPost = Convert.ToInt32(seleccion.Cells[0].Value);
                 dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
-            }
+            }*/
         }
 
         private void buttonHabilitarComentario_Click(object sender, EventArgs e)
@@ -240,5 +240,10 @@ namespace Lifora
                 if (dataGridViewComentarios.SelectedRows.Count == 0)
                     dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
         }
+
+        private void VisualPost_Load(object sender, EventArgs e)
+        {
+            dataGridViewPost.DataSource = ControladorPost.ListarPost();
         }
+    }
     }

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql;
+using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
     public class ModeloPersonas : Modelo
     {
-        public int idPerfil, idUsuario, idCuenta, id_foto_perfil;
+        public int idPerfil, idUsuario, idCuenta, idFotoPerfil;
         public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo;
         public bool habilitacion;
 
@@ -53,31 +54,40 @@ namespace Modelo
   
         public void ModificarCuentaUsuario()
         {
-            string sql = $"CALL actualizar_usuario_cuenta(@email, @email_nuevo, @nombre, @apellido, @telefono, @apodo, @contrasenia);";
-            this.Comando.Parameters.AddWithValue("@email", email);
-            this.Comando.Parameters.AddWithValue("@email_nuevo", emailNuevo);
-            this.Comando.Parameters.AddWithValue("@nombre", nombre);
-            this.Comando.Parameters.AddWithValue("@apellido", apellido);
-            this.Comando.Parameters.AddWithValue("@telefono", telefono);
-            this.Comando.Parameters.AddWithValue("@apodo", apodo);
-            this.Comando.Parameters.AddWithValue("@contrasenia", contrasena);
-            this.Comando.Prepare();
+            this.Comando.Parameters.Clear();
+            string sql = "CALL actualizar_usuario_cuenta(@p_email_antiguo, @p_email_nuevo, @p_nombre, @p_apellido, @p_telefono);";
+
+            this.Comando.Parameters.AddWithValue("@p_email_antiguo", email);
+            this.Comando.Parameters.AddWithValue("@p_email_nuevo", emailNuevo);
+            this.Comando.Parameters.AddWithValue("@p_nombre", nombre);
+            this.Comando.Parameters.AddWithValue("@p_apellido", apellido);
+            this.Comando.Parameters.AddWithValue("@p_telefono", telefono);
+
             this.Comando.CommandText = sql;
+            this.Comando.Prepare();
             this.Comando.ExecuteNonQuery();
+
         }
-        public void ModificarPerfil()
+
+        public void ModificarPerfilUsuario()
         {
-            string sql = $"CALL actualizar_perfil(@apodo, @email, @idioma, @id_foto_perfil, @atributo1, @atributo2);";
-            this.Comando.Parameters.AddWithValue("@apodo", apodo);
-            this.Comando.Parameters.AddWithValue("@email", email);
-            this.Comando.Parameters.AddWithValue("@idioma", idioma);
-            this.Comando.Parameters.AddWithValue("@id_foto_perfil", id_foto_perfil);
-            this.Comando.Parameters.AddWithValue("@atributo1", atributo1);
-            this.Comando.Parameters.AddWithValue("@atributo2", atributo2);
-            this.Comando.Prepare();
+            this.Comando.Parameters.Clear();
+            string sql = "CALL actualizar_perfil_usuario(@p_email, @p_apodo, @p_id_foto_perfil, @p_idioma, @p_atributo1, @p_atributo2, @p_contrasena);";
+
+            this.Comando.Parameters.AddWithValue("@p_email", email);
+            this.Comando.Parameters.AddWithValue("@p_apodo", apodo);
+            this.Comando.Parameters.AddWithValue("@p_id_foto_perfil", idFotoPerfil);
+            this.Comando.Parameters.AddWithValue("@p_idioma", idioma);
+            this.Comando.Parameters.AddWithValue("@p_atributo1", atributo1);
+            this.Comando.Parameters.AddWithValue("@p_atributo2", atributo2);
+            this.Comando.Parameters.AddWithValue("@p_contrasena", contrasena);
+
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
+         
         }
+
+
         public bool Autenticar()
         {
             string sql = $"SELECT COUNT(*) FROM cuenta_lifora c JOIN cuenta_usuario u ON c.email = u.email WHERE c.email = @email AND c.contrasenia = @contrasenia AND c.habilitado = 1;";
@@ -91,9 +101,10 @@ namespace Modelo
                 return false;
             return true;           
         }
+
         public bool AutenticarBackoffice()
         {
-            string sql = $"SELECT COUNT(*) FROM cuenta_lifora c JOIN backoffice u ON c.email = u.email WHERE c.email = @email AND c.contrasenia = @contrasenia AND c.habilitado = 1;";
+            string sql = $"SELECT COUNT(*) FROM cuenta_lifora c JOIN backoffice b ON c.email = b.email WHERE c.email = @email AND c.contrasenia = @contrasenia AND c.habilitado = 1;";
             this.Comando.Parameters.AddWithValue("@email", this.email);
             this.Comando.Parameters.AddWithValue("@contrasenia", this.contrasena);
             this.Comando.Prepare();
@@ -104,6 +115,8 @@ namespace Modelo
                 return false;
             return true;
         }
+
+
         public Dictionary<string, string> ObtenerDatosPorId()
         {
             string sql = "SELECT id_cuenta, nombre, apellido, telefono, email, fecha_nacimiento, habilitacion FROM cuenta_usuario WHERE id_cuenta = @id";
@@ -134,27 +147,9 @@ namespace Modelo
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();
 
-            string sql = @"SELECT 
-    p.id_perfil, 
-    p.apodo, 
-    p.email AS perfil_email, 
-    u.telefono AS cuenta_telefono, 
-    c.habilitado, 
-    c.id_usuario, 
-    usr.nombre, 
-    usr.apellido, 
-    usr.fecha_nacimiento, 
-    c.contrasenia
-FROM 
-    perfil p 
-JOIN 
-    cuenta_usuario u ON p.email = u.email 
-JOIN 
-    cuenta_lifora c ON u.email = c.email 
-JOIN 
-    usuario usr ON c.id_usuario = usr.id_usuario 
-ORDER BY 
-    c.id_usuario;";
+            string sql = @"SELECT p.id_perfil, p.apodo, p.email AS perfil_email, u.telefono AS cuenta_telefono, c.habilitado, c.id_usuario, usr.nombre, usr.apellido, usr.fecha_nacimiento, c.contrasenia, p.idioma, p.atributo1, p.atributo2
+                        FROM perfil p JOIN cuenta_usuario u ON p.email = u.email JOIN cuenta_lifora c ON u.email = c.email 
+                        JOIN usuario usr ON c.id_usuario = usr.id_usuario ORDER BY c.id_usuario;";
 
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
@@ -172,7 +167,10 @@ ORDER BY
                     nombre = this.Lector["nombre"].ToString(),
                     apellido = this.Lector["apellido"].ToString(),
                     fechaNacimiento = this.Lector["fecha_nacimiento"].ToString(),
-                    contrasena = this.Lector["contrasenia"].ToString()
+                    contrasena = this.Lector["contrasenia"].ToString(),
+                    idioma = this.Lector["idioma"].ToString(),
+                    atributo1 = this.Lector["atributo1"].ToString(),
+                    atributo2 = this.Lector["atributo2"].ToString()
                 };
                 bd.Add(mp);
             }

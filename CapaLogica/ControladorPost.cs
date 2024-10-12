@@ -10,7 +10,7 @@ namespace Controladores
         public static void CrearPost(int idCuenta, string postear)
         {
             ModeloPost CreaPost = new ModeloPost();
-            CreaPost.idCuenta = idCuenta;
+            CreaPost.idPerfil = idCuenta;
             CreaPost.post = postear;
             CreaPost.CrearPost();
         }
@@ -32,7 +32,7 @@ namespace Controladores
         {
             ModeloPost ModPostBO = new ModeloPost();
             ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.idCuenta = Int32.Parse(IdCuenta);
+            ModPostBO.idPerfil = Int32.Parse(IdCuenta);
             ModPostBO.ModificarIdCuenta();
         }
         public static void ModificarFecha(string idPost, string fecha)
@@ -53,9 +53,9 @@ namespace Controladores
             ModeloPost ModPostBO = new ModeloPost();
             ModPostBO.post = post;
             ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.idCuenta = Int32.Parse(idCuenta);
+            ModPostBO.idPerfil = Int32.Parse(idCuenta);
             ModPostBO.fecha = fecha;
-            ModPostBO.like = Int32.Parse(like);
+            //ModPostBO.like = Int32.Parse(like);
             ModPostBO.ModificarPostUsuarioBackoffice();
         }
         public static void DeshabilitarPost(int idPost)
@@ -74,8 +74,8 @@ namespace Controladores
         {
             ModeloPost ComentarPost = new ModeloPost();
             ComentarPost.idPost = idPost;
-            ComentarPost.idCuenta = idCuenta;
-            ComentarPost.textoComentarios = comentar;
+            ComentarPost.idPerfil = idCuenta;
+            //ComentarPost.textoComentarios = comentar;
             ComentarPost.ComentarPost();
         }
         public static Dictionary<string, string> BuscarPostPorId(int id)
@@ -84,29 +84,35 @@ namespace Controladores
             post.idPost = id;
             return post.ObtenerDatosPostPorId();
         }
+       
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("ID", typeof(string));
-            tabla.Columns.Add("Cuenta", typeof(string));
-            tabla.Columns.Add("Post", typeof(string));
-            tabla.Columns.Add("Fecha", typeof(string));
-            tabla.Columns.Add("Like", typeof(int));
+            tabla.Columns.Add("ID Post", typeof(string));
+            tabla.Columns.Add("Descripcion", typeof(string));
+            tabla.Columns.Add("Fecha", typeof(DateTime));
             tabla.Columns.Add("Habilitado", typeof(bool));
+            tabla.Columns.Add("Apodo", typeof(string));
+            tabla.Columns.Add("ID Perfil", typeof(string));
+
             ModeloPost ListarPost = new ModeloPost();
+
             foreach (ModeloPost p in ListarPost.ObtenerPost())
             {
                 DataRow fila = tabla.NewRow();
-                fila["ID"] = p.idPost;
-                fila["Cuenta"] = p.idCuenta;
-                fila["Post"] = p.post;
-                fila["Fecha"] = p.fecha;
-                fila["Like"] = p.like;
+                fila["ID Post"] = p.idPost;
+                fila["Apodo"] = p.apodo;
+                fila["ID Perfil"] = p.idPerfil;
+                fila["Descripcion"] = p.descripcion;
                 fila["Habilitado"] = p.habilitado;
+                fila["Fecha"] = p.fecha;
                 tabla.Rows.Add(fila);
             }
+
             return tabla;
         }
+
+
         public static DataTable ListarComentarios(int idPost)
         {
             DataTable tabla = new DataTable();
@@ -121,12 +127,12 @@ namespace Controladores
             foreach (ModeloPost p in ListarComentarios.ObtenerComentarios(idPost))
             {
                 DataRow fila = tabla.NewRow();
-                fila["ID"] = p.comentarios;
-                fila["Usuario"] = p.nombre;
-                fila["Comentario"] = p.textoComentarios;
+               // fila["ID"] = p.comentarios;
+               // fila["Usuario"] = p.nombre;
+               // fila["Comentario"] = p.textoComentarios;
                 fila["Fecha"] = p.fecha;
                 fila["Post"] = p.post;
-                fila["Like"] = p.contadorLike;
+               // fila["Like"] = p.contadorLike;
                 fila["Habilitado"] = p.habilitado;
 
                 tabla.Rows.Add(fila);
@@ -136,13 +142,13 @@ namespace Controladores
         public static void DeshabilitarComentario(int comentarios)
         {
             ModeloPost DeshabilitarComentario = new ModeloPost();
-            DeshabilitarComentario.comentarios = comentarios;
+            //DeshabilitarComentario.comentarios = comentarios;
             DeshabilitarComentario.DeshabilitarComentario();
         }
         public static void HabilitarComentario(int comentarios)
         {
             ModeloPost HabilitarComentario = new ModeloPost();
-            HabilitarComentario.comentarios = comentarios;
+           // HabilitarComentario.comentarios = comentarios;
             HabilitarComentario.HabilitarComentario();
         }
 

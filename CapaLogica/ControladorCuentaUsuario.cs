@@ -24,6 +24,8 @@ namespace Controladores
             
            
         }
+
+
         public static void CrearPerfil(string apodo, string email, string idioma)
         {
             ModeloPersonas crearPerfil = new ModeloPersonas();
@@ -34,6 +36,8 @@ namespace Controladores
             
             
         }
+
+
         public static bool Login(string email, string contrasena)
         {
             ModeloPersonas mp = new ModeloPersonas();
@@ -41,6 +45,8 @@ namespace Controladores
             mp.contrasena = contrasena;
             return mp.Autenticar();
         }
+
+
         public static bool LoginBackoffice(string email, string contrasena)
         {
             ModeloPersonas lb = new ModeloPersonas();
@@ -48,12 +54,16 @@ namespace Controladores
             lb.contrasena = contrasena;
             return lb.AutenticarBackoffice();
         }
+
+
         public static void DeshabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.idUsuario = idUsuario;
             CuentaUsuario.DeshabilitarCuentaUsuario();
         }
+
+
         public static void HabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
@@ -61,59 +71,42 @@ namespace Controladores
             CuentaUsuario.HabilitarCuentaUsuario();
         }
 
-
-
-
-
-
-
-        public static void ModificarNombreUsuario(string id, string nombre)
+        
+        public static void ModificarCuenta(string email, string emailNuevo, string nombre, string apellido, string telefono)
         {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.idUsuario = Int32.Parse(id);
-            CuentaUsuario.nombre = nombre;
-            
-        }
-        public static void ModificarApellidoUsuario(string id, string apellido)
-        {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.idUsuario = Int32.Parse(id);
-            CuentaUsuario.apellido = apellido;
-           
-        }
-        public static void ModificarContrasenaUsuario(string id, string contrasena)
-        {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.idUsuario = Int32.Parse(id);
-            CuentaUsuario.contrasena = contrasena;
-            //CuentaUsuario.ModificarContrasenaUsuario();
-        }
-        public static void ModificarFechaNacimientoUsuario(string id, string fech_nac)
-        {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.idUsuario = Int32.Parse(id);
-            CuentaUsuario.fechaNacimiento= fech_nac;
-            
-        }
-        public static void ModificarCuenta(string email, string emailNuevo, string nombre, string apellido, string telefono, string apodo, string contrasena)
-        {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.email = email;
-            CuentaUsuario.emailNuevo = emailNuevo;
-            CuentaUsuario.nombre = nombre;
-            CuentaUsuario.apellido = apellido;
-            CuentaUsuario.telefono = telefono;
-            CuentaUsuario.apodo = apodo;
-            CuentaUsuario.contrasena = contrasena;
-            CuentaUsuario.ModificarCuentaUsuario();
+            ModeloPersonas ModCuenta = new ModeloPersonas();
+            ModCuenta.email = email;
+            ModCuenta.emailNuevo = emailNuevo;
+            ModCuenta.nombre = nombre;
+            ModCuenta.apellido = apellido;
+            ModCuenta.telefono = telefono;
+            ModCuenta.ModificarCuentaUsuario();
 
         }
+
+        public static void ModificarPerfil(string email, string apodo, int idFotoPerfil, string idioma, string atributo1, string atributo2, string contrasena)
+        {
+            ModeloPersonas ModPerf = new ModeloPersonas();
+            ModPerf.email = email;
+            ModPerf.apodo = apodo;
+            ModPerf.idFotoPerfil = idFotoPerfil;
+            ModPerf.idioma = idioma;
+            ModPerf.atributo1 = atributo1;
+            ModPerf.atributo2 = atributo2;
+            ModPerf.contrasena = contrasena;
+            ModPerf.ModificarPerfilUsuario();
+
+        }
+
+
         public static Dictionary<string, string> BuscarPorId(int id)
         {
             ModeloPersonas cuentaUsuario = new ModeloPersonas();
             cuentaUsuario.idPerfil = id;
             return cuentaUsuario.ObtenerDatosPorId();
         }
+
+
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
@@ -127,6 +120,9 @@ namespace Controladores
             tabla.Columns.Add("Apellido", typeof(string));
             tabla.Columns.Add("Contrasena", typeof(string));
             tabla.Columns.Add("Fecha Nacimiento", typeof(DateTime));
+            tabla.Columns.Add("Idioma", typeof(string));
+            tabla.Columns.Add("Atributo1", typeof(string));
+            tabla.Columns.Add("Atributo2", typeof(string));
 
             ModeloPersonas ListarPersonas = new ModeloPersonas();
 
@@ -143,6 +139,10 @@ namespace Controladores
                 fila["Apellido"] = p.apellido;
                 fila["Contrasena"] = p.contrasena;
                 fila["Fecha Nacimiento"] = p.fechaNacimiento;
+                fila["Idioma"] = p.idioma;
+                fila["Atributo1"] = p.atributo1;
+                fila["Atributo2"] = p.atributo2;
+
                 tabla.Rows.Add(fila);
             }
 

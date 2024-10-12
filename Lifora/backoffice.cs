@@ -88,7 +88,8 @@ namespace Lifora
             {
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
                 string email = seleccion.Cells[2].Value?.ToString();
-                ControladorCuentaUsuario.ModificarCuenta(email, textBoxCambiarEmail.Text, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarTelefono.Text, textBoxApodo.Text, textBoxContrasena.Text); ;
+                ControladorCuentaUsuario.ModificarCuenta(email, textBoxCambiarEmail.Text, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarTelefono.Text);
+                ControladorCuentaUsuario.ModificarPerfil(email, textBoxApodo.Text, 0, textBoxIdioma.Text, textBoxAtributo1.Text, textBoxAtributo2.Text, textBoxContrasena.Text);
                 MessageBox.Show("Cambios realizados con exito");
             }
             if (pregunta == DialogResult.No)
@@ -111,6 +112,9 @@ namespace Lifora
                 textBoxFechaDeNacimiento.Text = seleccion.Cells[9].Value?.ToString();
                 textBoxContrasena.Text = seleccion.Cells[8].Value?.ToString();
                 textBoxApodo.Text = seleccion.Cells[1].Value?.ToString();
+                textBoxIdioma.Text = seleccion.Cells[10].Value?.ToString();
+                textBoxAtributo1.Text = seleccion.Cells[11].Value?.ToString();
+                textBoxAtributo2.Text = seleccion.Cells[12].Value?.ToString();
                 id = seleccion.Cells[0].Value?.ToString();
                 
             }

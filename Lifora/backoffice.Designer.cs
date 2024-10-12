@@ -63,8 +63,12 @@ namespace Lifora
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxContrasena = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.labelApodo = new System.Windows.Forms.Label();
+            this.textBoxIdioma = new System.Windows.Forms.TextBox();
+            this.labelIdioma = new System.Windows.Forms.Label();
+            this.textBoxAtributo1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxAtributo2 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             this.SuspendLayout();
@@ -416,26 +420,68 @@ namespace Lifora
             this.label11.TabIndex = 68;
             this.label11.Text = "Contrasena";
             // 
-            // textBox1
+            // textBoxIdioma
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(1059, 431);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 31);
-            this.textBox1.TabIndex = 71;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIdioma.Location = new System.Drawing.Point(1059, 431);
+            this.textBoxIdioma.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxIdioma.Name = "textBoxIdioma";
+            this.textBoxIdioma.Size = new System.Drawing.Size(212, 31);
+            this.textBoxIdioma.TabIndex = 71;
+            this.textBoxIdioma.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // labelApodo
+            // labelIdioma
             // 
-            this.labelApodo.AutoSize = true;
-            this.labelApodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApodo.Location = new System.Drawing.Point(920, 431);
-            this.labelApodo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelApodo.Name = "labelApodo";
-            this.labelApodo.Size = new System.Drawing.Size(92, 31);
-            this.labelApodo.TabIndex = 70;
-            this.labelApodo.Text = "Apodo";
+            this.labelIdioma.AutoSize = true;
+            this.labelIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIdioma.Location = new System.Drawing.Point(920, 431);
+            this.labelIdioma.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelIdioma.Name = "labelIdioma";
+            this.labelIdioma.Size = new System.Drawing.Size(95, 31);
+            this.labelIdioma.TabIndex = 70;
+            this.labelIdioma.Text = "Idioma";
+            // 
+            // textBoxAtributo1
+            // 
+            this.textBoxAtributo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAtributo1.Location = new System.Drawing.Point(1057, 466);
+            this.textBoxAtributo1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxAtributo1.Name = "textBoxAtributo1";
+            this.textBoxAtributo1.Size = new System.Drawing.Size(212, 31);
+            this.textBoxAtributo1.TabIndex = 73;
+            this.textBoxAtributo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(918, 466);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 31);
+            this.label12.TabIndex = 72;
+            this.label12.Text = "Atributo1";
+            // 
+            // textBoxAtributo2
+            // 
+            this.textBoxAtributo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAtributo2.Location = new System.Drawing.Point(1061, 501);
+            this.textBoxAtributo2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxAtributo2.Name = "textBoxAtributo2";
+            this.textBoxAtributo2.Size = new System.Drawing.Size(212, 31);
+            this.textBoxAtributo2.TabIndex = 75;
+            this.textBoxAtributo2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(922, 501);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 31);
+            this.label13.TabIndex = 74;
+            this.label13.Text = "Atributo2";
             // 
             // backoffice
             // 
@@ -444,8 +490,12 @@ namespace Lifora
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1284, 711);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.labelApodo);
+            this.Controls.Add(this.textBoxAtributo2);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.textBoxAtributo1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textBoxIdioma);
+            this.Controls.Add(this.labelIdioma);
             this.Controls.Add(this.textBoxContrasena);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBoxApodo);
@@ -525,7 +575,11 @@ namespace Lifora
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxContrasena;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label labelApodo;
+        private System.Windows.Forms.TextBox textBoxIdioma;
+        private System.Windows.Forms.Label labelIdioma;
+        private System.Windows.Forms.TextBox textBoxAtributo1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxAtributo2;
+        private System.Windows.Forms.Label label13;
     }
 }
