@@ -8,75 +8,68 @@ namespace Modelo
 {
     public class ModeloPersonas : Modelo
     {
-        public int id_cuenta;
-        public int telefono;
-        public string nombre;
-        public string apellido;
-        public string email;
-        public string fecha_nac;
-        public string contrasena;
-        public string habilitacion;
+        public int idCuenta, idUsuario;
+        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma;
+        public bool habilitacion;
+
 
         public void GuardarCuentaUsuario()
         {
-            string sql = $"insert into cuenta_usuario (email, telefono, nombre, apellido, fecha_nacimiento, contrasena) values(@email, @telefono, @nombre, @apellido, @fecha_nacimiento, @contrasena)";
-            this.Comando.Parameters.AddWithValue("@email", email);
-            this.Comando.Parameters.AddWithValue("@telefono", telefono);
+            string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
             this.Comando.Parameters.AddWithValue("@nombre", nombre);
             this.Comando.Parameters.AddWithValue("@apellido", apellido);
-            this.Comando.Parameters.AddWithValue("@fecha_nacimiento", fecha_nac);
-            this.Comando.Parameters.AddWithValue("@contrasena", contrasena);
+            this.Comando.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
+            this.Comando.Parameters.AddWithValue("@email", email);
+            this.Comando.Parameters.AddWithValue("@telefono", telefono);         
+            this.Comando.Parameters.AddWithValue("@contrasenia", contrasena);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
+           
             this.Comando.ExecuteNonQuery();
+        }
+        public void CrearPerfil()
+        {
+            string sql = $"CALL crear_perfil(@apodo, @email, @idioma);";
+            this.Comando.Parameters.AddWithValue("@apodo", apodo);
+            this.Comando.Parameters.AddWithValue("@email", email);
+            this.Comando.Parameters.AddWithValue("@idioma", idioma);
+            this.Comando.Prepare();
+            this.Comando.CommandText = sql;
+
+            this.Comando.ExecuteNonQuery()
         }
         public void DeshabilitarCuentaUsuario()
         {
-            string sql = $"update cuenta_usuario set habilitacion = false where id_cuenta = '{this.id_cuenta}'";
+            string sql = $"update cuenta_lifora set habilitacion = false where id_cuenta = '{this.idCuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public void HabilitarCuentaUsuario()
         {
-            string sql = $"update cuenta_usuario set habilitacion = true where id_cuenta = '{this.id_cuenta}'";
+            string sql = $"update cuenta_lifora set habilitacion = true where id_cuenta = '{this.idCuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public void ModificarNombreUsuario()
-        {
-            string sql = $"update cuenta_usuario set nombre = '{this.nombre}' where id_cuenta ='{this.id_cuenta}'";
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-        public void ModificarApellidoUsuario()
-        {
-            string sql = $"update cuenta_usuario set apellido = '{this.apellido}' where id_cuenta ='{this.id_cuenta}'";
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
+        
+       
         public void ModificarContrasenaUsuario()
         {
-            string sql = $"update cuenta_usuario set contrasena = '{this.contrasena}' where id_cuenta ='{this.id_cuenta}'";
+            string sql = $"update cuenta_lifora set contrasena = '{this.contrasena}' where id_cuenta ='{this.idCuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public void ModificarFechaNacimientoUsuario()
+       
+        public void ModificarCuentaUsuario()
         {
-            string sql = $"update cuenta_usuario set fecha_nacimiento = '{this.fecha_nac}' where id_cuenta ='{this.id_cuenta}'";
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-        public void ModificarCuentaUsuarioBackoffice()
-        {
-            string sql = $"update cuenta_usuario set email = '{this.email}', telefono = '{this.telefono}', nombre = '{this.nombre}', apellido = '{this.apellido}', fecha_nacimiento = '{this.fecha_nac}' where id_cuenta = '{this.id_cuenta}'";
+            string sql = $"update cuenta_ set email = '{this.email}', telefono = '{this.telefono}', nombre = '{this.nombre}', apellido = '{this.apellido}', fecha_nacimiento = '{this.fechaNacimiento}' where id_cuenta = '{this.idCuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public bool Autenticar()
         {
-            string sql = $"SELECT COUNT(*) FROM cuenta_usuario WHERE email = @email AND contrasena = @contrasena";
+            string sql = $"SELECT COUNT(*) FROM cuenta_lifora WHERE email = @email AND contrasenia = @contrasenia";
             this.Comando.Parameters.AddWithValue("@email", this.email);
-            this.Comando.Parameters.AddWithValue("@contrasena", this.contrasena);
+            this.Comando.Parameters.AddWithValue("@contrasenia", this.contrasena);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
@@ -90,7 +83,7 @@ namespace Modelo
             string sql = "SELECT id_cuenta, nombre, apellido, telefono, email, fecha_nacimiento, habilitacion FROM cuenta_usuario WHERE id_cuenta = @id";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id", this.id_cuenta);
+            this.Comando.Parameters.AddWithValue("@id", this.idCuenta);
             this.Lector = this.Comando.ExecuteReader();
             Dictionary<string, string> datosUsuario = new Dictionary<string, string>();
             if (this.Lector.Read())
@@ -111,7 +104,7 @@ namespace Modelo
             this.Lector.Close();
             return datosUsuario;
         }
-        public List<ModeloPersonas> ObtenerTodos()
+        /*public List<ModeloPersonas> ObtenerTodos()
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();
 
@@ -133,6 +126,6 @@ namespace Modelo
             }
             return bd;
 
-        }
+        }*/
     }
 }

@@ -24,7 +24,7 @@ namespace Lifora
             {
                 if (txtBoxPassword.Text.Equals(txtBoxConfirmPassword.Text))
                 {
-                    ControladorCuentaUsuario.AltaCuentaUsuario(txtBoxName.Text, txtBoxSurname.Text, Int32.Parse(txtBoxPhone.Text), txtBoxMail.Text, txtBoxBirthday.Text, txtBoxPassword.Text);
+                    ControladorCuentaUsuario.AltaCuentaUsuario(txtBoxName.Text, txtBoxSurname.Text, txtBoxBirthday.Text, txtBoxMail.Text, txtBoxPhone.Text, txtBoxPassword.Text);
                     MessageBox.Show("Cuenta creada con exito");
                     this.Close();
                 }

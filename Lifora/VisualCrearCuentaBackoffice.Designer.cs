@@ -49,13 +49,14 @@ namespace Lifora
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBoxApodo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // BotonCrearUsuario
             // 
             this.BotonCrearUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BotonCrearUsuario.Location = new System.Drawing.Point(151, 463);
+            this.BotonCrearUsuario.Location = new System.Drawing.Point(163, 488);
             this.BotonCrearUsuario.Name = "BotonCrearUsuario";
             this.BotonCrearUsuario.Size = new System.Drawing.Size(170, 52);
             this.BotonCrearUsuario.TabIndex = 49;
@@ -66,7 +67,7 @@ namespace Lifora
             // txtBoxBirthday
             // 
             this.txtBoxBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxBirthday.Location = new System.Drawing.Point(191, 389);
+            this.txtBoxBirthday.Location = new System.Drawing.Point(189, 392);
             this.txtBoxBirthday.Name = "txtBoxBirthday";
             this.txtBoxBirthday.Size = new System.Drawing.Size(233, 31);
             this.txtBoxBirthday.TabIndex = 48;
@@ -228,11 +229,20 @@ namespace Lifora
             this.pictureBox1.TabIndex = 99;
             this.pictureBox1.TabStop = false;
             // 
+            // textBoxApodo
+            // 
+            this.textBoxApodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxApodo.Location = new System.Drawing.Point(189, 429);
+            this.textBoxApodo.Name = "textBoxApodo";
+            this.textBoxApodo.Size = new System.Drawing.Size(233, 31);
+            this.textBoxApodo.TabIndex = 103;
+            // 
             // VisualCrearCuentaBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 561);
+            this.Controls.Add(this.textBoxApodo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label9);
@@ -282,5 +292,6 @@ namespace Lifora
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxApodo;
     }
 }

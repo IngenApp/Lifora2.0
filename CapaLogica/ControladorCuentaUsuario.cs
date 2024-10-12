@@ -11,17 +11,29 @@ namespace Controladores
 {
     public class ControladorCuentaUsuario
     {
-        public static void AltaCuentaUsuario(String nombre, string apellido, int telefono, string email, string fecha_nac, string contrasena)
+        public static void AltaCuentaUsuario(string nombre, string apellido, string fechaNacimiento, string email, string telefono, string contrasena)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.nombre = nombre;
             CuentaUsuario.apellido = apellido;
             CuentaUsuario.telefono = telefono;
             CuentaUsuario.email = email;
-            CuentaUsuario.fecha_nac = fecha_nac;
+            CuentaUsuario.fechaNacimiento = fechaNacimiento;
             CuentaUsuario.contrasena = contrasena;
 
-            CuentaUsuario.GuardarCuentaUsuario();
+            try
+            {
+                CuentaUsuario.GuardarCuentaUsuario();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+        }
+        public static void CrearPerfil(string apodo, string email)
+        {
+            
         }
         public static bool Login(string email, string contrasena)
         {
@@ -33,61 +45,61 @@ namespace Controladores
         public static void DeshabilitaCuentaUsuario(int id)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = id;
+            CuentaUsuario.idCuenta = id;
             CuentaUsuario.DeshabilitarCuentaUsuario();
         }
         public static void HabilitaCuentaUsuario(int id)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = id;
+            CuentaUsuario.idCuenta = id;
             CuentaUsuario.HabilitarCuentaUsuario();
         }
         public static void ModificarNombreUsuario(string id, string nombre)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
+            CuentaUsuario.idCuenta = Int32.Parse(id);
             CuentaUsuario.nombre = nombre;
-            CuentaUsuario.ModificarNombreUsuario();
+            
         }
         public static void ModificarApellidoUsuario(string id, string apellido)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
+            CuentaUsuario.idCuenta = Int32.Parse(id);
             CuentaUsuario.apellido = apellido;
-            CuentaUsuario.ModificarApellidoUsuario();
+           
         }
         public static void ModificarContrasenaUsuario(string id, string contrasena)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
+            CuentaUsuario.idCuenta = Int32.Parse(id);
             CuentaUsuario.contrasena = contrasena;
             CuentaUsuario.ModificarContrasenaUsuario();
         }
         public static void ModificarFechaNacimientoUsuario(string id, string fech_nac)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
-            CuentaUsuario.fecha_nac = fech_nac;
-            CuentaUsuario.ModificarFechaNacimientoUsuario();
+            CuentaUsuario.idCuenta = Int32.Parse(id);
+            CuentaUsuario.fechaNacimiento= fech_nac;
+            
         }
         public static void ModificarCuentaDesdeBackoffice(string id, string nombre, string apellido, string email, string telefono, string fecha_nac)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
-            CuentaUsuario.telefono = Int32.Parse(telefono);
+            CuentaUsuario.idCuenta = Int32.Parse(id);
+            CuentaUsuario.telefono = telefono;
             CuentaUsuario.nombre = nombre;
             CuentaUsuario.apellido = apellido;
             CuentaUsuario.email = email;
-            CuentaUsuario.fecha_nac = fecha_nac;
-            CuentaUsuario.ModificarCuentaUsuarioBackoffice();
+            CuentaUsuario.fechaNacimiento = fecha_nac;
+        
         }
         public static Dictionary<string, string> BuscarPorId(int id)
         {
             ModeloPersonas cuentaUsuario = new ModeloPersonas();
-            cuentaUsuario.id_cuenta = id;
+            cuentaUsuario.idCuenta = id;
             return cuentaUsuario.ObtenerDatosPorId();
         }
-        public static DataTable Listar()
+        /*public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("ID", typeof(int));
@@ -111,7 +123,7 @@ namespace Controladores
                 tabla.Rows.Add(fila);
             }
             return tabla;
-        }
+        }*/
     }
 }
 
