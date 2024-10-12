@@ -69,6 +69,7 @@ namespace Lifora
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxAtributo2 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfoUser)).BeginInit();
             this.SuspendLayout();
@@ -202,7 +203,7 @@ namespace Lifora
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(928, 291);
+            this.label5.Location = new System.Drawing.Point(928, 210);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 31);
@@ -213,7 +214,7 @@ namespace Lifora
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(932, 326);
+            this.label6.Location = new System.Drawing.Point(932, 245);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 31);
@@ -224,7 +225,7 @@ namespace Lifora
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(916, 256);
+            this.label7.Location = new System.Drawing.Point(916, 175);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 31);
@@ -235,7 +236,7 @@ namespace Lifora
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(955, 221);
+            this.label8.Location = new System.Drawing.Point(955, 140);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 31);
@@ -245,7 +246,7 @@ namespace Lifora
             // textBoxCambiarNombre
             // 
             this.textBoxCambiarNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCambiarNombre.Location = new System.Drawing.Point(1058, 291);
+            this.textBoxCambiarNombre.Location = new System.Drawing.Point(1058, 210);
             this.textBoxCambiarNombre.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarNombre.Name = "textBoxCambiarNombre";
             this.textBoxCambiarNombre.Size = new System.Drawing.Size(212, 31);
@@ -255,7 +256,7 @@ namespace Lifora
             // textBoxCambiarApellido
             // 
             this.textBoxCambiarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCambiarApellido.Location = new System.Drawing.Point(1057, 326);
+            this.textBoxCambiarApellido.Location = new System.Drawing.Point(1057, 245);
             this.textBoxCambiarApellido.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarApellido.Name = "textBoxCambiarApellido";
             this.textBoxCambiarApellido.Size = new System.Drawing.Size(213, 31);
@@ -265,7 +266,7 @@ namespace Lifora
             // textBoxCambiarTelefono
             // 
             this.textBoxCambiarTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCambiarTelefono.Location = new System.Drawing.Point(1058, 256);
+            this.textBoxCambiarTelefono.Location = new System.Drawing.Point(1058, 175);
             this.textBoxCambiarTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarTelefono.Name = "textBoxCambiarTelefono";
             this.textBoxCambiarTelefono.Size = new System.Drawing.Size(213, 31);
@@ -275,7 +276,7 @@ namespace Lifora
             // textBoxCambiarEmail
             // 
             this.textBoxCambiarEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCambiarEmail.Location = new System.Drawing.Point(1059, 221);
+            this.textBoxCambiarEmail.Location = new System.Drawing.Point(1059, 140);
             this.textBoxCambiarEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCambiarEmail.Name = "textBoxCambiarEmail";
             this.textBoxCambiarEmail.Size = new System.Drawing.Size(212, 31);
@@ -284,12 +285,12 @@ namespace Lifora
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModificar.Location = new System.Drawing.Point(1100, 625);
+            this.BtnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModificar.Location = new System.Drawing.Point(1100, 332);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(170, 52);
             this.BtnModificar.TabIndex = 27;
-            this.BtnModificar.Text = "Modificar";
+            this.BtnModificar.Text = "Modificar Cuenta";
             this.BtnModificar.UseVisualStyleBackColor = true;
             this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
@@ -297,7 +298,7 @@ namespace Lifora
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(897, 361);
+            this.label9.Location = new System.Drawing.Point(897, 280);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(146, 31);
             this.label9.TabIndex = 28;
@@ -306,7 +307,7 @@ namespace Lifora
             // textBoxFechaDeNacimiento
             // 
             this.textBoxFechaDeNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFechaDeNacimiento.Location = new System.Drawing.Point(1058, 361);
+            this.textBoxFechaDeNacimiento.Location = new System.Drawing.Point(1058, 280);
             this.textBoxFechaDeNacimiento.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFechaDeNacimiento.Name = "textBoxFechaDeNacimiento";
             this.textBoxFechaDeNacimiento.Size = new System.Drawing.Size(213, 31);
@@ -381,7 +382,7 @@ namespace Lifora
             // textBoxApodo
             // 
             this.textBoxApodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxApodo.Location = new System.Drawing.Point(1059, 186);
+            this.textBoxApodo.Location = new System.Drawing.Point(1059, 442);
             this.textBoxApodo.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxApodo.Name = "textBoxApodo";
             this.textBoxApodo.Size = new System.Drawing.Size(213, 31);
@@ -392,7 +393,7 @@ namespace Lifora
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(928, 190);
+            this.label10.Location = new System.Drawing.Point(928, 446);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 31);
@@ -402,7 +403,7 @@ namespace Lifora
             // textBoxContrasena
             // 
             this.textBoxContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxContrasena.Location = new System.Drawing.Point(1058, 396);
+            this.textBoxContrasena.Location = new System.Drawing.Point(1061, 486);
             this.textBoxContrasena.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxContrasena.Name = "textBoxContrasena";
             this.textBoxContrasena.Size = new System.Drawing.Size(212, 31);
@@ -413,7 +414,7 @@ namespace Lifora
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(897, 398);
+            this.label11.Location = new System.Drawing.Point(900, 488);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(155, 31);
@@ -423,7 +424,7 @@ namespace Lifora
             // textBoxIdioma
             // 
             this.textBoxIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIdioma.Location = new System.Drawing.Point(1059, 431);
+            this.textBoxIdioma.Location = new System.Drawing.Point(1062, 521);
             this.textBoxIdioma.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxIdioma.Name = "textBoxIdioma";
             this.textBoxIdioma.Size = new System.Drawing.Size(212, 31);
@@ -434,7 +435,7 @@ namespace Lifora
             // 
             this.labelIdioma.AutoSize = true;
             this.labelIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIdioma.Location = new System.Drawing.Point(920, 431);
+            this.labelIdioma.Location = new System.Drawing.Point(923, 521);
             this.labelIdioma.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIdioma.Name = "labelIdioma";
             this.labelIdioma.Size = new System.Drawing.Size(95, 31);
@@ -444,7 +445,7 @@ namespace Lifora
             // textBoxAtributo1
             // 
             this.textBoxAtributo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAtributo1.Location = new System.Drawing.Point(1057, 466);
+            this.textBoxAtributo1.Location = new System.Drawing.Point(1064, 556);
             this.textBoxAtributo1.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAtributo1.Name = "textBoxAtributo1";
             this.textBoxAtributo1.Size = new System.Drawing.Size(212, 31);
@@ -455,7 +456,7 @@ namespace Lifora
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(918, 466);
+            this.label12.Location = new System.Drawing.Point(921, 556);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(123, 31);
@@ -465,7 +466,7 @@ namespace Lifora
             // textBoxAtributo2
             // 
             this.textBoxAtributo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAtributo2.Location = new System.Drawing.Point(1061, 501);
+            this.textBoxAtributo2.Location = new System.Drawing.Point(1064, 591);
             this.textBoxAtributo2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAtributo2.Name = "textBoxAtributo2";
             this.textBoxAtributo2.Size = new System.Drawing.Size(212, 31);
@@ -476,12 +477,23 @@ namespace Lifora
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(922, 501);
+            this.label13.Location = new System.Drawing.Point(925, 591);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 31);
             this.label13.TabIndex = 74;
             this.label13.Text = "Atributo2";
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(1103, 637);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(170, 52);
+            this.button6.TabIndex = 76;
+            this.button6.Text = "Modificar Perfil";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // backoffice
             // 
@@ -490,6 +502,7 @@ namespace Lifora
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1284, 711);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.textBoxAtributo2);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBoxAtributo1);
@@ -581,5 +594,6 @@ namespace Lifora
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxAtributo2;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button6;
     }
 }

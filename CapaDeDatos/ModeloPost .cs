@@ -16,9 +16,9 @@ namespace Modelo
 
         public void CrearPost()
         {
-            string sql = $"insert into post (id_perfil, texto_post, fecha) values(@id_cuenta, @texto_post, now())";
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idPerfil);
-            this.Comando.Parameters.AddWithValue("@texto_post", post);
+            string sql = $"insert into post (id_perfil, descripcion, fecha_hora) values(@id_perfil, @descripcion, now()); commit;";
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+            this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
@@ -26,9 +26,9 @@ namespace Modelo
 
         public void ModificarPost()
         {
-            string sql = "update post set texto_post = @texto_post where id_post = @id_post";
+            string sql = $"UPDATE post SET descripcion = @descripcion WHERE id_post = @id_post; commit;";
             this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@texto_post", post);
+            this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
@@ -102,23 +102,10 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
-        public void ModificarPostUsuarioBackoffice()
-        {
-            string sql = $"update post set texto_post = @texto_post, id_cuenta = @id_cuenta,  fecha = @fecha, contador_like = @contador_like where id_post = @id_post";
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@texto_post", post);
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idPerfil);
-            this.Comando.Parameters.AddWithValue("@fecha", fecha);
-            //   this.Comando.Parameters.AddWithValue("@contador_like", like);
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.Prepare();
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
 
         public void DeshabilitarPost()
         {
-            string sql = "UPDATE post SET habilitado = false WHERE id_post = @id_post";
+            string sql = "UPDATE post SET habilitado = false WHERE id_post = @id_post; commit;";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
@@ -127,7 +114,7 @@ namespace Modelo
 
         public void HabilitarPost()
         {
-            string sql = $"update post set habilitado = true where id_post = @id_post";
+            string sql = $"update post set habilitado = true where id_post = @id_post; commit;";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
@@ -224,34 +211,7 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
-        public List<ModeloPost> ObtenerComentarios(int idPost)
-        {
-            List<ModeloPost> ListaComentarios = new List<ModeloPost>();
-            string sql = "SELECT c.id_comentario, c.texto_comentario, c.fecha, c.habilitado, cu.nombre, cu.id_cuenta, p.texto_post, " +
-                         "IFNULL((SELECT COUNT(*) FROM like_comentario lc WHERE lc.id_comentario = c.id_comentario), 0) AS contador_like " +
-                         "FROM comentario c " +
-                         "JOIN post p ON c.id_post = p.id_post " +
-                         "JOIN cuenta_usuario cu ON c.id_cuenta = cu.id_cuenta " +
-                         "WHERE c.id_post = @id_post;";
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Lector = this.Comando.ExecuteReader();
-            while (this.Lector.Read())
-            {
-                ModeloPost mc = new ModeloPost();
-              //  mc.comentarios = Convert.ToInt32(this.Lector["id_comentario"]);
-              //  mc.textoComentarios = this.Lector["texto_comentario"].ToString();
-                mc.fecha = this.Lector["fecha"].ToString();
-               // mc.nombre = this.Lector["id_cuenta"].ToString();
-                mc.post = this.Lector["texto_post"].ToString();
-               // mc.habilitado= this.Lector["habilitado"].ToString();
-
-                ListaComentarios.Add(mc);
-            }
-            this.Lector.Close();
-            return ListaComentarios;
-        }
+   
 
     }
 }

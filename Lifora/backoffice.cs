@@ -89,7 +89,6 @@ namespace Lifora
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
                 string email = seleccion.Cells[2].Value?.ToString();
                 ControladorCuentaUsuario.ModificarCuenta(email, textBoxCambiarEmail.Text, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarTelefono.Text);
-                ControladorCuentaUsuario.ModificarPerfil(email, textBoxApodo.Text, 0, textBoxIdioma.Text, textBoxAtributo1.Text, textBoxAtributo2.Text, textBoxContrasena.Text);
                 MessageBox.Show("Cambios realizados con exito");
             }
             if (pregunta == DialogResult.No)
@@ -150,6 +149,23 @@ namespace Lifora
         public void backoffice_FormClosing(object sender, FormClosingEventArgs e)
         {
             ActiveForm.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
+                string email = seleccion.Cells[2].Value?.ToString();
+                ControladorCuentaUsuario.ModificarPerfil(email, textBoxApodo.Text, 0, textBoxIdioma.Text, textBoxAtributo1.Text, textBoxAtributo2.Text, textBoxContrasena.Text);
+                MessageBox.Show("Cambios realizados con exito");
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+            }
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
     }
 }

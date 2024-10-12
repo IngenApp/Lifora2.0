@@ -41,17 +41,16 @@ namespace Modelo
         }
         public void DeshabilitarCuentaUsuario()
         {
-            string sql = $"update cuenta_lifora set habilitado = false where id_usuario = '{this.idUsuario}'";
+            string sql = $"update cuenta_lifora set habilitado = false where id_usuario = '{this.idUsuario}'; commit;";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
         public void HabilitarCuentaUsuario()
         {
-            string sql = $"update cuenta_lifora set habilitado = true where id_usuario = '{this.idUsuario}'";
+            string sql = $"update cuenta_lifora set habilitado = true where id_usuario = '{this.idUsuario}'; commit;";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-  
         public void ModificarCuentaUsuario()
         {
             this.Comando.Parameters.Clear();
@@ -68,7 +67,6 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
 
         }
-
         public void ModificarPerfilUsuario()
         {
             this.Comando.Parameters.Clear();
@@ -86,8 +84,6 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
          
         }
-
-
         public bool Autenticar()
         {
             string sql = $"SELECT COUNT(*) FROM cuenta_lifora c JOIN cuenta_usuario u ON c.email = u.email WHERE c.email = @email AND c.contrasenia = @contrasenia AND c.habilitado = 1;";
@@ -101,7 +97,6 @@ namespace Modelo
                 return false;
             return true;           
         }
-
         public bool AutenticarBackoffice()
         {
             string sql = $"SELECT COUNT(*) FROM cuenta_lifora c JOIN backoffice b ON c.email = b.email WHERE c.email = @email AND c.contrasenia = @contrasenia AND c.habilitado = 1;";
@@ -115,8 +110,6 @@ namespace Modelo
                 return false;
             return true;
         }
-
-
         public Dictionary<string, string> ObtenerDatosPorId()
         {
             string sql = "SELECT id_cuenta, nombre, apellido, telefono, email, fecha_nacimiento, habilitacion FROM cuenta_usuario WHERE id_cuenta = @id";

@@ -35,12 +35,6 @@ namespace Lifora
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnComentarPost = new System.Windows.Forms.Button();
-            this.textBoxLike = new System.Windows.Forms.TextBox();
-            this.textBoxIdCuenta = new System.Windows.Forms.TextBox();
-            this.textBoxIdPost = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.btnModificarPost = new System.Windows.Forms.Button();
             this.btnCrearPost = new System.Windows.Forms.Button();
             this.dataGridViewPost = new System.Windows.Forms.DataGridView();
@@ -65,12 +59,11 @@ namespace Lifora
             this.richTextBoxPost = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComentarios)).BeginInit();
@@ -86,66 +79,6 @@ namespace Lifora
             this.btnComentarPost.Text = "Comentar";
             this.btnComentarPost.UseVisualStyleBackColor = true;
             this.btnComentarPost.Click += new System.EventHandler(this.btnComentarPost_Click);
-            // 
-            // textBoxLike
-            // 
-            this.textBoxLike.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLike.Location = new System.Drawing.Point(1212, 168);
-            this.textBoxLike.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxLike.Name = "textBoxLike";
-            this.textBoxLike.Size = new System.Drawing.Size(45, 31);
-            this.textBoxLike.TabIndex = 88;
-            this.textBoxLike.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxIdCuenta
-            // 
-            this.textBoxIdCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIdCuenta.Location = new System.Drawing.Point(1212, 129);
-            this.textBoxIdCuenta.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxIdCuenta.Name = "textBoxIdCuenta";
-            this.textBoxIdCuenta.Size = new System.Drawing.Size(45, 31);
-            this.textBoxIdCuenta.TabIndex = 86;
-            this.textBoxIdCuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxIdPost
-            // 
-            this.textBoxIdPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIdPost.Location = new System.Drawing.Point(1211, 95);
-            this.textBoxIdPost.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxIdPost.Name = "textBoxIdPost";
-            this.textBoxIdPost.Size = new System.Drawing.Size(45, 31);
-            this.textBoxIdPost.TabIndex = 85;
-            this.textBoxIdPost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(1142, 165);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(64, 31);
-            this.label22.TabIndex = 84;
-            this.label22.Text = "Like";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(1070, 131);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(136, 31);
-            this.label20.TabIndex = 82;
-            this.label20.Text = "id Usuario";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(1109, 95);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(97, 31);
-            this.label21.TabIndex = 81;
-            this.label21.Text = "id Post";
             // 
             // btnModificarPost
             // 
@@ -227,20 +160,20 @@ namespace Lifora
             // txtBoxSearchIDCuenta
             // 
             this.txtBoxSearchIDCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearchIDCuenta.Location = new System.Drawing.Point(828, 133);
+            this.txtBoxSearchIDCuenta.Location = new System.Drawing.Point(797, 168);
             this.txtBoxSearchIDCuenta.Name = "txtBoxSearchIDCuenta";
             this.txtBoxSearchIDCuenta.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtBoxSearchIDCuenta.Size = new System.Drawing.Size(47, 31);
+            this.txtBoxSearchIDCuenta.Size = new System.Drawing.Size(183, 31);
             this.txtBoxSearchIDCuenta.TabIndex = 92;
             this.txtBoxSearchIDCuenta.TextChanged += new System.EventHandler(this.txtBoxSearchIDCuenta_TextChanged);
             // 
             // textBuscarPostId
             // 
             this.textBuscarPostId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBuscarPostId.Location = new System.Drawing.Point(828, 168);
+            this.textBuscarPostId.Location = new System.Drawing.Point(797, 129);
             this.textBuscarPostId.Name = "textBuscarPostId";
             this.textBuscarPostId.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBuscarPostId.Size = new System.Drawing.Size(47, 31);
+            this.textBuscarPostId.Size = new System.Drawing.Size(58, 31);
             this.textBuscarPostId.TabIndex = 94;
             this.textBuscarPostId.TextChanged += new System.EventHandler(this.textBuscarPostId_TextChanged);
             // 
@@ -297,7 +230,7 @@ namespace Lifora
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(651, 168);
+            this.label5.Location = new System.Drawing.Point(657, 131);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 31);
             this.label5.TabIndex = 100;
@@ -349,11 +282,11 @@ namespace Lifora
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(651, 131);
+            this.label7.Location = new System.Drawing.Point(657, 168);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 31);
+            this.label7.Size = new System.Drawing.Size(92, 31);
             this.label7.TabIndex = 105;
-            this.label7.Text = "ID Usuario";
+            this.label7.Text = "Apodo";
             // 
             // textBuscarContenidoPost
             // 
@@ -410,9 +343,9 @@ namespace Lifora
             // richTextBoxPost
             // 
             this.richTextBoxPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxPost.Location = new System.Drawing.Point(1049, 204);
+            this.richTextBoxPost.Location = new System.Drawing.Point(1022, 129);
             this.richTextBoxPost.Name = "richTextBoxPost";
-            this.richTextBoxPost.Size = new System.Drawing.Size(210, 61);
+            this.richTextBoxPost.Size = new System.Drawing.Size(237, 136);
             this.richTextBoxPost.TabIndex = 111;
             this.richTextBoxPost.Text = "";
             // 
@@ -435,26 +368,6 @@ namespace Lifora
             this.button2.TabIndex = 113;
             this.button2.Text = "Denuncias";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(799, 663);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox1.Size = new System.Drawing.Size(183, 31);
-            this.textBox1.TabIndex = 119;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(651, 586);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(180, 31);
-            this.label10.TabIndex = 118;
-            this.label10.Text = "ID de Usuario";
             // 
             // label11
             // 
@@ -496,12 +409,21 @@ namespace Lifora
             this.textBox3.TabIndex = 114;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1016, 92);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(262, 31);
+            this.label10.TabIndex = 118;
+            this.label10.Text = "Descripcion del Post";
+            // 
             // VisualPost
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1284, 711);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
@@ -527,12 +449,6 @@ namespace Lifora
             this.Controls.Add(this.textBuscarPostId);
             this.Controls.Add(this.txtBoxSearchIDCuenta);
             this.Controls.Add(this.btnComentarPost);
-            this.Controls.Add(this.textBoxLike);
-            this.Controls.Add(this.textBoxIdCuenta);
-            this.Controls.Add(this.textBoxIdPost);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label21);
             this.Controls.Add(this.btnModificarPost);
             this.Controls.Add(this.btnCrearPost);
             this.Controls.Add(this.dataGridViewPost);
@@ -554,12 +470,6 @@ namespace Lifora
 
         #endregion
         private System.Windows.Forms.Button btnComentarPost;
-        private System.Windows.Forms.TextBox textBoxLike;
-        private System.Windows.Forms.TextBox textBoxIdCuenta;
-        private System.Windows.Forms.TextBox textBoxIdPost;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnModificarPost;
         private System.Windows.Forms.Button btnCrearPost;
         private System.Windows.Forms.DataGridView dataGridViewPost;
@@ -584,11 +494,10 @@ namespace Lifora
         private System.Windows.Forms.RichTextBox richTextBoxPost;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label10;
     }
 }
