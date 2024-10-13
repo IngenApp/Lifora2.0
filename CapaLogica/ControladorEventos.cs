@@ -10,94 +10,67 @@ namespace Controladores
 {
     public class ControladorEventos
     {
-        public static void CrearEvento(int id_cuenta, string nombre_evento, string informacion, string lugar, string fecha_evento)
+        public static void CrearEvento(int idPerfil, string nombreEvento, string informacion, string lugar, string fechaEvento)
         {
             ModeloEventos CrearEvento = new ModeloEventos();
-            CrearEvento.nombre_evento = nombre_evento;
+            CrearEvento.nombreEvento = nombreEvento;
             CrearEvento.informacion = informacion;
             CrearEvento.lugar = lugar;
-            CrearEvento.fecha_evento = fecha_evento;
-            CrearEvento.id_cuenta = id_cuenta;
+            CrearEvento.fechaEvento = fechaEvento;
+            CrearEvento.idPerfil = idPerfil;
             CrearEvento.CrearEvento();
         }
         public static void DeshabilitarEvento(int id_evento)
         {
             ModeloEventos DeshabilitarEvento = new ModeloEventos();
-            DeshabilitarEvento.id_evento = id_evento;
+            DeshabilitarEvento.idEvento = id_evento;
             DeshabilitarEvento.DeshabilitarEvento();
         }
         public static void HabilitarEvento(int id_evento)
         {
             ModeloEventos HabilitarEvento = new ModeloEventos();
-            HabilitarEvento.id_evento = id_evento;
+            HabilitarEvento.idEvento = id_evento;
             HabilitarEvento.HabilitarEvento();
         }
         public static Dictionary<string, string> BuscarEventoPorId(int id_evento)
         {
             ModeloEventos modeloEvento = new ModeloEventos();
-            modeloEvento.id_evento = id_evento;
+            modeloEvento.idEvento = id_evento;
             return modeloEvento.ObtenerEventoPorId();
         }
-
-        public static void ModificarNombreEvento(int id_evento, string nombre_evento)
-        {
-            ModeloEventos NombreEvento = new ModeloEventos();
-            NombreEvento.id_evento = id_evento;
-            NombreEvento.nombre_evento = nombre_evento;
-            NombreEvento.ModificarNombreEvento();
-        }
-        public static void ModificarLugarEvento(int id_evento, string lugar)
-        {
-            ModeloEventos ModLugar = new ModeloEventos();
-            ModLugar.id_evento = id_evento;
-            ModLugar.lugar = lugar;
-            ModLugar.ModificarLugarEvento();
-        }
-        public static void ModificarInformacionEvento(int id_evento, string informacion)
-        {
-            ModeloEventos ModInformacion = new ModeloEventos();
-            ModInformacion.id_evento = id_evento;
-            ModInformacion.informacion = informacion;
-            ModInformacion.ModificarInformacionEvento();
-        }
-        public static void ModificarFechaEvento(int id_evento, string fecha_evento)
-        {
-            ModeloEventos ModInformacion = new ModeloEventos();
-            ModInformacion.id_evento = id_evento;
-            ModInformacion.fecha_evento = fecha_evento;
-            ModInformacion.ModificarFechaEvento();
-        }
-        public static void ModificarEventoBackoffice(string id_evento, string nombre_evento, string informacion, string lugar, string fecha)
+    
+        public static void ModificarEvento(string idEvento, string nombre_evento, string informacion, string lugar, string fecha)
         {
             ModeloEventos ModEventoBO = new ModeloEventos();
-            ModEventoBO.id_evento = Int32.Parse(id_evento);
-            ModEventoBO.nombre_evento = nombre_evento;
+            ModEventoBO.idEvento = Int32.Parse(idEvento);
+            ModEventoBO.nombreEvento = nombre_evento;
             ModEventoBO.informacion = informacion;
             ModEventoBO.lugar = lugar;
-            ModEventoBO.fecha_evento = fecha;
-            ModEventoBO.ModificarEventoBackOffice();
+            ModEventoBO.fechaEvento = fecha;
+            ModEventoBO.ModificarEvento();
         }
         public static DataTable ListarEventos()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("ID", typeof(int));
-            tabla.Columns.Add("Nombre", typeof(string));
+            tabla.Columns.Add("ID_Evento", typeof(int));
+            tabla.Columns.Add("Nombre_Evento", typeof(string));
             tabla.Columns.Add("Informacion", typeof(string));
             tabla.Columns.Add("Lugar", typeof(string));
-            tabla.Columns.Add("Fecha", typeof(string));
+            tabla.Columns.Add("Fecha", typeof(DateTime));
             tabla.Columns.Add("habilitado", typeof(Boolean));
-            tabla.Columns.Add("IDCuenta", typeof(string));
+            tabla.Columns.Add("ID_Perfil", typeof(string));
+           
             ModeloEventos ListarEventos = new ModeloEventos();
             foreach (ModeloEventos p in ListarEventos.ObtenerEventos())
             {
                 DataRow fila = tabla.NewRow();
-                fila["ID"] = p.id_evento;
-                fila["Nombre"] = p.nombre_evento;
+                fila["ID_Evento"] = p.idEvento;
+                fila["Nombre_Evento"] = p.nombreEvento;
                 fila["Informacion"] = p.informacion;
                 fila["Lugar"] = p.lugar;
-                fila["Fecha"] = p.fecha_evento;
+                fila["Fecha"] = p.fechaEvento;
                 fila["habilitado"] = p.habilitado;
-                fila["IDCuenta"] = p.id_cuenta;
+                fila["ID_Perfil"] = p.idPerfil;
                 tabla.Rows.Add(fila);
             }
             return tabla;

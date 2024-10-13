@@ -73,8 +73,8 @@ namespace Lifora
                 DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
                 int columna = 0;
                 var CellValue = seleccion.Cells[columna].Value;
-                string id_evento = CellValue.ToString();
-                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, richTextBoxEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
+                string idEvento = CellValue.ToString();
+                ControladorEventos.ModificarEvento(idEvento, textBoxNuevoNombreEvento.Text, richTextBoxEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
                 MessageBox.Show("Cambios realizados con exito");
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
             }
@@ -88,7 +88,7 @@ namespace Lifora
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             if (dataGridViewEventos.SelectedRows.Count > 0)
-                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(ID, 'System.String') LIKE '%{0}%'", textBox3.Text);
+                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("ID_Evento LIKE '%{0}%'", textBox3.Text);
             if (dataGridViewEventos.SelectedRows.Count == 0)
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
         }
@@ -123,7 +123,7 @@ namespace Lifora
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             if (dataGridViewEventos.SelectedRows.Count > 0)
-                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("IDCuenta LIKE '%{0}%'", textBox2.Text);
+                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("ID_perfil LIKE '%{0}%'", textBox2.Text);
             if (dataGridViewEventos.SelectedRows.Count == 0)
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
         }
@@ -131,9 +131,14 @@ namespace Lifora
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (dataGridViewEventos.SelectedRows.Count > 0)
-                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%'", textBox1.Text);
+                (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre_Evento LIKE '%{0}%'", textBox1.Text);
             if (dataGridViewEventos.SelectedRows.Count == 0)
                 dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
         }
     }
 }
