@@ -33,9 +33,8 @@ namespace Lifora
             int columna = 0;
             var CellValue = seleccion.Cells[columna].Value;
             int idGrupo = Int32.Parse(CellValue.ToString());
-            string nombre = textBoxNombreGrupo.Text;
-            string descripcion = richTextBoxGrupo.Text;
-            ControladorGrupos.ModificarGrupo(idGrupo, nombre, descripcion);
+            int idFotoGrupo = 0;
+            ControladorGrupos.ModificarGrupo(idGrupo, textBoxNombreGrupo.Text, richTextBoxGrupo.Text, idFotoGrupo);
             dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
         }
 
@@ -66,7 +65,50 @@ namespace Lifora
             dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
         }
 
-        private void btnHabilitarGrupo_Click(object sender, EventArgs e)
+       
+        private void dataGridGrupos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridGrupos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridGrupos.SelectedRows[0];
+                textBoxNombreGrupo.Text = seleccion.Cells[1].Value?.ToString();
+                richTextBoxGrupo.Text = seleccion.Cells[2].Value?.ToString();
+               
+                
+            }
+        }
+
+        private void btnCrearPost_Click(object sender, EventArgs e)
+        {
+            CrearGrupoBackoffice cgb = new CrearGrupoBackoffice();
+            cgb.Show();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridGrupos.SelectedRows.Count > 0)
+                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(ID_Grupo, 'System.String') LIKE '%{0}%'", textBox3.Text);
+            if (dataGridGrupos.SelectedRows.Count == 0)
+                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridGrupos.SelectedRows.Count > 0)
+                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(ID_perfil, 'System.String') LIKE '%{0}%'", textBox2.Text);
+            if (dataGridGrupos.SelectedRows.Count == 0)
+                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridGrupos.SelectedRows.Count > 0)
+                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre_Grupo LIKE '%{0}%'", textBox1.Text);
+            if (dataGridGrupos.SelectedRows.Count == 0)
+                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
+        }
+
+        private void btnUnlockThePost_Click(object sender, EventArgs e)
         {
             DialogResult pregunta = MessageBox.Show("Desbloquear este Grupo?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
@@ -91,48 +133,6 @@ namespace Lifora
                 MessageBox.Show("No se ah bloqueado el Grupo");
             }
             dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
-        }
-
-        private void dataGridGrupos_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridGrupos.SelectedRows.Count > 0)
-            {
-                DataGridViewRow seleccion = dataGridGrupos.SelectedRows[0];
-                textBoxNombreGrupo.Text = seleccion.Cells[1].Value?.ToString();
-                richTextBoxGrupo.Text = seleccion.Cells[2].Value?.ToString();
-               
-                
-            }
-        }
-
-        private void btnCrearPost_Click(object sender, EventArgs e)
-        {
-            CrearGrupoBackoffice cgb = new CrearGrupoBackoffice();
-            cgb.Show();
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            if (dataGridGrupos.SelectedRows.Count > 0)
-                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(ID, 'System.String') LIKE '%{0}%'", textBox3.Text);
-            if (dataGridGrupos.SelectedRows.Count == 0)
-                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            if (dataGridGrupos.SelectedRows.Count > 0)
-                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(IDCuenta, 'System.String') LIKE '%{0}%'", textBox2.Text);
-            if (dataGridGrupos.SelectedRows.Count == 0)
-                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (dataGridGrupos.SelectedRows.Count > 0)
-                (dataGridGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%'", textBox1.Text);
-            if (dataGridGrupos.SelectedRows.Count == 0)
-                dataGridGrupos.DataSource = ControladorGrupos.ListarGrupos();
         }
     }
 }
