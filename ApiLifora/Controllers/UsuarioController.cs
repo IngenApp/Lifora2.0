@@ -57,10 +57,8 @@ namespace ApiLifora.Controllers
         public IHttpActionResult Put(int id, ModeloApiUsuario usuario)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
-            ControladorCuentaUsuario.ModificarNombreUsuario(id.ToString(), usuario.nombre);
-            ControladorCuentaUsuario.ModificarApellidoUsuario(id.ToString(), usuario.apellido);
-            ControladorCuentaUsuario.ModificarContrasenaUsuario(id.ToString(), usuario.contrasenia);
-            ControladorCuentaUsuario.ModificarFechaNacimientoUsuario(id.ToString(), usuario.fechaNacimiento);
+            
+           
             resultado.Add("mensaje", "Usuario modificado exitosamente");
             return Ok(resultado);
         }

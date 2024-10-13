@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using Controladores;
 using InterfazUsuario;
-
+using System.Data;
 
 
 
@@ -18,46 +18,32 @@ namespace Lifora
             InitializeComponent();
         }
 
-        private void BotonCrearUsuario_Click(object sender, EventArgs e)
+        private void buttonBackOffice_Click(object sender, EventArgs e)
         {
-            //if se soluciona con try y catch por error en insert en base de datos
-            if (!txtBoxMail.Text.Equals("")&&!txtBoxName.Text.Equals("")&&!txtBoxSurname.Text.Equals("")&&!txtBoxPhone.Text.Equals("")&&!txtBoxPassword.Text.Equals("")&&!txtBoxBirthday.Text.Equals(""))
+            if (string.IsNullOrWhiteSpace(textBoxMail.Text) || string.IsNullOrWhiteSpace(textBoxPassword.Text))
             {
-                if (txtBoxPassword.Text.Equals(txtBoxConfirmPassword.Text))
+                MessageBox.Show("Por favor, completa todos los campos.");
+                return;
+            }
+            try
+            {
+                if (ControladorCuentaUsuario.LoginBackoffice(textBoxMail.Text, textBoxPassword.Text))
                 {
-                    ControladorCuentaUsuario.AltaCuentaUsuario(txtBoxName.Text, txtBoxSurname.Text, Int32.Parse(txtBoxPhone.Text), txtBoxMail.Text, txtBoxBirthday.Text, txtBoxPassword.Text);
+                    backoffice backoff = new backoffice();
+                    backoff.Show();
+                    textBoxMail.Text = "";
+                    textBoxPassword.Text = "";
+                    backoff.FormularioLogin = this;
+                    this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Las contrasenas no cohinciden");
+                    MessageBox.Show("Credenciales incorrectas o usuario bloqueado.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Complete los campos");
-            }
-            txtBoxBirthday.Text = ("");
-            txtBoxConfirmPassword.Text = ("");
-            txtBoxMail.Text = ("");
-            txtBoxPassword.Text = ("");
-            txtBoxPhone.Text = ("");
-            txtBoxSurname.Text = ("");
-            txtBoxName.Text = ("");
-        }
-
-        private void buttonBackOffice_Click(object sender, EventArgs e)
-        {
-            if(ControladorCuentaUsuario.Login(textBoxMail.Text, textBoxPassword.Text) == true)
-            {
-            backoffice backoff = new backoffice();
-            this.Enabled = false;
-            backoff.Show();
-            backoff.FormClosed += (s, args) => this.Enabled = true;
-                 
-            }
-            else
-            {
-                MessageBox.Show("Credenciales incorrectas");
+                MessageBox.Show($"Hasta los artistas cometemos errores: {ex.Message}");
             }
         }
 
@@ -67,8 +53,6 @@ namespace Lifora
             this.Enabled = false;
             Login.Show();
         }
-
- 
     }
     
 }

@@ -10,13 +10,18 @@ namespace Lifora
     public partial class backoffice : Form
     {
         public string id;
+        public login FormularioLogin;
+
         public backoffice()
         {
             InitializeComponent();
+           dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+        
+
         }
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
-            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+           dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
         private void btnBlockTheUser_Click(object sender, EventArgs e)
         {
@@ -26,10 +31,10 @@ namespace Lifora
                 if (dataGridViewInfoUser.SelectedRows.Count > 0)
                 {
                     DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                    int columna = 0;
+                    int columna = 5;
                     var CellValue = seleccion.Cells[columna].Value;
-                    string Id = CellValue.ToString();
-                    int id = int.Parse(Id);
+                    string idUsuario = CellValue.ToString();
+                    int id = int.Parse(idUsuario);
                     ControladorCuentaUsuario.DeshabilitaCuentaUsuario(id);
                     dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
@@ -44,9 +49,13 @@ namespace Lifora
             }
         }
         private void txtBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-            if (dataGridViewInfoUser.SelectedRows.Count > 0)
-                (dataGridViewInfoUser.DataSource as DataTable).DefaultView.RowFilter = string.Format("email LIKE '%{0}%'", txtBoxSearch.Text);
+        {          
+                if (dataGridViewInfoUser.SelectedRows.Count > 0)
+                {
+                    (dataGridViewInfoUser.DataSource as DataTable).DefaultView.RowFilter = string.Format("email LIKE '%{0}%'", txtBoxSearch.Text);
+                }
+               if (dataGridViewInfoUser.SelectedRows.Count == 0)
+                dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
         private void btnUnlockTheUser_Click(object sender, EventArgs e)
         {
@@ -56,10 +65,10 @@ namespace Lifora
                 if (dataGridViewInfoUser.SelectedRows.Count > 0)
                 {
                     DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                    int columna = 0;
+                    int columna = 5;
                     var CellValue = seleccion.Cells[columna].Value;
-                    string Id = CellValue.ToString();
-                    int id = int.Parse(Id);
+                    string idUsuario = CellValue.ToString();
+                    int id = int.Parse(idUsuario);
                     ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
                     dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
                 }
@@ -78,7 +87,9 @@ namespace Lifora
             DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
             {
-                ControladorCuentaUsuario.ModificarCuentaDesdeBackoffice(id, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarEmail.Text, textBoxCambiarTelefono.Text, textBoxFechaDeNacimiento.Text);
+                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
+                string email = seleccion.Cells[2].Value?.ToString();
+                ControladorCuentaUsuario.ModificarCuenta(email, textBoxCambiarEmail.Text, textBoxCambiarNombre.Text, textBoxCambiarApellido.Text, textBoxCambiarTelefono.Text);
                 MessageBox.Show("Cambios realizados con exito");
             }
             if (pregunta == DialogResult.No)
@@ -87,193 +98,78 @@ namespace Lifora
             }
             dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
+
+
         private void dataGridViewInfoUser_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridViewInfoUser.SelectedRows.Count > 0)
             {
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
-                textBoxCambiarNombre.Text = seleccion.Cells[1].Value?.ToString();
-                textBoxCambiarApellido.Text = seleccion.Cells[2].Value?.ToString();
+                textBoxCambiarNombre.Text = seleccion.Cells[6].Value?.ToString();
+                textBoxCambiarApellido.Text = seleccion.Cells[7].Value?.ToString();
                 textBoxCambiarTelefono.Text = seleccion.Cells[3].Value?.ToString();
-                textBoxCambiarEmail.Text = seleccion.Cells[4].Value?.ToString();
-                textBoxFechaDeNacimiento.Text = seleccion.Cells[5].Value?.ToString();
+                textBoxCambiarEmail.Text = seleccion.Cells[2].Value?.ToString();
+                textBoxFechaDeNacimiento.Text = seleccion.Cells[9].Value?.ToString();
+                textBoxContrasena.Text = seleccion.Cells[8].Value?.ToString();
+                textBoxApodo.Text = seleccion.Cells[1].Value?.ToString();
+                textBoxIdioma.Text = seleccion.Cells[10].Value?.ToString();
+                textBoxAtributo1.Text = seleccion.Cells[11].Value?.ToString();
+                textBoxAtributo2.Text = seleccion.Cells[12].Value?.ToString();
                 id = seleccion.Cells[0].Value?.ToString();
-                dataGridViewGrupos.DataSource = ControladorGrupos.ListarGrupos();
-                dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
-
-                if (dataGridViewGrupos.DataSource != null)
-                    (dataGridViewGrupos.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(idCuenta, 'System.String') LIKE '%{0}%'", id);
-                if (dataGridViewEventos.SelectedRows.Count > 0)
-                    (dataGridViewEventos.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_cuenta LIKE '%{0}%'", id);
+                
             }
         }
         
-        private void BtnCrearEvento_Click(object sender, EventArgs e)
-        {
-            CrearEventoBackoffice ceb = new CrearEventoBackoffice();
-            ceb.Show();
-        }
-        private void dataGridViewEventos_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridViewEventos.SelectedRows.Count > 0)
-            {
-                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
-                textBoxNuevoNombreEvento.Text = seleccion.Cells[1].Value?.ToString();
-                textBoxNuevaInfoEvento.Text = seleccion.Cells[2].Value?.ToString();
-                textBoxNuevoLugarEvento.Text = seleccion.Cells[3].Value?.ToString();
-                textBoxNuevaFechaEvento.Text = seleccion.Cells[4].Value?.ToString();
-            }
-        }
-        private void BtnBloquearEvento_click(object sender, EventArgs e)
-        {
-            DialogResult pregunta = MessageBox.Show("Bloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (pregunta == DialogResult.Yes)
-            {
-                if (dataGridViewEventos.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
-                    int columna = 0;
-                    var CellValue = seleccion.Cells[columna].Value;
-                    string Id = CellValue.ToString();
-                    int id_evento = int.Parse(Id);
-                    ControladorEventos.DeshabilitarEvento(id_evento);
-                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
-                }
-                if (dataGridViewInfoUser.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Debes seleccionar un evento");
-                }
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se ah bloqueado el evento");
-            }
-        }
-        private void BtnDesbloquearEvento_click(object sender, EventArgs e)
-        {
-            DialogResult pregunta = MessageBox.Show("Desbloquear este Evento?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (pregunta == DialogResult.Yes)
-            {
-                if (dataGridViewEventos.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
-                    int columna = 0;
-                    var CellValue = seleccion.Cells[columna].Value;
-                    string Id = CellValue.ToString();
-                    int id_evento = int.Parse(Id);
-                    ControladorEventos.HabilitarEvento(id_evento);
-                    dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
-                }
-                if (dataGridViewInfoUser.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Debes seleccionar un evento");
-                }
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se ah Habilitado el evento");
-            }
-        }
-        private void BtnModificarEvento_Click_1(object sender, EventArgs e)
-        {
-            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (pregunta == DialogResult.Yes)
-            {
-                DataGridViewRow seleccion = dataGridViewEventos.SelectedRows[0];
-                int columna = 0;
-                var CellValue = seleccion.Cells[columna].Value;
-                string id_evento = CellValue.ToString();
-                ControladorEventos.ModificarEventoBackoffice(id_evento, textBoxNuevoNombreEvento.Text, textBoxNuevaInfoEvento.Text, textBoxNuevoLugarEvento.Text, textBoxNuevaFechaEvento.Text);
-                MessageBox.Show("Cambios realizados con exito");
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se han realizado los cambios");
-            }
-            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
-        }    
-        private void btnCrearGrupo_Click(object sender, EventArgs e)
-        {
-            CrearGrupoBackoffice cgb = new CrearGrupoBackoffice();
-            cgb.Show();
-        }
-        private void btnModificarGrupo_Click(object sender, EventArgs e)
-        {
-
-            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (pregunta != DialogResult.Yes)
-            {
-                MessageBox.Show("No se han realizado los cambios");
-                return;
-            }
-            DataGridViewRow seleccion = dataGridViewGrupos.SelectedRows[0];
-            int columna = 0;
-            var CellValue = seleccion.Cells[columna].Value;
-            int idGrupo = Int32.Parse(CellValue.ToString());
-            string nombre = textBoxNombreGrupo.Text;
-            string descripcion = textBoxIDescripcionGrupo.Text;
-            ControladorGrupos.ModificarGrupo(idGrupo, nombre, descripcion);
-            dataGridViewGrupos.DataSource = ControladorGrupos.ListarGrupos();
-        }
-        private void btnBloquearGrupo_Click(object sender, EventArgs e)
-        {
-            DialogResult pregunta = MessageBox.Show("Bloquear este Grupo?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (pregunta == DialogResult.Yes)
-            {
-                if (dataGridViewGrupos.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow seleccion = dataGridViewGrupos.SelectedRows[0];
-                    int columna = 0;
-                    var CellValue = seleccion.Cells[columna].Value;
-                    string Id = CellValue.ToString();
-                    int idGrupo = int.Parse(Id);
-                    ControladorGrupos.BloquearGrupo(idGrupo);
-                    dataGridViewGrupos.DataSource = ControladorGrupos.ListarGrupos();
-                }
-                if (dataGridViewGrupos.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Debes seleccionar un Grupo");
-                }
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se ah bloqueado el Grupos");
-            }
-            dataGridViewGrupos.DataSource = ControladorGrupos.ListarGrupos();
-        }
-        private void btnHabilitarGrupo_Click(object sender, EventArgs e)
-        {
-            DialogResult pregunta = MessageBox.Show("Desbloquear este Grupo?", "Estas seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (pregunta == DialogResult.Yes)
-            {
-                if (dataGridViewGrupos.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow seleccion = dataGridViewGrupos.SelectedRows[0];
-                    int columna = 0;
-                    var CellValue = seleccion.Cells[columna].Value;
-                    string Id = CellValue.ToString();
-                    int idGrupo = int.Parse(Id);
-                    ControladorGrupos.HabilitarGrupo(idGrupo);
-                    dataGridViewGrupos.DataSource = ControladorGrupos.ListarGrupos();
-                }
-                if (dataGridViewGrupos.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Debes seleccionar un Grupo");
-                }
-            }
-            if (pregunta == DialogResult.No)
-            {
-                MessageBox.Show("No se ah bloqueado el Grupo");
-            }
-            dataGridViewGrupos.DataSource = ControladorGrupos.ListarGrupos();
-        }
+        
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
             VisualPost post = new VisualPost();
             post.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            VisualEventos veb = new VisualEventos();
+            veb.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            VisualGrupos vgb = new VisualGrupos();
+            vgb.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            VisualCrearCuentaBackoffice ccb = new VisualCrearCuentaBackoffice();
+            ccb.Show();
+        }
+
+        public void backoffice_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormularioLogin.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
+            {
+                DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
+                string email = seleccion.Cells[2].Value?.ToString();
+                ControladorCuentaUsuario.ModificarPerfil(email, textBoxApodo.Text, 0, textBoxIdioma.Text, textBoxAtributo1.Text, textBoxAtributo2.Text, textBoxContrasena.Text);
+                MessageBox.Show("Cambios realizados con exito");
+            }
+            if (pregunta == DialogResult.No)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+            }
+            dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
+        }
+
+       
     }
 }
 

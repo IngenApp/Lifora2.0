@@ -11,18 +11,28 @@ namespace Controladores
 {
     public class ControladorCuentaUsuario
     {
-        public static void AltaCuentaUsuario(String nombre, string apellido, int telefono, string email, string fecha_nac, string contrasena)
+        public static void AltaCuentaUsuario(string nombre, string apellido, string fechaNacimiento, string email, string telefono, string contrasena)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.nombre = nombre;
             CuentaUsuario.apellido = apellido;
-            CuentaUsuario.telefono = telefono;
+            CuentaUsuario.fechaNacimiento = fechaNacimiento;
             CuentaUsuario.email = email;
-            CuentaUsuario.fecha_nac = fecha_nac;
+            CuentaUsuario.telefono = telefono;
             CuentaUsuario.contrasena = contrasena;
-
-            CuentaUsuario.GuardarCuentaUsuario();
+            CuentaUsuario.GuardarCuentaUsuario();             
         }
+
+        public static void CrearPerfil(string apodo, string email, string idioma)
+        {
+            ModeloPersonas crearPerfil = new ModeloPersonas();
+            crearPerfil.apodo = apodo;
+            crearPerfil.email = email;
+            crearPerfil.idioma = idioma;
+            crearPerfil.CrearPerfil();       
+        }
+
+
         public static bool Login(string email, string contrasena)
         {
             ModeloPersonas mp = new ModeloPersonas();
@@ -30,86 +40,97 @@ namespace Controladores
             mp.contrasena = contrasena;
             return mp.Autenticar();
         }
-        public static void DeshabilitaCuentaUsuario(int id)
+
+
+        public static bool LoginBackoffice(string email, string contrasena)
+        {
+            ModeloPersonas lb = new ModeloPersonas();
+            lb.email = email;
+            lb.contrasena = contrasena;
+            return lb.AutenticarBackoffice();
+        }
+
+
+        public static void DeshabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = id;
+            CuentaUsuario.idUsuario = idUsuario;
             CuentaUsuario.DeshabilitarCuentaUsuario();
         }
-        public static void HabilitaCuentaUsuario(int id)
+
+
+        public static void HabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = id;
+            CuentaUsuario.idUsuario = idUsuario;
             CuentaUsuario.HabilitarCuentaUsuario();
         }
-        public static void ModificarNombreUsuario(string id, string nombre)
+
+        
+        public static void ModificarCuenta(string email, string emailNuevo, string nombre, string apellido, string telefono)
         {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
-            CuentaUsuario.nombre = nombre;
-            CuentaUsuario.ModificarNombreUsuario();
+            ModeloPersonas ModCuenta = new ModeloPersonas();
+            ModCuenta.email = email;
+            ModCuenta.emailNuevo = emailNuevo;
+            ModCuenta.nombre = nombre;
+            ModCuenta.apellido = apellido;
+            ModCuenta.telefono = telefono;
+            ModCuenta.ModificarCuentaUsuario();
         }
-        public static void ModificarApellidoUsuario(string id, string apellido)
+
+        public static void ModificarPerfil(string email, string apodo, int idFotoPerfil, string idioma, string atributo1, string atributo2, string contrasena)
         {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
-            CuentaUsuario.apellido = apellido;
-            CuentaUsuario.ModificarApellidoUsuario();
+            ModeloPersonas ModPerf = new ModeloPersonas();
+            ModPerf.email = email;
+            ModPerf.apodo = apodo;
+            ModPerf.idFotoPerfil = idFotoPerfil;
+            ModPerf.idioma = idioma;
+            ModPerf.atributo1 = atributo1;
+            ModPerf.atributo2 = atributo2;
+            ModPerf.contrasena = contrasena;
+            ModPerf.ModificarPerfilUsuario();
+
         }
-        public static void ModificarContrasenaUsuario(string id, string contrasena)
-        {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
-            CuentaUsuario.contrasena = contrasena;
-            CuentaUsuario.ModificarContrasenaUsuario();
-        }
-        public static void ModificarFechaNacimientoUsuario(string id, string fech_nac)
-        {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
-            CuentaUsuario.fecha_nac = fech_nac;
-            CuentaUsuario.ModificarFechaNacimientoUsuario();
-        }
-        public static void ModificarCuentaDesdeBackoffice(string id, string nombre, string apellido, string email, string telefono, string fecha_nac)
-        {
-            ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            CuentaUsuario.id_cuenta = Int32.Parse(id);
-            CuentaUsuario.telefono = Int32.Parse(telefono);
-            CuentaUsuario.nombre = nombre;
-            CuentaUsuario.apellido = apellido;
-            CuentaUsuario.email = email;
-            CuentaUsuario.fecha_nac = fecha_nac;
-            CuentaUsuario.ModificarCuentaUsuarioBackoffice();
-        }
-        public static Dictionary<string, string> BuscarPorId(int id)
-        {
-            ModeloPersonas cuentaUsuario = new ModeloPersonas();
-            cuentaUsuario.id_cuenta = id;
-            return cuentaUsuario.ObtenerDatosPorId();
-        }
+
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("id_cuenta", typeof(int));
-            tabla.Columns.Add("nombre", typeof(string));
-            tabla.Columns.Add("apellido", typeof(string));
-            tabla.Columns.Add("telefono", typeof(int));
-            tabla.Columns.Add("email", typeof(string));
-            tabla.Columns.Add("fecha_nacimiento", typeof(string));
-            tabla.Columns.Add("habilitado", typeof(Boolean));
+            tabla.Columns.Add("ID perfil", typeof(int));
+            tabla.Columns.Add("apodo", typeof(string));
+            tabla.Columns.Add("Email", typeof(string));
+            tabla.Columns.Add("Telefono", typeof(string));
+            tabla.Columns.Add("Habilitado", typeof(bool));
+            tabla.Columns.Add("ID usuario", typeof(int));
+            tabla.Columns.Add("Nombre", typeof(string));
+            tabla.Columns.Add("Apellido", typeof(string));
+            tabla.Columns.Add("Contrasena", typeof(string));
+            tabla.Columns.Add("Fecha Nacimiento", typeof(DateTime));
+            tabla.Columns.Add("Idioma", typeof(string));
+            tabla.Columns.Add("Atributo1", typeof(string));
+            tabla.Columns.Add("Atributo2", typeof(string));
+
             ModeloPersonas ListarPersonas = new ModeloPersonas();
+
             foreach (ModeloPersonas p in ListarPersonas.ObtenerTodos())
             {
                 DataRow fila = tabla.NewRow();
-                fila["id_cuenta"] = p.id_cuenta;
-                fila["nombre"] = p.nombre;
-                fila["apellido"] = p.apellido;
-                fila["telefono"] = p.telefono;
-                fila["email"] = p.email;
-                fila["fecha_nacimiento"] = p.fecha_nac; 
-                fila["habilitado"] = p.habilitacion;
+                fila["ID perfil"] = p.idPerfil;
+                fila["apodo"] = p.apodo;
+                fila["Email"] = p.email;
+                fila["Telefono"] = p.telefono;
+                fila["Habilitado"] = p.habilitacion;
+                fila["ID usuario"] = p.idUsuario;
+                fila["Nombre"] = p.nombre;
+                fila["Apellido"] = p.apellido;
+                fila["Contrasena"] = p.contrasena;
+                fila["Fecha Nacimiento"] = p.fechaNacimiento;
+                fila["Idioma"] = p.idioma;
+                fila["Atributo1"] = p.atributo1;
+                fila["Atributo2"] = p.atributo2;
+
                 tabla.Rows.Add(fila);
             }
+
             return tabla;
         }
     }
