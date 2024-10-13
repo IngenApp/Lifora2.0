@@ -20,7 +20,7 @@ namespace Lifora
 
         private void buttonBackOffice_Click(object sender, EventArgs e)
         {
-            /*if (string.IsNullOrWhiteSpace(textBoxMail.Text) || string.IsNullOrWhiteSpace(textBoxPassword.Text))
+            if (string.IsNullOrWhiteSpace(textBoxMail.Text) || string.IsNullOrWhiteSpace(textBoxPassword.Text))
             {
                 MessageBox.Show("Por favor, completa todos los campos.");
                 return;
@@ -28,13 +28,14 @@ namespace Lifora
             try
             {
                 if (ControladorCuentaUsuario.LoginBackoffice(textBoxMail.Text, textBoxPassword.Text))
-                {*/
+                {
                     backoffice backoff = new backoffice();
                     backoff.Show();
                     textBoxMail.Text = "";
                     textBoxPassword.Text = "";
+                    backoff.FormularioLogin = this;
                     this.Hide();
-               /* }
+                }
                 else
                 {
                     MessageBox.Show("Credenciales incorrectas o usuario bloqueado.");
@@ -43,7 +44,7 @@ namespace Lifora
             catch (Exception ex)
             {
                 MessageBox.Show($"Hasta los artistas cometemos errores: {ex.Message}");
-            }*/
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)

@@ -10,6 +10,7 @@ namespace Lifora
     public partial class backoffice : Form
     {
         public string id;
+        public login FormularioLogin;
 
         public backoffice()
         {
@@ -148,7 +149,7 @@ namespace Lifora
 
         public void backoffice_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ActiveForm.Show();
+            FormularioLogin.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -167,6 +168,8 @@ namespace Lifora
             }
             dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
+
+       
     }
 }
 
