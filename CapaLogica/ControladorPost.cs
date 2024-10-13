@@ -50,7 +50,6 @@ namespace Controladores
                 throw new Exception("El ID del post no es válido.");
             }
 
-            // Verificar si idPerfil es un número válido
             if (!Int32.TryParse(idPerfil, out perfilID))
             {
                 throw new Exception("El ID del perfil no es válido.");
@@ -129,6 +128,13 @@ namespace Controladores
             HabilitarComentario.HabilitarComentario();
         }
 
+        public static void ModificarComentario(string idComentario, string comentario)
+        {
+            ModeloPost ModificarComentario = new ModeloPost();
+            ModificarComentario.idComentario = Int32.Parse(idComentario);
+            ModificarComentario.comentario = comentario;
+            ModificarComentario.ModificarComentario();
+        }
     }
 }
 

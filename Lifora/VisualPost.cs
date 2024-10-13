@@ -109,18 +109,6 @@ namespace Lifora
             cp.Show();
         }
 
-        private void btnLike_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewPost.SelectedRows.Count > 0)
-            {
-                DataGridViewRow seleccion = dataGridViewPost.SelectedRows[0];
-                int idPost = Convert.ToInt32(seleccion.Cells[0].Value);
-                int idCuenta = Convert.ToInt32(seleccion.Cells[1].Value);
-                ControladorPost.DarLike(idPost, idCuenta);
-                dataGridViewComentarios.DataSource = ControladorPost.ListarPost();
-            }
-        }
-
         private void textBuscarPostId_TextChanged(object sender, EventArgs e)
         {
             if (dataGridViewPost.SelectedRows.Count > 0)
@@ -220,7 +208,7 @@ namespace Lifora
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             if (dataGridViewComentarios.SelectedRows.Count > 0)
-                (dataGridViewComentarios.DataSource as DataTable).DefaultView.RowFilter = string.Format("id_usuario LIKE '%{0}%'", textBox3.Text);
+                (dataGridViewComentarios.DataSource as DataTable).DefaultView.RowFilter = string.Format("ID_Comentario LIKE '%{0}%'", textBox3.Text);
             if (dataGridViewComentarios.SelectedRows.Count == 0)
                 dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
         }
@@ -228,22 +216,48 @@ namespace Lifora
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             if (dataGridViewComentarios.SelectedRows.Count > 0)
-                (dataGridViewComentarios.DataSource as DataTable).DefaultView.RowFilter = string.Format("Convert(ID, 'System.String') LIKE '%{0}%'", textBox2.Text);
+                (dataGridViewComentarios.DataSource as DataTable).DefaultView.RowFilter = string.Format("Comentario LIKE '%{0}%'", textBox2.Text);
             if (dataGridViewComentarios.SelectedRows.Count == 0)
                 dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
 
         }
-            private void textBox1_TextChanged(object sender, EventArgs e)
-            {
-                if (dataGridViewComentarios.SelectedRows.Count > 0)
-                    (dataGridViewComentarios.DataSource as DataTable).DefaultView.RowFilter = string.Format("Comentario LIKE '%{0}%'");
-                if (dataGridViewComentarios.SelectedRows.Count == 0)
-                    dataGridViewComentarios.DataSource = ControladorPost.ListarComentarios(idPost);
-        }
 
-        private void VisualPost_Load(object sender, EventArgs e)
+
+        private void button3_Click_1(object sender, EventArgs e)
         {
+            DialogResult pregunta = MessageBox.Show("Aplicar cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta != DialogResult.Yes)
+            {
+                MessageBox.Show("No se han realizado los cambios");
+                return;
+            }
+
+            DataGridViewRow seleccion = dataGridViewComentarios.SelectedRows[0];
+            int columna = 0;
+            var CellValue = seleccion.Cells[columna].Value;
+            string idPost = CellValue.ToString();
+            ControladorPost.ModificarComentario(idPost, richTextBoxComentario.Text);
+
+            MessageBox.Show("Cambios realizados con exito");
             dataGridViewPost.DataSource = ControladorPost.ListarPost();
         }
+
+        private void dataGridViewComentarios_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewComentarios.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccion = dataGridViewComentarios.SelectedRows[0];
+                richTextBoxComentario.Text = seleccion.Cells[1].Value?.ToString();
+               
+            }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+       
     }
-    }
+
+ }

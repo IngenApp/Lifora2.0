@@ -34,36 +34,7 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
-        public void ModificarIdPost()
-        {
-            string sql = $"update post set id_post = @id_post where id_post = @id_post";
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-
-        public void ModificarIdCuenta()
-        {
-            string sql = "update post set id_cuenta = @id_cuenta where id_post = @id_post";
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idPerfil);
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-
-        public void ModificarFecha()
-        {
-            string sql = $"update post set fecha = @fecha where id_post = @id_post";
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@fecha", fecha);
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-
+ 
         public void DarLike(int idCuenta)
         {
             string sqlCheck = "SELECT COUNT(*) FROM like_post WHERE id_post = @id_post AND id_cuenta = @id_cuenta";
@@ -102,7 +73,6 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
-
         public void DeshabilitarPost()
         {
             string sql = "UPDATE post SET habilitado = false WHERE id_post = @id_post; commit;";
@@ -120,7 +90,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
-
 
         public List<ModeloPost> ObtenerPost()
         {
@@ -211,7 +180,15 @@ namespace Modelo
 
         }
 
-
+        public void ModificarComentario()
+        {
+            string sql = $"UPDATE comentario SET comentario = @comentario WHERE id_comentario = @id_comentario; commit;";
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
+            this.Comando.Parameters.AddWithValue("@comentario", comentario);
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
 
     }
 }
