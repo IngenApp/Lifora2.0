@@ -37,6 +37,9 @@ namespace InterfazUsuario
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -121,11 +124,47 @@ namespace InterfazUsuario
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(275, 530);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel4.TabIndex = 8;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "linkLabel4";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Location = new System.Drawing.Point(384, 530);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel5.TabIndex = 9;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "linkLabel5";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Location = new System.Drawing.Point(503, 530);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel6.TabIndex = 10;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "linkLabel6";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.linkLabel6);
+            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
@@ -137,7 +176,7 @@ namespace InterfazUsuario
             this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -155,6 +194,9 @@ namespace InterfazUsuario
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel linkLabel6;
     }
 }
 
