@@ -22,7 +22,6 @@ namespace Controladores
             CuentaUsuario.contrasena = contrasena;
             CuentaUsuario.GuardarCuentaUsuario();             
         }
-
         public static void CrearPerfil(string apodo, string email, string idioma)
         {
             ModeloPersonas crearPerfil = new ModeloPersonas();
@@ -31,8 +30,6 @@ namespace Controladores
             crearPerfil.idioma = idioma;
             crearPerfil.CrearPerfil();       
         }
-
-
         public static bool Login(string email, string contrasena)
         {
             ModeloPersonas mp = new ModeloPersonas();
@@ -40,8 +37,6 @@ namespace Controladores
             mp.contrasena = contrasena;
             return mp.Autenticar();
         }
-
-
         public static bool LoginBackoffice(string email, string contrasena)
         {
             ModeloPersonas lb = new ModeloPersonas();
@@ -49,24 +44,18 @@ namespace Controladores
             lb.contrasena = contrasena;
             return lb.AutenticarBackoffice();
         }
-
-
         public static void DeshabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.idUsuario = idUsuario;
             CuentaUsuario.DeshabilitarCuentaUsuario();
         }
-
-
         public static void HabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
             CuentaUsuario.idUsuario = idUsuario;
             CuentaUsuario.HabilitarCuentaUsuario();
         }
-
-        
         public static void ModificarCuenta(string email, string emailNuevo, string nombre, string apellido, string telefono)
         {
             ModeloPersonas ModCuenta = new ModeloPersonas();
@@ -77,7 +66,6 @@ namespace Controladores
             ModCuenta.telefono = telefono;
             ModCuenta.ModificarCuentaUsuario();
         }
-
         public static void ModificarPerfil(string email, string apodo, int idFotoPerfil, string idioma, string atributo1, string atributo2, string contrasena)
         {
             ModeloPersonas ModPerf = new ModeloPersonas();
@@ -91,7 +79,6 @@ namespace Controladores
             ModPerf.ModificarPerfilUsuario();
 
         }
-
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();

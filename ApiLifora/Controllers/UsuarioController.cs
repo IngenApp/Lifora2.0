@@ -23,20 +23,24 @@ namespace ApiLifora.Controllers
             foreach (DataRow usuario in usuarios.Rows)
             {
                 ModeloApiUsuario u = new ModeloApiUsuario();
-                u.id = Int32.Parse(usuario["id_cuenta"].ToString());
-                u.nombre = usuario["nombre"].ToString();
-                u.apellido = usuario["apellido"].ToString();
-                u.telefono = Int32.Parse(usuario["telefono"].ToString());
-                u.mail = usuario["email"].ToString();
-                u.fechaNacimiento = usuario["fecha_nacimiento"].ToString();
-                u.habilitado = Boolean.Parse(usuario["habilitado"].ToString());
+                u.idPerfil = Int32.Parse(usuario ["ID perfil"].ToString());
+                u.email = usuario["Email"].ToString();
+                u.telefono = usuario["Telefono"].ToString();
+                u.habilitacion = bool.Parse(usuario["Habilitado"].ToString());
+                u.idUsuario = Int32.Parse(usuario["ID usuario"].ToString());
+                u.nombre = usuario["Nombre"].ToString();
+                u.apellido = usuario["Apellido"].ToString();
+                u.fechaNacimiento = usuario["Fecha Nacimiento"].ToString();
+                u.idioma = usuario["Idioma"].ToString();
+                u.atributo1 = usuario["Atributo1"].ToString();
+                u.atributo2 = usuario["Atributo2"].ToString();
 
                 listaUsuarios.Add(u);
             }
             return listaUsuarios;
         }
 
-        [Route("api/Usuario/CrearUsuario")]
+ /*       [Route("api/Usuario/CrearUsuario")]
         [HttpPost]
         public IHttpActionResult Post(ModeloApiUsuario usuario)
         {
@@ -96,7 +100,7 @@ namespace ApiLifora.Controllers
             }
             return NotFound();
         }
-
+        */
 
     }
 }
