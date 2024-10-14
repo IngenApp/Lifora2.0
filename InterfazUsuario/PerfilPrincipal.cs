@@ -42,5 +42,16 @@ namespace InterfazUsuario
             this.Enabled = false;
         }
 
+        private void btnGroups_Click(object sender, EventArgs e)
+        {
+            Grupos grupo = new Grupos();
+            grupo.Show();
+            this.Enabled = false;
+        }
+
+        private void PerfilPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Settings.Default.Save();
+        }
     }
 }

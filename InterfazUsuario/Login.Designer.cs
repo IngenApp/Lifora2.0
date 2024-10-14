@@ -30,10 +30,10 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.txtBoxMail = new System.Windows.Forms.TextBox();
+            this.txtBoxPassword = new System.Windows.Forms.TextBox();
+            this.linklblRegitrarse = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -53,45 +53,48 @@ namespace InterfazUsuario
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Location = new System.Drawing.Point(614, 366);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(375, 53);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.Location = new System.Drawing.Point(614, 366);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(375, 53);
+            this.btnLogin.TabIndex = 1;
+            this.btnLogin.Text = "button1";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // txtBoxMail
             // 
-            this.textBox1.Location = new System.Drawing.Point(614, 236);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(380, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtBoxMail.Location = new System.Drawing.Point(614, 236);
+            this.txtBoxMail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxMail.Name = "txtBoxMail";
+            this.txtBoxMail.Size = new System.Drawing.Size(380, 20);
+            this.txtBoxMail.TabIndex = 2;
             // 
-            // textBox2
+            // txtBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(614, 303);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(380, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "                                             ";
+            this.txtBoxPassword.Location = new System.Drawing.Point(614, 303);
+            this.txtBoxPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxPassword.Name = "txtBoxPassword";
+            this.txtBoxPassword.Size = new System.Drawing.Size(380, 20);
+            this.txtBoxPassword.TabIndex = 3;
+            this.txtBoxPassword.Text = "                                             ";
             // 
-            // linkLabel1
+            // linklblRegitrarse
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(766, 463);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(55, 13);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linklblRegitrarse.AutoSize = true;
+            this.linklblRegitrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.linklblRegitrarse.Location = new System.Drawing.Point(705, 463);
+            this.linklblRegitrarse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linklblRegitrarse.Name = "linklblRegitrarse";
+            this.linklblRegitrarse.Size = new System.Drawing.Size(104, 24);
+            this.linklblRegitrarse.TabIndex = 4;
+            this.linklblRegitrarse.TabStop = true;
+            this.linklblRegitrarse.Text = "linkLabel1";
+            this.linklblRegitrarse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linklblRegitrarse.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -127,34 +130,40 @@ namespace InterfazUsuario
             // linkLabel4
             // 
             this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Location = new System.Drawing.Point(275, 530);
+            this.linkLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.linkLabel4.Location = new System.Drawing.Point(252, 527);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel4.Size = new System.Drawing.Size(104, 24);
             this.linkLabel4.TabIndex = 8;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "linkLabel4";
+            this.linkLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // linkLabel5
             // 
             this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(384, 530);
+            this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.linkLabel5.Location = new System.Drawing.Point(373, 527);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel5.Size = new System.Drawing.Size(104, 24);
             this.linkLabel5.TabIndex = 9;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "linkLabel5";
+            this.linkLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
             // linkLabel6
             // 
             this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Location = new System.Drawing.Point(503, 530);
+            this.linkLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.linkLabel6.Location = new System.Drawing.Point(472, 527);
             this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel6.Size = new System.Drawing.Size(104, 24);
             this.linkLabel6.TabIndex = 10;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "linkLabel6";
+            this.linkLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // Login
@@ -168,13 +177,14 @@ namespace InterfazUsuario
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.linklblRegitrarse);
+            this.Controls.Add(this.txtBoxPassword);
+            this.Controls.Add(this.txtBoxMail);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -187,10 +197,10 @@ namespace InterfazUsuario
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox txtBoxMail;
+        private System.Windows.Forms.TextBox txtBoxPassword;
+        private System.Windows.Forms.LinkLabel linklblRegitrarse;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.PictureBox pictureBox2;

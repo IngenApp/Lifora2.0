@@ -35,10 +35,10 @@ namespace InterfazUsuario
             this.button5 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnPhotos = new System.Windows.Forms.Button();
+            this.btnVideo = new System.Windows.Forms.Button();
+            this.btnMusic = new System.Windows.Forms.Button();
+            this.btnWriting = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -73,6 +73,7 @@ namespace InterfazUsuario
             // 
             // button5
             // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.button5.Location = new System.Drawing.Point(830, 617);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
@@ -96,45 +97,49 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(227, 150);
             this.axWindowsMediaPlayer1.TabIndex = 67;
             // 
-            // button11
+            // btnPhotos
             // 
-            this.button11.Location = new System.Drawing.Point(676, 617);
-            this.button11.Margin = new System.Windows.Forms.Padding(2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(150, 50);
-            this.button11.TabIndex = 66;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnPhotos.Location = new System.Drawing.Point(676, 617);
+            this.btnPhotos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPhotos.Name = "btnPhotos";
+            this.btnPhotos.Size = new System.Drawing.Size(150, 50);
+            this.btnPhotos.TabIndex = 66;
+            this.btnPhotos.Text = "button11";
+            this.btnPhotos.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btnVideo
             // 
-            this.button10.Location = new System.Drawing.Point(522, 617);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 50);
-            this.button10.TabIndex = 65;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnVideo.Location = new System.Drawing.Point(522, 617);
+            this.btnVideo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVideo.Name = "btnVideo";
+            this.btnVideo.Size = new System.Drawing.Size(150, 50);
+            this.btnVideo.TabIndex = 65;
+            this.btnVideo.Text = "button10";
+            this.btnVideo.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnMusic
             // 
-            this.button9.Location = new System.Drawing.Point(368, 617);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(150, 50);
-            this.button9.TabIndex = 64;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnMusic.Location = new System.Drawing.Point(368, 617);
+            this.btnMusic.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMusic.Name = "btnMusic";
+            this.btnMusic.Size = new System.Drawing.Size(150, 50);
+            this.btnMusic.TabIndex = 64;
+            this.btnMusic.Text = "button9";
+            this.btnMusic.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnWriting
             // 
-            this.button8.Location = new System.Drawing.Point(214, 617);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(150, 50);
-            this.button8.TabIndex = 63;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnWriting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnWriting.Location = new System.Drawing.Point(214, 617);
+            this.btnWriting.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWriting.Name = "btnWriting";
+            this.btnWriting.Size = new System.Drawing.Size(150, 50);
+            this.btnWriting.TabIndex = 63;
+            this.btnWriting.Text = "button8";
+            this.btnWriting.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -163,6 +168,7 @@ namespace InterfazUsuario
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(28, 417);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 65);
@@ -172,6 +178,7 @@ namespace InterfazUsuario
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(111, 417);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 65);
@@ -198,6 +205,7 @@ namespace InterfazUsuario
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.button3.Location = new System.Drawing.Point(26, 362);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
@@ -222,16 +230,18 @@ namespace InterfazUsuario
             this.Controls.Add(this.button5);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnPhotos);
+            this.Controls.Add(this.btnVideo);
+            this.Controls.Add(this.btnMusic);
+            this.Controls.Add(this.btnWriting);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Grupos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Grupos_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
@@ -248,10 +258,10 @@ namespace InterfazUsuario
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnPhotos;
+        private System.Windows.Forms.Button btnVideo;
+        private System.Windows.Forms.Button btnMusic;
+        private System.Windows.Forms.Button btnWriting;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox comboBox1;

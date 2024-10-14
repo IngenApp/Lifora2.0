@@ -33,25 +33,25 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.button5 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Nickname = new System.Windows.Forms.ComboBox();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnPhotos = new System.Windows.Forms.Button();
+            this.btnVideo = new System.Windows.Forms.Button();
+            this.btnMusic = new System.Windows.Forms.Button();
+            this.btnWriting = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
+            this.btnGroups = new System.Windows.Forms.Button();
+            this.btnCreateEvents = new System.Windows.Forms.Button();
+            this.btnMessages = new System.Windows.Forms.Button();
+            this.btnCreatePost = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.Follower = new System.Windows.Forms.LinkLabel();
+            this.InARow = new System.Windows.Forms.LinkLabel();
+            this.Information = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +66,7 @@ namespace InterfazUsuario
             // 
             // button5
             // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.button5.Location = new System.Drawing.Point(830, 599);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
@@ -80,13 +81,14 @@ namespace InterfazUsuario
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 43;
             // 
-            // comboBox1
+            // Nickname
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(26, 176);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 21);
-            this.comboBox1.TabIndex = 42;
+            this.Nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nickname.FormattingEnabled = true;
+            this.Nickname.Location = new System.Drawing.Point(26, 176);
+            this.Nickname.Name = "Nickname";
+            this.Nickname.Size = new System.Drawing.Size(150, 28);
+            this.Nickname.TabIndex = 42;
             // 
             // axWindowsMediaPlayer1
             // 
@@ -97,45 +99,49 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(227, 150);
             this.axWindowsMediaPlayer1.TabIndex = 41;
             // 
-            // button11
+            // btnPhotos
             // 
-            this.button11.Location = new System.Drawing.Point(676, 599);
-            this.button11.Margin = new System.Windows.Forms.Padding(2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(150, 50);
-            this.button11.TabIndex = 40;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnPhotos.Location = new System.Drawing.Point(676, 599);
+            this.btnPhotos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPhotos.Name = "btnPhotos";
+            this.btnPhotos.Size = new System.Drawing.Size(150, 50);
+            this.btnPhotos.TabIndex = 40;
+            this.btnPhotos.Text = "button11";
+            this.btnPhotos.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btnVideo
             // 
-            this.button10.Location = new System.Drawing.Point(522, 599);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 50);
-            this.button10.TabIndex = 39;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnVideo.Location = new System.Drawing.Point(522, 599);
+            this.btnVideo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVideo.Name = "btnVideo";
+            this.btnVideo.Size = new System.Drawing.Size(150, 50);
+            this.btnVideo.TabIndex = 39;
+            this.btnVideo.Text = "button10";
+            this.btnVideo.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnMusic
             // 
-            this.button9.Location = new System.Drawing.Point(368, 599);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(150, 50);
-            this.button9.TabIndex = 38;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnMusic.Location = new System.Drawing.Point(368, 599);
+            this.btnMusic.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMusic.Name = "btnMusic";
+            this.btnMusic.Size = new System.Drawing.Size(150, 50);
+            this.btnMusic.TabIndex = 38;
+            this.btnMusic.Text = "button9";
+            this.btnMusic.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnWriting
             // 
-            this.button8.Location = new System.Drawing.Point(214, 599);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(150, 50);
-            this.button8.TabIndex = 37;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnWriting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnWriting.Location = new System.Drawing.Point(214, 599);
+            this.btnWriting.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWriting.Name = "btnWriting";
+            this.btnWriting.Size = new System.Drawing.Size(150, 50);
+            this.btnWriting.TabIndex = 37;
+            this.btnWriting.Text = "button8";
+            this.btnWriting.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -145,54 +151,59 @@ namespace InterfazUsuario
             this.panel1.Size = new System.Drawing.Size(766, 530);
             this.panel1.TabIndex = 36;
             // 
-            // pictureBox2
+            // profilePicture
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(26, 21);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox2.TabIndex = 35;
-            this.pictureBox2.TabStop = false;
+            this.profilePicture.Location = new System.Drawing.Point(26, 21);
+            this.profilePicture.Margin = new System.Windows.Forms.Padding(2);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(150, 150);
+            this.profilePicture.TabIndex = 35;
+            this.profilePicture.TabStop = false;
             // 
-            // button4
+            // btnGroups
             // 
-            this.button4.Location = new System.Drawing.Point(26, 379);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 50);
-            this.button4.TabIndex = 34;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnGroups.Location = new System.Drawing.Point(26, 391);
+            this.btnGroups.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGroups.Name = "btnGroups";
+            this.btnGroups.Size = new System.Drawing.Size(150, 50);
+            this.btnGroups.TabIndex = 34;
+            this.btnGroups.Text = "button4";
+            this.btnGroups.UseVisualStyleBackColor = true;
+            this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
             // 
-            // button3
+            // btnCreateEvents
             // 
-            this.button3.Location = new System.Drawing.Point(26, 325);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 50);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCreateEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnCreateEvents.Location = new System.Drawing.Point(26, 337);
+            this.btnCreateEvents.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreateEvents.Name = "btnCreateEvents";
+            this.btnCreateEvents.Size = new System.Drawing.Size(150, 50);
+            this.btnCreateEvents.TabIndex = 33;
+            this.btnCreateEvents.Text = "button3";
+            this.btnCreateEvents.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnMessages
             // 
-            this.button2.Location = new System.Drawing.Point(26, 271);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 50);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnMessages.Location = new System.Drawing.Point(26, 283);
+            this.btnMessages.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMessages.Name = "btnMessages";
+            this.btnMessages.Size = new System.Drawing.Size(150, 50);
+            this.btnMessages.TabIndex = 32;
+            this.btnMessages.Text = "button2";
+            this.btnMessages.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCreatePost
             // 
-            this.button1.Location = new System.Drawing.Point(26, 217);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 50);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCreatePost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnCreatePost.Location = new System.Drawing.Point(26, 229);
+            this.btnCreatePost.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreatePost.Name = "btnCreatePost";
+            this.btnCreatePost.Size = new System.Drawing.Size(150, 50);
+            this.btnCreatePost.TabIndex = 31;
+            this.btnCreatePost.Text = "button1";
+            this.btnCreatePost.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -204,35 +215,38 @@ namespace InterfazUsuario
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // linkLabel1
+            // Follower
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(40, 202);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(55, 13);
-            this.linkLabel1.TabIndex = 46;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
+            this.Follower.AutoSize = true;
+            this.Follower.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Follower.Location = new System.Drawing.Point(26, 207);
+            this.Follower.Name = "Follower";
+            this.Follower.Size = new System.Drawing.Size(79, 16);
+            this.Follower.TabIndex = 46;
+            this.Follower.TabStop = true;
+            this.Follower.Text = "linkLabel1";
             // 
-            // linkLabel2
+            // InARow
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(101, 202);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(55, 13);
-            this.linkLabel2.TabIndex = 47;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "linkLabel2";
+            this.InARow.AutoSize = true;
+            this.InARow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InARow.Location = new System.Drawing.Point(87, 207);
+            this.InARow.Name = "InARow";
+            this.InARow.Size = new System.Drawing.Size(79, 16);
+            this.InARow.TabIndex = 47;
+            this.InARow.TabStop = true;
+            this.InARow.Text = "linkLabel2";
             // 
-            // button6
+            // Information
             // 
-            this.button6.Location = new System.Drawing.Point(26, 433);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(150, 50);
-            this.button6.TabIndex = 48;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.Information.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Information.Location = new System.Drawing.Point(26, 445);
+            this.Information.Margin = new System.Windows.Forms.Padding(2);
+            this.Information.Name = "Information";
+            this.Information.Size = new System.Drawing.Size(150, 50);
+            this.Information.TabIndex = 48;
+            this.Information.Text = "button6";
+            this.Information.UseVisualStyleBackColor = true;
             // 
             // PerfilPrincipal
             // 
@@ -240,31 +254,33 @@ namespace InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.Information);
+            this.Controls.Add(this.InARow);
+            this.Controls.Add(this.Follower);
             this.Controls.Add(this.axWindowsMediaPlayer2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Nickname);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnPhotos);
+            this.Controls.Add(this.btnVideo);
+            this.Controls.Add(this.btnMusic);
+            this.Controls.Add(this.btnWriting);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.profilePicture);
+            this.Controls.Add(this.btnGroups);
+            this.Controls.Add(this.btnCreateEvents);
+            this.Controls.Add(this.btnMessages);
+            this.Controls.Add(this.btnCreatePost);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "PerfilPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PerfilPrincipal";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PerfilPrincipal_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -276,21 +292,21 @@ namespace InterfazUsuario
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Nickname;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnPhotos;
+        private System.Windows.Forms.Button btnVideo;
+        private System.Windows.Forms.Button btnMusic;
+        private System.Windows.Forms.Button btnWriting;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox profilePicture;
+        private System.Windows.Forms.Button btnGroups;
+        private System.Windows.Forms.Button btnCreateEvents;
+        private System.Windows.Forms.Button btnMessages;
+        private System.Windows.Forms.Button btnCreatePost;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.LinkLabel Follower;
+        private System.Windows.Forms.LinkLabel InARow;
+        private System.Windows.Forms.Button Information;
     }
 }

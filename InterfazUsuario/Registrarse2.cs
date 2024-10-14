@@ -34,5 +34,5 @@ namespace InterfazUsuario
             Console.WriteLine("El idioma seleccionado no es válido.");
         }
     }
-}
+    }
 }

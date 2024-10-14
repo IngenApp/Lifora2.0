@@ -35,5 +35,10 @@ namespace InterfazUsuario
                 Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
         }
+
+        private void PerfilSecundario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Settings.Default.Save();
+        }
     }
 }

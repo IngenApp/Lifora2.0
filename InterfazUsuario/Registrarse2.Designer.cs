@@ -29,101 +29,111 @@ namespace InterfazUsuario
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.txtBoxSurName = new System.Windows.Forms.TextBox();
+            this.txtBoxDateOfBirth = new System.Windows.Forms.TextBox();
+            this.txtBoxMailCode = new System.Windows.Forms.TextBox();
+            this.txtBoxName = new System.Windows.Forms.TextBox();
+            this.lblSubTituloRegistro = new System.Windows.Forms.Label();
+            this.lblTituloRegister = new System.Windows.Forms.Label();
+            this.txtBoxNickName = new System.Windows.Forms.TextBox();
+            this.txtBoxPhoneCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnRegister
             // 
-            this.button1.Location = new System.Drawing.Point(79, 401);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(272, 50);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnRegister.Location = new System.Drawing.Point(79, 401);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(272, 50);
+            this.btnRegister.TabIndex = 13;
+            this.btnRegister.Text = "button1";
+            this.btnRegister.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtBoxSurName
             // 
-            this.textBox4.Location = new System.Drawing.Point(79, 149);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(270, 20);
-            this.textBox4.TabIndex = 12;
+            this.txtBoxSurName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSurName.Location = new System.Drawing.Point(79, 169);
+            this.txtBoxSurName.Name = "txtBoxSurName";
+            this.txtBoxSurName.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxSurName.TabIndex = 12;
             // 
-            // textBox3
+            // txtBoxDateOfBirth
             // 
-            this.textBox3.Location = new System.Drawing.Point(79, 201);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(270, 20);
-            this.textBox3.TabIndex = 11;
+            this.txtBoxDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxDateOfBirth.Location = new System.Drawing.Point(79, 216);
+            this.txtBoxDateOfBirth.Name = "txtBoxDateOfBirth";
+            this.txtBoxDateOfBirth.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxDateOfBirth.TabIndex = 11;
             // 
-            // textBox2
+            // txtBoxMailCode
             // 
-            this.textBox2.Location = new System.Drawing.Point(78, 308);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(271, 20);
-            this.textBox2.TabIndex = 10;
+            this.txtBoxMailCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxMailCode.Location = new System.Drawing.Point(80, 316);
+            this.txtBoxMailCode.Name = "txtBoxMailCode";
+            this.txtBoxMailCode.Size = new System.Drawing.Size(271, 22);
+            this.txtBoxMailCode.TabIndex = 10;
             // 
-            // textBox1
+            // txtBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(79, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxName.Location = new System.Drawing.Point(79, 116);
+            this.txtBoxName.Name = "txtBoxName";
+            this.txtBoxName.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxName.TabIndex = 9;
             // 
-            // label2
+            // lblSubTituloRegistro
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(199, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "label2";
+            this.lblSubTituloRegistro.AutoSize = true;
+            this.lblSubTituloRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblSubTituloRegistro.Location = new System.Drawing.Point(76, 60);
+            this.lblSubTituloRegistro.Name = "lblSubTituloRegistro";
+            this.lblSubTituloRegistro.Size = new System.Drawing.Size(57, 20);
+            this.lblSubTituloRegistro.TabIndex = 8;
+            this.lblSubTituloRegistro.Text = "label2";
             // 
-            // label1
+            // lblTituloRegister
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(199, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "label1";
+            this.lblTituloRegister.AutoSize = true;
+            this.lblTituloRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblTituloRegister.Location = new System.Drawing.Point(172, 27);
+            this.lblTituloRegister.Name = "lblTituloRegister";
+            this.lblTituloRegister.Size = new System.Drawing.Size(66, 24);
+            this.lblTituloRegister.TabIndex = 7;
+            this.lblTituloRegister.Text = "label1";
             // 
-            // textBox5
+            // txtBoxNickName
             // 
-            this.textBox5.Location = new System.Drawing.Point(80, 260);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(271, 20);
-            this.textBox5.TabIndex = 14;
+            this.txtBoxNickName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNickName.Location = new System.Drawing.Point(80, 268);
+            this.txtBoxNickName.Name = "txtBoxNickName";
+            this.txtBoxNickName.Size = new System.Drawing.Size(271, 22);
+            this.txtBoxNickName.TabIndex = 14;
             // 
-            // textBox6
+            // txtBoxPhoneCode
             // 
-            this.textBox6.Location = new System.Drawing.Point(80, 357);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(271, 20);
-            this.textBox6.TabIndex = 15;
+            this.txtBoxPhoneCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPhoneCode.Location = new System.Drawing.Point(80, 357);
+            this.txtBoxPhoneCode.Name = "txtBoxPhoneCode";
+            this.txtBoxPhoneCode.Size = new System.Drawing.Size(271, 22);
+            this.txtBoxPhoneCode.TabIndex = 15;
             // 
             // Registrarse2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 511);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtBoxPhoneCode);
+            this.Controls.Add(this.txtBoxNickName);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.txtBoxSurName);
+            this.Controls.Add(this.txtBoxDateOfBirth);
+            this.Controls.Add(this.txtBoxMailCode);
+            this.Controls.Add(this.txtBoxName);
+            this.Controls.Add(this.lblSubTituloRegistro);
+            this.Controls.Add(this.lblTituloRegister);
             this.Name = "Registrarse2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrarse2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,14 +142,14 @@ namespace InterfazUsuario
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.TextBox txtBoxSurName;
+        private System.Windows.Forms.TextBox txtBoxDateOfBirth;
+        private System.Windows.Forms.TextBox txtBoxMailCode;
+        private System.Windows.Forms.TextBox txtBoxName;
+        private System.Windows.Forms.Label lblSubTituloRegistro;
+        private System.Windows.Forms.Label lblTituloRegister;
+        private System.Windows.Forms.TextBox txtBoxNickName;
+        private System.Windows.Forms.TextBox txtBoxPhoneCode;
     }
 }
