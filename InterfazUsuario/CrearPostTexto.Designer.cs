@@ -36,15 +36,16 @@ namespace InterfazUsuario
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(44, 41);
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(22, 24);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(450, 120);
+            this.richTextBox1.Size = new System.Drawing.Size(500, 100);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(370, 176);
+            this.button1.Location = new System.Drawing.Point(398, 150);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 49);
             this.button1.TabIndex = 1;
@@ -56,11 +57,12 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 261);
+            this.ClientSize = new System.Drawing.Size(534, 211);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CrearPostTexto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Post";

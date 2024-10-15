@@ -18,16 +18,11 @@ namespace InterfazUsuario
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //Metodo Api crear post
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             CrearPostTexto texto = new CrearPostTexto();
             texto.Show();
-            texto.crearPostTexto = this;
+            texto.crearPost = this;
             this.Hide();
         }
 
@@ -38,6 +33,22 @@ namespace InterfazUsuario
             imagen.crearPost = this;
             this.Hide();
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CrearPostVideo video = new CrearPostVideo();
+            video.Show();
+            video.crearPost = this;
+            this.Hide();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            CrearPostAudio video = new CrearPostAudio();
+            video.Show();
+            video.crearPost = this;
+            this.Hide();
         }
     }
 }

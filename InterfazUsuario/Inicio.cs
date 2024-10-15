@@ -23,9 +23,10 @@ namespace InterfazUsuario
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            PerfilPrincipal perfilPrincipal = new PerfilPrincipal();
-            this.Enabled = false;
-            perfilPrincipal.Show();
+            PerfilPrincipal perfil = new PerfilPrincipal();
+            perfil.Show();
+            perfil.inicio = this;
+            this.Hide();
       
         }
 
@@ -43,6 +44,14 @@ namespace InterfazUsuario
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             // actualizar muro
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PerfilPrincipal perfil = new PerfilPrincipal();
+            perfil.Show();
+            perfil.inicio = this;
+            this.Hide();
         }
     }
 }

@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace InterfazUsuario
 {
-    public partial class CrearPostImagen : Form
+    public partial class CrearPostAudio : Form
     {
         public Form crearPost;
-        string rutaImagen;
-
-
-        public CrearPostImagen()
+        string rutaAudio;
+        public CrearPostAudio()
         {
             InitializeComponent();
         }
@@ -25,26 +23,24 @@ namespace InterfazUsuario
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-            openFileDialog.Title = "Selecciona una imagen";
+            openFileDialog.Filter = "Archivos de audio (*.mp3;*.wav;*.wma)|*.mp3;*.wav;*.wma";
+            openFileDialog.Title = "Selecciona un archivo de audio";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                rutaImagen = openFileDialog.FileName;
-                pictureBox1.Image = new Bitmap(rutaImagen);
-            }
-        }
 
-        private void CrearPostImagen_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            crearPost.Show();
+                rutaAudio = openFileDialog.FileName;
+
+                axWindowsMediaPlayer1.URL = rutaAudio;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(rutaImagen))
+            if (string.IsNullOrEmpty(rutaAudio))
             {
-                MessageBox.Show("Seleccione una imagen");
+                MessageBox.Show("Seleccione un Audio");
             }
             else
             {
@@ -54,10 +50,13 @@ namespace InterfazUsuario
                 {
                     crearPost.Close();
                 }
-                rutaImagen = string.Empty;
+                rutaAudio = string.Empty;
             }
         }
 
+        private void CrearPostAudio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            crearPost.Show();
+        }
     }
 }
-

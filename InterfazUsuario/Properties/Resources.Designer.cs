@@ -79,5 +79,15 @@ namespace InterfazUsuario.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silent_hill_2_remake_maria_1024x576 {
+            get {
+                object obj = ResourceManager.GetObject("silent-hill-2-remake-maria-1024x576", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

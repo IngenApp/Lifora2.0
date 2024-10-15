@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrearPostAudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPostAudio.Designer.cs">
+      <DependentUpon>CrearPostAudio.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearPostImagen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,11 +64,23 @@
     <Compile Include="CrearPostTexto.Designer.cs">
       <DependentUpon>CrearPostTexto.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearPostVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPostVideo.Designer.cs">
+      <DependentUpon>CrearPostVideo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grupos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Grupos.Designer.cs">
       <DependentUpon>Grupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformacionUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformacionUsuario.Designer.cs">
+      <DependentUpon>InformacionUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -114,14 +132,23 @@
     <Compile Include="Registrarse2.Designer.cs">
       <DependentUpon>Registrarse2.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CrearPostAudio.resx">
+      <DependentUpon>CrearPostAudio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearPostImagen.resx">
       <DependentUpon>CrearPostImagen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearPostTexto.resx">
       <DependentUpon>CrearPostTexto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrearPostVideo.resx">
+      <DependentUpon>CrearPostVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grupos.resx">
       <DependentUpon>Grupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacionUsuario.resx">
+      <DependentUpon>InformacionUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -194,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo horizontal21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silent-hill-2-remake-maria-1024x576.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
