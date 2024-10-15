@@ -27,8 +27,17 @@ namespace InterfazUsuario
         {
             CrearPostTexto texto = new CrearPostTexto();
             texto.Show();
-            texto.crearPost = this;
+            texto.crearPostTexto = this;
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CrearPostImagen imagen = new CrearPostImagen();
+            imagen.Show();
+            imagen.crearPost = this;
+            this.Hide();
+
         }
     }
 }

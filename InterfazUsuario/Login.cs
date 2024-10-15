@@ -25,7 +25,6 @@ namespace InterfazUsuario
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Registrarse1 Registrarse1 = new Registrarse1();
-            this.Enabled = false;
             Registrarse1.Show();
             
         }

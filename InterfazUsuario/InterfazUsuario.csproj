@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrearPostImagen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPostImagen.Designer.cs">
+      <DependentUpon>CrearPostImagen.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearPostTexto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     <Compile Include="Registrarse2.Designer.cs">
       <DependentUpon>Registrarse2.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CrearPostImagen.resx">
+      <DependentUpon>CrearPostImagen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearPostTexto.resx">
       <DependentUpon>CrearPostTexto.cs</DependentUpon>
     </EmbeddedResource>

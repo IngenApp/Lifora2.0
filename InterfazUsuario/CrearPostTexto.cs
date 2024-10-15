@@ -15,7 +15,7 @@ namespace InterfazUsuario
 
     public partial class CrearPostTexto : Form
     {
-        public Form crearPost;
+        public Form crearPostTexto;
 
 
         public CrearPostTexto()
@@ -25,12 +25,15 @@ namespace InterfazUsuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //api crear post de texto
+            this.Close();
+            crearPostTexto.Close();
         }
 
         private void CrearPostTexto_FormClosing(object sender, FormClosingEventArgs e)
         {
-            crearPost.Show();
+            crearPostTexto.Show();
+            
         }
     }
 }
