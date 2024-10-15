@@ -42,12 +42,5 @@ namespace InterfazUsuario
         {
             Registrarse1.Show();
         }
-
-      
-
-        private void Registrarse2_Load(object sender, EventArgs e)
-        {
-            
-        } 
     }
 }

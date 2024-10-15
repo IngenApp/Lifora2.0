@@ -12,6 +12,10 @@ namespace InterfazUsuario
 {
     public partial class Inicio : Form
     {
+        public Form Login;
+        public string email;
+
+
         public Inicio()
         {
             InitializeComponent();
@@ -22,7 +26,23 @@ namespace InterfazUsuario
             PerfilPrincipal perfilPrincipal = new PerfilPrincipal();
             this.Enabled = false;
             perfilPrincipal.Show();
-            perfilPrincipal.FormClosed += (s, args) => this.Enabled = true;
+      
+        }
+
+        private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Login.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CrearPost post = new CrearPost();
+            post.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // actualizar muro
         }
     }
 }

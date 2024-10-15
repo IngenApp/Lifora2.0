@@ -12,9 +12,23 @@ namespace InterfazUsuario
 {
     public partial class CrearPost : Form
     {
+        
         public CrearPost()
         {
             InitializeComponent();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Metodo Api crear post
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CrearPostTexto texto = new CrearPostTexto();
+            texto.Show();
+            texto.crearPost = this;
+            this.Hide();
         }
     }
 }
