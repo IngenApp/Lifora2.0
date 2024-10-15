@@ -121,7 +121,6 @@ namespace InterfazUsuario
             this.Name = "Registrarse1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lifora";
-            this.Load += new System.EventHandler(this.Registrarse1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

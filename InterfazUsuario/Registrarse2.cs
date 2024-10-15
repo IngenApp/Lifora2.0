@@ -22,6 +22,22 @@ namespace InterfazUsuario
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!textBox1.Text.Equals("") && !textBox2.Text.Equals("") && !textBox3.Text.Equals("") && !textBox4.Text.Equals(""))
+            {
+
+                // se conecta con api usuario para crear cuenta, falta detallar el codigo verificador al mail y al telefono
+                this.Close();
+                Registrarse1.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Complete los campos");
+            }
+        }
+
         private void Registrarse2_FormClosing(object sender, FormClosingEventArgs e)
         {
             Registrarse1.Show();
@@ -31,17 +47,7 @@ namespace InterfazUsuario
 
         private void Registrarse2_Load(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("") && !textBox2.Text.Equals("") && !textBox3.Text.Equals("") && !textBox4.Text.Equals(""))
-            {
             
-                // se conecta con api usuario para crear cuenta, falta detallar el codigo verificador al mail y al telefono
-
-
-            }
-            else
-            {
-                MessageBox.Show("Complete los campos");
-            }
         } 
     }
 }

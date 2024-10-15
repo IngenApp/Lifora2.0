@@ -49,6 +49,7 @@ namespace InterfazUsuario
             this.button1.TabIndex = 13;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox4
             // 
@@ -137,11 +138,11 @@ namespace InterfazUsuario
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Registrarse2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lifora";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Registrarse2_FormClosing);
-            this.Load += new System.EventHandler(this.Registrarse2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -24,8 +24,6 @@ namespace InterfazUsuario
                 if (textBox3.Text.Equals(textBox4.Text)) 
                 {
                     Registrarse2 Registrarse2 = new Registrarse2();
-                    
-                    this.Enabled = false;
                     Registrarse2.email = textBox1.Text;
                     Registrarse2.Text = textBox2.Text;
                     Registrarse2.contrasena = textBox3.Text;
@@ -46,9 +44,6 @@ namespace InterfazUsuario
             }
         }
 
-        private void Registrarse1_Load(object sender, EventArgs e)
-        {
-
-        }
+   
     }
 }
