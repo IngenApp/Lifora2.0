@@ -13,6 +13,7 @@ namespace InterfazUsuario
     public partial class PerfilPrincipal : Form
     {
         public Form inicio;
+        string rutaImagen;
         public PerfilPrincipal()
         {
             InitializeComponent();
@@ -20,20 +21,18 @@ namespace InterfazUsuario
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Inicio inicio=new Inicio();
             inicio.Show();
-            this.Enabled = false;
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CrearPost post = new CrearPost();
-            post.Show();
+            AbrirPost();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            //actualizar el muro
+            // cambiar foto de perfil
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -55,6 +54,55 @@ namespace InterfazUsuario
         {
             InformacionUsuario info = new InformacionUsuario();
             info.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbrirMensajes();
+        }
+        private void AbrirMensajes()
+        {
+            if (Mensajes.MensajeInstancia == null || Mensajes.MensajeInstancia.IsDisposed)
+            {
+                Mensajes.MensajeInstancia = new Mensajes();
+                Mensajes.MensajeInstancia.Show();
+            }
+            else
+            {
+                Mensajes.MensajeInstancia.WindowState = FormWindowState.Normal;
+                Mensajes.MensajeInstancia.BringToFront();
+            }
+        }
+        private void AbrirPost()
+        {
+            if (CrearPost.PostInstancia == null || CrearPost.PostInstancia.IsDisposed)
+            {
+                CrearPost.PostInstancia = new CrearPost();
+                CrearPost.PostInstancia.Show();
+            }
+            else
+            {
+                CrearPost.PostInstancia.WindowState = FormWindowState.Normal; 
+                CrearPost.PostInstancia.BringToFront();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AbrirEvento();
+        }
+        private void AbrirEvento()
+        {
+            if (CrearEvento.eventoInstancia == null || CrearEvento.eventoInstancia.IsDisposed)
+            {
+                CrearEvento.eventoInstancia = new CrearEvento();
+                CrearEvento.eventoInstancia.Show();
+            }
+            else
+            {
+                CrearEvento.eventoInstancia.WindowState = FormWindowState.Normal;
+                CrearEvento.eventoInstancia.BringToFront();
+            }
         }
     }
 }

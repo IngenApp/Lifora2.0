@@ -139,7 +139,7 @@ namespace InterfazUsuario
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(11, 408);
+            this.button4.Location = new System.Drawing.Point(11, 388);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 50);
@@ -149,27 +149,29 @@ namespace InterfazUsuario
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(11, 354);
+            this.button3.Location = new System.Drawing.Point(11, 334);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 50);
             this.button3.TabIndex = 33;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(11, 300);
+            this.button2.Location = new System.Drawing.Point(11, 280);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 50);
             this.button2.TabIndex = 32;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(11, 246);
+            this.button1.Location = new System.Drawing.Point(11, 226);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 50);
@@ -181,7 +183,7 @@ namespace InterfazUsuario
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(20, 219);
+            this.linkLabel1.Location = new System.Drawing.Point(20, 202);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(55, 13);
             this.linkLabel1.TabIndex = 46;
@@ -192,7 +194,7 @@ namespace InterfazUsuario
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(81, 219);
+            this.linkLabel2.Location = new System.Drawing.Point(81, 202);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(55, 13);
             this.linkLabel2.TabIndex = 47;
@@ -202,7 +204,7 @@ namespace InterfazUsuario
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(11, 462);
+            this.button6.Location = new System.Drawing.Point(11, 442);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(150, 50);
@@ -215,7 +217,7 @@ namespace InterfazUsuario
             // 
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.Location = new System.Drawing.Point(17, 171);
+            this.linkLabel3.Location = new System.Drawing.Point(17, 163);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(136, 31);
             this.linkLabel3.TabIndex = 49;
@@ -225,10 +227,10 @@ namespace InterfazUsuario
             // pictureBox1
             // 
             this.pictureBox1.Image = global::InterfazUsuario.Properties.Resources.Logo_2;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 549);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 499);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;

@@ -12,7 +12,7 @@ namespace InterfazUsuario
 {
     public partial class CrearPost : Form
     {
-        
+        public static CrearPost PostInstancia = null;
         public CrearPost()
         {
             InitializeComponent();
