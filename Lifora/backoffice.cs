@@ -169,7 +169,10 @@ namespace Lifora
             dataGridViewInfoUser.DataSource = ControladorCuentaUsuario.Listar();
         }
 
-       
+        private void backoffice_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
