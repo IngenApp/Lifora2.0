@@ -15,7 +15,7 @@ namespace ApiLifora.Controllers
     {
         [Route("api/Usuario/ListarUsuarios")]
         [HttpGet]
-        public IHttpActionResult Get()
+        public IHttpActionResult ListarUsuarios()
         {
             try
             {
@@ -47,10 +47,9 @@ namespace ApiLifora.Controllers
             }
         }
 
-
         [Route("api/Usuario/CrearUsuario")]
         [HttpPost]
-        public IHttpActionResult Post(ModeloApiUsuario usuario)
+        public IHttpActionResult CrearUsuario(ModeloApiUsuario usuario)
         {
             try
             {
@@ -87,7 +86,27 @@ namespace ApiLifora.Controllers
             }
         }
 
+        [Route("api/Usuario/Login")]
+        [HttpPost]
+        public IHttpActionResult Login(ModeloApiUsuario login)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(login.email) || string.IsNullOrEmpty(login.contrasena))
+                {
+                    return BadRequest("El email y la contraseña son requeridos.");
+                }
+                return Ok(new { mensaje = "Inicio de sesión exitoso" });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception($"Error en el proceso de inicio de sesión: {ex.Message}", ex));
+            }
+        }
 
+
+
+         
         /*
                 [Route("api/Usuario/ModificarUsuario{id:int}")]
                 [HttpPut]
@@ -138,3 +157,4 @@ namespace ApiLifora.Controllers
 
     }
 }
+/*puedes agregar el try-cach para manejo de exeption*/
