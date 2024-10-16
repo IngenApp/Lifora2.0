@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InterfazUsuario.Properties {
+namespace CapaLogica.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace InterfazUsuario.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("InterfazUsuario.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CapaLogica.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -67,36 +67,6 @@ namespace InterfazUsuario.Properties {
             get {
                 object obj = ResourceManager.GetObject("black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-busi" +
                         "ness-document-illustration-isolated-on-white-background-vector", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Logo_2 {
-            get {
-                object obj = ResourceManager.GetObject("Logo 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logo_horizontal2 {
-            get {
-                object obj = ResourceManager.GetObject("logo horizontal2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap silent_hill_2_remake_maria_1024x576 {
-            get {
-                object obj = ResourceManager.GetObject("silent-hill-2-remake-maria-1024x576", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

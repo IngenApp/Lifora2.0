@@ -104,5 +104,19 @@ namespace InterfazUsuario
                 CrearEvento.eventoInstancia.BringToFront();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (GruposMenu.menuGruposInstancia == null || GruposMenu.menuGruposInstancia.IsDisposed)
+            {
+                GruposMenu.menuGruposInstancia = new GruposMenu();
+                GruposMenu.menuGruposInstancia.Show();
+            }
+            else
+            {
+                GruposMenu.menuGruposInstancia.WindowState = FormWindowState.Normal;
+                GruposMenu.menuGruposInstancia.BringToFront();
+            }
+        }
     }
 }

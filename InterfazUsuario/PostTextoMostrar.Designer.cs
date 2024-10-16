@@ -1,7 +1,7 @@
 ﻿
 namespace InterfazUsuario
 {
-    partial class Post
+    partial class PostTextoMostrar
     {
         /// <summary>
         /// Required designer variable.
@@ -37,13 +37,14 @@ namespace InterfazUsuario
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 23);
+            this.label1.Location = new System.Drawing.Point(35, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 31);
             this.label1.TabIndex = 0;
@@ -51,16 +52,17 @@ namespace InterfazUsuario
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(41, 145);
+            this.button1.Location = new System.Drawing.Point(41, 179);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(122, 145);
+            this.button2.Location = new System.Drawing.Point(122, 179);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -69,7 +71,7 @@ namespace InterfazUsuario
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(203, 145);
+            this.button3.Location = new System.Drawing.Point(203, 179);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
@@ -78,7 +80,7 @@ namespace InterfazUsuario
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(284, 145);
+            this.button4.Location = new System.Drawing.Point(284, 179);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 4;
@@ -115,12 +117,23 @@ namespace InterfazUsuario
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "linkLabel3";
             // 
-            // Post
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(38, 37);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel4.TabIndex = 8;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "linkLabel4";
+            // 
+            // PostTextoMostrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 261);
+            this.ClientSize = new System.Drawing.Size(734, 237);
             this.ControlBox = false;
+            this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -130,8 +143,9 @@ namespace InterfazUsuario
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Post";
+            this.Name = "PostTextoMostrar";
             this.Text = "Post";
+            this.Load += new System.EventHandler(this.PostTextoMostrar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +161,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
     }
 }

@@ -44,7 +44,7 @@ namespace InterfazUsuario
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(28, 74);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(399, 38);
+            this.textBox1.Size = new System.Drawing.Size(400, 38);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
@@ -52,7 +52,7 @@ namespace InterfazUsuario
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(28, 118);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(399, 38);
+            this.textBox2.Size = new System.Drawing.Size(400, 38);
             this.textBox2.TabIndex = 1;
             // 
             // label1
@@ -69,7 +69,7 @@ namespace InterfazUsuario
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(28, 162);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(399, 112);
+            this.richTextBox1.Size = new System.Drawing.Size(400, 112);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
@@ -78,7 +78,7 @@ namespace InterfazUsuario
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(28, 280);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(399, 31);
+            this.dateTimePicker1.Size = new System.Drawing.Size(400, 31);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // button1

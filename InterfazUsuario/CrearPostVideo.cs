@@ -19,55 +19,54 @@ namespace InterfazUsuario
             InitializeComponent();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // Crear una nueva instancia de OpenFileDialog para seleccionar el video
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // Filtrar solo archivos de video
-            openFileDialog.Filter = "Archivos de video (*.mp4;*.avi;*.mov;*.mkv)|*.mp4;*.avi;*.mov;*.mkv";
-            openFileDialog.Title = "Selecciona un video";
-
-            // Mostrar el cuadro de diálogo
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Obtener la ruta del archivo de video
-                rutaVideo = openFileDialog.FileName;
-
-                // Cargar y reproducir el video en el control Windows Media Player
-                axWindowsMediaPlayer1.URL = rutaVideo;
-                axWindowsMediaPlayer1.Ctlcontrols.play();
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            //api de creacion de post de video
-            if (string.IsNullOrEmpty(rutaVideo))
+            if (string.IsNullOrEmpty(richTextBox1.Text))
             {
-                MessageBox.Show("Seleccione un video");
+                MessageBox.Show("Ingrese lo que desea compartir");
             }
             else
             {
-                // Cerrar el formulario actual
-                this.Close();
-
-                // Verificar si la instancia de crearPost existe y no es nula, y luego cerrarla
-                if (crearPost != null && !crearPost.IsDisposed)
+                if (string.IsNullOrEmpty(rutaVideo))
                 {
-                    crearPost.Close();
+                    MessageBox.Show("Selecciona un Audio");
                 }
+                else
+                {
+                    //Api crear Post Video
+                    this.Close();
 
-                // Limpiar la ruta de la imagen seleccionada
-                rutaVideo = string.Empty;
+                    if (crearPost != null && !crearPost.IsDisposed)
+                    {
+                        crearPost.Close();
+                    }
+                    rutaVideo = string.Empty;
+                    richTextBox1.Text = string.Empty;
+                }
             }
-
-
         }
 
         private void CrearPostVideo_FormClosing(object sender, FormClosingEventArgs e)
         {
             crearPost.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Filter = "Archivos de video (*.mp4;*.avi;*.mov;*.mkv)|*.mp4;*.avi;*.mov;*.mkv";
+            openFileDialog.Title = "Selecciona un video";
+
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                rutaVideo = openFileDialog.FileName;
+
+                axWindowsMediaPlayer1.URL = rutaVideo;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
         }
     }
 }

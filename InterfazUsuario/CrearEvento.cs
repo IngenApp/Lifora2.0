@@ -14,6 +14,7 @@ namespace InterfazUsuario
     {
         public static CrearEvento eventoInstancia = null;
         string rutaImagen;
+
         public CrearEvento()
         {
             InitializeComponent();
