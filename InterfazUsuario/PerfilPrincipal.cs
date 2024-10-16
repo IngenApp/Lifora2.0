@@ -19,11 +19,7 @@ namespace InterfazUsuario
             InitializeComponent();
             
 
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostVideoMostrar form = new PostVideoMostrar(Apodo[i]);
-                AgregarPostVideo(form);
-            }
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

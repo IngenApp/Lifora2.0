@@ -55,7 +55,6 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // axWindowsMediaPlayer2
@@ -128,6 +127,7 @@ namespace InterfazUsuario
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.Location = new System.Drawing.Point(182, 11);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
@@ -249,7 +249,7 @@ namespace InterfazUsuario
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel3);
+            this.panel2.AutoScroll = true;
             this.panel2.Location = new System.Drawing.Point(182, 11);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
@@ -258,7 +258,8 @@ namespace InterfazUsuario
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.AutoScroll = true;
+            this.panel3.Location = new System.Drawing.Point(182, 11);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(800, 584);
@@ -266,7 +267,8 @@ namespace InterfazUsuario
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(182, 9);
+            this.panel4.AutoScroll = true;
+            this.panel4.Location = new System.Drawing.Point(180, 11);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 584);
@@ -278,6 +280,7 @@ namespace InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.pictureBox1);
@@ -310,7 +313,6 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
