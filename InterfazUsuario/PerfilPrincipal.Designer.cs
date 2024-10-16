@@ -34,7 +34,6 @@ namespace InterfazUsuario
             this.button5 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -49,10 +48,14 @@ namespace InterfazUsuario
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // axWindowsMediaPlayer2
@@ -66,13 +69,14 @@ namespace InterfazUsuario
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(830, 599);
+            this.button5.Location = new System.Drawing.Point(182, 599);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(150, 50);
             this.button5.TabIndex = 44;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // monthCalendar1
             // 
@@ -89,52 +93,45 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(227, 150);
             this.axWindowsMediaPlayer1.TabIndex = 41;
             // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(676, 599);
-            this.button11.Margin = new System.Windows.Forms.Padding(2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(150, 50);
-            this.button11.TabIndex = 40;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(522, 599);
+            this.button10.Location = new System.Drawing.Point(832, 599);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(150, 50);
             this.button10.TabIndex = 39;
             this.button10.Text = "button10";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(368, 599);
+            this.button9.Location = new System.Drawing.Point(632, 599);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(150, 50);
             this.button9.TabIndex = 38;
             this.button9.Text = "button9";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(214, 599);
+            this.button8.Location = new System.Drawing.Point(396, 599);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(150, 50);
             this.button8.TabIndex = 37;
             this.button8.Text = "button8";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(182, 11);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(798, 584);
+            this.panel1.Size = new System.Drawing.Size(800, 584);
             this.panel1.TabIndex = 36;
             // 
             // button4
@@ -224,6 +221,7 @@ namespace InterfazUsuario
             this.linkLabel3.TabIndex = 49;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "linkLabel3";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -249,11 +247,38 @@ namespace InterfazUsuario
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(182, 11);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 584);
+            this.panel2.TabIndex = 37;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(800, 584);
+            this.panel3.TabIndex = 37;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(182, 11);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(800, 584);
+            this.panel4.TabIndex = 37;
+            // 
             // PerfilPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button6);
@@ -263,7 +288,6 @@ namespace InterfazUsuario
             this.Controls.Add(this.button5);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -285,6 +309,7 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +321,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
@@ -311,5 +335,8 @@ namespace InterfazUsuario
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

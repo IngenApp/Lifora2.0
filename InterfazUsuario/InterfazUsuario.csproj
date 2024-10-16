@@ -136,6 +136,12 @@
     <Compile Include="CrearPost.Designer.cs">
       <DependentUpon>CrearPost.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostAudioMostrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostAudioMostrar.Designer.cs">
+      <DependentUpon>PostAudioMostrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostImagenMostrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,12 @@
     </Compile>
     <Compile Include="PostTextoMostrar.Designer.cs">
       <DependentUpon>PostTextoMostrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostVideoMostrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostVideoMostrar.Designer.cs">
+      <DependentUpon>PostVideoMostrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,11 +219,17 @@
     <EmbeddedResource Include="CrearPost.resx">
       <DependentUpon>CrearPost.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PostAudioMostrar.resx">
+      <DependentUpon>PostAudioMostrar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PostImagenMostrar.resx">
       <DependentUpon>PostImagenMostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostTextoMostrar.resx">
       <DependentUpon>PostTextoMostrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostVideoMostrar.resx">
+      <DependentUpon>PostVideoMostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

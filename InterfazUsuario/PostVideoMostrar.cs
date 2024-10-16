@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InterfazUsuario
 {
-    public partial class PostImagenMostrar : Form
+    public partial class PostVideoMostrar : Form
     {
-        public PostImagenMostrar(string Apodo)
+        public PostVideoMostrar(String Apodo)
         {
             InitializeComponent();
             this.ControlBox = false;
@@ -20,9 +20,9 @@ namespace InterfazUsuario
             linkLabel1.Text = Apodo;
         }
 
-        private void PostImagenMostrar_Load(object sender, EventArgs e)
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            //cantidad de likes
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -30,11 +30,6 @@ namespace InterfazUsuario
             //if (el eprfil es el mio, actualiza; si es distinto al mio)
             PerfilSecundario perfilSecundario = new PerfilSecundario();
             perfilSecundario.Show();
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //cantidad de likes
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

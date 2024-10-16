@@ -23,14 +23,37 @@ namespace InterfazUsuario
             linkLabel2.Text = cantidadComentarios;
 
         }
-        private void button1_Click(object sender, EventArgs e)
+     
+        private void PostTextoMostrar_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void PostTextoMostrar_Load(object sender, EventArgs e)
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            //if (el eprfil es el mio, actualiza; si es distinto al mio)
+            PerfilSecundario perfilSecundario = new PerfilSecundario();
+            perfilSecundario.Show();
+        }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //cantidad de likes
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //cantidad de comentarios
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //like
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //comentar
         }
     }
 }
