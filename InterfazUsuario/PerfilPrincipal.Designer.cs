@@ -266,7 +266,7 @@ namespace InterfazUsuario
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(182, 11);
+            this.panel4.Location = new System.Drawing.Point(182, 9);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 584);
