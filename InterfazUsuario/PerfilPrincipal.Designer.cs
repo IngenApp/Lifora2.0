@@ -61,10 +61,10 @@ namespace InterfazUsuario
             // axWindowsMediaPlayer2
             // 
             this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(1012, 65);
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(1012, 9);
             this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
             this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(227, 150);
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(240, 200);
             this.axWindowsMediaPlayer2.TabIndex = 45;
             // 
             // button5
@@ -80,17 +80,17 @@ namespace InterfazUsuario
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(1012, 256);
+            this.monthCalendar1.Location = new System.Drawing.Point(1019, 242);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 43;
             // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1012, 445);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1012, 449);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(227, 150);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(240, 200);
             this.axWindowsMediaPlayer1.TabIndex = 41;
             // 
             // button10
@@ -305,6 +305,7 @@ namespace InterfazUsuario
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Perfil";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PerfilPrincipal_FormClosing);
+            this.Load += new System.EventHandler(this.PerfilPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

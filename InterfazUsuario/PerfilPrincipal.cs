@@ -17,6 +17,13 @@ namespace InterfazUsuario
         public PerfilPrincipal()
         {
             InitializeComponent();
+            
+
+            for (int i = 0; i < Apodo.Count; i++)
+            {
+                PostVideoMostrar form = new PostVideoMostrar(Apodo[i]);
+                AgregarPostVideo(form);
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -262,6 +269,11 @@ namespace InterfazUsuario
                 PostAudioMostrar form = new PostAudioMostrar(Apodo[i]);
                 AgregarPostAudio(form);
             }
+        }
+
+        private void PerfilPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
