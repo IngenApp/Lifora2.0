@@ -73,7 +73,7 @@ namespace InterfazUsuario
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.button5.Location = new System.Drawing.Point(830, 617);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
@@ -99,7 +99,7 @@ namespace InterfazUsuario
             // 
             // btnPhotos
             // 
-            this.btnPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnPhotos.Location = new System.Drawing.Point(676, 617);
             this.btnPhotos.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhotos.Name = "btnPhotos";
@@ -110,7 +110,7 @@ namespace InterfazUsuario
             // 
             // btnVideo
             // 
-            this.btnVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnVideo.Location = new System.Drawing.Point(522, 617);
             this.btnVideo.Margin = new System.Windows.Forms.Padding(2);
             this.btnVideo.Name = "btnVideo";
@@ -121,7 +121,7 @@ namespace InterfazUsuario
             // 
             // btnMusic
             // 
-            this.btnMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnMusic.Location = new System.Drawing.Point(368, 617);
             this.btnMusic.Margin = new System.Windows.Forms.Padding(2);
             this.btnMusic.Name = "btnMusic";
@@ -132,7 +132,7 @@ namespace InterfazUsuario
             // 
             // btnWriting
             // 
-            this.btnWriting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnWriting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnWriting.Location = new System.Drawing.Point(214, 617);
             this.btnWriting.Margin = new System.Windows.Forms.Padding(2);
             this.btnWriting.Name = "btnWriting";
@@ -168,7 +168,7 @@ namespace InterfazUsuario
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.button1.Location = new System.Drawing.Point(28, 417);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 65);
@@ -178,7 +178,7 @@ namespace InterfazUsuario
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.button2.Location = new System.Drawing.Point(111, 417);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 65);
@@ -205,7 +205,7 @@ namespace InterfazUsuario
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.button3.Location = new System.Drawing.Point(26, 362);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";

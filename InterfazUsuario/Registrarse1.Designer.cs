@@ -41,10 +41,10 @@ namespace InterfazUsuario
             // lblTituloRegister
             // 
             this.lblTituloRegister.AutoSize = true;
-            this.lblTituloRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblTituloRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblTituloRegister.Location = new System.Drawing.Point(172, 28);
             this.lblTituloRegister.Name = "lblTituloRegister";
-            this.lblTituloRegister.Size = new System.Drawing.Size(66, 24);
+            this.lblTituloRegister.Size = new System.Drawing.Size(35, 13);
             this.lblTituloRegister.TabIndex = 0;
             this.lblTituloRegister.Text = "label1";
             this.lblTituloRegister.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -52,49 +52,49 @@ namespace InterfazUsuario
             // lblSubTituloRegistro
             // 
             this.lblSubTituloRegistro.AutoSize = true;
-            this.lblSubTituloRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTituloRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblSubTituloRegistro.Location = new System.Drawing.Point(81, 60);
             this.lblSubTituloRegistro.Name = "lblSubTituloRegistro";
-            this.lblSubTituloRegistro.Size = new System.Drawing.Size(57, 20);
+            this.lblSubTituloRegistro.Size = new System.Drawing.Size(35, 13);
             this.lblSubTituloRegistro.TabIndex = 1;
             this.lblSubTituloRegistro.Text = "label2";
             this.lblSubTituloRegistro.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtBoxMail
             // 
-            this.txtBoxMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtBoxMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxMail.Location = new System.Drawing.Point(85, 136);
             this.txtBoxMail.Name = "txtBoxMail";
-            this.txtBoxMail.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxMail.Size = new System.Drawing.Size(270, 20);
             this.txtBoxMail.TabIndex = 2;
             // 
             // txtBoxConfirmPassword
             // 
-            this.txtBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxConfirmPassword.Location = new System.Drawing.Point(85, 295);
             this.txtBoxConfirmPassword.Name = "txtBoxConfirmPassword";
-            this.txtBoxConfirmPassword.Size = new System.Drawing.Size(271, 22);
+            this.txtBoxConfirmPassword.Size = new System.Drawing.Size(271, 20);
             this.txtBoxConfirmPassword.TabIndex = 3;
             // 
             // txtBoxPassword
             // 
-            this.txtBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxPassword.Location = new System.Drawing.Point(85, 240);
             this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxPassword.Size = new System.Drawing.Size(270, 20);
             this.txtBoxPassword.TabIndex = 4;
             // 
             // txtBoxPhone
             // 
-            this.txtBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxPhone.Location = new System.Drawing.Point(85, 188);
             this.txtBoxPhone.Name = "txtBoxPhone";
-            this.txtBoxPhone.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxPhone.Size = new System.Drawing.Size(270, 20);
             this.txtBoxPhone.TabIndex = 5;
             // 
             // btnNext
             // 
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnNext.Location = new System.Drawing.Point(84, 347);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(272, 50);

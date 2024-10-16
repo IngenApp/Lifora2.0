@@ -84,7 +84,7 @@ namespace InterfazUsuario
             // 
             // btnGroups
             // 
-            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnGroups.Location = new System.Drawing.Point(39, 388);
             this.btnGroups.Margin = new System.Windows.Forms.Padding(2);
             this.btnGroups.Name = "btnGroups";
@@ -96,7 +96,7 @@ namespace InterfazUsuario
             // 
             // btnCreateEvents
             // 
-            this.btnCreateEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnCreateEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnCreateEvents.Location = new System.Drawing.Point(39, 334);
             this.btnCreateEvents.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateEvents.Name = "btnCreateEvents";
@@ -107,7 +107,7 @@ namespace InterfazUsuario
             // 
             // btnMessages
             // 
-            this.btnMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnMessages.Location = new System.Drawing.Point(39, 280);
             this.btnMessages.Margin = new System.Windows.Forms.Padding(2);
             this.btnMessages.Name = "btnMessages";
@@ -118,7 +118,7 @@ namespace InterfazUsuario
             // 
             // btnCreatePost
             // 
-            this.btnCreatePost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnCreatePost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnCreatePost.Location = new System.Drawing.Point(39, 226);
             this.btnCreatePost.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreatePost.Name = "btnCreatePost";
@@ -138,7 +138,7 @@ namespace InterfazUsuario
             // 
             // InARow
             // 
-            this.InARow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.InARow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.InARow.Location = new System.Drawing.Point(688, 55);
             this.InARow.Margin = new System.Windows.Forms.Padding(2);
             this.InARow.Name = "InARow";
@@ -149,7 +149,7 @@ namespace InterfazUsuario
             // 
             // World
             // 
-            this.World.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.World.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.World.Location = new System.Drawing.Point(842, 55);
             this.World.Margin = new System.Windows.Forms.Padding(2);
             this.World.Name = "World";
@@ -160,7 +160,7 @@ namespace InterfazUsuario
             // 
             // btnWriting
             // 
-            this.btnWriting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnWriting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnWriting.Location = new System.Drawing.Point(226, 597);
             this.btnWriting.Margin = new System.Windows.Forms.Padding(2);
             this.btnWriting.Name = "btnWriting";
@@ -171,7 +171,7 @@ namespace InterfazUsuario
             // 
             // btnMusic
             // 
-            this.btnMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnMusic.Location = new System.Drawing.Point(380, 597);
             this.btnMusic.Margin = new System.Windows.Forms.Padding(2);
             this.btnMusic.Name = "btnMusic";
@@ -182,7 +182,7 @@ namespace InterfazUsuario
             // 
             // btnVideo
             // 
-            this.btnVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnVideo.Location = new System.Drawing.Point(534, 597);
             this.btnVideo.Margin = new System.Windows.Forms.Padding(2);
             this.btnVideo.Name = "btnVideo";
@@ -193,7 +193,7 @@ namespace InterfazUsuario
             // 
             // btnPhotos
             // 
-            this.btnPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnPhotos.Location = new System.Drawing.Point(688, 597);
             this.btnPhotos.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhotos.Name = "btnPhotos";
@@ -213,11 +213,11 @@ namespace InterfazUsuario
             // 
             // Nickname
             // 
-            this.Nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Nickname.FormattingEnabled = true;
             this.Nickname.Location = new System.Drawing.Point(39, 626);
             this.Nickname.Name = "Nickname";
-            this.Nickname.Size = new System.Drawing.Size(150, 28);
+            this.Nickname.Size = new System.Drawing.Size(150, 21);
             this.Nickname.TabIndex = 26;
             // 
             // monthCalendar1
@@ -228,7 +228,7 @@ namespace InterfazUsuario
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.button5.Location = new System.Drawing.Point(842, 597);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";

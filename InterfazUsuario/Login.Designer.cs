@@ -55,7 +55,7 @@ namespace InterfazUsuario
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnLogin.Location = new System.Drawing.Point(614, 366);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
@@ -85,11 +85,11 @@ namespace InterfazUsuario
             // linklblRegitrarse
             // 
             this.linklblRegitrarse.AutoSize = true;
-            this.linklblRegitrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.linklblRegitrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.linklblRegitrarse.Location = new System.Drawing.Point(705, 463);
             this.linklblRegitrarse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linklblRegitrarse.Name = "linklblRegitrarse";
-            this.linklblRegitrarse.Size = new System.Drawing.Size(104, 24);
+            this.linklblRegitrarse.Size = new System.Drawing.Size(55, 13);
             this.linklblRegitrarse.TabIndex = 4;
             this.linklblRegitrarse.TabStop = true;
             this.linklblRegitrarse.Text = "linkLabel1";
@@ -130,10 +130,10 @@ namespace InterfazUsuario
             // linkLabel4
             // 
             this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.linkLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.linkLabel4.Location = new System.Drawing.Point(252, 527);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(104, 24);
+            this.linkLabel4.Size = new System.Drawing.Size(55, 13);
             this.linkLabel4.TabIndex = 8;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "linkLabel4";
@@ -143,10 +143,10 @@ namespace InterfazUsuario
             // linkLabel5
             // 
             this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.linkLabel5.Location = new System.Drawing.Point(373, 527);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(104, 24);
+            this.linkLabel5.Size = new System.Drawing.Size(55, 13);
             this.linkLabel5.TabIndex = 9;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "linkLabel5";
@@ -156,10 +156,10 @@ namespace InterfazUsuario
             // linkLabel6
             // 
             this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.linkLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.linkLabel6.Location = new System.Drawing.Point(472, 527);
             this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(104, 24);
+            this.linkLabel6.Size = new System.Drawing.Size(55, 13);
             this.linkLabel6.TabIndex = 10;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "linkLabel6";

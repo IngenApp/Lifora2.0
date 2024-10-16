@@ -42,7 +42,7 @@ namespace InterfazUsuario
             // 
             // btnRegister
             // 
-            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnRegister.Location = new System.Drawing.Point(79, 401);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(272, 50);
@@ -52,70 +52,70 @@ namespace InterfazUsuario
             // 
             // txtBoxSurName
             // 
-            this.txtBoxSurName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSurName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxSurName.Location = new System.Drawing.Point(79, 169);
             this.txtBoxSurName.Name = "txtBoxSurName";
-            this.txtBoxSurName.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxSurName.Size = new System.Drawing.Size(270, 20);
             this.txtBoxSurName.TabIndex = 12;
             // 
             // txtBoxDateOfBirth
             // 
-            this.txtBoxDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxDateOfBirth.Location = new System.Drawing.Point(79, 216);
             this.txtBoxDateOfBirth.Name = "txtBoxDateOfBirth";
-            this.txtBoxDateOfBirth.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxDateOfBirth.Size = new System.Drawing.Size(270, 20);
             this.txtBoxDateOfBirth.TabIndex = 11;
             // 
             // txtBoxMailCode
             // 
-            this.txtBoxMailCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxMailCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxMailCode.Location = new System.Drawing.Point(80, 316);
             this.txtBoxMailCode.Name = "txtBoxMailCode";
-            this.txtBoxMailCode.Size = new System.Drawing.Size(271, 22);
+            this.txtBoxMailCode.Size = new System.Drawing.Size(271, 20);
             this.txtBoxMailCode.TabIndex = 10;
             // 
             // txtBoxName
             // 
-            this.txtBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxName.Location = new System.Drawing.Point(79, 116);
             this.txtBoxName.Name = "txtBoxName";
-            this.txtBoxName.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxName.Size = new System.Drawing.Size(270, 20);
             this.txtBoxName.TabIndex = 9;
             // 
             // lblSubTituloRegistro
             // 
             this.lblSubTituloRegistro.AutoSize = true;
-            this.lblSubTituloRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblSubTituloRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblSubTituloRegistro.Location = new System.Drawing.Point(76, 60);
             this.lblSubTituloRegistro.Name = "lblSubTituloRegistro";
-            this.lblSubTituloRegistro.Size = new System.Drawing.Size(57, 20);
+            this.lblSubTituloRegistro.Size = new System.Drawing.Size(35, 13);
             this.lblSubTituloRegistro.TabIndex = 8;
             this.lblSubTituloRegistro.Text = "label2";
             // 
             // lblTituloRegister
             // 
             this.lblTituloRegister.AutoSize = true;
-            this.lblTituloRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblTituloRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblTituloRegister.Location = new System.Drawing.Point(172, 27);
             this.lblTituloRegister.Name = "lblTituloRegister";
-            this.lblTituloRegister.Size = new System.Drawing.Size(66, 24);
+            this.lblTituloRegister.Size = new System.Drawing.Size(35, 13);
             this.lblTituloRegister.TabIndex = 7;
             this.lblTituloRegister.Text = "label1";
             // 
             // txtBoxNickName
             // 
-            this.txtBoxNickName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNickName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxNickName.Location = new System.Drawing.Point(80, 268);
             this.txtBoxNickName.Name = "txtBoxNickName";
-            this.txtBoxNickName.Size = new System.Drawing.Size(271, 22);
+            this.txtBoxNickName.Size = new System.Drawing.Size(271, 20);
             this.txtBoxNickName.TabIndex = 14;
             // 
             // txtBoxPhoneCode
             // 
-            this.txtBoxPhoneCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPhoneCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtBoxPhoneCode.Location = new System.Drawing.Point(80, 357);
             this.txtBoxPhoneCode.Name = "txtBoxPhoneCode";
-            this.txtBoxPhoneCode.Size = new System.Drawing.Size(271, 22);
+            this.txtBoxPhoneCode.Size = new System.Drawing.Size(271, 20);
             this.txtBoxPhoneCode.TabIndex = 15;
             // 
             // Registrarse2
