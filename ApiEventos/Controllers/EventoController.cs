@@ -14,7 +14,7 @@ namespace ApiEventos.Controllers
     {
         [Route("api/Eventos/ListarEventos")]
         [HttpGet]
-        public List<ModeloApiEventos> Get()
+        public List<ModeloApiEventos> ListarEventos()
         {
             DataTable evento = ControladorEventos.ListarEventos();
             List<ModeloApiEventos> listaEventos = new List<ModeloApiEventos>();
@@ -34,7 +34,7 @@ namespace ApiEventos.Controllers
 
         [Route("api/Eventos/CrearEventos")]
         [HttpPost]
-        public IHttpActionResult Post(ModeloApiEventos evento)
+        public IHttpActionResult CrearEventos(ModeloApiEventos evento)
         {
             if (evento == null || string.IsNullOrEmpty(evento.informacion))
             {
@@ -51,7 +51,7 @@ namespace ApiEventos.Controllers
 
         [Route("api/Eventos/ModificarEvento{id:int}")]
         [HttpPut]
-        public IHttpActionResult Put(int id, ModeloApiEventos evento)
+        public IHttpActionResult ModificarEvento(int id, ModeloApiEventos evento)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
             ControladorEventos.ModificarNombreEvento(id, evento.nombre_evento);
@@ -64,7 +64,7 @@ namespace ApiEventos.Controllers
        
         [Route("api/Eventos/DesabilitarEvento{id:int}")]
         [HttpDelete]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult DesabilitarEvento(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
             ControladorEventos.DeshabilitarEvento(id);
@@ -74,9 +74,9 @@ namespace ApiEventos.Controllers
        
         [Route("api/Eventos/BuscarEvento/{id:int}")]
         [HttpGet]
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult BuscarEvento(int id)
         {
-            ModeloApiEventos evento = new ModeloApiEventos();
+            ModeloApiEventos evento = new ModeloApiEventos(); 
             Dictionary<string, string> datosEvento = ControladorEventos.BuscarEventoPorId(id);
 
             if (datosEvento != null && datosEvento["resultado"] == "true")

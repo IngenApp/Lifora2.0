@@ -174,16 +174,13 @@ public class UsuarioController : ApiController
                 return InternalServerError(new Exception("Error al habilitar el usuario.", ex));
             }
         }
-
-
-        /*
-                [Route("api/Usuario/BuscarUsuario/{id:int}")]
-                [HttpGet]
-                public IHttpActionResult Get(int id)
+ 
+        /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
+        [HttpGet]
+        public IHttpActionResult Get(int id)
                 {
                     ModeloApiUsuario usuario = new ModeloApiUsuario();
                     Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
-
                     if (datosUsuario != null && datosUsuario["resultado"] == "true")
                     {
                         usuario.id = Int32.Parse(datosUsuario["id_cuenta"]);
@@ -199,8 +196,8 @@ public class UsuarioController : ApiController
                         return Ok(usuario);
                     }
                     return NotFound();
-                }
-                */
+                }  */
+                
 
 
     }

@@ -10,7 +10,6 @@ namespace Modelo
     public class ModeloPost : Modelo
     {
         public int idPost, idPerfil, idComentario;
-
         public string post, descripcion, apodo, fecha, comentario;
         public bool habilitado;
 
@@ -23,7 +22,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
         public void ModificarPost()
         {
             string sql = $"UPDATE post SET descripcion = @descripcion WHERE id_post = @id_post; commit;";
@@ -33,8 +31,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
- 
         public void DarLike(int idCuenta)
         {
             string sqlCheck = "SELECT COUNT(*) FROM like_post WHERE id_post = @id_post AND id_cuenta = @id_cuenta";
@@ -72,7 +68,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
-
         public void DeshabilitarPost()
         {
             string sql = "UPDATE post SET habilitado = false WHERE id_post = @id_post; commit;";
@@ -81,7 +76,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
-
         public void HabilitarPost()
         {
             string sql = $"update post set habilitado = true where id_post = @id_post; commit;";
@@ -90,7 +84,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
-
         public List<ModeloPost> ObtenerPost()
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();
@@ -119,8 +112,6 @@ namespace Modelo
             return ListaPost;
 
         }
-        
-
         public void ComentarPost()
         {
             string sql = $"insert into comentario (id_post , id_perfil, comentario, fecha_hora) values(@id_post, @id_perfil, @comentario, now()); commit;";
@@ -132,7 +123,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
         public void DeshabilitarComentario()
         {
             string sql = "UPDATE comentario SET habilitado = false WHERE id_comentario = @id_comentario; commit;";
@@ -141,7 +131,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
             this.Comando.ExecuteNonQuery();
         }
-
         public void HabilitarComentario()
         {
             string sql = "UPDATE comentario SET habilitado = true WHERE id_comentario = @id_comentario; commit;";
@@ -150,7 +139,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
             this.Comando.ExecuteNonQuery();
         }
-
         public List<ModeloPost> ObtenerComentarios(string idPost)
         {
             List<ModeloPost> Listacomentarios = new List<ModeloPost>();
@@ -179,7 +167,6 @@ namespace Modelo
             return Listacomentarios;
 
         }
-
         public void ModificarComentario()
         {
             string sql = $"UPDATE comentario SET comentario = @comentario WHERE id_comentario = @id_comentario; commit;";

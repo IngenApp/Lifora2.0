@@ -14,58 +14,83 @@ namespace ApiPost.Controllers
     {
         [Route("api/Post/ListarPost")]
         [HttpGet]
-        public List<ModeloApiPost> Get()
+        public IHttpActionResult ListarPost()
         {
-            DataTable posts = ControladorPost.ListarPost();
             List<ModeloApiPost> listaPosts = new List<ModeloApiPost>();
-
-            foreach (DataRow post in posts.Rows)
+            try
             {
-                ModeloApiPost p = new ModeloApiPost();
-                p.idPost = Int32.Parse(post["id"].ToString());
-                p.idCuenta = Int32.Parse(post["cuenta"].ToString());
-                p.post = post["post"].ToString();
-                p.fecha = post["fecha"].ToString();
-                p.like = Int32.Parse(post["like"].ToString());
-                p.habilitado = Boolean.Parse(post["habilitado"].ToString());
+                DataTable posts = ControladorPost.ListarPost();
+                foreach (DataRow post in posts.Rows)
+                {
+                    ModeloApiPost p = new ModeloApiPost();
+                    p.idPost = Int32.Parse(post["id_post"].ToString());
+                    p.descripcion = post["descripcion"].ToString();
+                    p.fecha = post["fecha"].ToString();
+                    p.habilitado = bool.Parse(post["habilitado"].ToString());
+                    p.apodo = post["apodo"].ToString();
+                    p.idPerfil = Int32.Parse(post["id_perfil"].ToString());
 
-                listaPosts.Add(p);
+                    listaPosts.Add(p);
+                }
+
+                return Ok(listaPosts);
             }
-            return listaPosts;
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al listar los posts.", ex));
+            }
         }
 
         [Route("api/Post/CrearPost")]
         [HttpPost]
-        public IHttpActionResult Post(ModeloApiPost post)
+        public IHttpActionResult CrearPost(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.post))
+            if (post == null || string.IsNullOrEmpty(post.descripcion))
             {
                 return BadRequest("El contenido del post es requerido.");
             }
-
-            ControladorPost.CrearPost(post.idCuenta, post.post);
-            Dictionary<string, string> resultado = new Dictionary<string, string>
+            try
             {
-                { "mensaje", "Post creado exitosamente" }
-            };
-            return Ok(resultado);
+                ControladorPost.CrearPost(post.idPerfil, post.descripcion);
+                Dictionary<string, string> resultado = new Dictionary<string, string>
+        {
+            { "mensaje", "Post creado exitosamente" }
+        };
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al crear el post.", ex));
+            }
         }
 
         [Route("api/Post/ModificarPost{id:int}")]
         [HttpPut]
-        public IHttpActionResult Put(int id, ModeloApiPost post)
+        public IHttpActionResult ModificarPost(int id, ModeloApiPost post)
         {
-            Dictionary<string, string> resultado = new Dictionary<string, string>();
-            ControladorPost.ModificarPost(id.ToString(), post.post);
-            ControladorPost.ModificarIdCuenta(id.ToString(), post.idCuenta.ToString());
-            ControladorPost.ModificarFecha(id.ToString(), post.fecha);
-            resultado.Add("mensaje", "Post modificado exitosamente");
-            return Ok(resultado);
+            if (post == null || string.IsNullOrEmpty(post.descripcion))
+            {
+                return BadRequest("El contenido del post es requerido.");
+            }
+            try
+            {
+                ControladorPost.ModificarPost(id.ToString(), post.descripcion);
+                Dictionary<string, string> resultado = new Dictionary<string, string>
+        {
+            { "mensaje", "Post modificado exitosamente" }
+        };
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al modificar el post.", ex));
+            }
         }
 
-        [Route("api/Post/DesabilitarPost{id:int}")]
+
+        /*[Route("api/Post/DesabilitarPost{id:int}")]
         [HttpDelete]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult DesabilitarPost(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
             ControladorPost.DeshabilitarPost(id);
@@ -96,6 +121,7 @@ namespace ApiPost.Controllers
             }
             return NotFound();
         }
+        */
 
     }
 }

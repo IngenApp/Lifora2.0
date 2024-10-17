@@ -20,15 +20,13 @@ namespace Controladores
             ModPostBO.idPost = Int32.Parse(idPost);
             ModPostBO.descripcion = descripcion;
             ModPostBO.ModificarPost();
-        }
-        
+        }        
         public static void DarLike(int idPost, int idCuenta)
         {
             ModeloPost modeloPost = new ModeloPost();
             modeloPost.idPost = idPost;
             modeloPost.DarLike(idCuenta);
-        }
-  
+        }  
         public static void DeshabilitarPost(int idPost)
         {
             ModeloPost DeshabilitarPost = new ModeloPost();
@@ -58,9 +56,7 @@ namespace Controladores
             ComentarPost.idPerfil = perfilID;
             ComentarPost.comentario = comentario;
             ComentarPost.ComentarPost();
-        }
-        
-       
+        }              
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
@@ -87,8 +83,6 @@ namespace Controladores
 
             return tabla;
         }
-
-
         public static DataTable ListarComentarios(string idPost)
         {
             DataTable tabla = new DataTable();
@@ -127,7 +121,6 @@ namespace Controladores
             HabilitarComentario.idComentario = idComentario;
             HabilitarComentario.HabilitarComentario();
         }
-
         public static void ModificarComentario(string idComentario, string comentario)
         {
             ModeloPost ModificarComentario = new ModeloPost();
