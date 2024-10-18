@@ -13,6 +13,7 @@ namespace ApiLifora.Controllers
 {
 public class UsuarioController : ApiController
 {
+
         [Route("api/Usuario/ListarUsuarios")]
         [HttpGet]
         public IHttpActionResult ListarUsuarios()
@@ -23,19 +24,22 @@ public class UsuarioController : ApiController
             List<ModeloApiUsuario> listaUsuarios = new List<ModeloApiUsuario>();
             foreach (DataRow usuario in usuarios.Rows)
             {
-                ModeloApiUsuario u = new ModeloApiUsuario
-                {
+                    ModeloApiUsuario u = new ModeloApiUsuario
+                    {
                     idPerfil = Int32.Parse(usuario["ID perfil"].ToString()),
+                    apodo = usuario["apodo"].ToString(),
                     email = usuario["Email"].ToString(),
                     telefono = usuario["Telefono"].ToString(),
                     habilitacion = bool.Parse(usuario["Habilitado"].ToString()),
                     idUsuario = Int32.Parse(usuario["ID usuario"].ToString()),
                     nombre = usuario["Nombre"].ToString(),
                     apellido = usuario["Apellido"].ToString(),
+                    contrasena = usuario["contrasena"].ToString(),
                     fechaNacimiento = usuario["Fecha Nacimiento"].ToString(),
                     idioma = usuario["Idioma"].ToString(),
                     atributo1 = usuario["Atributo1"].ToString(),
                     atributo2 = usuario["Atributo2"].ToString()
+
                 };
                 listaUsuarios.Add(u);
             }
@@ -92,15 +96,15 @@ public class UsuarioController : ApiController
     {
         try
         {
-            if (string.IsNullOrEmpty(login.email) || string.IsNullOrEmpty(login.contrasena))
-            {
-                return BadRequest("El email y la contraseña son requeridos.");
+                if (ControladorCuentaUsuario.Login(login.email, login.contrasena) == false)
+                {
+                    return NotFound();
+                }
+                return Ok(new { mensaje = "Inicio de sesión exitoso" });
             }
-            return Ok(new { mensaje = "Inicio de sesión exitoso" });
-        }
         catch (Exception ex)
         {
-            return InternalServerError(new Exception($"Error en el proceso de inicio de sesión: {ex.Message}", ex));
+            return InternalServerError(new Exception($"Ocurrió un error durante el inicio de sesión.: {ex.Message}", ex));
         }
     }
 
@@ -138,22 +142,25 @@ public class UsuarioController : ApiController
             return InternalServerError(new Exception($"Error al modificar el usuario: {ex.Message}", ex));
         }
     }
-   
-        [Route("api/Usuario/DesabilitarUsuario{id:int}")]
+
+        [Route("api/Usuario/DeshabilitarUsuario/{id:int}")]
         [HttpDelete]
         public IHttpActionResult DeshabilitaCuentaUsuario(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
             try
             {
-                ControladorCuentaUsuario.DeshabilitaCuentaUsuario(id);
+                bool usuarioExiste = ControladorCuentaUsuario.DeshabilitarUsuario(id);
+                if (!usuarioExiste)
+                {
+                    return NotFound();
+                }
                 resultado.Add("mensaje", "Usuario deshabilitado exitosamente");
                 return Ok(resultado);
             }
             catch (Exception ex)
             {
-                resultado.Add("mensaje", "Error al deshabilitar el usuario: " + ex.Message);
-                return InternalServerError(new Exception("Error al deshabilitar el usuario.", ex));
+                return InternalServerError(new Exception($"Error al deshabilitar el usuario: {ex.Message}", ex));
             }
         }
 
@@ -164,41 +171,41 @@ public class UsuarioController : ApiController
             Dictionary<string, string> resultado = new Dictionary<string, string>();
             try
             {
-                ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
+                bool usuarioExiste = ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
+                    if (!usuarioExiste)
+                {
+                    return NotFound();
+                }
                 resultado.Add("mensaje", "Usuario habilitado exitosamente");
                 return Ok(resultado);
             }
             catch (Exception ex)
             {
-                resultado.Add("mensaje", "Error al habilitar el usuario: " + ex.Message);
-                return InternalServerError(new Exception("Error al habilitar el usuario.", ex));
+                return InternalServerError(new Exception($"Error al habilitar el usuario: {ex.Message}", ex));
             }
         }
- 
-        /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
+
+        [Route("api/Usuario/BuscarUsuario/{id:int}")]
         [HttpGet]
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult BuscarUsuarioPorId(int id)
+        {
+            Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
+            if (datosUsuario != null && datosUsuario.ContainsKey("resultado") && datosUsuario["resultado"] == "true")
+            {
+                ModeloApiUsuario usuario = new ModeloApiUsuario();
+                usuario.idUsuario = Int32.Parse(datosUsuario["id_usuario"]);
+                usuario.nombre = datosUsuario["nombre"];
+                usuario.apellido = datosUsuario["apellido"];
+                usuario.telefono = datosUsuario["telefono"];
+                usuario.email = datosUsuario["email"];
+                usuario.fechaNacimiento = datosUsuario["fecha_nacimiento"];
+                if (datosUsuario.ContainsKey("habilitado"))
                 {
-                    ModeloApiUsuario usuario = new ModeloApiUsuario();
-                    Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
-                    if (datosUsuario != null && datosUsuario["resultado"] == "true")
-                    {
-                        usuario.id = Int32.Parse(datosUsuario["id_cuenta"]);
-                        usuario.nombre = datosUsuario["nombre"];
-                        usuario.apellido = datosUsuario["apellido"];
-                        usuario.telefono = Int32.Parse(datosUsuario["telefono"]);
-                        usuario.mail = datosUsuario["email"];
-                        usuario.fechaNacimiento = datosUsuario["fecha_nacimiento"];
-                        if (datosUsuario.ContainsKey("habilitado"))
-                        {
-                            usuario.habilitado = Boolean.Parse(datosUsuario["habilitado"]);
-                        }
-                        return Ok(usuario);
-                    }
-                    return NotFound();
-                }  */
-                
-
-
+                    usuario.habilitacion = Boolean.Parse(datosUsuario["habilitado"]);
+                }
+                return Ok(usuario);
+            }
+            return NotFound();
+        }
     }
 }

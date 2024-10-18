@@ -87,18 +87,51 @@ namespace ApiPost.Controllers
             }
         }
 
-
-        /*[Route("api/Post/DesabilitarPost{id:int}")]
+        [Route("api/Post/DesabilitarPost{id:int}")]
         [HttpDelete]
         public IHttpActionResult DesabilitarPost(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
-            ControladorPost.DeshabilitarPost(id);
-            resultado.Add("mensaje", "Post deshabilitado exitosamente");
-            return Ok(resultado);
+
+            try
+            {
+                ControladorPost.DeshabilitarPost(id);
+                resultado.Add("mensaje", "Post deshabilitado exitosamente");
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al deshabilitar el post.", ex));
+            }
         }
 
-        [Route("api/Post/BuscarPost/{id:int}")]
+        [Route("api/Post/HabilitarPost{id:int}")]
+        [HttpDelete]
+        public IHttpActionResult HabilitarPost(int id)
+        {
+            Dictionary<string, string> resultado = new Dictionary<string, string>();
+
+            try
+            {
+                ControladorPost.HabilitarPost(id);
+                resultado.Add("mensaje", "Post habilitado exitosamente");
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al habilitar el post.", ex));
+            }
+        }
+
+      /*  [Route("api/Post/{id}/Like")]
+        [HttpPost]
+        public IHttpActionResult DarLikes(int id, ModeloApiPost likes)
+        {
+            if(likes = null || likes.idPerfil <= 0)
+            ControladorPost.DarLike(likes.idPost, likes.idPerfil);
+        }
+
+        /*[Route("api/Post/BuscarPost/{id:int}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
