@@ -146,22 +146,11 @@ public class UsuarioController : ApiController
         [Route("api/Usuario/DeshabilitarUsuario/{id:int}")]
         [HttpDelete]
         public IHttpActionResult DeshabilitaCuentaUsuario(int id)
-        {
-            Dictionary<string, string> resultado = new Dictionary<string, string>();
-            try
-            {
-                bool usuarioExiste = ControladorCuentaUsuario.DeshabilitarUsuario(id);
-                if (!usuarioExiste)
-                {
-                    return NotFound();
-                }
+        {  
+                Dictionary<string, string> resultado = new Dictionary<string, string>();
+                ControladorCuentaUsuario.DeshabilitaCuentaUsuario(id);
                 resultado.Add("mensaje", "Usuario deshabilitado exitosamente");
                 return Ok(resultado);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception($"Error al deshabilitar el usuario: {ex.Message}", ex));
-            }
         }
 
         [Route("api/Usuario/HabilitarUsuario{id:int}")]
@@ -169,23 +158,12 @@ public class UsuarioController : ApiController
         public IHttpActionResult HabilitarCuentaUsuario(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
-            try
-            {
-                bool usuarioExiste = ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
-                    if (!usuarioExiste)
-                {
-                    return NotFound();
-                }
-                resultado.Add("mensaje", "Usuario habilitado exitosamente");
-                return Ok(resultado);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception($"Error al habilitar el usuario: {ex.Message}", ex));
-            }
+            ControladorCuentaUsuario.HabilitaCuentaUsuario(id);
+            resultado.Add("mensaje", "Usuario habilitado exitosamente");
+            return Ok(resultado);
         }
 
-        [Route("api/Usuario/BuscarUsuario/{id:int}")]
+        /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
         [HttpGet]
         public IHttpActionResult BuscarUsuarioPorId(int id)
         {
@@ -206,6 +184,6 @@ public class UsuarioController : ApiController
                 return Ok(usuario);
             }
             return NotFound();
-        }
+        }*/
     }
 }

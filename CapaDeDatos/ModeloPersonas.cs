@@ -13,8 +13,6 @@ namespace Modelo
         public int idPerfil, idUsuario, idCuenta, idFotoPerfil;
         public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo;
         public bool habilitacion;
-
-
         public void GuardarCuentaUsuario()
         {   
             string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
@@ -41,14 +39,16 @@ namespace Modelo
         }
         public void DeshabilitarCuentaUsuario()
         {
-            string sql = $"update cuenta_lifora set habilitado = false where id_usuario = '{this.idUsuario}';";
+            string sql = "UPDATE cuenta_lifora SET habilitado = false WHERE id_usuario = @idUsuario;";
             this.Comando.CommandText = sql;
+            this.Comando.Parameters.AddWithValue("@idUsuario", this.idUsuario);
             this.Comando.ExecuteNonQuery();
         }
         public void HabilitarCuentaUsuario()
         {
             string sql = $"update cuenta_lifora set habilitado = true where id_usuario = '{this.idUsuario}';";
             this.Comando.CommandText = sql;
+            this.Comando.Parameters.AddWithValue("@idUsuario", this.idUsuario);
             this.Comando.ExecuteNonQuery();
         }
         public void ModificarCuentaUsuario()
@@ -110,57 +110,6 @@ namespace Modelo
                 return false;
             return true;
         }
-        public Dictionary<string, string> ObtenerDatosPorId()
-        {
-            string sql = @"SELECT usr.id_usuario, usr.nombre, usr.apellido, usr.fecha_nacimiento, u.email, c.telefono, c.habilitado
-                   FROM usuario usr
-                   JOIN cuenta_lifora c ON usr.id_usuario = c.id_usuario
-                   JOIN cuenta_usuario u ON u.email = c.email
-                   WHERE usr.id_usuario = @id";
-
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id", this.idUsuario); 
-            this.Lector = this.Comando.ExecuteReader();
-
-            Dictionary<string, string> datosUsuario = new Dictionary<string, string>();
-
-            if (this.Lector.Read())
-            {
-                datosUsuario["id_usuario"] = Convert.ToInt32(this.Lector["id_usuario"]).ToString();
-                datosUsuario["nombre"] = this.Lector["nombre"].ToString();
-                datosUsuario["apellido"] = this.Lector["apellido"].ToString();
-                datosUsuario["fecha_nacimiento"] = Convert.ToDateTime(this.Lector["fecha_nacimiento"]).ToString("yyyy-MM-dd");
-                datosUsuario["email"] = this.Lector["email"].ToString();
-                datosUsuario["telefono"] = this.Lector["telefono"].ToString();
-                datosUsuario["habilitado"] = Convert.ToBoolean(this.Lector["habilitado"]).ToString();
-                datosUsuario["resultado"] = "true";
-            }
-            else
-            {
-                datosUsuario["resultado"] = "false";
-            }
-
-            this.Lector.Close();
-            return datosUsuario;
-        }
-        public bool BuscarUsuarioPorId(int id)
-        {
-            string sql = $"SELECT * FROM cuenta_lifora WHERE habilitado = 1 AND id_usuario = {id}";
-            this.Comando.CommandText = sql;
-            this.Lector = this.Comando.ExecuteReader();
-
-            if (this.Lector.HasRows)
-            {
-                this.Lector.Read();
-                this.Lector.Close();
-                return true;
-            }
-
-            this.Lector.Close();
-            return false;
-        }
-
         public List<ModeloPersonas> ObtenerTodos()
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();

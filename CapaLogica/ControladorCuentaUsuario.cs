@@ -44,36 +44,18 @@ namespace Controladores
             lb.contrasena = contrasena;
             return lb.AutenticarBackoffice();
         }
-        public static bool DeshabilitarUsuario(int idUsuario)
+        public static void DeshabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            if (CuentaUsuario.BuscarUsuarioPorId(idUsuario))
-            {
-                CuentaUsuario.idUsuario = (idUsuario);
-                CuentaUsuario.DeshabilitarCuentaUsuario(); 
-                return true;
-            }
-            return false;
+            CuentaUsuario.idUsuario = (idUsuario);
+            CuentaUsuario.DeshabilitarCuentaUsuario();
         }
-
-        public static bool HabilitaCuentaUsuario(int idUsuario)
+        public static void HabilitaCuentaUsuario(int idUsuario)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
-            if (CuentaUsuario.BuscarUsuarioPorId(idUsuario))
-            {
-                CuentaUsuario.idUsuario = idUsuario;
-                CuentaUsuario.HabilitarCuentaUsuario();
-                return true;
-            }
-            return false;
+            CuentaUsuario.idUsuario = idUsuario;
+            CuentaUsuario.HabilitarCuentaUsuario();
         }
-        public static Dictionary<string, string> BuscarPorId(int id)
-        {
-            ModeloPersonas cuentaUsuario = new ModeloPersonas();
-            cuentaUsuario.idUsuario = id;
-            return cuentaUsuario.ObtenerDatosPorId();
-        }
-
         public static void ModificarCuenta(string email, string emailNuevo, string nombre, string apellido, string telefono)
         {
             ModeloPersonas ModCuenta = new ModeloPersonas();
