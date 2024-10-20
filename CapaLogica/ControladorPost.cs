@@ -21,13 +21,12 @@ namespace Controladores
             ModPostBO.descripcion = descripcion;
             ModPostBO.ModificarPost();
         }
-        public static void DarLike(int idPost, int idPerfil)
+        public static void DarLike(int idPost, int idCuenta)
         {
             ModeloPost modeloPost = new ModeloPost();
             modeloPost.idPost = idPost;
-            modeloPost.DarLike(idPerfil, idPost);
+            modeloPost.DarLike(idCuenta);
         }
-
         public static void DeshabilitarPost(int idPost)
         {
             ModeloPost DeshabilitarPost = new ModeloPost();

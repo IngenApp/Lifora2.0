@@ -24,7 +24,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery(); 
         }
-
         public void ModificarGrupo()
         {
             string sql = "UPDATE grupos SET nombre_grupo = @nombre_grupo, id_foto_grupo = @id_foto_grupo, informacion = @informacion WHERE id_grupos = @id_grupos; commit;";
@@ -36,8 +35,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery(); 
         }
-
-
         public void BloquearGrupo()
         {
             string sql = "UPDATE grupos SET habilitado = 0 WHERE id_grupos = @id_grupos; commit;";
@@ -46,7 +43,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
         public void HabilitarGrupo()
         {
             string sql = "UPDATE grupos SET habilitado = 1 WHERE id_grupos = @id_grupos; commit";
@@ -55,7 +51,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
         public Dictionary<string, string> ObtenerDatosPorId()
         {
             string sql = "SELECT id_grupos, nombre_grupo, informacion, habilitado FROM grupos WHERE id_grupos = @id_grupos";
@@ -79,7 +74,6 @@ namespace Modelo
             this.Lector.Close();
             return datosGrupo;
         }
-
         public List<ModeloGrupos> ObtenerTodos()
         {
             List<ModeloGrupos> bd = new List<ModeloGrupos>();
