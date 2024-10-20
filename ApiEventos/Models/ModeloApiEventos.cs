@@ -7,12 +7,8 @@ namespace ApiEventos.Models
 {
     public class ModeloApiEventos
     {
-        public int id_evento;
-        public string nombre_evento;
-        public string informacion;
-        public string lugar;
-        public string fecha_evento;
-        public int id_cuenta;
+        public int idEvento, idPerfil;
+        public string nombreEvento, informacion, lugar, fechaEvento;
         public bool habilitado;
     }
 }
