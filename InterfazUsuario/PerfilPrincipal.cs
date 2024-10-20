@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
 
 namespace InterfazUsuario
@@ -19,22 +18,8 @@ namespace InterfazUsuario
         public PerfilPrincipal()
         {
             InitializeComponent();
-            CargarIdioma();
         }
-        public void CargarIdioma()
-        {
-            try
-            {
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Idioma);
-
-                Idioma.CambiarTexto(this.Controls);
-                this.Text = Strings.titulo;
-            }
-            catch (CultureNotFoundException)
-            {
-                Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
-            }
-        }
+     
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Inicio inicio=new Inicio();
@@ -51,7 +36,7 @@ namespace InterfazUsuario
 
         private void PerfilPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Settings.Default.Save();
+        
         }
     }
 }

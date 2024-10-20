@@ -221,7 +221,6 @@ namespace InterfazUsuario
             this.Name = "PerfilSecundario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PerfilSecundario";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PerfilSecundario_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();

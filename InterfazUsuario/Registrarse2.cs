@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
 
 namespace InterfazUsuario
@@ -19,20 +18,6 @@ namespace InterfazUsuario
         public Registrarse2()
         {
             InitializeComponent();
-            CargarIdioma();
         }
-    private void CargarIdioma()
-    {
-        try
-        {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Idioma);
-            Idioma.CambiarTexto(this.Controls);
-            this.Text = Strings.titulo;
-        }
-        catch (CultureNotFoundException)
-        {
-            Console.WriteLine("El idioma seleccionado no es válido.");
-        }
-    }
     }
 }

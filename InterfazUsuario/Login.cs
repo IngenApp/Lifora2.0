@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
 
 namespace InterfazUsuario
@@ -19,22 +18,8 @@ namespace InterfazUsuario
         public Login()
         {
             InitializeComponent();
-            CargarIdioma();
         }
-        public void CargarIdioma()
-        {
-            try
-            {
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Idioma);
-
-                Idioma.CambiarTexto(this.Controls);
-                this.Text = Strings.titulo;
-            }
-            catch (CultureNotFoundException)
-            {
-                Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
-            }
-        }
+      
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -63,25 +48,20 @@ namespace InterfazUsuario
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Settings.Default.Idioma = "es-UY";
-            CargarIdioma();
         }
 
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Settings.Default.Idioma = "en-US";
-            CargarIdioma();
+            
         }
 
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Settings.Default.Idioma = "pt-BR";
-            CargarIdioma();
         }
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Settings.Default.Save();
+          
         }
     }
 }
