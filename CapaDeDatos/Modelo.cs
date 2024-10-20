@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using MySql.Data.MySqlClient;
+
 namespace Modelo
 {
     public abstract class Modelo
@@ -16,7 +17,7 @@ namespace Modelo
         {
             this.IP = "127.0.0.1";
             this.NombreBase = "lifora";
-            this.Password = "Ss11331313$";
+            this.Password = "1234";
             this.NombreDeUsuario = "root";
             this.Conexion = new MySqlConnection(
                 $"server={this.IP};" +
