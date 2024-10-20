@@ -25,9 +25,8 @@ namespace InterfazUsuario
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Registrarse1 Registrarse1 = new Registrarse1();
-            this.Enabled = false;
             Registrarse1.Show();
-            Registrarse1.FormClosed += (s, args) => this.Enabled = true;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,9 +35,11 @@ namespace InterfazUsuario
             {
             */
                 Inicio Inicio = new Inicio();
-                this.Enabled = false;
-                Inicio.Show();
-                Inicio.FormClosed += (s, args) => this.Enabled = true;
+            Inicio.Show();
+            Inicio.Login = this;
+            this.Hide();
+
+               
             /*
             }
             else

@@ -10,31 +10,29 @@ namespace Modelo
 {
    public class ModeloGrupos : Modelo
     {
-        public int idGrupo;
-        public int idCuenta;
-        public string nombre;
-        public string descripcion;
-        public string fecha;
+        public int idGrupo, idPerfil, idFotoGrupo;
+        public string nombre, informacion, fecha;
         public bool habilitado;
 
         public void CrearGrupo()
         {
-            string sql = "INSERT INTO grupo (id_cuenta, nombre, descripcion, fecha) VALUES (@id_cuenta, @nombre, @descripcion, now())";
+            string sql = "INSERT INTO grupos (id_perfil, nombre_grupo, informacion, fecha_hora) VALUES (@id_perfil, @nombre_grupo, @informacion, now()); commit;";
             this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
-            this.Comando.Parameters.AddWithValue("@nombre", nombre);
-            this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+            this.Comando.Parameters.AddWithValue("@nombre_grupo", nombre);
+            this.Comando.Parameters.AddWithValue("@informacion", informacion);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery(); 
         }
 
         public void ModificarGrupo()
         {
-            string sql = "UPDATE grupo SET nombre = @nombre, descripcion = @descripcion WHERE id_grupo = @id_grupo";
+            string sql = "UPDATE grupos SET nombre_grupo = @nombre_grupo, id_foto_grupo = @id_foto_grupo, informacion = @informacion WHERE id_grupos = @id_grupos; commit;";
             this.Comando.Parameters.Clear(); 
-            this.Comando.Parameters.AddWithValue("@nombre", nombre);
-            this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
-            this.Comando.Parameters.AddWithValue("@id_grupo", idGrupo);
+            this.Comando.Parameters.AddWithValue("@nombre_grupo", nombre);
+            this.Comando.Parameters.AddWithValue("@informacion", informacion);
+            this.Comando.Parameters.AddWithValue("@id_grupos", idGrupo);
+            this.Comando.Parameters.AddWithValue("@id_foto_grupo", idFotoGrupo);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery(); 
         }
@@ -42,8 +40,8 @@ namespace Modelo
 
         public void BloquearGrupo()
         {
-            string sql = "UPDATE grupo SET habilitado = 0 WHERE id_grupo = @id_grupo";
-            this.Comando.Parameters.AddWithValue("@id_grupo", idGrupo);
+            string sql = "UPDATE grupos SET habilitado = 0 WHERE id_grupos = @id_grupos; commit;";
+            this.Comando.Parameters.AddWithValue("@id_grupos", idGrupo);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
@@ -51,8 +49,8 @@ namespace Modelo
 
         public void HabilitarGrupo()
         {
-            string sql = "UPDATE grupo SET habilitado = 1 WHERE id_grupo = @id_grupo";
-            this.Comando.Parameters.AddWithValue("@id_grupo", idGrupo);
+            string sql = "UPDATE grupos SET habilitado = 1 WHERE id_grupos = @id_grupos; commit";
+            this.Comando.Parameters.AddWithValue("@id_grupos", idGrupo);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
@@ -60,17 +58,17 @@ namespace Modelo
 
         public Dictionary<string, string> ObtenerDatosPorId()
         {
-            string sql = "SELECT id_grupo, nombre, descripcion, habilitado FROM grupo WHERE id_grupo = @id_grupo";
+            string sql = "SELECT id_grupos, nombre_grupo, informacion, habilitado FROM grupos WHERE id_grupos = @id_grupos";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_grupo", idGrupo);
+            this.Comando.Parameters.AddWithValue("@id_grupos", idGrupo);
             this.Lector = this.Comando.ExecuteReader();
             Dictionary<string, string> datosGrupo = new Dictionary<string, string>();
             if (this.Lector.Read())
             {
-                datosGrupo["id_grupo"] = this.Lector["id_grupo"].ToString();
-                datosGrupo["nombre"] = this.Lector["nombre"].ToString();
-                datosGrupo["descripcion"] = this.Lector["descripcion"].ToString();
+                datosGrupo["id_grupos"] = this.Lector["id_grupos"].ToString();
+                datosGrupo["nombre_grupo"] = this.Lector["nombre_grupo"].ToString();
+                datosGrupo["informacion"] = this.Lector["informacion"].ToString();
                 datosGrupo["habilitado"] = this.Lector["habilitado"].ToString();
                 datosGrupo["resultado"] = "true";
             }
@@ -85,20 +83,17 @@ namespace Modelo
         public List<ModeloGrupos> ObtenerTodos()
         {
             List<ModeloGrupos> bd = new List<ModeloGrupos>();
-            string sql = "SELECT * FROM grupo";
+            string sql = "SELECT * FROM grupos";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
             while (this.Lector.Read())
             {
                 ModeloGrupos mg = new ModeloGrupos();
-                mg.idGrupo = Int32.Parse(this.Lector["id_grupo"].ToString());
-                mg.nombre = this.Lector["nombre"].ToString();
-                mg.descripcion = this.Lector["descripcion"].ToString();
+                mg.idGrupo = Int32.Parse(this.Lector["id_grupos"].ToString());
+                mg.nombre = this.Lector["nombre_grupo"].ToString();
+                mg.informacion = this.Lector["informacion"].ToString();
                 mg.habilitado = Convert.ToBoolean(this.Lector["habilitado"]);
-                if (this.Lector["id_cuenta"] != DBNull.Value)
-                {
-                    mg.idCuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
-                }
+                mg.idPerfil = Int32.Parse(this.Lector["id_perfil"].ToString());   
                 bd.Add(mg);
             }
             this.Lector.Close();

@@ -7,57 +7,28 @@ namespace Controladores
 {
     public class ControladorPost
     {
-        public static void CrearPost(int idCuenta, string postear)
+        public static void CrearPost(int idPerfil, string descripcion)
         {
             ModeloPost CreaPost = new ModeloPost();
-            CreaPost.idCuenta = idCuenta;
-            CreaPost.post = postear;
+            CreaPost.idPerfil = idPerfil;
+            CreaPost.descripcion = descripcion;
             CreaPost.CrearPost();
         }
-        public static void ModificarPost(string idPost, string post)
+        public static void ModificarPost(string idPost, string descripcion)
         {
             ModeloPost ModPostBO = new ModeloPost();
             ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.post = post;
+            ModPostBO.descripcion = descripcion;
             ModPostBO.ModificarPost();
         }
-        public static void ModificarIdPost(string id, string IdPost)
-        {
-            ModeloPost ModPostBO = new ModeloPost();
-            ModPostBO.idPost = Int32.Parse(id);
-            ModPostBO.idPost = Int32.Parse(IdPost);
-            ModPostBO.ModificarIdPost();
-        }
-        public static void ModificarIdCuenta(string idPost, string IdCuenta)
-        {
-            ModeloPost ModPostBO = new ModeloPost();
-            ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.idCuenta = Int32.Parse(IdCuenta);
-            ModPostBO.ModificarIdCuenta();
-        }
-        public static void ModificarFecha(string idPost, string fecha)
-        {
-            ModeloPost ModPostBO = new ModeloPost();
-            ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.fecha = fecha;
-            ModPostBO.ModificarFecha();
-        }
+        
         public static void DarLike(int idPost, int idCuenta)
         {
             ModeloPost modeloPost = new ModeloPost();
             modeloPost.idPost = idPost;
             modeloPost.DarLike(idCuenta);
         }
-        public static void ModificarPostBackoffice(string post, string idPost, string idCuenta, string fecha, string like)
-        {
-            ModeloPost ModPostBO = new ModeloPost();
-            ModPostBO.post = post;
-            ModPostBO.idPost = Int32.Parse(idPost);
-            ModPostBO.idCuenta = Int32.Parse(idCuenta);
-            ModPostBO.fecha = fecha;
-            ModPostBO.like = Int32.Parse(like);
-            ModPostBO.ModificarPostUsuarioBackoffice();
-        }
+  
         public static void DeshabilitarPost(int idPost)
         {
             ModeloPost DeshabilitarPost = new ModeloPost();
@@ -70,68 +41,100 @@ namespace Controladores
             HabilitarPost.idPost = idPost;
             HabilitarPost.HabilitarPost();
         }
-        public static void ComentarPost(int idPost, int idCuenta, string comentar)
+        public static void ComentarPost(string idPost, string idPerfil, string comentario)
         {
             ModeloPost ComentarPost = new ModeloPost();
-            ComentarPost.idPost = idPost;
-            ComentarPost.idCuenta = idCuenta;
-            ComentarPost.textoComentarios = comentar;
+            int postID, perfilID;
+            if (!Int32.TryParse(idPost, out postID))
+            {
+                throw new Exception("El ID del post no es válido.");
+            }
+
+            if (!Int32.TryParse(idPerfil, out perfilID))
+            {
+                throw new Exception("El ID del perfil no es válido.");
+            }
+            ComentarPost.idPost = postID;
+            ComentarPost.idPerfil = perfilID;
+            ComentarPost.comentario = comentario;
             ComentarPost.ComentarPost();
         }
-        public static Dictionary<string, string> BuscarPostPorId(int id)
-        {
-            ModeloPost post = new ModeloPost();
-            post.idPost = id;
-            return post.ObtenerDatosPostPorId();
-        }
+        
+       
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("id", typeof(int));
-            tabla.Columns.Add("cuenta", typeof(string));
-            tabla.Columns.Add("post", typeof(string));
-            tabla.Columns.Add("fecha", typeof(string));
-            tabla.Columns.Add("like", typeof(int));
-            tabla.Columns.Add("habilitado", typeof(bool));
+            tabla.Columns.Add("ID_Post", typeof(string));
+            tabla.Columns.Add("Descripcion", typeof(string));
+            tabla.Columns.Add("Fecha", typeof(DateTime));
+            tabla.Columns.Add("Habilitado", typeof(bool));
+            tabla.Columns.Add("Apodo", typeof(string));
+            tabla.Columns.Add("ID_Perfil", typeof(int));
+
             ModeloPost ListarPost = new ModeloPost();
+
             foreach (ModeloPost p in ListarPost.ObtenerPost())
             {
                 DataRow fila = tabla.NewRow();
-                fila["id"] = p.idPost;
-                fila["cuenta"] = p.idCuenta;
-                fila["post"] = p.post;
-                fila["fecha"] = p.fecha;
-                fila["like"] = p.like;
-                fila["habilitado"] = p.habilitado;
+                fila["ID_Post"] = p.idPost;
+                fila["Apodo"] = p.apodo;
+                fila["ID_Perfil"] = p.idPerfil;
+                fila["Descripcion"] = p.descripcion;
+                fila["Habilitado"] = p.habilitado;
+                fila["Fecha"] = p.fecha;
                 tabla.Rows.Add(fila);
             }
+
             return tabla;
         }
-        public static DataTable ListarComentarios(int idPost)
+
+
+        public static DataTable ListarComentarios(string idPost)
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("IdComentarios", typeof(int));
-            tabla.Columns.Add("Usuario", typeof(string));
+            tabla.Columns.Add("ID_Comentario", typeof(string));
             tabla.Columns.Add("Comentario", typeof(string));
-            tabla.Columns.Add("fecha", typeof(string));
-            tabla.Columns.Add("post", typeof(string));
-            tabla.Columns.Add("like", typeof(int));
+            tabla.Columns.Add("Fecha", typeof(DateTime));
+            tabla.Columns.Add("Habilitado", typeof(bool));
+            tabla.Columns.Add("Apodo", typeof(string));
+            tabla.Columns.Add("ID_perfil", typeof(string));
+
             ModeloPost ListarComentarios = new ModeloPost();
             foreach (ModeloPost p in ListarComentarios.ObtenerComentarios(idPost))
             {
                 DataRow fila = tabla.NewRow();
-                fila["IdComentarios"] = p.comentarios;
-                fila["Usuario"] = p.nombre;
-                fila["Comentario"] = p.textoComentarios;
-                fila["fecha"] = p.fecha;
-                fila["post"] = p.post;
-                fila["like"] = p.contadorLike; 
+                fila["ID_Comentario"] = p.idComentario;
+                fila["Comentario"] = p.comentario;
+                fila["Fecha"] = p.fecha;
+                fila["Habilitado"] = p.habilitado;
+                fila["Apodo"] = p.apodo;
+                fila["ID_Perfil"] = p.idPerfil;
+               
 
                 tabla.Rows.Add(fila);
             }
             return tabla;
         }
+        public static void DeshabilitarComentario(int idComentario)
+        {
+            ModeloPost DeshabilitarComentario = new ModeloPost();
+            DeshabilitarComentario.idComentario = idComentario;
+            DeshabilitarComentario.DeshabilitarComentario();
+        }
+        public static void HabilitarComentario(int idComentario)
+        {
+            ModeloPost HabilitarComentario = new ModeloPost();
+            HabilitarComentario.idComentario = idComentario;
+            HabilitarComentario.HabilitarComentario();
+        }
 
+        public static void ModificarComentario(string idComentario, string comentario)
+        {
+            ModeloPost ModificarComentario = new ModeloPost();
+            ModificarComentario.idComentario = Int32.Parse(idComentario);
+            ModificarComentario.comentario = comentario;
+            ModificarComentario.ModificarComentario();
+        }
     }
 }
 

@@ -20,12 +20,12 @@ namespace Lifora
 
         private void btnCrearPost_Click(object sender, EventArgs e)
         {
-            if (textBoxIdUsuario.Text != "" || textBoxPostear.Text != "")
+            if (textBoxIdUsuario.Text != "" || richTextBox1.Text != "")
             {
-                ControladorPost.CrearPost(Int32.Parse(textBoxIdUsuario.Text), textBoxPostear.Text);
+                ControladorPost.CrearPost(Int32.Parse(textBoxIdUsuario.Text), richTextBox1.Text);
                 MessageBox.Show("Post creado con exito");
                 textBoxIdUsuario.Text = "";
-                textBoxPostear.Text = "";
+                richTextBox1.Text = "";
                 return;
             }
             MessageBox.Show("Debe completar todos los campos");
