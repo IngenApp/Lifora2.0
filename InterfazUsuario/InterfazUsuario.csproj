@@ -46,11 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrearEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearEvento.Designer.cs">
+      <DependentUpon>CrearEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearGrupo.Designer.cs">
+      <DependentUpon>CrearGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearPostAudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPostAudio.Designer.cs">
+      <DependentUpon>CrearPostAudio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearPostImagen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPostImagen.Designer.cs">
+      <DependentUpon>CrearPostImagen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearPostTexto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPostTexto.Designer.cs">
+      <DependentUpon>CrearPostTexto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearPostVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPostVideo.Designer.cs">
+      <DependentUpon>CrearPostVideo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grupos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Grupos.Designer.cs">
       <DependentUpon>Grupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformacionUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformacionUsuario.Designer.cs">
+      <DependentUpon>InformacionUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -63,6 +105,18 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajes.Designer.cs">
+      <DependentUpon>Mensajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GruposMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GruposMenu.Designer.cs">
+      <DependentUpon>GruposMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="PerfilPrincipal.cs">
       <SubType>Form</SubType>
@@ -82,11 +136,29 @@
     <Compile Include="CrearPost.Designer.cs">
       <DependentUpon>CrearPost.cs</DependentUpon>
     </Compile>
-    <Compile Include="Post.cs">
+    <Compile Include="PostAudioMostrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Post.Designer.cs">
-      <DependentUpon>Post.cs</DependentUpon>
+    <Compile Include="PostAudioMostrar.Designer.cs">
+      <DependentUpon>PostAudioMostrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostImagenMostrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostImagenMostrar.Designer.cs">
+      <DependentUpon>PostImagenMostrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostTextoMostrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostTextoMostrar.Designer.cs">
+      <DependentUpon>PostTextoMostrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostVideoMostrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostVideoMostrar.Designer.cs">
+      <DependentUpon>PostVideoMostrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,14 +174,41 @@
     <Compile Include="Registrarse2.Designer.cs">
       <DependentUpon>Registrarse2.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CrearEvento.resx">
+      <DependentUpon>CrearEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearGrupo.resx">
+      <DependentUpon>CrearGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearPostAudio.resx">
+      <DependentUpon>CrearPostAudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearPostImagen.resx">
+      <DependentUpon>CrearPostImagen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearPostTexto.resx">
+      <DependentUpon>CrearPostTexto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearPostVideo.resx">
+      <DependentUpon>CrearPostVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grupos.resx">
       <DependentUpon>Grupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GruposMenu.resx">
+      <DependentUpon>GruposMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacionUsuario.resx">
+      <DependentUpon>InformacionUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mensajes.resx">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PerfilPrincipal.resx">
       <DependentUpon>PerfilPrincipal.cs</DependentUpon>
@@ -120,8 +219,17 @@
     <EmbeddedResource Include="CrearPost.resx">
       <DependentUpon>CrearPost.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Post.resx">
-      <DependentUpon>Post.cs</DependentUpon>
+    <EmbeddedResource Include="PostAudioMostrar.resx">
+      <DependentUpon>PostAudioMostrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostImagenMostrar.resx">
+      <DependentUpon>PostImagenMostrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostTextoMostrar.resx">
+      <DependentUpon>PostTextoMostrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostVideoMostrar.resx">
+      <DependentUpon>PostVideoMostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,6 +239,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registrarse1.resx">
       <DependentUpon>Registrarse1.cs</DependentUpon>
@@ -169,6 +278,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo horizontal21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silent-hill-2-remake-maria-1024x576.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-business-document-illustration-isolated-on-white-background-vector.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
