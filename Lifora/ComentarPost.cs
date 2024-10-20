@@ -25,7 +25,7 @@ namespace Lifora
             if (richTextBox1.Text != "")
             {
                 try
-                {  
+                {
                     ControladorPost.ComentarPost(idPost, textBox1.Text, richTextBox1.Text);
                     MessageBox.Show("Comentario creado con éxito");
                     richTextBox1.Text = "";

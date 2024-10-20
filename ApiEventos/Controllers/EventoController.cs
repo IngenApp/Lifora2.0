@@ -12,27 +12,35 @@ namespace ApiEventos.Controllers
 {
     public class EventoController : ApiController
     {
-        [Route("api/Eventos/ListarEventos")]
+        [Route("api/Evento/ListarEventos")]
         [HttpGet]
-        public List<ModeloApiEventos> ListarEventos()
+        public IHttpActionResult ListarEventos()
         {
-            DataTable evento = ControladorEventos.ListarEventos();
             List<ModeloApiEventos> listaEventos = new List<ModeloApiEventos>();
-
-            foreach (DataRow eventos in evento.Rows)
+            try
             {
-                ModeloApiEventos me = new ModeloApiEventos();
-                me.id_evento = Int32.Parse(eventos["id_eventos"].ToString());
-                me.nombre_evento = eventos["nombre_evento"].ToString();
-                me.informacion = eventos["informacion"].ToString();
-                me.lugar = eventos["lugar"].ToString();
-                me.fecha_evento = eventos["fecha_evento"].ToString();
-                listaEventos.Add(me);
+                DataTable evento = ControladorEventos.ListarEventos();
+
+                foreach (DataRow eventos in evento.Rows)
+                {
+                    ModeloApiEventos me = new ModeloApiEventos();
+                    me.idEvento = Int32.Parse(eventos["id_eventos"].ToString());
+                    me.nombreEvento = eventos["nombre_evento"].ToString();
+                    me.informacion = eventos["informacion"].ToString();
+                    me.lugar = eventos["lugar"].ToString();
+                    me.fechaEvento = eventos["fecha_evento"].ToString();
+                    listaEventos.Add(me);
+                }
+
+                return Ok(listaEventos);
             }
-            return listaEventos;
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al listar los eventos.", ex));
+            }
         }
 
-        [Route("api/Eventos/CrearEventos")]
+        [Route("api/Evento/CrearEventos")]
         [HttpPost]
         public IHttpActionResult CrearEventos(ModeloApiEventos evento)
         {
@@ -40,53 +48,95 @@ namespace ApiEventos.Controllers
             {
                 return BadRequest("El contenido del post es requerido.");
             }
-
-            ControladorEventos.CrearEvento(evento.id_cuenta, evento.nombre_evento, evento.informacion, evento.lugar, evento.fecha_evento);
-            Dictionary<string,string> resultado = new Dictionary<string, string>
+            try
             {
-                { "mensaje", "Evento creado exitosamente" }
-            };
-            return Ok(resultado);
+                ControladorEventos.CrearEvento(evento.idPerfil, evento.nombreEvento, evento.informacion, evento.lugar, evento.fechaEvento);
+                Dictionary<string, string> resultado = new Dictionary<string, string>
+                {
+                    { "mensaje", "Evento creado exitosamente" }
+                };
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al crear el evento.", ex));
+            }
         }
 
-        [Route("api/Eventos/ModificarEvento{id:int}")]
+        [Route("api/Evento/ModificarEvento/{id:int}")]
         [HttpPut]
         public IHttpActionResult ModificarEvento(int id, ModeloApiEventos evento)
         {
-            Dictionary<string, string> resultado = new Dictionary<string, string>();
-            ControladorEventos.ModificarNombreEvento(id, evento.nombre_evento);
-            ControladorEventos.ModificarInformacionEvento(id, evento.informacion);
-            ControladorEventos.ModificarLugarEvento(id, evento.lugar.ToString());
-            ControladorEventos.ModificarFechaEvento(id, evento.fecha_evento);
-            resultado.Add("mensaje", "Evento modificado exitosamente");
-            return Ok(resultado);
+            if (evento == null || string.IsNullOrEmpty(evento.informacion))
+            {
+                return BadRequest("El contenido del evento es requerido.");
+            }
+            try
+            {
+                ControladorEventos.ModificarEvento(id.ToString(), evento.nombreEvento, evento.informacion, evento.lugar, evento.fechaEvento);
+                Dictionary<string, string> resultado = new Dictionary<string, string>
+            {
+                { "mensaje", "Evento modificado exitosamente" }
+            };
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al modificar el evento.", ex));
+            }
         }
-       
-        [Route("api/Eventos/DesabilitarEvento{id:int}")]
+
+
+        [Route("api/Evento/DesabilitarEvento{id:int}")]
         [HttpDelete]
         public IHttpActionResult DesabilitarEvento(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
-            ControladorEventos.DeshabilitarEvento(id);
-            resultado.Add("mensaje", "Evento deshabilitado exitosamente");
-            return Ok(resultado);
+            try
+            {
+                ControladorEventos.DeshabilitarEvento(id);
+                resultado.Add("mensaje", "Evento deshabilitado exitosamente");
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al deshabilitar el evento.", ex));
+            }
         }
-       
-        [Route("api/Eventos/BuscarEvento/{id:int}")]
+
+        [Route("api/Evento/HabilitarEvento{id:int}")]
+        [HttpDelete]
+        public IHttpActionResult HabilitarEvento(int id)
+        {
+            Dictionary<string, string> resultado = new Dictionary<string, string>();
+
+            try
+            {
+                ControladorEventos.HabilitarEvento(id);
+                resultado.Add("mensaje", "Evento habilitado exitosamente");
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al habilitar el evento.", ex));
+            }
+        }
+
+        [Route("api/Evento/BuscarEvento/{id:int}")]
         [HttpGet]
         public IHttpActionResult BuscarEvento(int id)
         {
-            ModeloApiEventos evento = new ModeloApiEventos(); 
+            ModeloApiEventos evento = new ModeloApiEventos();
             Dictionary<string, string> datosEvento = ControladorEventos.BuscarEventoPorId(id);
 
             if (datosEvento != null && datosEvento["resultado"] == "true")
             {
-                evento.id_evento = Int32.Parse(datosEvento["id_evento"]);
-                evento.id_cuenta = Int32.Parse(datosEvento["id_cuenta"]);
-                evento.nombre_evento = datosEvento["nombre_evento"];
+                evento.idEvento = Int32.Parse(datosEvento["id_evento"]);
+                evento.idPerfil = Int32.Parse(datosEvento["id_cuenta"]);
+                evento.nombreEvento = datosEvento["nombre_evento"];
                 evento.lugar = datosEvento["lugar"];
                 evento.informacion = datosEvento["informacion"];
-                evento.fecha_evento = datosEvento["fecha_evento"];
+                evento.fechaEvento = datosEvento["fecha_evento"];
                 if (datosEvento.ContainsKey("habilitado"))
                 {
                     evento.habilitado = Boolean.Parse(datosEvento["habilitado"]);
@@ -95,6 +145,7 @@ namespace ApiEventos.Controllers
             }
             return NotFound();
         }
+
 
     }
 }

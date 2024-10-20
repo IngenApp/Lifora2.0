@@ -38,7 +38,6 @@ namespace Controladores
             modeloEvento.idEvento = id_evento;
             return modeloEvento.ObtenerEventoPorId();
         }
-    
         public static void ModificarEvento(string idEvento, string nombre_evento, string informacion, string lugar, string fecha)
         {
             ModeloEventos ModEventoBO = new ModeloEventos();
@@ -59,7 +58,7 @@ namespace Controladores
             tabla.Columns.Add("Fecha", typeof(DateTime));
             tabla.Columns.Add("habilitado", typeof(Boolean));
             tabla.Columns.Add("ID_Perfil", typeof(string));
-           
+
             ModeloEventos ListarEventos = new ModeloEventos();
             foreach (ModeloEventos p in ListarEventos.ObtenerEventos())
             {
@@ -76,5 +75,4 @@ namespace Controladores
             return tabla;
         }
     }
-    
 }

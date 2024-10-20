@@ -12,7 +12,7 @@ namespace Modelo
         public int idEvento, idPerfil;
         public string nombreEvento, informacion, lugar, fechaEvento;
         public bool habilitado;
- 
+
         public void CrearEvento()
         {
             string sql = $"INSERT INTO eventos (nombre_evento, informacion, lugar, fecha_evento, id_perfil, fecha_hora) VALUES(@nombre_evento, @informacion, @lugar, @fecha_evento, @id_perfil, now());";
@@ -47,7 +47,6 @@ namespace Modelo
             this.Comando.CommandText = "COMMIT;";
             this.Comando.ExecuteNonQuery();
         }
-
         public void ModificarEvento()
         {
             string sql = $"update eventos set nombre_evento = @nombre_evento, informacion = @informacion, lugar = @lugar, fecha_evento = @fecha_evento where id_eventos = @id_eventos;";
@@ -91,8 +90,6 @@ namespace Modelo
 
             return datosEvento;
         }
-
-
         public List<ModeloEventos> ObtenerEventos()
         {
             List<ModeloEventos> ListaEventos = new List<ModeloEventos>();
@@ -109,7 +106,7 @@ namespace Modelo
                 me.informacion = this.Lector["informacion"].ToString();
                 me.lugar = this.Lector["lugar"].ToString();
                 me.fechaEvento = this.Lector["fecha_evento"].ToString();
-                me.habilitado = Convert.ToBoolean( this.Lector["habilitado"]);
+                me.habilitado = Convert.ToBoolean(this.Lector["habilitado"]);
                 me.idPerfil = Int32.Parse(this.Lector["id_perfil"].ToString());
 
                 ListaEventos.Add(me);
@@ -117,7 +114,6 @@ namespace Modelo
             return ListaEventos;
 
         }
-
 
     }
 }

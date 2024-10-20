@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
-    public class ModeloPost : Modelo
+    public class ModeloPost : Modelo   
     {
         public int idPost, idPerfil, idComentario;
         public string post, descripcion, apodo, fecha, comentario;
@@ -31,35 +31,37 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public void DarLike(int idCuenta)
+        public void DarLike(int idPerfil, int idPost)
         {
-            string sqlCheck = "SELECT COUNT(*) FROM like_post WHERE id_post = @id_post AND id_cuenta = @id_cuenta";
+            string sqlCheck = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil AND habilitado = 1";
             this.Comando.CommandText = sqlCheck;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
             int likeExists = Convert.ToInt32(this.Comando.ExecuteScalar());
+
             if (likeExists > 0)
             {
-                string sqlDelete = "DELETE FROM like_post WHERE id_post = @id_post AND id_cuenta = @id_cuenta";
-                this.Comando.CommandText = sqlDelete;
+                string sqlUpdateDisable = "UPDATE likes SET habilitado = 0 WHERE id_post = @id_post AND id_perfil = @id_perfil";
+                this.Comando.CommandText = sqlUpdateDisable;
                 this.Comando.Parameters.Clear();
                 this.Comando.Parameters.AddWithValue("@id_post", idPost);
-                this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
+                this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
                 this.Comando.ExecuteNonQuery();
 
-                string sqlUpdate = "UPDATE post SET contador_like = contador_like - 1 WHERE id_post = @id_post";
-                this.Comando.CommandText = sqlUpdate;
+                string sqlUpdatePost = "UPDATE post SET contador_like = contador_like - 1 WHERE id_post = @id_post";
+                this.Comando.CommandText = sqlUpdatePost;
                 this.Comando.Parameters.Clear();
                 this.Comando.Parameters.AddWithValue("@id_post", idPost);
                 this.Comando.ExecuteNonQuery();
                 return;
             }
-            string sqlInsert = "INSERT INTO like_post (id_post, id_cuenta, fecha) VALUES (@id_post, @id_cuenta, NOW())";
+
+            string sqlInsert = "INSERT INTO likes (id_post, id_perfil, fecha_hora, habilitado) VALUES (@id_post, @id_perfil, NOW(), 1)";
             this.Comando.CommandText = sqlInsert;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            this.Comando.Parameters.AddWithValue("@id_cuenta", idCuenta);
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
             this.Comando.ExecuteNonQuery();
 
             string sqlUpdateAdd = "UPDATE post SET contador_like = contador_like + 1 WHERE id_post = @id_post";

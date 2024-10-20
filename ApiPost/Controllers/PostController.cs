@@ -44,117 +44,123 @@ namespace ApiPost.Controllers
         [Route("api/Post/CrearPost")]
         [HttpPost]
         public IHttpActionResult CrearPost(ModeloApiPost post)
-        {
-            if (post == null || string.IsNullOrEmpty(post.descripcion))
             {
-                return BadRequest("El contenido del post es requerido.");
-            }
-            try
+                if (post == null || string.IsNullOrEmpty(post.descripcion))
+                {
+                    return BadRequest("El contenido del post es requerido.");
+                }
+                try
+                {
+                    ControladorPost.CrearPost(post.idPerfil, post.descripcion);
+                    Dictionary<string, string> resultado = new Dictionary<string, string>
             {
-                ControladorPost.CrearPost(post.idPerfil, post.descripcion);
-                Dictionary<string, string> resultado = new Dictionary<string, string>
-        {
-            { "mensaje", "Post creado exitosamente" }
-        };
-                return Ok(resultado);
+                { "mensaje", "Post creado exitosamente" }
+            };
+                    return Ok(resultado);
+                }
+                catch (Exception ex)
+                {
+                    return InternalServerError(new Exception("Error al crear el post.", ex));
+                }
             }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al crear el post.", ex));
-            }
-        }
 
         [Route("api/Post/ModificarPost{id:int}")]
         [HttpPut]
         public IHttpActionResult ModificarPost(int id, ModeloApiPost post)
-        {
-            if (post == null || string.IsNullOrEmpty(post.descripcion))
             {
-                return BadRequest("El contenido del post es requerido.");
-            }
-            try
+                if (post == null || string.IsNullOrEmpty(post.descripcion))
+                {
+                    return BadRequest("El contenido del post es requerido.");
+                }
+                try
+                {
+                    ControladorPost.ModificarPost(id.ToString(), post.descripcion);
+                    Dictionary<string, string> resultado = new Dictionary<string, string>
             {
-                ControladorPost.ModificarPost(id.ToString(), post.descripcion);
-                Dictionary<string, string> resultado = new Dictionary<string, string>
-        {
-            { "mensaje", "Post modificado exitosamente" }
-        };
-                return Ok(resultado);
+                { "mensaje", "Post modificado exitosamente" }
+            };
+                    return Ok(resultado);
+                }
+                catch (Exception ex)
+                {
+                    return InternalServerError(new Exception("Error al modificar el post.", ex));
+                }
             }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al modificar el post.", ex));
-            }
-        }
 
         [Route("api/Post/DesabilitarPost{id:int}")]
         [HttpDelete]
         public IHttpActionResult DesabilitarPost(int id)
-        {
-            Dictionary<string, string> resultado = new Dictionary<string, string>();
-
-            try
             {
-                ControladorPost.DeshabilitarPost(id);
-                resultado.Add("mensaje", "Post deshabilitado exitosamente");
-                return Ok(resultado);
+                Dictionary<string, string> resultado = new Dictionary<string, string>();
+                try
+                {
+                    ControladorPost.DeshabilitarPost(id);
+                    resultado.Add("mensaje", "Post deshabilitado exitosamente");
+                    return Ok(resultado);
+                }
+                catch (Exception ex)
+                {
+                    return InternalServerError(new Exception("Error al deshabilitar el post.", ex));
+                }
             }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al deshabilitar el post.", ex));
-            }
-        }
 
         [Route("api/Post/HabilitarPost{id:int}")]
         [HttpDelete]
         public IHttpActionResult HabilitarPost(int id)
-        {
-            Dictionary<string, string> resultado = new Dictionary<string, string>();
+                {
+                    Dictionary<string, string> resultado = new Dictionary<string, string>();
 
-            try
-            {
-                ControladorPost.HabilitarPost(id);
-                resultado.Add("mensaje", "Post habilitado exitosamente");
-                return Ok(resultado);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al habilitar el post.", ex));
-            }
-        }
+                    try
+                    {
+                        ControladorPost.HabilitarPost(id);
+                        resultado.Add("mensaje", "Post habilitado exitosamente");
+                        return Ok(resultado);
+                    }
+                    catch (Exception ex)
+                    {
+                        return InternalServerError(new Exception("Error al habilitar el post.", ex));
+                    }
+                }
 
-      /*  [Route("api/Post/{id}/Like")]
+        [Route("api/Post/Like{id}")]
         [HttpPost]
         public IHttpActionResult DarLikes(int id, ModeloApiPost likes)
         {
-            if(likes = null || likes.idPerfil <= 0)
-            ControladorPost.DarLike(likes.idPost, likes.idPerfil);
-        }
-
-        /*[Route("api/Post/BuscarPost/{id:int}")]
-        [HttpGet]
-        public IHttpActionResult Get(int id)
-        {
-            ModeloApiPost post = new ModeloApiPost();
-            Dictionary<string, string> datosPost = ControladorPost.BuscarPostPorId(id);
-
-            if (datosPost != null && datosPost["resultado"] == "true")
+            if (likes == null || likes.idPerfil <= 0)
             {
-                post.idPost = Int32.Parse(datosPost["id_post"]);
-                post.idCuenta = Int32.Parse(datosPost["id_cuenta"]);
-                post.post = datosPost["texto_post"];
-                post.like = Int32.Parse(datosPost["contador_like"]);
-                post.comentarios = Int32.Parse(datosPost["contador_comentarios"]);
-                post.fecha = datosPost["fecha"];
-                if (datosPost.ContainsKey("habilitado"))
-                {
-                    post.habilitado = Boolean.Parse(datosPost["habilitado"]);
-                }
-                return Ok(post);
+                return BadRequest("Datos inválidos para dar like.");
             }
-            return NotFound();
+            ControladorPost.DarLike(likes.idPost, likes.idPerfil);
+
+            return Ok("Like registrado o deshabilitado correctamente.");
         }
-        */
+
+
+        /* [Route("api/Post/BuscarPost/{id:int}")]
+         [HttpGet]
+         public IHttpActionResult Get(int id)
+         {
+       ModeloApiPostYEventos post = new ModeloApiPostYEventos();
+             Dictionary<string, string> datosPost = ControladorPost.BuscarPostPorId(id);
+
+             if (datosPost != null && datosPost["resultado"] == "true")
+             {
+                 post.idPost = Int32.Parse(datosPost["id_post"]);
+                 post.idPerfil = Int32.Parse(datosPost["id_cuenta"]);
+                 post.post = datosPost["texto_post"];
+                 post.like = Int32.Parse(datosPost["contador_like"]);
+                 post.comentarios = Int32.Parse(datosPost["contador_comentarios"]);
+                 post.fecha = datosPost["fecha"];
+                 if (datosPost.ContainsKey("habilitado"))
+                 {
+                     post.habilitado = Boolean.Parse(datosPost["habilitado"]);
+                 }
+                 return Ok(post);
+             }
+             return NotFound();
+         }*/
 
     }
 }
+
+

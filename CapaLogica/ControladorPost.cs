@@ -5,7 +5,7 @@ using Modelo;
 
 namespace Controladores
 {
-    public class ControladorPost
+    public class ControladorPost 
     {
         public static void CrearPost(int idPerfil, string descripcion)
         {
@@ -20,13 +20,14 @@ namespace Controladores
             ModPostBO.idPost = Int32.Parse(idPost);
             ModPostBO.descripcion = descripcion;
             ModPostBO.ModificarPost();
-        }        
-        public static void DarLike(int idPost, int idCuenta)
+        }
+        public static void DarLike(int idPost, int idPerfil)
         {
             ModeloPost modeloPost = new ModeloPost();
             modeloPost.idPost = idPost;
-            modeloPost.DarLike(idCuenta);
-        }  
+            modeloPost.DarLike(idPerfil, idPost);
+        }
+
         public static void DeshabilitarPost(int idPost)
         {
             ModeloPost DeshabilitarPost = new ModeloPost();
@@ -35,7 +36,7 @@ namespace Controladores
         }
         public static void HabilitarPost(int idPost)
         {
-            ModeloPost HabilitarPost = new ModeloPost ();
+            ModeloPost HabilitarPost = new ModeloPost();
             HabilitarPost.idPost = idPost;
             HabilitarPost.HabilitarPost();
         }
@@ -128,6 +129,7 @@ namespace Controladores
             ModificarComentario.comentario = comentario;
             ModificarComentario.ModificarComentario();
         }
+
     }
 }
 

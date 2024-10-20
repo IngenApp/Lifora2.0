@@ -5,10 +5,12 @@ using System.Web;
 
 namespace ApiPost.Models
 {
-    public class ModeloApiPost
+    public class ModeloApiPost  
     {
         public int idPost, idPerfil, idComentario;
-        public string post, descripcion, apodo, fecha, comentario;
+        public string descripcion, apodo, fecha;
+        //public string post, comentario;
         public bool habilitado;
     }
 }
+

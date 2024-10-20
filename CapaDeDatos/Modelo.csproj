@@ -180,7 +180,7 @@
     <Compile Include="ModeloGrupos.cs" />
     <Compile Include="ModeloPersonas.cs" />
     <Compile Include="Modelo.cs" />
-    <Compile Include="ModeloPost .cs" />
+    <Compile Include="ModeloPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
