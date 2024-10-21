@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
+using InterfazUsuario.Lenguas;
+using InterfazUsuario.Properties;
 
 
 namespace InterfazUsuario
@@ -20,11 +24,30 @@ namespace InterfazUsuario
 
         {
             InitializeComponent();
+            CargarIdioma();
+        }
+        public void CargarIdioma()
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Idioma);
+
+                Idioma.CambiarTexto(this.Controls);
+            }
+            catch (CultureNotFoundException)
+            {
+                Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
+            }
+        }
+
+        private void Registrarse2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Settings.Default.Save();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("") && !textBox2.Text.Equals("") && !textBox3.Text.Equals("") && !textBox4.Text.Equals(""))
+            if (!txtBoxName.Text.Equals("") && !txtBoxSurName.Text.Equals("") && !txtBoxDateOfBirth.Text.Equals("") && !txtBoxNickName.Text.Equals(""))
             {
 
                 // se conecta con api usuario para crear cuenta, falta detallar el codigo verificador al mail y al telefono

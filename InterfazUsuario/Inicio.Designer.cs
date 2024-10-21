@@ -30,22 +30,22 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxSearch = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnGroups = new System.Windows.Forms.Button();
+            this.btnCreateEvents = new System.Windows.Forms.Button();
+            this.btnMessages = new System.Windows.Forms.Button();
+            this.btnCreatePost = new System.Windows.Forms.Button();
+            this.InARow = new System.Windows.Forms.Button();
+            this.World = new System.Windows.Forms.Button();
+            this.btnWriting = new System.Windows.Forms.Button();
+            this.btnMusic = new System.Windows.Forms.Button();
+            this.btnVideo = new System.Windows.Forms.Button();
+            this.btnPhotos = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.Nickname = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -57,14 +57,14 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtBoxSearch
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(190, 10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(494, 38);
-            this.textBox1.TabIndex = 17;
+            this.txtBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearch.Location = new System.Drawing.Point(190, 10);
+            this.txtBoxSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxSearch.Name = "txtBoxSearch";
+            this.txtBoxSearch.Size = new System.Drawing.Size(494, 38);
+            this.txtBoxSearch.TabIndex = 17;
             // 
             // panel1
             // 
@@ -76,113 +76,113 @@ namespace InterfazUsuario
             this.panel1.Size = new System.Drawing.Size(800, 540);
             this.panel1.TabIndex = 16;
             // 
-            // button4
+            // btnGroups
             // 
-            this.button4.Location = new System.Drawing.Point(11, 365);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 50);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnGroups.Location = new System.Drawing.Point(11, 365);
+            this.btnGroups.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGroups.Name = "btnGroups";
+            this.btnGroups.Size = new System.Drawing.Size(150, 50);
+            this.btnGroups.TabIndex = 13;
+            this.btnGroups.Text = "button4";
+            this.btnGroups.UseVisualStyleBackColor = true;
+            this.btnGroups.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // btnCreateEvents
             // 
-            this.button3.Location = new System.Drawing.Point(11, 311);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 50);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnCreateEvents.Location = new System.Drawing.Point(11, 311);
+            this.btnCreateEvents.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreateEvents.Name = "btnCreateEvents";
+            this.btnCreateEvents.Size = new System.Drawing.Size(150, 50);
+            this.btnCreateEvents.TabIndex = 12;
+            this.btnCreateEvents.Text = "button3";
+            this.btnCreateEvents.UseVisualStyleBackColor = true;
+            this.btnCreateEvents.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnMessages
             // 
-            this.button2.Location = new System.Drawing.Point(11, 257);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 50);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnMessages.Location = new System.Drawing.Point(11, 257);
+            this.btnMessages.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMessages.Name = "btnMessages";
+            this.btnMessages.Size = new System.Drawing.Size(150, 50);
+            this.btnMessages.TabIndex = 11;
+            this.btnMessages.Text = "button2";
+            this.btnMessages.UseVisualStyleBackColor = true;
+            this.btnMessages.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnCreatePost
             // 
-            this.button1.Location = new System.Drawing.Point(11, 203);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 50);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreatePost.Location = new System.Drawing.Point(11, 203);
+            this.btnCreatePost.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreatePost.Name = "btnCreatePost";
+            this.btnCreatePost.Size = new System.Drawing.Size(150, 50);
+            this.btnCreatePost.TabIndex = 10;
+            this.btnCreatePost.Text = "button1";
+            this.btnCreatePost.UseVisualStyleBackColor = true;
+            this.btnCreatePost.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button6
+            // InARow
             // 
-            this.button6.Location = new System.Drawing.Point(688, 10);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(150, 38);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.InARow.Location = new System.Drawing.Point(688, 10);
+            this.InARow.Margin = new System.Windows.Forms.Padding(2);
+            this.InARow.Name = "InARow";
+            this.InARow.Size = new System.Drawing.Size(150, 38);
+            this.InARow.TabIndex = 18;
+            this.InARow.Text = "button6";
+            this.InARow.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // World
             // 
-            this.button7.Location = new System.Drawing.Point(842, 10);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(150, 38);
-            this.button7.TabIndex = 19;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.World.Location = new System.Drawing.Point(842, 10);
+            this.World.Margin = new System.Windows.Forms.Padding(2);
+            this.World.Name = "World";
+            this.World.Size = new System.Drawing.Size(150, 38);
+            this.World.TabIndex = 19;
+            this.World.Text = "button7";
+            this.World.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnWriting
             // 
-            this.button8.Location = new System.Drawing.Point(190, 594);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(150, 50);
-            this.button8.TabIndex = 20;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnWriting.Location = new System.Drawing.Point(190, 594);
+            this.btnWriting.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWriting.Name = "btnWriting";
+            this.btnWriting.Size = new System.Drawing.Size(150, 50);
+            this.btnWriting.TabIndex = 20;
+            this.btnWriting.Text = "button8";
+            this.btnWriting.UseVisualStyleBackColor = true;
+            this.btnWriting.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button9
+            // btnMusic
             // 
-            this.button9.Location = new System.Drawing.Point(397, 596);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(150, 50);
-            this.button9.TabIndex = 21;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btnMusic.Location = new System.Drawing.Point(397, 596);
+            this.btnMusic.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMusic.Name = "btnMusic";
+            this.btnMusic.Size = new System.Drawing.Size(150, 50);
+            this.btnMusic.TabIndex = 21;
+            this.btnMusic.Text = "button9";
+            this.btnMusic.UseVisualStyleBackColor = true;
+            this.btnMusic.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button10
+            // btnVideo
             // 
-            this.button10.Location = new System.Drawing.Point(609, 597);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 50);
-            this.button10.TabIndex = 22;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.btnVideo.Location = new System.Drawing.Point(609, 597);
+            this.btnVideo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVideo.Name = "btnVideo";
+            this.btnVideo.Size = new System.Drawing.Size(150, 50);
+            this.btnVideo.TabIndex = 22;
+            this.btnVideo.Text = "button10";
+            this.btnVideo.UseVisualStyleBackColor = true;
+            this.btnVideo.Click += new System.EventHandler(this.button10_Click);
             // 
-            // button11
+            // btnPhotos
             // 
-            this.button11.Location = new System.Drawing.Point(842, 597);
-            this.button11.Margin = new System.Windows.Forms.Padding(2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(150, 50);
-            this.button11.TabIndex = 23;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.btnPhotos.Location = new System.Drawing.Point(842, 597);
+            this.btnPhotos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPhotos.Name = "btnPhotos";
+            this.btnPhotos.Size = new System.Drawing.Size(150, 50);
+            this.btnPhotos.TabIndex = 23;
+            this.btnPhotos.Text = "button11";
+            this.btnPhotos.UseVisualStyleBackColor = true;
+            this.btnPhotos.Click += new System.EventHandler(this.button11_Click);
             // 
             // axWindowsMediaPlayer1
             // 
@@ -208,17 +208,17 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(240, 200);
             this.axWindowsMediaPlayer2.TabIndex = 29;
             // 
-            // linkLabel1
+            // Nickname
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(30, 622);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(110, 25);
-            this.linkLabel1.TabIndex = 30;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.Nickname.AutoSize = true;
+            this.Nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nickname.Location = new System.Drawing.Point(30, 622);
+            this.Nickname.Name = "Nickname";
+            this.Nickname.Size = new System.Drawing.Size(110, 25);
+            this.Nickname.TabIndex = 30;
+            this.Nickname.TabStop = true;
+            this.Nickname.Text = "linkLabel1";
+            this.Nickname.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // panel2
             // 
@@ -282,23 +282,23 @@ namespace InterfazUsuario
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.Nickname);
             this.Controls.Add(this.axWindowsMediaPlayer2);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnPhotos);
+            this.Controls.Add(this.btnVideo);
+            this.Controls.Add(this.btnMusic);
+            this.Controls.Add(this.btnWriting);
+            this.Controls.Add(this.World);
+            this.Controls.Add(this.InARow);
+            this.Controls.Add(this.txtBoxSearch);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGroups);
+            this.Controls.Add(this.btnCreateEvents);
+            this.Controls.Add(this.btnMessages);
+            this.Controls.Add(this.btnCreatePost);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -307,6 +307,7 @@ namespace InterfazUsuario
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lifora";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inicio_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Inicio_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -318,24 +319,24 @@ namespace InterfazUsuario
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGroups;
+        private System.Windows.Forms.Button btnCreateEvents;
+        private System.Windows.Forms.Button btnMessages;
+        private System.Windows.Forms.Button btnCreatePost;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button InARow;
+        private System.Windows.Forms.Button World;
+        private System.Windows.Forms.Button btnWriting;
+        private System.Windows.Forms.Button btnMusic;
+        private System.Windows.Forms.Button btnVideo;
+        private System.Windows.Forms.Button btnPhotos;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel Nickname;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;

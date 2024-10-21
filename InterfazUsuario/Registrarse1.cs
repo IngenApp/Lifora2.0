@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
+using InterfazUsuario.Lenguas;
+using InterfazUsuario.Properties;
 
 namespace InterfazUsuario
 {
@@ -15,18 +19,31 @@ namespace InterfazUsuario
         public Registrarse1()
         {
             InitializeComponent();
+            CargarIdioma();
         }
+        public void CargarIdioma()
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Idioma);
 
+                Idioma.CambiarTexto(this.Controls);
+            }
+            catch (CultureNotFoundException)
+            {
+                Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("") && !textBox2.Text.Equals("") && !textBox3.Text.Equals(""))
+            if (!txtBoxMail.Text.Equals("") && !txtBoxPhone.Text.Equals("") && !txtBoxPassword.Text.Equals(""))
             {
-                if (textBox3.Text.Equals(textBox4.Text)) 
+                if (txtBoxPassword.Text.Equals(txtBoxConfirmPassword.Text)) 
                 {
                     Registrarse2 Registrarse2 = new Registrarse2();
-                    Registrarse2.email = textBox1.Text;
-                    Registrarse2.Text = textBox2.Text;
-                    Registrarse2.contrasena = textBox3.Text;
+                    Registrarse2.email = txtBoxMail.Text;
+                    Registrarse2.Text = txtBoxPhone.Text;
+                    Registrarse2.contrasena = txtBoxPassword.Text;
                     Registrarse2.Show();
                     Registrarse2.Registrarse1 = this;
                     this.Hide();
@@ -44,6 +61,9 @@ namespace InterfazUsuario
             }
         }
 
-   
+        private void Registrarse1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Settings.Default.Save();
+        }
     }
 }
