@@ -11,6 +11,9 @@ using System.Globalization;
 using System.Threading;
 using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
+using Newtonsoft.Json;
+using RestSharp;
+using Controladores;
 
 namespace InterfazUsuario
 {
@@ -36,22 +39,65 @@ namespace InterfazUsuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*if (ControladorCuentaUsuario.Login(TxtMailLogin.Text, loginPassword.Text) == true)
+          Dictionary<string, string> loginData = new Dictionary<string, string>()
             {
-            */
+                { "email", txtBoxMail.Text },
+                { "contrasena", txtBoxPassword.Text }
+            };
+
+            string requestBody = JsonConvert.SerializeObject(loginData);
+
+            RestClient client = new RestClient("https://localhost:44331/");
+            RestRequest request = new RestRequest("/api/Usuario/Login", Method.Post);
+           
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(requestBody);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "application/json");
+
+            try
+            {
+                RestResponse response = client.Execute(request);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Inicio inicio = new Inicio();
+                    inicio.Show();
+                    inicio.Login = this;
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Credenciales incorrectas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+
+        /*  if (ControladorCuentaUsuario.Login(txtBoxMail.Text, txtBoxPassword.Text) == true)
+            {
+           
                 Inicio Inicio = new Inicio();
             Inicio.Show();
             Inicio.Login = this;
             this.Hide();
 
                
-            /*
+            
             }
             else
             {
                 MessageBox.Show("Credenciales incorrectas");
-            }*/
+            }
+            */
         }
+       
         public void CargarIdioma()
         {
             try
