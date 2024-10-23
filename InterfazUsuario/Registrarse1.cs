@@ -42,7 +42,7 @@ namespace InterfazUsuario
                 {
                     Registrarse2 Registrarse2 = new Registrarse2();
                     Registrarse2.email = txtBoxMail.Text;
-                    Registrarse2.Text = txtBoxPhone.Text;
+                    Registrarse2.telefono = txtBoxPhone.Text;
                     Registrarse2.contrasena = txtBoxPassword.Text;
                     Registrarse2.Show();
                     Registrarse2.Registrarse1 = this;

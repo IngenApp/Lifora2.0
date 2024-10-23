@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace InterfazUsuario
         {
             InitializeComponent();
             CargarIdioma();
+            MakeCircularPictureBox(pictureBox2);
             panel2.Hide();
             panel1.Show();
             panel3.Hide();
@@ -38,6 +40,18 @@ namespace InterfazUsuario
                 AgregarPostTexto(form);
 
             }
+        }
+
+        private void MakeCircularPictureBox(PictureBox pictureBox2)
+        {
+            // Crear un objeto GraphicsPath para definir la forma circular
+            GraphicsPath path = new GraphicsPath();
+
+            // Añadir una elipse al path con el tamaño del PictureBox
+            path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
+
+            // Asignar la región circular al PictureBox
+            pictureBox2.Region = new Region(path);
         }
         public void CargarIdioma()
         {

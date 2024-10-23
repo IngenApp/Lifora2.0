@@ -77,9 +77,6 @@ namespace InterfazUsuario
             }
 
 
-
-
-
         /*  if (ControladorCuentaUsuario.Login(txtBoxMail.Text, txtBoxPassword.Text) == true)
             {
            

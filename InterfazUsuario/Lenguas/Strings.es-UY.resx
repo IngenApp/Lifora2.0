@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnCreateEvents" xml:space="preserve">
-    <value>Crear Eventos</value>
+    <value>Eventos</value>
   </data>
   <data name="btnCreatePost" xml:space="preserve">
-    <value>Crear Post</value>
+    <value>Post</value>
   </data>
   <data name="btnGroups" xml:space="preserve">
     <value>Grupos</value>
