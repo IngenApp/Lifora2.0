@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
+using InterfazUsuario.Lenguas;
+using InterfazUsuario.Properties;
 
 namespace InterfazUsuario
 {
@@ -19,6 +24,8 @@ namespace InterfazUsuario
         public Inicio()
         {
             InitializeComponent();
+            CargarIdioma();
+            MakeCircularPictureBox(pictureBox2);
             panel2.Hide();
             panel1.Show();
             panel3.Hide();
@@ -35,6 +42,30 @@ namespace InterfazUsuario
             }
         }
 
+        private void MakeCircularPictureBox(PictureBox pictureBox2)
+        {
+            // Crear un objeto GraphicsPath para definir la forma circular
+            GraphicsPath path = new GraphicsPath();
+
+            // Añadir una elipse al path con el tamaño del PictureBox
+            path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
+
+            // Asignar la región circular al PictureBox
+            pictureBox2.Region = new Region(path);
+        }
+        public void CargarIdioma()
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Idioma);
+
+                Idioma.CambiarTexto(this.Controls);
+            }
+            catch (CultureNotFoundException)
+            {
+                Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
+            }
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             PerfilPrincipal perfil = new PerfilPrincipal();
@@ -251,6 +282,11 @@ namespace InterfazUsuario
                 PostAudioMostrar form = new PostAudioMostrar(Apodo[i]);
                 AgregarPostAudio(form);
             }
+        }
+
+        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Settings.Default.Save();
         }
     }
 
