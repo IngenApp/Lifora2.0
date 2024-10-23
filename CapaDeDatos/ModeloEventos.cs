@@ -9,88 +9,57 @@ namespace Modelo
 {
     public class ModeloEventos : Modelo
     {
-        public int id_evento;
-        public string nombre_evento;
-        public string informacion;
-        public string lugar;
-        public string fecha_evento;
-        public int id_cuenta;
-        public string habilitado;
+        public int idEvento, idPerfil;
+        public string nombreEvento, informacion, lugar, fechaEvento;
+        public bool habilitado;
  
         public void CrearEvento()
         {
-            string sql = $"insert into eventos (nombre_evento, informacion, lugar, fecha_evento, id_cuenta) values(@nombre_evento, @informacion, @lugar, @fecha_evento, @id_cuenta)";
-            this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
+            string sql = $"INSERT INTO eventos (nombre_evento, informacion, lugar, fecha_evento, id_perfil, fecha_hora) VALUES(@nombre_evento, @informacion, @lugar, @fecha_evento, @id_perfil, now());";
+            this.Comando.Parameters.AddWithValue("@nombre_evento", nombreEvento);
             this.Comando.Parameters.AddWithValue("@informacion", informacion);
             this.Comando.Parameters.AddWithValue("@lugar", lugar);
-            this.Comando.Parameters.AddWithValue("@fecha_evento", fecha_evento);
-            this.Comando.Parameters.AddWithValue("@id_cuenta", id_cuenta);
+            this.Comando.Parameters.AddWithValue("@fecha_evento", fechaEvento);
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            this.Comando.CommandText = "COMMIT;";
             this.Comando.ExecuteNonQuery();
         }
         public void DeshabilitarEvento()
         {
-            string sql = $"update eventos set habilitado = false where id_eventos = @id_eventos";
-            this.Comando.Parameters.AddWithValue("@id_eventos", id_evento);
+            string sql = $"update eventos set habilitado = false where id_eventos = @id_eventos;";
+            this.Comando.Parameters.AddWithValue("@id_eventos", idEvento);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            this.Comando.CommandText = "COMMIT;";
             this.Comando.ExecuteNonQuery();
         }
         public void HabilitarEvento()
         {
             string sql = $"update eventos set habilitado = true where id_eventos = @id_eventos";
-            this.Comando.Parameters.AddWithValue("@id_eventos", id_evento);
+            this.Comando.Parameters.AddWithValue("@id_eventos", idEvento);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
-        }
-        public void ModificarNombreEvento()
-        {
-            string sql = $"update eventos set nombre_evento = @nombre_evento where id_eventos = @id_eventos";
-            this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
-            this.Comando.Parameters.AddWithValue("@id_eventos", id_evento);
-            this.Comando.Prepare();
-            this.Comando.CommandText = sql;
+            this.Comando.CommandText = "COMMIT;";
             this.Comando.ExecuteNonQuery();
         }
-        public void ModificarLugarEvento()
+
+        public void ModificarEvento()
         {
-            string sql = $"update eventos set lugar = @lugar where id_eventos = @id_eventos";
-            this.Comando.Parameters.AddWithValue("@lugar", lugar);
-            this.Comando.Parameters.AddWithValue("@id_eventos", id_evento);
-            this.Comando.Prepare();
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-        public void ModificarInformacionEvento()
-        {
-            string sql = $"update eventos set informacion = @informacion where id_eventos = @id_eventos";
-            this.Comando.Parameters.AddWithValue("@informacion", informacion);
-            this.Comando.Parameters.AddWithValue("@id_eventos", id_evento);
-            this.Comando.Prepare();
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-        public void ModificarFechaEvento()
-        {
-            string sql = $"update eventos set fecha_evento = @fecha_evento where id_eventos = @id_eventos";
-            this.Comando.Parameters.AddWithValue("@fecha_evento", fecha_evento);
-            this.Comando.Parameters.AddWithValue("@id_eventos", id_evento);
-            this.Comando.Prepare();
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-        }
-        public void ModificarEventoBackOffice()
-        {
-            string sql = $"update eventos set nombre_evento = @nombre_evento, informacion = @informacion, lugar = @lugar, fecha_evento = @fecha_evento where id_eventos = @id_eventos";
-            this.Comando.Parameters.AddWithValue("@nombre_evento", nombre_evento);
+            string sql = $"update eventos set nombre_evento = @nombre_evento, informacion = @informacion, lugar = @lugar, fecha_evento = @fecha_evento where id_eventos = @id_eventos;";
+            this.Comando.Parameters.AddWithValue("@nombre_evento", nombreEvento);
             this.Comando.Parameters.AddWithValue("@informacion", informacion);
             this.Comando.Parameters.AddWithValue("@lugar", lugar);
-            this.Comando.Parameters.AddWithValue("@fecha_evento", fecha_evento);
-            this.Comando.Parameters.AddWithValue("@id_eventos", id_evento);
+            this.Comando.Parameters.AddWithValue("@fecha_evento", fechaEvento);
+            this.Comando.Parameters.AddWithValue("@id_eventos", idEvento);
             this.Comando.Prepare();
             this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            this.Comando.CommandText = "COMMIT;";
             this.Comando.ExecuteNonQuery();
         }
         public Dictionary<string, string> ObtenerEventoPorId()
@@ -98,7 +67,7 @@ namespace Modelo
             string sql = "SELECT id_eventos, nombre_evento, informacion, lugar, fecha_evento, id_cuenta, habilitado FROM eventos WHERE id_eventos = @id_evento";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_evento", this.id_evento);
+            this.Comando.Parameters.AddWithValue("@id_evento", this.idEvento);
             this.Comando.Prepare();
             Dictionary<string, string> datosEvento = new Dictionary<string, string>();
             using (MySqlDataReader reader = this.Comando.ExecuteReader())
@@ -135,13 +104,13 @@ namespace Modelo
             while (this.Lector.Read())
             {
                 ModeloEventos me = new ModeloEventos();
-                me.id_evento = Int32.Parse(this.Lector["id_eventos"].ToString());
-                me.nombre_evento = this.Lector["nombre_evento"].ToString();
+                me.idEvento = Int32.Parse(this.Lector["id_eventos"].ToString());
+                me.nombreEvento = this.Lector["nombre_evento"].ToString();
                 me.informacion = this.Lector["informacion"].ToString();
                 me.lugar = this.Lector["lugar"].ToString();
-                me.fecha_evento = this.Lector["fecha_evento"].ToString();
-                me.habilitado = this.Lector["habilitado"].ToString();
-                me.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                me.fechaEvento = this.Lector["fecha_evento"].ToString();
+                me.habilitado = Convert.ToBoolean( this.Lector["habilitado"]);
+                me.idPerfil = Int32.Parse(this.Lector["id_perfil"].ToString());
 
                 ListaEventos.Add(me);
             }

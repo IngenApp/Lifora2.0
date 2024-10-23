@@ -7,15 +7,9 @@ namespace ApiPost.Models
 {
     public class ModeloApiPost
     {
-        public int idPost;
-        public int idCuenta;
-        public string post;
-        public int like;
-        public int comentarios;
-        public string textoComentarios;
-        public int contadorLike;
-        public string fecha;
+        public int idPost, idPerfil, idComentario;
+        public string descripcion, apodo, fecha;
+        //public string post, comentario;
         public bool habilitado;
-        public string nombre;
     }
 }

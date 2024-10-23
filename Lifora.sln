@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiEventos", "ApiEventos\Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGrupo", "ApiGrupo\ApiGrupo.csproj", "{1C936101-76EF-4B29-92FB-BC14680DDDD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{6765D1D1-48F8-4CED-AB39-51F21BCFADBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{1C936101-76EF-4B29-92FB-BC14680DDDD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C936101-76EF-4B29-92FB-BC14680DDDD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C936101-76EF-4B29-92FB-BC14680DDDD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6765D1D1-48F8-4CED-AB39-51F21BCFADBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6765D1D1-48F8-4CED-AB39-51F21BCFADBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6765D1D1-48F8-4CED-AB39-51F21BCFADBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6765D1D1-48F8-4CED-AB39-51F21BCFADBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

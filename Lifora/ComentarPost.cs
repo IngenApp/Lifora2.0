@@ -13,24 +13,22 @@ namespace Lifora
 {
     public partial class ComentarPost : Form
     {
-        private int idPost;
-        private int idCuenta;
-        public ComentarPost(int idPost, int idCuenta)
+       string idPost;
+        public ComentarPost(string idPost)
         {
             InitializeComponent();
             this.idPost = idPost;
-            this.idCuenta = idCuenta;
+
         }
         private void btnComentarPost_Click(object sender, EventArgs e)
         {
-            if (textBoxComentarPost.Text != "")
+            if (richTextBox1.Text != "")
             {
                 try
-                {
-                    string comentario = textBoxComentarPost.Text;
-                    ControladorPost.ComentarPost(idPost, idCuenta, comentario);
+                {  
+                    ControladorPost.ComentarPost(idPost, textBox1.Text, richTextBox1.Text);
                     MessageBox.Show("Comentario creado con éxito");
-                    textBoxComentarPost.Text = "";
+                    richTextBox1.Text = "";
                 }
                 catch (Exception ex)
                 {
