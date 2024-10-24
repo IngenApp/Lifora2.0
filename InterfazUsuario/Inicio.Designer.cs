@@ -49,21 +49,21 @@ namespace InterfazUsuario
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBoxSearch
@@ -88,6 +88,7 @@ namespace InterfazUsuario
             // btnGroups
             // 
             this.btnGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnGroups.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGroups.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGroups.ForeColor = System.Drawing.Color.White;
             this.btnGroups.Location = new System.Drawing.Point(11, 365);
@@ -103,6 +104,7 @@ namespace InterfazUsuario
             // btnCreateEvents
             // 
             this.btnCreateEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnCreateEvents.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateEvents.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateEvents.ForeColor = System.Drawing.Color.White;
             this.btnCreateEvents.Location = new System.Drawing.Point(11, 311);
@@ -118,6 +120,7 @@ namespace InterfazUsuario
             // btnMessages
             // 
             this.btnMessages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnMessages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMessages.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMessages.ForeColor = System.Drawing.Color.White;
             this.btnMessages.Location = new System.Drawing.Point(11, 257);
@@ -133,6 +136,7 @@ namespace InterfazUsuario
             // btnCreatePost
             // 
             this.btnCreatePost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnCreatePost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreatePost.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePost.ForeColor = System.Drawing.Color.White;
             this.btnCreatePost.Location = new System.Drawing.Point(11, 203);
@@ -148,6 +152,7 @@ namespace InterfazUsuario
             // InARow
             // 
             this.InARow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.InARow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.InARow.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InARow.ForeColor = System.Drawing.Color.White;
             this.InARow.Location = new System.Drawing.Point(688, -1);
@@ -161,6 +166,7 @@ namespace InterfazUsuario
             // World
             // 
             this.World.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.World.Cursor = System.Windows.Forms.Cursors.Hand;
             this.World.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.World.ForeColor = System.Drawing.Color.White;
             this.World.Location = new System.Drawing.Point(842, -1);
@@ -174,6 +180,7 @@ namespace InterfazUsuario
             // btnWriting
             // 
             this.btnWriting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnWriting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWriting.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWriting.ForeColor = System.Drawing.Color.White;
             this.btnWriting.Location = new System.Drawing.Point(190, 594);
@@ -188,6 +195,7 @@ namespace InterfazUsuario
             // btnPhotos
             // 
             this.btnPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnPhotos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPhotos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhotos.ForeColor = System.Drawing.Color.White;
             this.btnPhotos.Location = new System.Drawing.Point(397, 596);
@@ -202,6 +210,7 @@ namespace InterfazUsuario
             // btnVideo
             // 
             this.btnVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVideo.ForeColor = System.Drawing.Color.White;
             this.btnVideo.Location = new System.Drawing.Point(609, 597);
@@ -216,6 +225,7 @@ namespace InterfazUsuario
             // btnMusic
             // 
             this.btnMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnMusic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMusic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMusic.ForeColor = System.Drawing.Color.White;
             this.btnMusic.Location = new System.Drawing.Point(842, 597);
@@ -294,6 +304,62 @@ namespace InterfazUsuario
             this.panel4.Size = new System.Drawing.Size(800, 540);
             this.panel4.TabIndex = 19;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.ErrorImage = null;
+            this.pictureBox6.Image = global::InterfazUsuario.Properties.Resources.grupos;
+            this.pictureBox6.Location = new System.Drawing.Point(19, 373);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 33;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox5.ErrorImage = null;
+            this.pictureBox5.Image = global::InterfazUsuario.Properties.Resources.eventos;
+            this.pictureBox5.Location = new System.Drawing.Point(19, 318);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 32;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.ErrorImage = null;
+            this.pictureBox4.Image = global::InterfazUsuario.Properties.Resources.mensaje;
+            this.pictureBox4.Location = new System.Drawing.Point(19, 264);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 31;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.ErrorImage = null;
+            this.pictureBox3.Image = global::InterfazUsuario.Properties.Resources.post;
+            this.pictureBox3.Location = new System.Drawing.Point(19, 211);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.button1_Click);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
@@ -318,54 +384,6 @@ namespace InterfazUsuario
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
-            this.pictureBox3.ErrorImage = null;
-            this.pictureBox3.Image = global::InterfazUsuario.Properties.Resources.post;
-            this.pictureBox3.Location = new System.Drawing.Point(19, 211);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
-            this.pictureBox4.ErrorImage = null;
-            this.pictureBox4.Image = global::InterfazUsuario.Properties.Resources.mensaje;
-            this.pictureBox4.Location = new System.Drawing.Point(19, 264);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 31;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
-            this.pictureBox5.ErrorImage = null;
-            this.pictureBox5.Image = global::InterfazUsuario.Properties.Resources.eventos;
-            this.pictureBox5.Location = new System.Drawing.Point(19, 318);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 32;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
-            this.pictureBox6.ErrorImage = null;
-            this.pictureBox6.Image = global::InterfazUsuario.Properties.Resources.grupos;
-            this.pictureBox6.Location = new System.Drawing.Point(19, 373);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 33;
-            this.pictureBox6.TabStop = false;
             // 
             // Inicio
             // 
@@ -407,12 +425,12 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -84,6 +84,26 @@ namespace InterfazUsuario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap comentario {
+            get {
+                object obj = ResourceManager.GetObject("comentario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap compartir {
+            get {
+                object obj = ResourceManager.GetObject("compartir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eventos {
             get {
                 object obj = ResourceManager.GetObject("eventos", resourceCulture);
@@ -137,6 +157,16 @@ namespace InterfazUsuario.Properties {
         internal static System.Drawing.Bitmap mensaje {
             get {
                 object obj = ResourceManager.GetObject("mensaje", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paleta {
+            get {
+                object obj = ResourceManager.GetObject("paleta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

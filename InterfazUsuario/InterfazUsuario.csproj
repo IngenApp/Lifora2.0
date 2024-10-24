@@ -409,5 +409,14 @@
   <ItemGroup>
     <None Include="Resources\ingo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paleta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comentario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compartir.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
