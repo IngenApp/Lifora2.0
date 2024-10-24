@@ -211,7 +211,7 @@ namespace InterfazUsuario
             panel2.Show();
             panel3.Hide();
             panel4.Hide();
-            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
+            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo5", "Apodo5", "Apodo5" };
             panel2.Controls.Clear();
 
             for (int i = 0; i < Apodo.Count; i++)
