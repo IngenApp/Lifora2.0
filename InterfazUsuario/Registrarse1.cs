@@ -65,5 +65,7 @@ namespace InterfazUsuario
         {
             Settings.Default.Save();
         }
+
+        
     }
 }

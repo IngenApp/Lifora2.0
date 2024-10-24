@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Threading;
 using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
+using System.Drawing.Drawing2D;
 
 namespace InterfazUsuario
 {
@@ -22,7 +23,8 @@ namespace InterfazUsuario
         {
             InitializeComponent();
             CargarIdioma();
-
+            MakeCircularPictureBox(pictureBox2);
+            MakeCircularPictureBox(pictureBox1);
 
 
         }
@@ -38,6 +40,17 @@ namespace InterfazUsuario
             {
                 Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
+        }
+        private void MakeCircularPictureBox(PictureBox pictureBox2)
+        {
+            // Crear un objeto GraphicsPath para definir la forma circular
+            GraphicsPath path = new GraphicsPath();
+
+            // Añadir una elipse al path con el tamaño del PictureBox
+            path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
+
+            // Asignar la región circular al PictureBox
+            pictureBox2.Region = new Region(path);
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {

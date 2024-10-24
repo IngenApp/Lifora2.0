@@ -397,5 +397,17 @@
       <Name>Controladores</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\post.png" />
+    <None Include="Resources\mensaje.png" />
+    <None Include="Resources\grupos.png" />
+    <None Include="Resources\eventos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adjunto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

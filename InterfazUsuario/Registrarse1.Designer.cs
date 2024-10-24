@@ -42,65 +42,70 @@ namespace InterfazUsuario
             // lblTituloRegister
             // 
             this.lblTituloRegister.AutoSize = true;
-            this.lblTituloRegister.Location = new System.Drawing.Point(202, 43);
+            this.lblTituloRegister.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloRegister.Location = new System.Drawing.Point(157, 60);
             this.lblTituloRegister.Name = "lblTituloRegister";
-            this.lblTituloRegister.Size = new System.Drawing.Size(35, 13);
+            this.lblTituloRegister.Size = new System.Drawing.Size(114, 24);
             this.lblTituloRegister.TabIndex = 0;
-            this.lblTituloRegister.Text = "label1";
+            this.lblTituloRegister.Text = "Registrate";
             // 
             // lblSubTituloRegistro
             // 
             this.lblSubTituloRegistro.AutoSize = true;
-            this.lblSubTituloRegistro.Location = new System.Drawing.Point(202, 74);
+            this.lblSubTituloRegistro.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTituloRegistro.Location = new System.Drawing.Point(50, 95);
             this.lblSubTituloRegistro.Name = "lblSubTituloRegistro";
-            this.lblSubTituloRegistro.Size = new System.Drawing.Size(35, 13);
+            this.lblSubTituloRegistro.Size = new System.Drawing.Size(339, 24);
             this.lblSubTituloRegistro.TabIndex = 1;
-            this.lblSubTituloRegistro.Text = "label2";
+            this.lblSubTituloRegistro.Text = "Para compartir y ver artes juntos";
             // 
             // txtBoxMail
             // 
             this.txtBoxMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBoxMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxMail.Location = new System.Drawing.Point(86, 207);
+            this.txtBoxMail.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxMail.Location = new System.Drawing.Point(82, 174);
             this.txtBoxMail.Name = "txtBoxMail";
-            this.txtBoxMail.Size = new System.Drawing.Size(270, 31);
+            this.txtBoxMail.Size = new System.Drawing.Size(269, 36);
             this.txtBoxMail.TabIndex = 2;
             // 
             // txtBoxPhone
             // 
             this.txtBoxPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPhone.Location = new System.Drawing.Point(86, 244);
+            this.txtBoxPhone.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPhone.Location = new System.Drawing.Point(82, 216);
             this.txtBoxPhone.Name = "txtBoxPhone";
-            this.txtBoxPhone.Size = new System.Drawing.Size(271, 31);
+            this.txtBoxPhone.Size = new System.Drawing.Size(269, 36);
             this.txtBoxPhone.TabIndex = 3;
             // 
             // txtBoxPassword
             // 
             this.txtBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPassword.Location = new System.Drawing.Point(85, 281);
+            this.txtBoxPassword.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPassword.Location = new System.Drawing.Point(81, 258);
             this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.Size = new System.Drawing.Size(270, 31);
+            this.txtBoxPassword.Size = new System.Drawing.Size(270, 36);
             this.txtBoxPassword.TabIndex = 4;
             // 
             // txtBoxConfirmPassword
             // 
             this.txtBoxConfirmPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxConfirmPassword.Location = new System.Drawing.Point(85, 318);
+            this.txtBoxConfirmPassword.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxConfirmPassword.Location = new System.Drawing.Point(79, 300);
             this.txtBoxConfirmPassword.Name = "txtBoxConfirmPassword";
-            this.txtBoxConfirmPassword.Size = new System.Drawing.Size(270, 31);
+            this.txtBoxConfirmPassword.Size = new System.Drawing.Size(270, 36);
             this.txtBoxConfirmPassword.TabIndex = 5;
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(83, 355);
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnNext.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(79, 352);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(272, 50);
             this.btnNext.TabIndex = 6;
             this.btnNext.Text = "button1";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.button1_Click);
             // 
             // Registrarse1

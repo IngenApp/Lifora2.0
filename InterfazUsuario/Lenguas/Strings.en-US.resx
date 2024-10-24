@@ -160,10 +160,10 @@
     <value>Following</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>Information</value>
+    <value>Info</value>
   </data>
   <data name="lblSubTituloRegistro" xml:space="preserve">
-    <value>To share and view art together</value>
+    <value>To share and view art together!</value>
   </data>
   <data name="lblTituloRegister" xml:space="preserve">
     <value>Register</value>
