@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -144,6 +145,30 @@ namespace Modelo
             }
             this.Lector.Close();
             return bd;
+        }
+
+        public int ObtenerIdPerfilPorApodo(string apodo)
+        {
+            int idPerfil = -1;
+            string sql = "SELECT id_perfil FROM perfil WHERE apodo = @apodo";
+            try
+            {
+
+                this.Comando.Parameters.AddWithValue("@apodo", apodo);
+                this.Comando.Prepare();
+                this.Comando.CommandText = sql;
+                this.Comando.ExecuteNonQuery();
+                string resultado = this.Comando.ExecuteScalar().ToString();
+                idPerfil = Convert.ToInt32(resultado);
+
+                
+            }
+            catch (Exception ex)
+            {
+  
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return idPerfil;
         }
     }
 }

@@ -133,7 +133,17 @@ namespace Controladores
 
             return tabla;
         }
+        public static int ObtenerIdApodo(string apodo)
+        {
+            int idPerfil = -1;
+            ModeloPersonas obtenerId = new ModeloPersonas();
+            obtenerId.apodo = apodo;
+            idPerfil = obtenerId.ObtenerIdPerfilPorApodo(apodo);
+            return idPerfil;
+        }
     }
+    
+    
 }
 
 

@@ -74,9 +74,9 @@ namespace InterfazUsuario
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(474, 583);
+            this.richTextBox1.Location = new System.Drawing.Point(474, 616);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(409, 100);
+            this.richTextBox1.Size = new System.Drawing.Size(409, 67);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -97,7 +97,7 @@ namespace InterfazUsuario
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(474, 12);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(490, 565);
+            this.dataGridView2.Size = new System.Drawing.Size(490, 589);
             this.dataGridView2.TabIndex = 6;
             // 
             // pictureBox1

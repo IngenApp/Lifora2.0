@@ -53,6 +53,12 @@ namespace Lifora
             this.Enabled = false;
             Login.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Mensajes mensajes = new Mensajes();
+            mensajes.Show();
+        }
     }
     
 }

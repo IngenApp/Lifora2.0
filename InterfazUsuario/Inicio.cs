@@ -288,6 +288,11 @@ namespace InterfazUsuario
         {
             Settings.Default.Save();
         }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }

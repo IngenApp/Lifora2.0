@@ -19,8 +19,6 @@ namespace InterfazUsuario
             this.Text = "";
             linkLabel4.Text = Apodo;
             label1.Text = contenido;
-            linkLabel1.Text = cantidadLikes;
-            linkLabel2.Text = cantidadComentarios;
 
         }
      
