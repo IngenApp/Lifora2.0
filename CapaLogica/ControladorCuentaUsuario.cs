@@ -92,6 +92,7 @@ namespace Controladores
 
         }
 
+
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
@@ -133,6 +134,8 @@ namespace Controladores
 
             return tabla;
         }
+
+
         public static int ObtenerIdApodo(string apodo)
         {
             int idPerfil = -1;
@@ -141,6 +144,17 @@ namespace Controladores
             idPerfil = obtenerId.ObtenerIdPerfilPorApodo(apodo);
             return idPerfil;
         }
+
+
+        public static int ObtenerIdEmail(string email)
+        {
+            int idPerfil = -1;
+            ModeloPersonas obtenerId = new ModeloPersonas();
+            obtenerId.apodo = email;
+            idPerfil = obtenerId.ObtenerIdPerfilPorApodo(email);
+            return idPerfil;
+        }
+
     }
     
     

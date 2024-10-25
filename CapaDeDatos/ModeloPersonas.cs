@@ -170,5 +170,28 @@ namespace Modelo
             }
             return idPerfil;
         }
+        public int ObtenerIdPerfilPorEmail(string email)
+        {
+            int idPerfil = -1;
+            string sql = "SELECT id_perfil FROM perfil WHERE email = @email";
+            try
+            {
+
+                this.Comando.Parameters.AddWithValue("@email", email);
+                this.Comando.Prepare();
+                this.Comando.CommandText = sql;
+                this.Comando.ExecuteNonQuery();
+                string resultado = this.Comando.ExecuteScalar().ToString();
+                idPerfil = Convert.ToInt32(resultado);
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return idPerfil;
+        }
     }
 }

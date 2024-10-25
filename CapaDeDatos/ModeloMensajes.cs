@@ -43,26 +43,7 @@ namespace Modelo
 
             string sql = @"
         SELECT 
-            m.id_mensaje,
-            m.contenido,
-            m.fecha_hora,
-            p.apodo
-        FROM 
-            mensaje m
-        JOIN 
-            perfil p ON m.id_perfil = p.id_perfil
-        WHERE 
-            m.id_mensaje IN (
-                SELECT 
-                    c.id_mensaje
-                FROM 
-                    chat c
-                WHERE 
-                    (c.id_perfil_1 = @idPerfil1 AND c.id_perfil_2 = @idPerfil2) 
-                    OR (c.id_perfil_1 = @idPerfil2 AND c.id_perfil_2 = @idPerfil1)
-            )
-        ORDER BY 
-            m.fecha_hora;";
+            m.id_mensaje, m.contenido, m.fecha_hora, p.apodo FROM mensaje m JOIN perfil p ON m.id_perfil = p.id_perfil WHERE m.id_mensaje IN (SELECT c.id_mensaje FROM chat c WHERE (c.id_perfil_1 = @idPerfil1 AND c.id_perfil_2 = @idPerfil2) OR (c.id_perfil_1 = @idPerfil2 AND c.id_perfil_2 = @idPerfil1)) ORDER BY m.fecha_hora;";
 
             try
             {
