@@ -17,18 +17,18 @@ namespace Modelo
 
 
         public void GuardarCuentaUsuario()
-        {   
+        {
             string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
             this.Comando.Parameters.AddWithValue("@nombre", nombre);
             this.Comando.Parameters.AddWithValue("@apellido", apellido);
             this.Comando.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
             this.Comando.Parameters.AddWithValue("@email", email);
-            this.Comando.Parameters.AddWithValue("@telefono", telefono);         
+            this.Comando.Parameters.AddWithValue("@telefono", telefono);
             this.Comando.Parameters.AddWithValue("@contrasenia", contrasena);
             this.Comando.Prepare();
-            this.Comando.CommandText = sql;       
+            this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
-            
+
         }
         public void CrearPerfil()
         {
@@ -83,7 +83,7 @@ namespace Modelo
 
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
-         
+
         }
         public bool Autenticar()
         {
@@ -96,7 +96,7 @@ namespace Modelo
             string resultado = this.Comando.ExecuteScalar().ToString();
             if (resultado == "0")
                 return false;
-            return true;           
+            return true;
         }
         public bool AutenticarBackoffice()
         {
@@ -146,52 +146,76 @@ namespace Modelo
             this.Lector.Close();
             return bd;
         }
-
-        public int ObtenerIdPerfilPorApodo(string apodo)
+         
+        public void ObtenerIdPerfilPorApodo(string apodo)
         {
-            int idPerfil = -1;
-            string sql = "SELECT id_perfil FROM perfil WHERE apodo = @apodo";
+
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.apodo = @apodo; ";
             try
             {
-
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear(); // Limpiar los parámetros antes de agregarlos
                 this.Comando.Parameters.AddWithValue("@apodo", apodo);
-                this.Comando.Prepare();
-                this.Comando.CommandText = sql;
-                this.Comando.ExecuteNonQuery();
-                string resultado = this.Comando.ExecuteScalar().ToString();
-                idPerfil = Convert.ToInt32(resultado);
 
-                
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    if (this.Lector.Read()) // Verificar si hay datos para leer
+                    {
+                        idPerfil = Convert.ToInt32(Lector["id_perfil"]);
+                        nombre = Lector["nombre"].ToString();
+                        apellido = Lector["apellido"].ToString();
+                        fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
+                        email = Lector["email"].ToString();
+                        telefono = Lector["telefono"].ToString();
+                        this.apodo = Lector["apodo"].ToString();
+                        idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"]);
+                        idioma = Lector["idioma"].ToString();
+                        atributo1 = Lector["atributo1"].ToString();
+                        atributo2 = Lector["atributo2"].ToString();
+                    }
+                }
             }
             catch (Exception ex)
             {
-  
+
                 Console.WriteLine($"Error: {ex.Message}");
             }
-            return idPerfil;
+
         }
-        public int ObtenerIdPerfilPorEmail(string email)
+        public void ObtenerIdPerfilPorEmail(string email)
         {
-            int idPerfil = -1;
-            string sql = "SELECT id_perfil FROM perfil WHERE email = @email";
+
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.email = @email; ";
             try
             {
-
-                this.Comando.Parameters.AddWithValue("@email", email);
-                this.Comando.Prepare();
                 this.Comando.CommandText = sql;
-                this.Comando.ExecuteNonQuery();
-                string resultado = this.Comando.ExecuteScalar().ToString();
-                idPerfil = Convert.ToInt32(resultado);
+                this.Comando.Parameters.Clear(); // Limpiar los parámetros antes de agregarlos
+                this.Comando.Parameters.AddWithValue("@email", email);
 
-
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    if (this.Lector.Read()) // Verificar si hay datos para leer
+                    {
+                        idPerfil = Convert.ToInt32(Lector["id_perfil"]);
+                        nombre = Lector["nombre"].ToString();
+                        apellido = Lector["apellido"].ToString();
+                        fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
+                        this.email = Lector["email"].ToString();
+                        telefono = Lector["telefono"].ToString();
+                        apodo = Lector["apodo"].ToString();
+                        idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"]);
+                        idioma = Lector["idioma"].ToString();
+                        atributo1 = Lector["atributo1"].ToString();
+                        atributo2 = Lector["atributo2"].ToString();
+                    }
+                }
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine($"Error: {ex.Message}");
             }
-            return idPerfil;
+
         }
     }
 }

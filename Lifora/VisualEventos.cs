@@ -17,8 +17,8 @@ namespace Lifora
         {
             InitializeComponent();
             dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+           
         }
-
         private void BtnCrearEvento_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
@@ -139,6 +139,21 @@ namespace Lifora
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+        }
+
+        private void VisualEventos_Load(object sender, EventArgs e)
+        {
+            var perfil = ControladorCuentaUsuario.PerfilManager.PerfilActual;
+
+            if (perfil != null)
+            {
+                email1.Text = perfil.email; // Asigna el apodo a un Label
+ 
+            }
+            else
+            {
+                MessageBox.Show("No hay perfil disponible.");
+            }
         }
     }
 }

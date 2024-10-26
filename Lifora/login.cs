@@ -16,6 +16,17 @@ namespace Lifora
         public login()
         {
             InitializeComponent();
+            ControladorCuentaUsuario.PerfilPrincipal pf = ControladorCuentaUsuario.ObtenerPerfilPrincipal("dario@gmail.com");
+            ControladorCuentaUsuario.PerfilManager.PerfilActual = pf;
+  
+            var perfil = ControladorCuentaUsuario.PerfilManager.PerfilActual;
+            if (perfil != null)
+            {
+                Apodo.Text = perfil.apodo; // Ejemplo de uso
+                textBox1.Text = perfil.email;
+                textBox2.Text = perfil.nombre;
+                textBox3.Text = perfil.apellido;
+            };
         }
 
         private void buttonBackOffice_Click(object sender, EventArgs e)

@@ -25,9 +25,10 @@ namespace Lifora
             if (e.RowIndex >= 0)
             {
                 var row = dataGridView1.Rows[e.RowIndex];
-                string apodoPerfil2 = row.Cells["Apodo"].Value.ToString(); 
-
-                int idPerfil2 = ControladorCuentaUsuario.ObtenerIdApodo(apodoPerfil2); 
+                string apodo;
+                ControladorCuentaUsuario.PerfilSecundario pf = ControladorCuentaUsuario.ObtenerPerfilSecundario(apodo = row.Cells["Apodo"].Value.ToString());
+               
+                int idPerfil2 = pf.idPerfil; 
 
                 if (idPerfil2 != -1) // Si se encontró el perfil
                 {
@@ -42,7 +43,7 @@ namespace Lifora
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró el perfil con el apodo: " + apodoPerfil2);
+                    MessageBox.Show("No se encontró el perfil con el apodo: " + apodo);
                 }
             }
         }
