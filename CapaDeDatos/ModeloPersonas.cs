@@ -154,12 +154,12 @@ namespace Modelo
             try
             {
                 this.Comando.CommandText = sql;
-                this.Comando.Parameters.Clear(); // Limpiar los parámetros antes de agregarlos
+                this.Comando.Parameters.Clear(); 
                 this.Comando.Parameters.AddWithValue("@apodo", apodo);
 
                 using (this.Lector = this.Comando.ExecuteReader())
                 {
-                    if (this.Lector.Read()) // Verificar si hay datos para leer
+                    if (this.Lector.Read()) 
                     {
                         idPerfil = Convert.ToInt32(Lector["id_perfil"]);
                         nombre = Lector["nombre"].ToString();
@@ -189,12 +189,12 @@ namespace Modelo
             try
             {
                 this.Comando.CommandText = sql;
-                this.Comando.Parameters.Clear(); // Limpiar los parámetros antes de agregarlos
+                this.Comando.Parameters.Clear(); 
                 this.Comando.Parameters.AddWithValue("@email", email);
 
                 using (this.Lector = this.Comando.ExecuteReader())
                 {
-                    if (this.Lector.Read()) // Verificar si hay datos para leer
+                    if (this.Lector.Read()) 
                     {
                         idPerfil = Convert.ToInt32(Lector["id_perfil"]);
                         nombre = Lector["nombre"].ToString();

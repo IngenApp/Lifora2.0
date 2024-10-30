@@ -31,8 +31,8 @@ namespace InterfazUsuario
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtBoxMail = new System.Windows.Forms.TextBox();
-            this.txtBoxPassword = new System.Windows.Forms.TextBox();
+            this.txtBoxEmail = new System.Windows.Forms.TextBox();
+            this.txtBoxPass = new System.Windows.Forms.TextBox();
             this.linklblRegitrarse = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
@@ -43,6 +43,8 @@ namespace InterfazUsuario
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +54,7 @@ namespace InterfazUsuario
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.btnLogin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(659, 298);
+            this.btnLogin.Location = new System.Drawing.Point(662, 331);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(380, 53);
@@ -61,34 +63,33 @@ namespace InterfazUsuario
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtBoxMail
+            // txtBoxEmail
             // 
-            this.txtBoxMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBoxMail.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxMail.Location = new System.Drawing.Point(659, 196);
-            this.txtBoxMail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBoxMail.Name = "txtBoxMail";
-            this.txtBoxMail.Size = new System.Drawing.Size(380, 36);
-            this.txtBoxMail.TabIndex = 2;
+            this.txtBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtBoxEmail.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxEmail.Location = new System.Drawing.Point(662, 212);
+            this.txtBoxEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxEmail.Name = "txtBoxEmail";
+            this.txtBoxEmail.Size = new System.Drawing.Size(380, 36);
+            this.txtBoxEmail.TabIndex = 2;
             // 
-            // txtBoxPassword
+            // txtBoxPass
             // 
-            this.txtBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBoxPassword.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPassword.Location = new System.Drawing.Point(659, 245);
-            this.txtBoxPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.PasswordChar = '*';
-            this.txtBoxPassword.Size = new System.Drawing.Size(380, 36);
-            this.txtBoxPassword.TabIndex = 3;
-            this.txtBoxPassword.Text = "                                             ";
+            this.txtBoxPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtBoxPass.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPass.Location = new System.Drawing.Point(662, 280);
+            this.txtBoxPass.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxPass.Name = "txtBoxPass";
+            this.txtBoxPass.PasswordChar = '*';
+            this.txtBoxPass.Size = new System.Drawing.Size(380, 36);
+            this.txtBoxPass.TabIndex = 3;
             // 
             // linklblRegitrarse
             // 
             this.linklblRegitrarse.AutoSize = true;
             this.linklblRegitrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblRegitrarse.LinkColor = System.Drawing.Color.Gray;
-            this.linklblRegitrarse.Location = new System.Drawing.Point(737, 364);
+            this.linklblRegitrarse.Location = new System.Drawing.Point(740, 397);
             this.linklblRegitrarse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linklblRegitrarse.Name = "linklblRegitrarse";
             this.linklblRegitrarse.Size = new System.Drawing.Size(232, 25);
@@ -201,12 +202,34 @@ namespace InterfazUsuario
             this.label1.TabIndex = 27;
             this.label1.Text = "|";
             // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(657, 182);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(64, 28);
+            this.labelEmail.TabIndex = 28;
+            this.labelEmail.Text = "Email";
+            // 
+            // labelPassword
+            // 
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Location = new System.Drawing.Point(657, 250);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(123, 28);
+            this.labelPassword.TabIndex = 29;
+            this.labelPassword.Text = "Contrasena";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.labelPassword);
+            this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.linkLabel4);
@@ -216,8 +239,8 @@ namespace InterfazUsuario
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linklblRegitrarse);
-            this.Controls.Add(this.txtBoxPassword);
-            this.Controls.Add(this.txtBoxMail);
+            this.Controls.Add(this.txtBoxPass);
+            this.Controls.Add(this.txtBoxEmail);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -239,8 +262,8 @@ namespace InterfazUsuario
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtBoxMail;
-        private System.Windows.Forms.TextBox txtBoxPassword;
+        private System.Windows.Forms.TextBox txtBoxEmail;
+        private System.Windows.Forms.TextBox txtBoxPass;
         private System.Windows.Forms.LinkLabel linklblRegitrarse;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
@@ -250,6 +273,8 @@ namespace InterfazUsuario
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelPassword;
     }
 }
 

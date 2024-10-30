@@ -29,9 +29,11 @@ namespace InterfazUsuario
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            PerfilSecundario perfil = new PerfilSecundario();
+            perfil.Show();
+
             //if (el eprfil es el mio, actualiza; si es distinto al mio)
-            PerfilSecundario perfilSecundario = new PerfilSecundario();
-            perfilSecundario.Show();
+            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

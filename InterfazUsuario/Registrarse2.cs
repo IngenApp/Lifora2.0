@@ -49,7 +49,7 @@ namespace InterfazUsuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtBoxName.Text.Equals("") || txtBoxSurName.Text.Equals("") || txtBoxDateOfBirth.Text.Equals("") || txtBoxNickName.Text.Equals(""))
+            if (txtBoxNombre.Text.Equals("") || txtBoxApellido.Text.Equals("") || txtBoxFechaNAc.Text.Equals("") || txtBoxApodo.Text.Equals(""))
             {
                 MessageBox.Show("Complete los campos");
                 return;
@@ -61,12 +61,12 @@ namespace InterfazUsuario
                     Dictionary<string, string> loginData = new Dictionary<string, string>()
         {
             { "email", email },
-            { "nombre", txtBoxName.Text },
-            { "apellido", txtBoxSurName.Text },
+            { "nombre", txtBoxNombre.Text },
+            { "apellido", txtBoxApellido.Text },
             { "telefono", telefono },
             { "contrasena", contrasena },
-            { "fechaNacimiento", txtBoxDateOfBirth.Text },
-            { "apodo", txtBoxNickName.Text },
+            { "fechaNacimiento", txtBoxFechaNAc.Text },
+            { "apodo", txtBoxApodo.Text },
             { "idioma", "espanol" }
         };
                     string requestBody = JsonConvert.SerializeObject(loginData);

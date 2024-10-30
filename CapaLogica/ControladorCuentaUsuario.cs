@@ -210,11 +210,12 @@ namespace Controladores
             public string email { get; set; }
             public string telefono { get; set; }
             public string apodo { get; set; }
-            public int? idFotoPerfil { get; set; } 
+            public int idFotoPerfil { get; set; } 
             public string idioma { get; set; }
             public string atributo1 { get; set; }
             public string atributo2 { get; set; }
         }
+
         public static class PerfilManager
         {
             public static PerfilPrincipal PerfilActual { get; set; }

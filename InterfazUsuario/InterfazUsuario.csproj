@@ -117,6 +117,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvisoPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AvisoPass.Designer.cs">
+      <DependentUpon>AvisoPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,9 @@
     <Compile Include="Registrarse2.Designer.cs">
       <DependentUpon>Registrarse2.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AvisoPass.resx">
+      <DependentUpon>AvisoPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +426,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\compartir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alerta.png" />
+    <Content Include="Resources\DejarDeSeguir.png" />
+    <None Include="Resources\Seguir1.png" />
+    <None Include="Resources\DejarDeSeguir1.png" />
+    <Content Include="Resources\Seguir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
