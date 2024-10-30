@@ -144,6 +144,12 @@
   <data name="btnRegister" xml:space="preserve">
     <value>Registrarse</value>
   </data>
+  <data name="btnSeguidores" xml:space="preserve">
+    <value>Seguidores</value>
+  </data>
+  <data name="btnSeguidos" xml:space="preserve">
+    <value>Seguidos</value>
+  </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
   </data>
@@ -174,6 +180,9 @@
 contener una mayuscula, 
 una minuscula, un numero 
 y un caracter especial!</value>
+  </data>
+  <data name="labelBuscar" xml:space="preserve">
+    <value>Buscar</value>
   </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Correo</value>
@@ -234,9 +243,6 @@ y un caracter especial!</value>
   </data>
   <data name="txtBoxPhoneCode" xml:space="preserve">
     <value>Codigo Telefonico</value>
-  </data>
-  <data name="txtBoxSearch" xml:space="preserve">
-    <value>Buscar</value>
   </data>
   <data name="World" xml:space="preserve">
     <value>Mundo</value>

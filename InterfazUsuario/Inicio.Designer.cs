@@ -30,7 +30,7 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
-            this.txtBoxSearch = new System.Windows.Forms.TextBox();
+            this.txtBoxBuscar = new System.Windows.Forms.TextBox();
             this.btnGroups = new System.Windows.Forms.Button();
             this.btnCreateEvents = new System.Windows.Forms.Button();
             this.btnMessages = new System.Windows.Forms.Button();
@@ -55,6 +55,7 @@ namespace InterfazUsuario
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelBuscar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -65,14 +66,14 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtBoxSearch
+            // txtBoxBuscar
             // 
-            this.txtBoxSearch.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearch.Location = new System.Drawing.Point(190, 10);
-            this.txtBoxSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(494, 36);
-            this.txtBoxSearch.TabIndex = 17;
+            this.txtBoxBuscar.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxBuscar.Location = new System.Drawing.Point(285, 10);
+            this.txtBoxBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxBuscar.Name = "txtBoxBuscar";
+            this.txtBoxBuscar.Size = new System.Drawing.Size(399, 36);
+            this.txtBoxBuscar.TabIndex = 17;
             // 
             // btnGroups
             // 
@@ -192,7 +193,7 @@ namespace InterfazUsuario
             this.btnPhotos.Name = "btnPhotos";
             this.btnPhotos.Size = new System.Drawing.Size(150, 50);
             this.btnPhotos.TabIndex = 21;
-            this.btnPhotos.Text = "button9";
+            this.btnPhotos.Text = "7";
             this.btnPhotos.UseVisualStyleBackColor = false;
             this.btnPhotos.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -379,11 +380,23 @@ namespace InterfazUsuario
             this.panel1.Size = new System.Drawing.Size(800, 543);
             this.panel1.TabIndex = 38;
             // 
+            // labelBuscar
+            // 
+            this.labelBuscar.AutoSize = true;
+            this.labelBuscar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuscar.Location = new System.Drawing.Point(186, 14);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(109, 32);
+            this.labelBuscar.TabIndex = 42;
+            this.labelBuscar.Text = "Buscar";
+            this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -402,7 +415,7 @@ namespace InterfazUsuario
             this.Controls.Add(this.btnWriting);
             this.Controls.Add(this.World);
             this.Controls.Add(this.InARow);
-            this.Controls.Add(this.txtBoxSearch);
+            this.Controls.Add(this.txtBoxBuscar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnGroups);
             this.Controls.Add(this.btnCreateEvents);
@@ -432,7 +445,7 @@ namespace InterfazUsuario
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtBoxSearch;
+        private System.Windows.Forms.TextBox txtBoxBuscar;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnGroups;
         private System.Windows.Forms.Button btnCreateEvents;
@@ -457,5 +470,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label labelBuscar;
     }
 }

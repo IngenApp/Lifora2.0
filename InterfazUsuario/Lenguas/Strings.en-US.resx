@@ -144,6 +144,12 @@
   <data name="btnRegister" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="btnSeguidores" xml:space="preserve">
+    <value>Followers</value>
+  </data>
+  <data name="btnSeguidos" xml:space="preserve">
+    <value>Follows</value>
+  </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
   </data>
@@ -174,6 +180,9 @@
 they must contain a capital letter, 
 a lowercase, a number 
 and a special character!</value>
+  </data>
+  <data name="labelBuscar" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Email</value>
@@ -234,9 +243,6 @@ and a special character!</value>
   </data>
   <data name="txtBoxPhoneCode" xml:space="preserve">
     <value>Phone Code</value>
-  </data>
-  <data name="txtBoxSearch" xml:space="preserve">
-    <value>Search</value>
   </data>
   <data name="World" xml:space="preserve">
     <value>World</value>
