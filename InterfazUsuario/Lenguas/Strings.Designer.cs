@@ -61,6 +61,15 @@ namespace InterfazUsuario.Lenguas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Crear.
+        /// </summary>
+        internal static string btnCrearGrupo {
+            get {
+                return ResourceManager.GetString("btnCrearGrupo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Crear Eventos.
         /// </summary>
         internal static string btnCreateEvents {
