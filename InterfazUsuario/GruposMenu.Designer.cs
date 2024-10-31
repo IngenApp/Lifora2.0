@@ -39,13 +39,16 @@ namespace InterfazUsuario
             // 
             // btnCrearGrupo
             // 
+            this.btnCrearGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnCrearGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearGrupo.ForeColor = System.Drawing.Color.White;
             this.btnCrearGrupo.Location = new System.Drawing.Point(45, 315);
             this.btnCrearGrupo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCrearGrupo.Name = "btnCrearGrupo";
             this.btnCrearGrupo.Size = new System.Drawing.Size(201, 59);
             this.btnCrearGrupo.TabIndex = 0;
             this.btnCrearGrupo.Text = "button1";
-            this.btnCrearGrupo.UseVisualStyleBackColor = true;
+            this.btnCrearGrupo.UseVisualStyleBackColor = false;
             this.btnCrearGrupo.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1

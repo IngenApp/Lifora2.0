@@ -196,6 +196,9 @@ and a special character!</value>
   <data name="labelNombre" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="labelNombreGrupo" xml:space="preserve">
+    <value>Group name</value>
+  </data>
   <data name="labelPass2" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
