@@ -9,7 +9,7 @@ namespace Modelo
 {
     public class ModeloPost : Modelo
     {
-        public int idPost, idPerfil, idComentario;
+        public int idPost, idPerfil, idComentario, idEvento;
         public string post, descripcion, apodo, fecha, comentario, idImagen, idVideo, idAudio;
         public bool habilitado, comparteHabilitado;
         public DateTime fechaHora, fechaComparte;
@@ -203,7 +203,8 @@ namespace Modelo
         FROM post p
         LEFT JOIN imagen m ON p.id_post = m.id_post
         LEFT JOIN comparte c ON p.id_post = c.id_post AND c.id_perfil = p.id_perfil
-        WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil order by p.fecha_hora and fecha_comparte;";
+        WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil 
+        ORDER BY p.fecha_hora, c.fecha_hora;;";
 
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
@@ -246,7 +247,8 @@ namespace Modelo
         FROM post p
         LEFT JOIN video v ON p.id_post = v.id_post
         LEFT JOIN comparte c ON p.id_post = c.id_post AND c.id_perfil = p.id_perfil
-        WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil order by p.fecha_hora and fecha_comparte;";
+        WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil 
+        ORDER BY p.fecha_hora, c.fecha_hora;";
 
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
@@ -289,7 +291,8 @@ namespace Modelo
         FROM post p
         LEFT JOIN audio a ON p.id_post = a.id_post
         LEFT JOIN comparte c ON p.id_post = c.id_post AND c.id_perfil = p.id_perfil
-        WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil order by p.fecha_hora and fecha_comparte;";
+        WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil 
+        ORDER BY p.fecha_hora, c.fecha_hora;";
 
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
@@ -414,6 +417,8 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
+
+ 
 
     }
 }

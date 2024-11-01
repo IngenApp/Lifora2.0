@@ -168,7 +168,8 @@ namespace Controladores
             tabla.Columns.Add("ID_perfil", typeof(string));
 
             ModeloPost ListarComentarios = new ModeloPost();
-            foreach (ModeloPost p in ListarComentarios.ObtenerComentarios(idPost))
+            ListarComentarios.idPost = Int32.Parse(idPost);
+            foreach (ModeloPost p in ListarComentarios.ObtenerComentarios())
             {
                 DataRow fila = tabla.NewRow();
                 fila["ID_Comentario"] = p.idComentario;
