@@ -69,6 +69,7 @@ namespace InterfazUsuario
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::InterfazUsuario.Properties.Resources.Logo_2;
             this.pictureBox1.InitialImage = global::InterfazUsuario.Properties.Resources.Logo_2;
             this.pictureBox1.Location = new System.Drawing.Point(31, 550);
@@ -143,6 +144,7 @@ namespace InterfazUsuario
             // btnCreatePost
             // 
             this.btnCreatePost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnCreatePost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreatePost.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePost.ForeColor = System.Drawing.Color.White;
             this.btnCreatePost.Location = new System.Drawing.Point(11, 378);
@@ -232,6 +234,7 @@ namespace InterfazUsuario
             // btnWriting
             // 
             this.btnWriting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnWriting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWriting.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWriting.ForeColor = System.Drawing.Color.White;
             this.btnWriting.Location = new System.Drawing.Point(285, 600);
@@ -246,6 +249,7 @@ namespace InterfazUsuario
             // btnMusic
             // 
             this.btnMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnMusic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMusic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMusic.ForeColor = System.Drawing.Color.White;
             this.btnMusic.Location = new System.Drawing.Point(747, 600);
@@ -260,6 +264,7 @@ namespace InterfazUsuario
             // btnVideo
             // 
             this.btnVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVideo.ForeColor = System.Drawing.Color.White;
             this.btnVideo.Location = new System.Drawing.Point(593, 600);
@@ -274,6 +279,7 @@ namespace InterfazUsuario
             // btnPhotos
             // 
             this.btnPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnPhotos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPhotos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhotos.ForeColor = System.Drawing.Color.White;
             this.btnPhotos.Location = new System.Drawing.Point(439, 600);

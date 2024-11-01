@@ -26,5 +26,26 @@ namespace InterfazUsuario
             PerfilSecundario perfilSecundario = new PerfilSecundario();
             perfilSecundario.Show();
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            VerComentarPost comentar = new VerComentarPost();
+            comentar.Show();
+
+            // Pasarle id_post para comentar
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Deseas compartir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verifica la respuesta del usuario
+            if (resultado == DialogResult.Yes)
+            {
+                // Compartir
+                
+            }
+            
+        }
     }
 }

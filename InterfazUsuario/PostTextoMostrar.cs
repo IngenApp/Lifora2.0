@@ -55,5 +55,14 @@ namespace InterfazUsuario
         {
             //comentar
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            VerComentarPost comentar = new VerComentarPost();
+            comentar.Show();
+
+
+            // pasarle id_post al form para poder comentarlo
+        }
     }
 }

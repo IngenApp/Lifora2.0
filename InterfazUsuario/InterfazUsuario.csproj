@@ -267,6 +267,12 @@
     <Compile Include="Registrarse2.Designer.cs">
       <DependentUpon>Registrarse2.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerComentarPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerComentarPost.Designer.cs">
+      <DependentUpon>VerComentarPost.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AvisoPass.resx">
       <DependentUpon>AvisoPass.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrarse2.resx">
       <DependentUpon>Registrarse2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerComentarPost.resx">
+      <DependentUpon>VerComentarPost.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

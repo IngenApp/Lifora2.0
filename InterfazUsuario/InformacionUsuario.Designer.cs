@@ -30,78 +30,93 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InformacionUsuario));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelTelefono = new System.Windows.Forms.Label();
+            this.labelNombre = new System.Windows.Forms.Label();
+            this.labelApellido = new System.Windows.Forms.Label();
+            this.labelFechaNac = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // labelEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.labelEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelEmail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.ForeColor = System.Drawing.Color.White;
+            this.labelEmail.Location = new System.Drawing.Point(98, 48);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(73, 26);
+            this.labelEmail.TabIndex = 0;
+            this.labelEmail.Text = "label1";
+            this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // labelTelefono
             // 
-            this.label2.AutoSize = true;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(91, 90);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 33);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.labelTelefono.AutoSize = true;
+            this.labelTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.labelTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelTelefono.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTelefono.ForeColor = System.Drawing.Color.White;
+            this.labelTelefono.Location = new System.Drawing.Point(98, 90);
+            this.labelTelefono.Name = "labelTelefono";
+            this.labelTelefono.Size = new System.Drawing.Size(73, 26);
+            this.labelTelefono.TabIndex = 1;
+            this.labelTelefono.Text = "label2";
+            this.labelTelefono.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // labelNombre
             // 
-            this.label3.AutoSize = true;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(91, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 33);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.labelNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelNombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.ForeColor = System.Drawing.Color.White;
+            this.labelNombre.Location = new System.Drawing.Point(98, 134);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(73, 26);
+            this.labelNombre.TabIndex = 2;
+            this.labelNombre.Text = "label3";
+            this.labelNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // labelApellido
             // 
-            this.label4.AutoSize = true;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(91, 177);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 33);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
+            this.labelApellido.AutoSize = true;
+            this.labelApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.labelApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelApellido.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApellido.ForeColor = System.Drawing.Color.White;
+            this.labelApellido.Location = new System.Drawing.Point(98, 177);
+            this.labelApellido.Name = "labelApellido";
+            this.labelApellido.Size = new System.Drawing.Size(73, 26);
+            this.labelApellido.TabIndex = 3;
+            this.labelApellido.Text = "label4";
+            this.labelApellido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // labelFechaNac
             // 
-            this.label5.AutoSize = true;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(91, 220);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 33);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.labelFechaNac.AutoSize = true;
+            this.labelFechaNac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.labelFechaNac.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelFechaNac.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFechaNac.ForeColor = System.Drawing.Color.White;
+            this.labelFechaNac.Location = new System.Drawing.Point(98, 220);
+            this.labelFechaNac.Name = "labelFechaNac";
+            this.labelFechaNac.Size = new System.Drawing.Size(73, 26);
+            this.labelFechaNac.TabIndex = 4;
+            this.labelFechaNac.Text = "label5";
+            this.labelFechaNac.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InformacionUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 311);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelFechaNac);
+            this.Controls.Add(this.labelApellido);
+            this.Controls.Add(this.labelNombre);
+            this.Controls.Add(this.labelTelefono);
+            this.Controls.Add(this.labelEmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -116,10 +131,10 @@ namespace InterfazUsuario
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelTelefono;
+        private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Label labelApellido;
+        private System.Windows.Forms.Label labelFechaNac;
     }
 }
