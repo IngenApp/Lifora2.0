@@ -22,7 +22,7 @@ namespace Lifora
         {
             if (textBoxIdUsuario.Text != "" || richTextBox1.Text != "")
             {
-                ControladorPost.CrearPost(Int32.Parse(textBoxIdUsuario.Text), richTextBox1.Text);
+                ControladorPost.CrearPostTexto(Int32.Parse(textBoxIdUsuario.Text), richTextBox1.Text);
                 MessageBox.Show("Post creado con exito");
                 textBoxIdUsuario.Text = "";
                 richTextBox1.Text = "";

@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
+using InterfazUsuario.Lenguas;
+using InterfazUsuario.Properties;
+using System.Drawing.Drawing2D;
 
 namespace InterfazUsuario
 {
@@ -18,6 +23,7 @@ namespace InterfazUsuario
         public CrearGrupo()
         {
             InitializeComponent();
+            CargarIdioma();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,6 +60,19 @@ namespace InterfazUsuario
             {
                 rutaImagen = openFileDialog.FileName;
                 pictureBox1.Image = new Bitmap(rutaImagen);
+            }
+        }
+        public void CargarIdioma()
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Idioma);
+
+                Idioma.CambiarTexto(this.Controls);
+            }
+            catch (CultureNotFoundException)
+            {
+                Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
         }
     }

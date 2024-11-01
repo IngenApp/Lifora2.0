@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using Controladores;
 
+
 namespace InterfazUsuario
 {
     public partial class Login : Form
@@ -41,8 +42,8 @@ namespace InterfazUsuario
         {
           Dictionary<string, string> loginData = new Dictionary<string, string>()
             {
-                { "email", txtBoxMail.Text },
-                { "contrasena", txtBoxPassword.Text }
+                { "email", txtBoxEmail.Text },
+                { "contrasena", txtBoxPass.Text }
             };
 
             string requestBody = JsonConvert.SerializeObject(loginData);

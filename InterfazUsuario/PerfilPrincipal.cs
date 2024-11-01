@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Threading;
 using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
+using System.Drawing.Drawing2D;
 
 namespace InterfazUsuario
 {
@@ -22,7 +23,24 @@ namespace InterfazUsuario
         {
             InitializeComponent();
             CargarIdioma();
+            MakeCircularPictureBox(pictureBox2);
+            MakeCircularPictureBox(pictureBox1);
 
+
+            panel2.Hide();
+            panel1.Show();
+            panel3.Hide();
+            panel4.Hide();
+            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3" };
+            List<String> contenido = new List<string> { "post1", "post2", "post3" };
+            List<String> cantidadLikes = new List<string> { "10", "15", "20" };
+            List<String> cantidadComentarios = new List<string> { "15", "20", "30" };
+            for (int i = 0; i < Apodo.Count; i++)
+            {
+                PostTextoMostrar form = new PostTextoMostrar(Apodo[i], contenido[i], cantidadLikes[i], cantidadComentarios[i]);
+                AgregarPostTexto(form);
+
+            }
 
 
         }
@@ -38,6 +56,17 @@ namespace InterfazUsuario
             {
                 Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
+        }
+        private void MakeCircularPictureBox(PictureBox pictureBox2)
+        {
+            // Crear un objeto GraphicsPath para definir la forma circular
+            GraphicsPath path = new GraphicsPath();
+
+            // Añadir una elipse al path con el tamaño del PictureBox
+            path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
+
+            // Asignar la región circular al PictureBox
+            pictureBox2.Region = new Region(path);
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -284,14 +313,21 @@ namespace InterfazUsuario
             }
         }
 
-        private void PerfilPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void PerfilPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.Save();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -92,6 +92,7 @@ namespace Controladores
 
         }
 
+
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
@@ -133,7 +134,95 @@ namespace Controladores
 
             return tabla;
         }
+
+
+        public static PerfilSecundario ObtenerPerfilSecundario(string apodo)
+        {
+            ModeloPersonas perfil = new ModeloPersonas();
+            perfil.ObtenerIdPerfilPorApodo(apodo);
+
+            PerfilSecundario pf = new PerfilSecundario
+            {
+                apodo = perfil.apodo,
+                idPerfil = perfil.idPerfil,
+                email = perfil.email,
+                telefono = perfil.telefono,
+                nombre = perfil.nombre,
+                apellido = perfil.apellido,
+                fechaNacimiento = perfil.fechaNacimiento,
+                idFotoPerfil = perfil.idFotoPerfil,
+                idioma = perfil.idioma,
+                atributo1 = perfil.atributo1,
+                atributo2 = perfil.atributo2
+            };
+
+            return pf;
+
+        }
+
+
+        public static PerfilPrincipal ObtenerPerfilPrincipal(string email)
+        {
+            ModeloPersonas perfil = new ModeloPersonas();
+            perfil.ObtenerIdPerfilPorEmail(email);
+
+            PerfilPrincipal pf = new PerfilPrincipal
+            {
+                apodo = perfil.apodo,
+                idPerfil = perfil.idPerfil,
+                email = perfil.email,
+                telefono = perfil.telefono,
+                nombre = perfil.nombre,
+                apellido = perfil.apellido,
+                fechaNacimiento = perfil.fechaNacimiento,
+                idFotoPerfil = perfil.idFotoPerfil,
+                idioma = perfil.idioma,
+                atributo1 = perfil.atributo1,
+                atributo2 = perfil.atributo2
+            };
+
+            return pf;
+        }
+
+
+        public class PerfilPrincipal
+        {
+            public int idPerfil { get; set; }
+            public string nombre { get; set; }
+            public string apellido { get; set; }
+            public string fechaNacimiento { get; set; }
+            public string email { get; set; }
+            public string telefono { get; set; }
+            public string apodo { get; set; }
+            public int? idFotoPerfil { get; set; } 
+            public string idioma { get; set; }
+            public string atributo1 { get; set; }
+            public string atributo2 { get; set; }
+        }
+
+
+        public class PerfilSecundario
+        {
+            public int idPerfil { get; set; }
+            public string nombre { get; set; }
+            public string apellido { get; set; }
+            public string fechaNacimiento { get; set; }
+            public string email { get; set; }
+            public string telefono { get; set; }
+            public string apodo { get; set; }
+            public int idFotoPerfil { get; set; } 
+            public string idioma { get; set; }
+            public string atributo1 { get; set; }
+            public string atributo2 { get; set; }
+        }
+
+        public static class PerfilManager
+        {
+            public static PerfilPrincipal PerfilActual { get; set; }
+        }
     }
+    
+    
 }
 
 

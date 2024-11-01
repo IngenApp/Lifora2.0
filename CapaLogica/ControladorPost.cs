@@ -7,13 +7,38 @@ namespace Controladores
 {
     public class ControladorPost
     {
-        public static void CrearPost(int idPerfil, string descripcion)
+        public static void CrearPostTexto(int idPerfil, string descripcion)
         {
             ModeloPost CreaPost = new ModeloPost();
             CreaPost.idPerfil = idPerfil;
             CreaPost.descripcion = descripcion;
-            CreaPost.CrearPost();
+            CreaPost.CrearPostTexto();
         }
+        public static void CrearPostImagen(int idPerfil, string descripcion, string idImagen)
+        {
+            ModeloPost CreaPost = new ModeloPost();
+            CreaPost.idPerfil = idPerfil;
+            CreaPost.descripcion = descripcion;
+            CreaPost.idImagen = idImagen;
+            CreaPost.CrearPostImagen();
+        }
+        public static void CrearPostVideo(int idPerfil, string descripcion, string idVideo)
+        {
+            ModeloPost CreaPost = new ModeloPost();
+            CreaPost.idPerfil = idPerfil;
+            CreaPost.descripcion = descripcion;
+            CreaPost.idVideo = idVideo;
+            CreaPost.CrearPostVideo();
+        }
+        public static void CrearPostAudio(int idPerfil, string descripcion, string idAudio)
+        {
+            ModeloPost CreaPost = new ModeloPost();
+            CreaPost.idPerfil = idPerfil;
+            CreaPost.descripcion = descripcion;
+            CreaPost.idAudio = idAudio;
+            CreaPost.CrearPostAudio();
+        }
+
         public static void ModificarPost(string idPost, string descripcion)
         {
             ModeloPost ModPostBO = new ModeloPost();
@@ -21,14 +46,6 @@ namespace Controladores
             ModPostBO.descripcion = descripcion;
             ModPostBO.ModificarPost();
         }
-        
-        public static void DarLike(int idPost, int idCuenta)
-        {
-            ModeloPost modeloPost = new ModeloPost();
-            modeloPost.idPost = idPost;
-            modeloPost.DarLike(idCuenta);
-        }
-  
         public static void DeshabilitarPost(int idPost)
         {
             ModeloPost DeshabilitarPost = new ModeloPost();
@@ -37,10 +54,35 @@ namespace Controladores
         }
         public static void HabilitarPost(int idPost)
         {
-            ModeloPost HabilitarPost = new ModeloPost ();
+            ModeloPost HabilitarPost = new ModeloPost();
             HabilitarPost.idPost = idPost;
             HabilitarPost.HabilitarPost();
         }
+
+        public static void DarLike(int idPost, int idPerfil)
+        {
+            ModeloPost modeloPost = new ModeloPost();
+            modeloPost.idPost = idPost;
+            modeloPost.idPerfil = idPerfil;
+            modeloPost.DarLike();
+        }
+        public static void EliminarLike(int idPost, int idPerfil)
+        {
+            ModeloPost modeloPost = new ModeloPost();
+            modeloPost.idPost = idPost;
+            modeloPost.idPerfil = idPerfil;
+            modeloPost.EliminarLike();
+        }
+        public static int ContarLikes(int idPost)
+        {   
+            ModeloPost modeloPost = new ModeloPost();
+            modeloPost.idPost = idPost;
+            return  modeloPost.ContarLikes();    
+        }
+
+
+
+
         public static void ComentarPost(string idPost, string idPerfil, string comentario)
         {
             ModeloPost ComentarPost = new ModeloPost();
@@ -59,8 +101,33 @@ namespace Controladores
             ComentarPost.comentario = comentario;
             ComentarPost.ComentarPost();
         }
-        
-       
+        public static int ContarComentarios(int idPost)
+        {
+            ModeloPost modeloPost = new ModeloPost();
+            modeloPost.idPost = idPost;
+            return modeloPost.ContarComentarios();
+        }
+        public static void DeshabilitarComentario(int idComentario)
+        {
+            ModeloPost DeshabilitarComentario = new ModeloPost();
+            DeshabilitarComentario.idComentario = idComentario;
+            DeshabilitarComentario.DeshabilitarComentario();
+        }
+        public static void HabilitarComentario(int idComentario)
+        {
+            ModeloPost HabilitarComentario = new ModeloPost();
+            HabilitarComentario.idComentario = idComentario;
+            HabilitarComentario.HabilitarComentario();
+        }
+        public static void ModificarComentario(string idComentario, string comentario)
+        {
+            ModeloPost ModificarComentario = new ModeloPost();
+            ModificarComentario.idComentario = Int32.Parse(idComentario);
+            ModificarComentario.comentario = comentario;
+            ModificarComentario.ModificarComentario();
+        }
+
+
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
@@ -87,7 +154,8 @@ namespace Controladores
 
             return tabla;
         }
-
+        // ANDRES
+        //realizar metodo para tomar los datos de los post texto, video, imagen y audio necesarios para mostrar en pantalla por API
 
         public static DataTable ListarComentarios(string idPost)
         {
@@ -100,7 +168,8 @@ namespace Controladores
             tabla.Columns.Add("ID_perfil", typeof(string));
 
             ModeloPost ListarComentarios = new ModeloPost();
-            foreach (ModeloPost p in ListarComentarios.ObtenerComentarios(idPost))
+            ListarComentarios.idPost = Int32.Parse(idPost);
+            foreach (ModeloPost p in ListarComentarios.ObtenerComentarios())
             {
                 DataRow fila = tabla.NewRow();
                 fila["ID_Comentario"] = p.idComentario;
@@ -115,26 +184,7 @@ namespace Controladores
             }
             return tabla;
         }
-        public static void DeshabilitarComentario(int idComentario)
-        {
-            ModeloPost DeshabilitarComentario = new ModeloPost();
-            DeshabilitarComentario.idComentario = idComentario;
-            DeshabilitarComentario.DeshabilitarComentario();
-        }
-        public static void HabilitarComentario(int idComentario)
-        {
-            ModeloPost HabilitarComentario = new ModeloPost();
-            HabilitarComentario.idComentario = idComentario;
-            HabilitarComentario.HabilitarComentario();
-        }
 
-        public static void ModificarComentario(string idComentario, string comentario)
-        {
-            ModeloPost ModificarComentario = new ModeloPost();
-            ModificarComentario.idComentario = Int32.Parse(idComentario);
-            ModificarComentario.comentario = comentario;
-            ModificarComentario.ModificarComentario();
-        }
     }
 }
 

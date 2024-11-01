@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnCrearGrupo" xml:space="preserve">
+    <value>Create</value>
+  </data>
   <data name="btnCreateEvents" xml:space="preserve">
     <value>Events</value>
   </data>
@@ -125,6 +128,9 @@
   </data>
   <data name="btnGroups" xml:space="preserve">
     <value>Groups</value>
+  </data>
+  <data name="btnGrupo" xml:space="preserve">
+    <value>Go to</value>
   </data>
   <data name="btnLogin" xml:space="preserve">
     <value>Login</value>
@@ -144,6 +150,12 @@
   <data name="btnRegister" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="btnSeguidores" xml:space="preserve">
+    <value>Followers</value>
+  </data>
+  <data name="btnSeguidos" xml:space="preserve">
+    <value>Follows</value>
+  </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
   </data>
@@ -160,10 +172,47 @@
     <value>Following</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>Information</value>
+    <value>Info</value>
+  </data>
+  <data name="labelApellido" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="labelApodo" xml:space="preserve">
+    <value>Nickname</value>
+  </data>
+  <data name="labelAvisoPass" xml:space="preserve">
+    <value>Passwords must be between 
+8 and 24 characters, in addition 
+they must contain a capital letter, 
+a lowercase, a number 
+and a special character!</value>
+  </data>
+  <data name="labelBuscar" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="labelEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="labelFechaDeNac" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="labelNombre" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="labelNombreGrupo" xml:space="preserve">
+    <value>Group name</value>
+  </data>
+  <data name="labelPass2" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="labelPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="labelTelefono" xml:space="preserve">
+    <value>Phone</value>
   </data>
   <data name="lblSubTituloRegistro" xml:space="preserve">
-    <value>To share and view art together</value>
+    <value>To share and view art together!</value>
   </data>
   <data name="lblTituloRegister" xml:space="preserve">
     <value>Register</value>
@@ -198,38 +247,11 @@
   <data name="tituloCrearPost" xml:space="preserve">
     <value>Create Post</value>
   </data>
-  <data name="txtBoxConfirmPassword" xml:space="preserve">
-    <value>Confirm Password</value>
-  </data>
-  <data name="txtBoxDateOfBirth" xml:space="preserve">
-    <value>Date of Birth</value>
-  </data>
-  <data name="txtBoxMail" xml:space="preserve">
-    <value>Email</value>
-  </data>
   <data name="txtBoxMailCode" xml:space="preserve">
     <value>Email Code</value>
   </data>
-  <data name="txtBoxName" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="txtBoxNickName" xml:space="preserve">
-    <value>Nickname</value>
-  </data>
-  <data name="txtBoxPassword" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="txtBoxPhone" xml:space="preserve">
-    <value>Phone</value>
-  </data>
   <data name="txtBoxPhoneCode" xml:space="preserve">
     <value>Phone Code</value>
-  </data>
-  <data name="txtBoxSearch" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="txtBoxSurName" xml:space="preserve">
-    <value>Surname</value>
   </data>
   <data name="World" xml:space="preserve">
     <value>World</value>
