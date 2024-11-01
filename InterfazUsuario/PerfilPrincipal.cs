@@ -313,10 +313,7 @@ namespace InterfazUsuario
             }
         }
 
-        private void PerfilPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void PerfilPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -324,6 +321,11 @@ namespace InterfazUsuario
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
 
         }

@@ -129,6 +129,9 @@
   <data name="btnGroups" xml:space="preserve">
     <value>Groups</value>
   </data>
+  <data name="btnGrupo" xml:space="preserve">
+    <value>Go to</value>
+  </data>
   <data name="btnLogin" xml:space="preserve">
     <value>Login</value>
   </data>

@@ -72,5 +72,12 @@ namespace InterfazUsuario
                 Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
         }
+
+        private void btnGrupo_Click(object sender, EventArgs e)
+        {
+            // verificar en el datagrid q grupo esta seleccionado
+            Grupos grupos = new Grupos();
+            grupos.Show();
+        }
     }
 }
