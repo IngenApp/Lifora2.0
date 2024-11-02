@@ -254,13 +254,15 @@ namespace InterfazUsuario
             // Nickname
             // 
             this.Nickname.AutoSize = true;
-            this.Nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nickname.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Nickname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nickname.Location = new System.Drawing.Point(30, 621);
             this.Nickname.Name = "Nickname";
-            this.Nickname.Size = new System.Drawing.Size(110, 25);
+            this.Nickname.Size = new System.Drawing.Size(77, 24);
             this.Nickname.TabIndex = 30;
             this.Nickname.TabStop = true;
-            this.Nickname.Text = "linkLabel1";
+            this.Nickname.Text = "Apodo";
+            this.Nickname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Nickname.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // pictureBox6
@@ -383,10 +385,10 @@ namespace InterfazUsuario
             // labelBuscar
             // 
             this.labelBuscar.AutoSize = true;
-            this.labelBuscar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuscar.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBuscar.Location = new System.Drawing.Point(186, 14);
             this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(109, 32);
+            this.labelBuscar.Size = new System.Drawing.Size(79, 28);
             this.labelBuscar.TabIndex = 42;
             this.labelBuscar.Text = "Buscar";
             this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;

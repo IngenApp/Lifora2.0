@@ -35,7 +35,6 @@ namespace InterfazUsuario
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnCreatePost = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -54,6 +53,7 @@ namespace InterfazUsuario
             this.btnMessages = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.labelInformacionGrupo = new System.Windows.Forms.Label();
+            this.GroupName = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -108,6 +108,7 @@ namespace InterfazUsuario
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Location = new System.Drawing.Point(11, 9);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
@@ -115,22 +116,10 @@ namespace InterfazUsuario
             this.pictureBox2.TabIndex = 61;
             this.pictureBox2.TabStop = false;
             // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.ForeColor = System.Drawing.Color.Black;
-            this.linkLabel3.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel3.Location = new System.Drawing.Point(16, 161);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(136, 31);
-            this.linkLabel3.TabIndex = 77;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "linkLabel3";
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.ErrorImage = null;
             this.pictureBox3.Image = global::InterfazUsuario.Properties.Resources.post;
             this.pictureBox3.Location = new System.Drawing.Point(20, 386);
@@ -186,6 +175,7 @@ namespace InterfazUsuario
             // btnDejarSeguir
             // 
             this.btnDejarSeguir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnDejarSeguir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDejarSeguir.Location = new System.Drawing.Point(98, 480);
             this.btnDejarSeguir.Name = "btnDejarSeguir";
             this.btnDejarSeguir.Size = new System.Drawing.Size(50, 50);
@@ -196,6 +186,7 @@ namespace InterfazUsuario
             // btnSeguir
             // 
             this.btnSeguir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnSeguir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSeguir.Location = new System.Drawing.Point(22, 480);
             this.btnSeguir.Name = "btnSeguir";
             this.btnSeguir.Size = new System.Drawing.Size(50, 50);
@@ -350,11 +341,25 @@ namespace InterfazUsuario
             this.labelInformacionGrupo.TabIndex = 0;
             this.labelInformacionGrupo.Text = "label1";
             // 
+            // GroupName
+            // 
+            this.GroupName.AutoSize = true;
+            this.GroupName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GroupName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupName.Location = new System.Drawing.Point(16, 161);
+            this.GroupName.Name = "GroupName";
+            this.GroupName.Size = new System.Drawing.Size(142, 24);
+            this.GroupName.TabIndex = 95;
+            this.GroupName.TabStop = true;
+            this.GroupName.Text = "ApodoGrupo";
+            this.GroupName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Grupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.GroupName);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.btnMessages);
@@ -370,7 +375,6 @@ namespace InterfazUsuario
             this.Controls.Add(this.btnSeguir);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnCreatePost);
-            this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.axWindowsMediaPlayer2);
             this.Controls.Add(this.monthCalendar1);
@@ -407,7 +411,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnCreatePost;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -426,5 +429,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.Button btnMessages;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label labelInformacionGrupo;
+        private System.Windows.Forms.LinkLabel GroupName;
     }
 }

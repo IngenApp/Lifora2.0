@@ -30,11 +30,12 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.labelApodo = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.labelFecha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -49,17 +50,17 @@ namespace InterfazUsuario
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // linkLabel4
+            // labelApodo
             // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel4.Location = new System.Drawing.Point(12, 9);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(115, 24);
-            this.linkLabel4.TabIndex = 8;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "linkLabel4";
-            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            this.labelApodo.AutoSize = true;
+            this.labelApodo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApodo.Location = new System.Drawing.Point(12, 9);
+            this.labelApodo.Name = "labelApodo";
+            this.labelApodo.Size = new System.Drawing.Size(77, 24);
+            this.labelApodo.TabIndex = 8;
+            this.labelApodo.TabStop = true;
+            this.labelApodo.Text = "Apodo";
+            this.labelApodo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // pictureBox3
             // 
@@ -108,17 +109,29 @@ namespace InterfazUsuario
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "10000";
             // 
+            // labelFecha
+            // 
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.Location = new System.Drawing.Point(680, 9);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(42, 18);
+            this.labelFecha.TabIndex = 20;
+            this.labelFecha.Text = "label2";
+            this.labelFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // PostTextoMostrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 195);
             this.ControlBox = false;
+            this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.labelApodo);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PostTextoMostrar";
@@ -134,10 +147,11 @@ namespace InterfazUsuario
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel labelApodo;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.Label labelFecha;
     }
 }

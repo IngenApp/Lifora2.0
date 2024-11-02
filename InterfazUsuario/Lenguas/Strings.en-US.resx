@@ -120,6 +120,9 @@
   <data name="btnComentarPost" xml:space="preserve">
     <value>Comment</value>
   </data>
+  <data name="btnCrearEvento" xml:space="preserve">
+    <value>Create</value>
+  </data>
   <data name="btnCrearGrupo" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="btnCreatePost" xml:space="preserve">
     <value>Post</value>
+  </data>
+  <data name="btnEvento" xml:space="preserve">
+    <value>Abrir</value>
   </data>
   <data name="btnGroups" xml:space="preserve">
     <value>Groups</value>
@@ -193,11 +199,26 @@ and a special character!</value>
   <data name="labelBuscar" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="labelCrearEvento" xml:space="preserve">
+    <value>Event Name</value>
+  </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="labelEventos" xml:space="preserve">
+    <value>Events</value>
+  </data>
   <data name="labelFechaDeNac" xml:space="preserve">
     <value>Date of Birth</value>
+  </data>
+  <data name="labelGrupos" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="labelInfoEvento" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="labelLugarEvento" xml:space="preserve">
+    <value>Location</value>
   </data>
   <data name="labelNombre" xml:space="preserve">
     <value>Name</value>
@@ -210,6 +231,9 @@ and a special character!</value>
   </data>
   <data name="labelPassword" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="labelPostInfo" xml:space="preserve">
+    <value>Select the Post you want to share!</value>
   </data>
   <data name="labelTelefono" xml:space="preserve">
     <value>Phone</value>

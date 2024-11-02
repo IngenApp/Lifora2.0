@@ -34,7 +34,7 @@ namespace InterfazUsuario
             this.btnPhotos = new System.Windows.Forms.Button();
             this.btnVideo = new System.Windows.Forms.Button();
             this.btnMusic = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelPostInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnWriting
@@ -89,22 +89,22 @@ namespace InterfazUsuario
             this.btnMusic.UseVisualStyleBackColor = false;
             this.btnMusic.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // label1
+            // labelPostInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 24);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "label1";
+            this.labelPostInfo.AutoSize = true;
+            this.labelPostInfo.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPostInfo.Location = new System.Drawing.Point(124, 25);
+            this.labelPostInfo.Name = "labelPostInfo";
+            this.labelPostInfo.Size = new System.Drawing.Size(395, 28);
+            this.labelPostInfo.TabIndex = 9;
+            this.labelPostInfo.Text = "Seleccione el Post que desee compartir!";
             // 
             // CrearPost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 161);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPostInfo);
             this.Controls.Add(this.btnMusic);
             this.Controls.Add(this.btnVideo);
             this.Controls.Add(this.btnPhotos);
@@ -114,7 +114,7 @@ namespace InterfazUsuario
             this.MinimizeBox = false;
             this.Name = "CrearPost";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Post";
+            this.Text = "Lifora";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +126,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.Button btnPhotos;
         private System.Windows.Forms.Button btnVideo;
         private System.Windows.Forms.Button btnMusic;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPostInfo;
     }
 }

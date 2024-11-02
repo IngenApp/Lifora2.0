@@ -17,7 +17,7 @@ namespace InterfazUsuario
             InitializeComponent();
             this.ControlBox = false;
             this.Text = "";
-            linkLabel1.Text = Apodo;
+            NickName.Text = Apodo;
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

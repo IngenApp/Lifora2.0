@@ -44,12 +44,12 @@ namespace InterfazUsuario
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(408, 324);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(307, 282);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 65);
+            this.button1.Size = new System.Drawing.Size(115, 53);
             this.button1.TabIndex = 13;
             this.button1.Text = "Crear";
             this.button1.UseVisualStyleBackColor = false;
@@ -57,40 +57,36 @@ namespace InterfazUsuario
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(37, 168);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(29, 126);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(315, 221);
+            this.richTextBox1.Size = new System.Drawing.Size(237, 209);
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = "";
             // 
             // labelNombreGrupo
             // 
             this.labelNombreGrupo.AutoSize = true;
-            this.labelNombreGrupo.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreGrupo.Location = new System.Drawing.Point(31, 42);
-            this.labelNombreGrupo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNombreGrupo.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombreGrupo.Location = new System.Drawing.Point(24, 25);
             this.labelNombreGrupo.Name = "labelNombreGrupo";
-            this.labelNombreGrupo.Size = new System.Drawing.Size(89, 32);
+            this.labelNombreGrupo.Size = new System.Drawing.Size(68, 28);
             this.labelNombreGrupo.TabIndex = 10;
             this.labelNombreGrupo.Text = "label1";
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(37, 78);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(29, 56);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(523, 46);
+            this.textBox1.Size = new System.Drawing.Size(393, 36);
             this.textBox1.TabIndex = 8;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(361, 132);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(272, 126);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 185);
+            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
@@ -99,10 +95,9 @@ namespace InterfazUsuario
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::InterfazUsuario.Properties.Resources.adjunto;
-            this.pictureBox2.Location = new System.Drawing.Point(361, 327);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(272, 285);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 62);
+            this.pictureBox2.Size = new System.Drawing.Size(29, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 18;
             this.pictureBox2.TabStop = false;
@@ -111,19 +106,18 @@ namespace InterfazUsuario
             // Description
             // 
             this.Description.AutoSize = true;
-            this.Description.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Description.Location = new System.Drawing.Point(32, 132);
-            this.Description.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Description.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Description.Location = new System.Drawing.Point(24, 95);
             this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(160, 32);
+            this.Description.Size = new System.Drawing.Size(123, 28);
             this.Description.TabIndex = 19;
             this.Description.Text = "Descripcion";
             // 
             // CrearGrupo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 444);
+            this.ClientSize = new System.Drawing.Size(459, 361);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -133,10 +127,9 @@ namespace InterfazUsuario
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CrearGrupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrearGrupo";
+            this.Text = "Lifora";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

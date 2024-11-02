@@ -157,19 +157,19 @@ namespace InterfazUsuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AbrirEvento();
+            AbrirEventoMenu();
         }
-        private void AbrirEvento()
+        private void AbrirEventoMenu()
         {
-            if (CrearEvento.eventoInstancia == null || CrearEvento.eventoInstancia.IsDisposed)
+            if(EventosMenu.eventoInstancia == null || EventosMenu.eventoInstancia.IsDisposed)
             {
-                CrearEvento.eventoInstancia = new CrearEvento();
-                CrearEvento.eventoInstancia.Show();
+                EventosMenu.eventoInstancia = new EventosMenu();
+                EventosMenu.eventoInstancia.Show();
             }
             else
             {
-                CrearEvento.eventoInstancia.WindowState = FormWindowState.Normal;
-                CrearEvento.eventoInstancia.BringToFront();
+                EventosMenu.eventoInstancia.WindowState = FormWindowState.Normal;
+                EventosMenu.eventoInstancia.BringToFront();
             }
         }
 

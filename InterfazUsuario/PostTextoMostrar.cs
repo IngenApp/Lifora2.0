@@ -17,7 +17,7 @@ namespace InterfazUsuario
             InitializeComponent();
             this.ControlBox = false;
             this.Text = "";
-            linkLabel4.Text = Apodo;
+            labelApodo.Text = Apodo;
             label1.Text = contenido;
 
         }

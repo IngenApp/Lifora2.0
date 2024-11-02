@@ -87,12 +87,12 @@ namespace InterfazUsuario
             // linklblRegitrarse
             // 
             this.linklblRegitrarse.AutoSize = true;
-            this.linklblRegitrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblRegitrarse.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblRegitrarse.LinkColor = System.Drawing.Color.Gray;
             this.linklblRegitrarse.Location = new System.Drawing.Point(740, 397);
             this.linklblRegitrarse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linklblRegitrarse.Name = "linklblRegitrarse";
-            this.linklblRegitrarse.Size = new System.Drawing.Size(232, 25);
+            this.linklblRegitrarse.Size = new System.Drawing.Size(231, 28);
             this.linklblRegitrarse.TabIndex = 4;
             this.linklblRegitrarse.TabStop = true;
             this.linklblRegitrarse.Text = "No tienes una Cuenta?";

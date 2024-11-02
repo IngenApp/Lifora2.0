@@ -123,7 +123,7 @@ namespace InterfazUsuario
             this.MinimizeBox = false;
             this.Name = "InformacionUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InformacionUsuario";
+            this.Text = "Lifora";
             this.ResumeLayout(false);
             this.PerformLayout();
 
