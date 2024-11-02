@@ -238,6 +238,8 @@ namespace InterfazUsuario
             // 
             // monthCalendar1
             // 
+            this.monthCalendar1.BackColor = System.Drawing.Color.White;
+            this.monthCalendar1.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthCalendar1.Location = new System.Drawing.Point(1019, 244);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 27;
@@ -385,6 +387,7 @@ namespace InterfazUsuario
             // labelBuscar
             // 
             this.labelBuscar.AutoSize = true;
+            this.labelBuscar.BackColor = System.Drawing.Color.Transparent;
             this.labelBuscar.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBuscar.Location = new System.Drawing.Point(186, 14);
             this.labelBuscar.Name = "labelBuscar";
@@ -397,6 +400,7 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.fondo_inicio;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.panel4);

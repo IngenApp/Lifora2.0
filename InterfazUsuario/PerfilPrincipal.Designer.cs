@@ -412,6 +412,7 @@ namespace InterfazUsuario
             // Nickname
             // 
             this.Nickname.AutoSize = true;
+            this.Nickname.BackColor = System.Drawing.Color.Transparent;
             this.Nickname.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Nickname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nickname.Location = new System.Drawing.Point(42, 163);
@@ -427,6 +428,7 @@ namespace InterfazUsuario
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.perfil;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.Nickname);
             this.Controls.Add(this.labelSeguidos);

@@ -451,6 +451,11 @@
     <Content Include="Resources\DejarDeSeguir.png" />
     <None Include="Resources\Seguir1.png" />
     <None Include="Resources\DejarDeSeguir1.png" />
+    <None Include="Resources\fondo.png" />
+    <None Include="Resources\fondo1.png" />
+    <None Include="Resources\perfil.png" />
+    <None Include="Resources\fondo inicio.png" />
+    <None Include="Resources\fondogrupos.png" />
     <Content Include="Resources\Seguir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
