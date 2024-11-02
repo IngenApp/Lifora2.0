@@ -102,9 +102,9 @@ namespace InterfazUsuario
             this.btnCrearEvento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrearEvento.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearEvento.ForeColor = System.Drawing.Color.White;
-            this.btnCrearEvento.Location = new System.Drawing.Point(311, 338);
+            this.btnCrearEvento.Location = new System.Drawing.Point(332, 338);
             this.btnCrearEvento.Name = "btnCrearEvento";
-            this.btnCrearEvento.Size = new System.Drawing.Size(115, 53);
+            this.btnCrearEvento.Size = new System.Drawing.Size(94, 53);
             this.btnCrearEvento.TabIndex = 20;
             this.btnCrearEvento.Text = "Crear";
             this.btnCrearEvento.UseVisualStyleBackColor = false;
@@ -112,11 +112,12 @@ namespace InterfazUsuario
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::InterfazUsuario.Properties.Resources.adjunto;
             this.pictureBox2.Location = new System.Drawing.Point(276, 338);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(29, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;

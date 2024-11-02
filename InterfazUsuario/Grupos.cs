@@ -121,5 +121,10 @@ namespace InterfazUsuario
                 Mensajes.MensajeInstancia.BringToFront();
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -402,7 +402,6 @@ namespace Lifora
             this.Name = "VisualEventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisualEventos";
-            this.Load += new System.EventHandler(this.VisualEventos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComentarios)).EndInit();

@@ -446,6 +446,7 @@
     <None Include="Resources\compartir.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Sin título-3.png" />
     <None Include="Resources\alerta.png" />
     <Content Include="Resources\DejarDeSeguir.png" />
     <None Include="Resources\Seguir1.png" />

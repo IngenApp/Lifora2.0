@@ -126,6 +126,9 @@
   <data name="btnCrearGrupo" xml:space="preserve">
     <value>Create</value>
   </data>
+  <data name="btnCrearPost" xml:space="preserve">
+    <value>Create</value>
+  </data>
   <data name="btnCreateEvents" xml:space="preserve">
     <value>Events</value>
   </data>
@@ -160,10 +163,10 @@
     <value>Register</value>
   </data>
   <data name="btnSeguidores" xml:space="preserve">
-    <value>My fans</value>
+    <value>FANS</value>
   </data>
   <data name="btnSeguidos" xml:space="preserve">
-    <value>My idols</value>
+    <value>IDOLS</value>
   </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
@@ -175,7 +178,7 @@
     <value>Description</value>
   </data>
   <data name="Follower" xml:space="preserve">
-    <value>Followers</value>
+    <value>FANS</value>
   </data>
   <data name="InARow" xml:space="preserve">
     <value>Following</value>

@@ -181,7 +181,7 @@ namespace InterfazUsuario
             // 
             this.btnDejarSeguir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.btnDejarSeguir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDejarSeguir.Location = new System.Drawing.Point(99, 267);
+            this.btnDejarSeguir.Location = new System.Drawing.Point(99, 305);
             this.btnDejarSeguir.Name = "btnDejarSeguir";
             this.btnDejarSeguir.Size = new System.Drawing.Size(50, 50);
             this.btnDejarSeguir.TabIndex = 65;
@@ -194,7 +194,7 @@ namespace InterfazUsuario
             this.Information.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Information.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Information.ForeColor = System.Drawing.Color.White;
-            this.Information.Location = new System.Drawing.Point(11, 388);
+            this.Information.Location = new System.Drawing.Point(11, 426);
             this.Information.Name = "Information";
             this.Information.Size = new System.Drawing.Size(150, 50);
             this.Information.TabIndex = 66;
@@ -207,7 +207,7 @@ namespace InterfazUsuario
             // 
             this.btnSeguir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.btnSeguir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeguir.Location = new System.Drawing.Point(23, 267);
+            this.btnSeguir.Location = new System.Drawing.Point(23, 305);
             this.btnSeguir.Name = "btnSeguir";
             this.btnSeguir.Size = new System.Drawing.Size(50, 50);
             this.btnSeguir.TabIndex = 64;
@@ -240,10 +240,10 @@ namespace InterfazUsuario
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(131)))), ((int)(((byte)(83)))));
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::InterfazUsuario.Properties.Resources.Seguir;
-            this.pictureBox3.Location = new System.Drawing.Point(22, 267);
+            this.pictureBox3.Location = new System.Drawing.Point(22, 305);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -253,10 +253,10 @@ namespace InterfazUsuario
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = global::InterfazUsuario.Properties.Resources.DejarDeSeguir;
-            this.pictureBox4.Location = new System.Drawing.Point(99, 267);
+            this.pictureBox4.Location = new System.Drawing.Point(99, 305);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(50, 50);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -270,7 +270,7 @@ namespace InterfazUsuario
             this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox7.ErrorImage = null;
             this.pictureBox7.Image = global::InterfazUsuario.Properties.Resources.ingo;
-            this.pictureBox7.Location = new System.Drawing.Point(18, 395);
+            this.pictureBox7.Location = new System.Drawing.Point(18, 433);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(35, 35);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -282,13 +282,13 @@ namespace InterfazUsuario
             // 
             this.btnSeguidores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
             this.btnSeguidores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeguidores.ForeColor = System.Drawing.Color.Black;
             this.btnSeguidores.Location = new System.Drawing.Point(11, 211);
             this.btnSeguidores.Name = "btnSeguidores";
             this.btnSeguidores.Size = new System.Drawing.Size(75, 50);
             this.btnSeguidores.TabIndex = 70;
-            this.btnSeguidores.Text = "Followers";
+            this.btnSeguidores.Text = "FANS";
             this.btnSeguidores.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidores.UseVisualStyleBackColor = false;
             // 
@@ -296,13 +296,13 @@ namespace InterfazUsuario
             // 
             this.btnSeguidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
             this.btnSeguidos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeguidos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguidos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeguidos.ForeColor = System.Drawing.Color.Black;
             this.btnSeguidos.Location = new System.Drawing.Point(86, 211);
             this.btnSeguidos.Name = "btnSeguidos";
             this.btnSeguidos.Size = new System.Drawing.Size(75, 50);
             this.btnSeguidos.TabIndex = 71;
-            this.btnSeguidos.Text = "Follows";
+            this.btnSeguidos.Text = "IDOLS";
             this.btnSeguidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidos.UseVisualStyleBackColor = false;
             // 
@@ -312,7 +312,7 @@ namespace InterfazUsuario
             this.labelSeguidores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
             this.labelSeguidores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSeguidores.Location = new System.Drawing.Point(29, 223);
+            this.labelSeguidores.Location = new System.Drawing.Point(28, 221);
             this.labelSeguidores.Name = "labelSeguidores";
             this.labelSeguidores.Size = new System.Drawing.Size(47, 15);
             this.labelSeguidores.TabIndex = 72;
@@ -325,7 +325,7 @@ namespace InterfazUsuario
             this.labelSeguidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
             this.labelSeguidos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelSeguidos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSeguidos.Location = new System.Drawing.Point(100, 223);
+            this.labelSeguidos.Location = new System.Drawing.Point(99, 221);
             this.labelSeguidos.Name = "labelSeguidos";
             this.labelSeguidos.Size = new System.Drawing.Size(47, 15);
             this.labelSeguidos.TabIndex = 73;
@@ -347,7 +347,7 @@ namespace InterfazUsuario
             this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.ErrorImage = null;
             this.pictureBox5.Image = global::InterfazUsuario.Properties.Resources.mensaje;
-            this.pictureBox5.Location = new System.Drawing.Point(20, 340);
+            this.pictureBox5.Location = new System.Drawing.Point(20, 378);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(35, 35);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -361,7 +361,7 @@ namespace InterfazUsuario
             this.btnMessages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMessages.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMessages.ForeColor = System.Drawing.Color.White;
-            this.btnMessages.Location = new System.Drawing.Point(11, 333);
+            this.btnMessages.Location = new System.Drawing.Point(11, 371);
             this.btnMessages.Margin = new System.Windows.Forms.Padding(2);
             this.btnMessages.Name = "btnMessages";
             this.btnMessages.Size = new System.Drawing.Size(150, 50);

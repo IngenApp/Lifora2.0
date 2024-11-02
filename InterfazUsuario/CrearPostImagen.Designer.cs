@@ -44,7 +44,7 @@ namespace InterfazUsuario
             this.btnCrearPost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrearPost.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearPost.ForeColor = System.Drawing.Color.White;
-            this.btnCrearPost.Location = new System.Drawing.Point(212, 494);
+            this.btnCrearPost.Location = new System.Drawing.Point(212, 499);
             this.btnCrearPost.Name = "btnCrearPost";
             this.btnCrearPost.Size = new System.Drawing.Size(150, 50);
             this.btnCrearPost.TabIndex = 0;
@@ -57,15 +57,16 @@ namespace InterfazUsuario
             this.richTextBox1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(350, 70);
+            this.richTextBox1.Size = new System.Drawing.Size(350, 100);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::InterfazUsuario.Properties.Resources.adjunto;
-            this.pictureBox2.Location = new System.Drawing.Point(156, 494);
+            this.pictureBox2.Location = new System.Drawing.Point(156, 499);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -77,9 +78,9 @@ namespace InterfazUsuario
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 88);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 118);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 400);
+            this.pictureBox1.Size = new System.Drawing.Size(350, 375);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;

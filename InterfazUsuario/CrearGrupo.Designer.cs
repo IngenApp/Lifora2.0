@@ -47,9 +47,9 @@ namespace InterfazUsuario
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(307, 282);
+            this.button1.Location = new System.Drawing.Point(328, 282);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 53);
+            this.button1.Size = new System.Drawing.Size(94, 53);
             this.button1.TabIndex = 13;
             this.button1.Text = "Crear";
             this.button1.UseVisualStyleBackColor = false;
@@ -93,11 +93,12 @@ namespace InterfazUsuario
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::InterfazUsuario.Properties.Resources.adjunto;
             this.pictureBox2.Location = new System.Drawing.Point(272, 285);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(29, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 18;
             this.pictureBox2.TabStop = false;

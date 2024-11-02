@@ -386,26 +386,26 @@ namespace InterfazUsuario
             // btnSeguidos
             // 
             this.btnSeguidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
-            this.btnSeguidos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguidos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeguidos.ForeColor = System.Drawing.Color.Black;
             this.btnSeguidos.Location = new System.Drawing.Point(86, 206);
             this.btnSeguidos.Name = "btnSeguidos";
             this.btnSeguidos.Size = new System.Drawing.Size(75, 50);
             this.btnSeguidos.TabIndex = 75;
-            this.btnSeguidos.Text = "Follows";
+            this.btnSeguidos.Text = "IDOLS";
             this.btnSeguidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidos.UseVisualStyleBackColor = false;
             // 
             // btnSeguidores
             // 
             this.btnSeguidores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
-            this.btnSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeguidores.ForeColor = System.Drawing.Color.Black;
             this.btnSeguidores.Location = new System.Drawing.Point(11, 206);
             this.btnSeguidores.Name = "btnSeguidores";
             this.btnSeguidores.Size = new System.Drawing.Size(75, 50);
             this.btnSeguidores.TabIndex = 74;
-            this.btnSeguidores.Text = "Followers";
+            this.btnSeguidores.Text = "FANS";
             this.btnSeguidores.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidores.UseVisualStyleBackColor = false;
             // 
@@ -426,6 +426,7 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.Nickname);
             this.Controls.Add(this.labelSeguidos);
