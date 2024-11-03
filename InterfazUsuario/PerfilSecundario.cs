@@ -229,5 +229,12 @@ namespace InterfazUsuario
             //Obtener ID para abrir chat con ese usuario
             AbrirMensajes();
         }
+
+        private void Report_Click(object sender, EventArgs e)
+        {
+            Reportar reportar = new Reportar();
+            //reportar.Apodo = Apodo;
+            reportar.Show();
+        }
     }
 }

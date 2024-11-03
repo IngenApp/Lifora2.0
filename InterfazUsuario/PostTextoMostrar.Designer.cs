@@ -37,10 +37,10 @@ namespace InterfazUsuario
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Report = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Report)).BeginInit();
             this.SuspendLayout();
             // 
             // labelApodo
@@ -131,17 +131,18 @@ namespace InterfazUsuario
             this.richTextBox1.TabIndex = 36;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
-            // pictureBox1
+            // Report
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::InterfazUsuario.Properties.Resources.Reportar;
-            this.pictureBox1.Location = new System.Drawing.Point(712, 114);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
+            this.Report.BackColor = System.Drawing.Color.Transparent;
+            this.Report.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Report.Image = global::InterfazUsuario.Properties.Resources.Reportar;
+            this.Report.Location = new System.Drawing.Point(712, 114);
+            this.Report.Name = "Report";
+            this.Report.Size = new System.Drawing.Size(30, 30);
+            this.Report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Report.TabIndex = 37;
+            this.Report.TabStop = false;
+            this.Report.Click += new System.EventHandler(this.Report_Click);
             // 
             // PostTextoMostrar
             // 
@@ -149,7 +150,7 @@ namespace InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 156);
             this.ControlBox = false;
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Report);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.pictureBox3);
@@ -163,7 +164,7 @@ namespace InterfazUsuario
             this.Load += new System.EventHandler(this.PostTextoMostrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Report)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,6 +178,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel linkLabel6;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Report;
     }
 }

@@ -273,6 +273,12 @@
     <Compile Include="Registrarse2.Designer.cs">
       <DependentUpon>Registrarse2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportar.Designer.cs">
+      <DependentUpon>Reportar.cs</DependentUpon>
+    </Compile>
     <Compile Include="VerComentarPost.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrarse2.resx">
       <DependentUpon>Registrarse2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportar.resx">
+      <DependentUpon>Reportar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerComentarPost.resx">
       <DependentUpon>VerComentarPost.cs</DependentUpon>

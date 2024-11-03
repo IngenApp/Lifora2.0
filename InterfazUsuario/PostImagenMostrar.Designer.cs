@@ -96,6 +96,7 @@ namespace InterfazUsuario
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // linkLabel4
             // 
@@ -202,7 +203,6 @@ namespace InterfazUsuario
             this.Controls.Add(this.linkLabel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Name = "PostImagenMostrar";
             this.Text = "PostImagenMostrar";
             this.Load += new System.EventHandler(this.PostImagenMostrar_Load);

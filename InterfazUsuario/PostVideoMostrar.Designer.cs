@@ -33,7 +33,7 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.NickName = new System.Windows.Forms.LinkLabel();
             this.labelFecha = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Report = new System.Windows.Forms.PictureBox();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
@@ -42,7 +42,7 @@ namespace InterfazUsuario
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Report)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -82,17 +82,18 @@ namespace InterfazUsuario
             this.labelFecha.Text = "label2";
             this.labelFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // pictureBox1
+            // Report
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::InterfazUsuario.Properties.Resources.Reportar;
-            this.pictureBox1.Location = new System.Drawing.Point(339, 340);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 34;
-            this.pictureBox1.TabStop = false;
+            this.Report.BackColor = System.Drawing.Color.Transparent;
+            this.Report.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Report.Image = global::InterfazUsuario.Properties.Resources.Reportar;
+            this.Report.Location = new System.Drawing.Point(339, 340);
+            this.Report.Name = "Report";
+            this.Report.Size = new System.Drawing.Size(30, 30);
+            this.Report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Report.TabIndex = 34;
+            this.Report.TabStop = false;
+            this.Report.Click += new System.EventHandler(this.Report_Click);
             // 
             // linkLabel4
             // 
@@ -189,7 +190,7 @@ namespace InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 376);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Report);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.linkLabel5);
@@ -204,7 +205,7 @@ namespace InterfazUsuario
             this.Name = "PostVideoMostrar";
             this.Text = "PostVideoMostrar";
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Report)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -218,7 +219,7 @@ namespace InterfazUsuario
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.LinkLabel NickName;
         private System.Windows.Forms.Label labelFecha;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Report;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.LinkLabel linkLabel5;

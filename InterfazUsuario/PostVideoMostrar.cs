@@ -85,5 +85,12 @@ namespace InterfazUsuario
         {
             // darle like
         }
+
+        private void Report_Click(object sender, EventArgs e)
+        {
+            Reportar reportar = new Reportar();
+            //reportar.id_post = id_post;
+            reportar.Show();
+        }
     }
 }

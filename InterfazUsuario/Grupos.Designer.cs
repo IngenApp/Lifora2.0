@@ -42,8 +42,6 @@ namespace InterfazUsuario
             this.btnPhotos = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMessages = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.labelInformacionGrupo = new System.Windows.Forms.Label();
             this.GroupName = new System.Windows.Forms.LinkLabel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -54,9 +52,10 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Report = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -65,6 +64,7 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Report)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreatePost
@@ -219,32 +219,14 @@ namespace InterfazUsuario
             this.btnMessages.UseVisualStyleBackColor = false;
             this.btnMessages.Click += new System.EventHandler(this.btnMessages_Click);
             // 
-            // panel5
-            // 
-            this.panel5.AutoScroll = true;
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.labelInformacionGrupo);
-            this.panel5.Location = new System.Drawing.Point(12, 202);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(150, 171);
-            this.panel5.TabIndex = 94;
-            // 
-            // labelInformacionGrupo
-            // 
-            this.labelInformacionGrupo.AutoSize = true;
-            this.labelInformacionGrupo.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInformacionGrupo.Location = new System.Drawing.Point(7, 9);
-            this.labelInformacionGrupo.Name = "labelInformacionGrupo";
-            this.labelInformacionGrupo.Size = new System.Drawing.Size(64, 25);
-            this.labelInformacionGrupo.TabIndex = 0;
-            this.labelInformacionGrupo.Text = "label1";
-            // 
             // GroupName
             // 
             this.GroupName.AutoSize = true;
             this.GroupName.BackColor = System.Drawing.Color.Transparent;
             this.GroupName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GroupName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupName.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.GroupName.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.GroupName.Location = new System.Drawing.Point(16, 161);
             this.GroupName.Name = "GroupName";
             this.GroupName.Size = new System.Drawing.Size(142, 24);
@@ -358,17 +340,42 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(227, 200);
             this.axWindowsMediaPlayer1.TabIndex = 96;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.richTextBox1.Font = new System.Drawing.Font("Arial Unicode MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(11, 188);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(147, 185);
+            this.richTextBox1.TabIndex = 99;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // Report
+            // 
+            this.Report.BackColor = System.Drawing.Color.Transparent;
+            this.Report.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Report.Image = global::InterfazUsuario.Properties.Resources.Reportar;
+            this.Report.Location = new System.Drawing.Point(143, 9);
+            this.Report.Name = "Report";
+            this.Report.Size = new System.Drawing.Size(30, 30);
+            this.Report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Report.TabIndex = 100;
+            this.Report.TabStop = false;
+            this.Report.Click += new System.EventHandler(this.Report_Click);
+            // 
             // Grupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallppaerLifora;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.Report);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.axWindowsMediaPlayer2);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.GroupName);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.btnMessages);
             this.Controls.Add(this.panel4);
@@ -394,8 +401,6 @@ namespace InterfazUsuario
             this.Text = "Lifora";
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -404,6 +409,7 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Report)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,11 +435,11 @@ namespace InterfazUsuario
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btnMessages;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label labelInformacionGrupo;
         private System.Windows.Forms.LinkLabel GroupName;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox Report;
     }
 }

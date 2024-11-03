@@ -21,5 +21,12 @@ namespace InterfazUsuario
         {
             // Comentar
         }
+
+        private void Report_Click(object sender, EventArgs e)
+        {
+            Reportar reportar = new Reportar();
+            //reportar.id_comentario = id_comentario;
+            reportar.Show();
+        }
     }
 }

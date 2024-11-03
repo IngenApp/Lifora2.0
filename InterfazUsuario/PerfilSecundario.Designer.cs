@@ -56,6 +56,7 @@ namespace InterfazUsuario
             this.ReproductorPublicidad = new AxWMPLib.AxWindowsMediaPlayer();
             this.Calendario = new System.Windows.Forms.MonthCalendar();
             this.Reproductor = new AxWMPLib.AxWindowsMediaPlayer();
+            this.Report = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -64,6 +65,7 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Report)).BeginInit();
             this.SuspendLayout();
             // 
             // btnWriting
@@ -386,12 +388,26 @@ namespace InterfazUsuario
             this.Reproductor.Size = new System.Drawing.Size(227, 200);
             this.Reproductor.TabIndex = 82;
             // 
+            // Report
+            // 
+            this.Report.BackColor = System.Drawing.Color.Transparent;
+            this.Report.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Report.Image = global::InterfazUsuario.Properties.Resources.Reportar;
+            this.Report.Location = new System.Drawing.Point(143, 9);
+            this.Report.Name = "Report";
+            this.Report.Size = new System.Drawing.Size(30, 30);
+            this.Report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Report.TabIndex = 85;
+            this.Report.TabStop = false;
+            this.Report.Click += new System.EventHandler(this.Report_Click);
+            // 
             // PerfilSecundario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallppaerLifora;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.Report);
             this.Controls.Add(this.ReproductorPublicidad);
             this.Controls.Add(this.Calendario);
             this.Controls.Add(this.Reproductor);
@@ -433,6 +449,7 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Report)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,5 +483,6 @@ namespace InterfazUsuario
         private AxWMPLib.AxWindowsMediaPlayer ReproductorPublicidad;
         private System.Windows.Forms.MonthCalendar Calendario;
         private AxWMPLib.AxWindowsMediaPlayer Reproductor;
+        private System.Windows.Forms.PictureBox Report;
     }
 }

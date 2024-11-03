@@ -77,5 +77,12 @@ namespace InterfazUsuario
 
             }
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Reportar reportar = new Reportar();
+            //reportar.id_post = id_post;
+            reportar.Show();
+        }
     }
 }
