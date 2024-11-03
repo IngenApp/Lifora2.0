@@ -123,6 +123,7 @@
     <Compile Include="AvisoPass.Designer.cs">
       <DependentUpon>AvisoPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestorDePosts.cs" />
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +242,12 @@
     <Compile Include="PostAudioMostrar.Designer.cs">
       <DependentUpon>PostAudioMostrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostImagenAmpliar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostImagenAmpliar.Designer.cs">
+      <DependentUpon>PostImagenAmpliar.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostImagenMostrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +259,12 @@
     </Compile>
     <Compile Include="PostTextoMostrar.Designer.cs">
       <DependentUpon>PostTextoMostrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostVideoAmpliar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostVideoAmpliar.Designer.cs">
+      <DependentUpon>PostVideoAmpliar.cs</DependentUpon>
     </Compile>
     <Compile Include="PostVideoMostrar.cs">
       <SubType>Form</SubType>
@@ -351,11 +364,17 @@
     <EmbeddedResource Include="PostAudioMostrar.resx">
       <DependentUpon>PostAudioMostrar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PostImagenAmpliar.resx">
+      <DependentUpon>PostImagenAmpliar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PostImagenMostrar.resx">
       <DependentUpon>PostImagenMostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostTextoMostrar.resx">
       <DependentUpon>PostTextoMostrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostVideoAmpliar.resx">
+      <DependentUpon>PostVideoAmpliar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostVideoMostrar.resx">
       <DependentUpon>PostVideoMostrar.cs</DependentUpon>
@@ -471,6 +490,10 @@
     <None Include="Resources\fondogrupos.png" />
     <None Include="Resources\Like.png" />
     <None Include="Resources\Reportar.png" />
+    <None Include="Resources\fondoGaleria.png" />
+    <None Include="Resources\Fondo Fotos.png" />
+    <None Include="Resources\Fondo Fotos1.png" />
+    <None Include="Resources\FondoPostImagen.jpg" />
     <Content Include="Resources\Seguir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

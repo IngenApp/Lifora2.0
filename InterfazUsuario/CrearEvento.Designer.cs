@@ -39,7 +39,7 @@ namespace InterfazUsuario
             this.btnCrearEvento = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelLugarEvento = new System.Windows.Forms.Label();
-            this.labelInfoEvento = new System.Windows.Forms.Label();
+            this.labelInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -134,15 +134,15 @@ namespace InterfazUsuario
             this.labelLugarEvento.TabIndex = 22;
             this.labelLugarEvento.Text = "label1";
             // 
-            // labelInfoEvento
+            // labelInfo
             // 
-            this.labelInfoEvento.AutoSize = true;
-            this.labelInfoEvento.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfoEvento.Location = new System.Drawing.Point(20, 170);
-            this.labelInfoEvento.Name = "labelInfoEvento";
-            this.labelInfoEvento.Size = new System.Drawing.Size(68, 28);
-            this.labelInfoEvento.TabIndex = 23;
-            this.labelInfoEvento.Text = "label2";
+            this.labelInfo.AutoSize = true;
+            this.labelInfo.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInfo.Location = new System.Drawing.Point(20, 170);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(68, 28);
+            this.labelInfo.TabIndex = 23;
+            this.labelInfo.Text = "label2";
             // 
             // CrearEvento
             // 
@@ -150,7 +150,7 @@ namespace InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallpaperEmergente;
             this.ClientSize = new System.Drawing.Size(459, 441);
-            this.Controls.Add(this.labelInfoEvento);
+            this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.labelLugarEvento);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnCrearEvento);
@@ -183,6 +183,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.Button btnCrearEvento;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelLugarEvento;
-        private System.Windows.Forms.Label labelInfoEvento;
+        private System.Windows.Forms.Label labelInfo;
     }
 }

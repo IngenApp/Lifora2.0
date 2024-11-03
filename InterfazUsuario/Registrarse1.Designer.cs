@@ -48,8 +48,9 @@ namespace InterfazUsuario
             // lblTituloRegister
             // 
             this.lblTituloRegister.AutoSize = true;
+            this.lblTituloRegister.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloRegister.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloRegister.Location = new System.Drawing.Point(160, 22);
+            this.lblTituloRegister.Location = new System.Drawing.Point(40, 60);
             this.lblTituloRegister.Name = "lblTituloRegister";
             this.lblTituloRegister.Size = new System.Drawing.Size(114, 24);
             this.lblTituloRegister.TabIndex = 0;
@@ -58,8 +59,9 @@ namespace InterfazUsuario
             // lblSubTituloRegistro
             // 
             this.lblSubTituloRegistro.AutoSize = true;
+            this.lblSubTituloRegistro.BackColor = System.Drawing.Color.Transparent;
             this.lblSubTituloRegistro.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTituloRegistro.Location = new System.Drawing.Point(53, 57);
+            this.lblSubTituloRegistro.Location = new System.Drawing.Point(40, 27);
             this.lblSubTituloRegistro.Name = "lblSubTituloRegistro";
             this.lblSubTituloRegistro.Size = new System.Drawing.Size(346, 24);
             this.lblSubTituloRegistro.TabIndex = 1;
@@ -171,6 +173,7 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallppaerLifora;
             this.ClientSize = new System.Drawing.Size(434, 511);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelPass2);

@@ -32,7 +32,7 @@ namespace InterfazUsuario
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reportar));
             this.btnReportarSi = new System.Windows.Forms.Button();
             this.btnReportarNo = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelReportar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnReportarSi
@@ -65,15 +65,15 @@ namespace InterfazUsuario
             this.btnReportarNo.UseVisualStyleBackColor = false;
             this.btnReportarNo.Click += new System.EventHandler(this.btnReportarNo_Click);
             // 
-            // label1
+            // labelReportar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(80, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 28);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Reportar?";
+            this.labelReportar.AutoSize = true;
+            this.labelReportar.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReportar.Location = new System.Drawing.Point(80, 9);
+            this.labelReportar.Name = "labelReportar";
+            this.labelReportar.Size = new System.Drawing.Size(107, 28);
+            this.labelReportar.TabIndex = 35;
+            this.labelReportar.Text = "Reportar?";
             // 
             // Reportar
             // 
@@ -81,11 +81,12 @@ namespace InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 113);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelReportar);
             this.Controls.Add(this.btnReportarNo);
             this.Controls.Add(this.btnReportarSi);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Reportar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lifora";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -96,6 +97,6 @@ namespace InterfazUsuario
 
         private System.Windows.Forms.Button btnReportarSi;
         private System.Windows.Forms.Button btnReportarNo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelReportar;
     }
 }

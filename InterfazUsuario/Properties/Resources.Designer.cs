@@ -164,6 +164,26 @@ namespace InterfazUsuario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Fotos {
+            get {
+                object obj = ResourceManager.GetObject("Fondo Fotos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Fotos1 {
+            get {
+                object obj = ResourceManager.GetObject("Fondo Fotos1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondo_inicio {
             get {
                 object obj = ResourceManager.GetObject("fondo inicio", resourceCulture);
@@ -184,9 +204,29 @@ namespace InterfazUsuario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondoGaleria {
+            get {
+                object obj = ResourceManager.GetObject("fondoGaleria", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondogrupos {
             get {
                 object obj = ResourceManager.GetObject("fondogrupos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FondoPostImagen {
+            get {
+                object obj = ResourceManager.GetObject("FondoPostImagen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

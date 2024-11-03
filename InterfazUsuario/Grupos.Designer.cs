@@ -73,7 +73,7 @@ namespace InterfazUsuario
             this.btnCreatePost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreatePost.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePost.ForeColor = System.Drawing.Color.White;
-            this.btnCreatePost.Location = new System.Drawing.Point(11, 378);
+            this.btnCreatePost.Location = new System.Drawing.Point(11, 369);
             this.btnCreatePost.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreatePost.Name = "btnCreatePost";
             this.btnCreatePost.Size = new System.Drawing.Size(150, 50);
@@ -209,7 +209,7 @@ namespace InterfazUsuario
             this.btnMessages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMessages.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMessages.ForeColor = System.Drawing.Color.White;
-            this.btnMessages.Location = new System.Drawing.Point(11, 426);
+            this.btnMessages.Location = new System.Drawing.Point(11, 423);
             this.btnMessages.Margin = new System.Windows.Forms.Padding(2);
             this.btnMessages.Name = "btnMessages";
             this.btnMessages.Size = new System.Drawing.Size(150, 50);
@@ -241,7 +241,7 @@ namespace InterfazUsuario
             this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox6.ErrorImage = null;
             this.pictureBox6.Image = global::InterfazUsuario.Properties.Resources.mensaje;
-            this.pictureBox6.Location = new System.Drawing.Point(19, 433);
+            this.pictureBox6.Location = new System.Drawing.Point(20, 430);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(35, 35);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -254,7 +254,7 @@ namespace InterfazUsuario
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = global::InterfazUsuario.Properties.Resources.DejarDeSeguir;
-            this.pictureBox4.Location = new System.Drawing.Point(98, 482);
+            this.pictureBox4.Location = new System.Drawing.Point(100, 482);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(50, 50);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -267,7 +267,7 @@ namespace InterfazUsuario
             this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(131)))), ((int)(((byte)(83)))));
             this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Image = global::InterfazUsuario.Properties.Resources.Seguir;
-            this.pictureBox5.Location = new System.Drawing.Point(21, 482);
+            this.pictureBox5.Location = new System.Drawing.Point(20, 482);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(50, 50);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -281,7 +281,7 @@ namespace InterfazUsuario
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.ErrorImage = null;
             this.pictureBox3.Image = global::InterfazUsuario.Properties.Resources.post;
-            this.pictureBox3.Location = new System.Drawing.Point(20, 386);
+            this.pictureBox3.Location = new System.Drawing.Point(20, 376);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(35, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -347,7 +347,7 @@ namespace InterfazUsuario
             this.richTextBox1.Location = new System.Drawing.Point(11, 188);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(147, 185);
+            this.richTextBox1.Size = new System.Drawing.Size(147, 169);
             this.richTextBox1.TabIndex = 99;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 

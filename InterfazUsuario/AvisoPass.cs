@@ -35,6 +35,11 @@ namespace InterfazUsuario
                 Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
     
 }

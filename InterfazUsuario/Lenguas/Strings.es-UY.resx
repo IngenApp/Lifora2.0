@@ -156,11 +156,20 @@
   <data name="btnNext" xml:space="preserve">
     <value>Siguiente</value>
   </data>
+  <data name="btnOk" xml:space="preserve">
+    <value>Entiendo</value>
+  </data>
   <data name="btnPhotos" xml:space="preserve">
     <value>Fotos</value>
   </data>
   <data name="btnRegister" xml:space="preserve">
     <value>Registrarse</value>
+  </data>
+  <data name="btnReportarNo" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="btnReportarSi" xml:space="preserve">
+    <value>SI</value>
   </data>
   <data name="btnSeguidores" xml:space="preserve">
     <value>FANS</value>
@@ -192,13 +201,6 @@
   <data name="labelApodo" xml:space="preserve">
     <value>Apodo</value>
   </data>
-  <data name="labelAvisoPass" xml:space="preserve">
-    <value>Las contrasenas deben tener entre 
-8 y 24 caracteres, ademas deben 
-contener una mayuscula, 
-una minuscula, un numero 
-y un caracter especial!</value>
-  </data>
   <data name="labelBuscar" xml:space="preserve">
     <value>Buscar</value>
   </data>
@@ -214,7 +216,7 @@ y un caracter especial!</value>
   <data name="labelGrupos" xml:space="preserve">
     <value>Grupos</value>
   </data>
-  <data name="labelInfoEvento" xml:space="preserve">
+  <data name="labelInfo" xml:space="preserve">
     <value>Informacion</value>
   </data>
   <data name="labelLugarEvento" xml:space="preserve">
@@ -237,6 +239,9 @@ y un caracter especial!</value>
   </data>
   <data name="labelPostInfo" xml:space="preserve">
     <value>Seleccione el Post que desee compartir!</value>
+  </data>
+  <data name="labelReportar" xml:space="preserve">
+    <value>Reportar?</value>
   </data>
   <data name="labelTelefono" xml:space="preserve">
     <value>Telefono</value>
@@ -273,6 +278,9 @@ y un caracter especial!</value>
   </data>
   <data name="Publicity" xml:space="preserve">
     <value>Publicidad</value>
+  </data>
+  <data name="richTextBoxAvisoPass" xml:space="preserve">
+    <value>Las contrasenas deben tener entre 8 y 24 caracteres, ademas deben contener una mayuscula, una minuscula, un numero y un caracter especial!</value>
   </data>
   <data name="tituloCrearPost" xml:space="preserve">
     <value>Crear Post</value>

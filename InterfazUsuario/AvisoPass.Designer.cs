@@ -30,26 +30,59 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AvisoPass));
-            this.labelAvisoPass = new System.Windows.Forms.Label();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.richTextBoxAvisoPass = new System.Windows.Forms.RichTextBox();
+            this.labelInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // labelAvisoPass
+            // btnOk
             // 
-            this.labelAvisoPass.AutoSize = true;
-            this.labelAvisoPass.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAvisoPass.Location = new System.Drawing.Point(12, 9);
-            this.labelAvisoPass.Name = "labelAvisoPass";
-            this.labelAvisoPass.Size = new System.Drawing.Size(68, 28);
-            this.labelAvisoPass.TabIndex = 0;
-            this.labelAvisoPass.Text = "label1";
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOk.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.ForeColor = System.Drawing.Color.White;
+            this.btnOk.Location = new System.Drawing.Point(206, 200);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(150, 50);
+            this.btnOk.TabIndex = 23;
+            this.btnOk.Text = "Ok";
+            this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // richTextBoxAvisoPass
+            // 
+            this.richTextBoxAvisoPass.Cursor = System.Windows.Forms.Cursors.Default;
+            this.richTextBoxAvisoPass.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxAvisoPass.Location = new System.Drawing.Point(20, 70);
+            this.richTextBoxAvisoPass.Name = "richTextBoxAvisoPass";
+            this.richTextBoxAvisoPass.ReadOnly = true;
+            this.richTextBoxAvisoPass.Size = new System.Drawing.Size(336, 118);
+            this.richTextBoxAvisoPass.TabIndex = 37;
+            this.richTextBoxAvisoPass.Text = "";
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.AutoSize = true;
+            this.labelInfo.BackColor = System.Drawing.Color.Transparent;
+            this.labelInfo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInfo.Location = new System.Drawing.Point(20, 30);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(71, 24);
+            this.labelInfo.TabIndex = 38;
+            this.labelInfo.Text = "label1";
             // 
             // AvisoPass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 161);
-            this.Controls.Add(this.labelAvisoPass);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallpaperEmergente;
+            this.ClientSize = new System.Drawing.Size(384, 261);
+            this.ControlBox = false;
+            this.Controls.Add(this.labelInfo);
+            this.Controls.Add(this.richTextBoxAvisoPass);
+            this.Controls.Add(this.btnOk);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -63,6 +96,8 @@ namespace InterfazUsuario
 
         #endregion
 
-        private System.Windows.Forms.Label labelAvisoPass;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.RichTextBox richTextBoxAvisoPass;
+        private System.Windows.Forms.Label labelInfo;
     }
 }

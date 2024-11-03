@@ -12,13 +12,18 @@ namespace InterfazUsuario
 {
     public partial class PostImagenMostrar : Form
     {
-        public PostImagenMostrar(string Apodo)
+        public PostImagenMostrar(string apodo, string idImagen, string descripcion, int idPost, int likes, int comentarios)
         {
             InitializeComponent();
             richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
-            this.ControlBox = false;
-            this.Text = "";
-            linkLabel1.Text = Apodo;
+            
+            linkLabel1.Text = apodo;
+            pictureBox1.Image = Image.FromFile(idImagen);
+            //richTextBox1.Text = descripcion;
+            //labelFecha.Text = fecha;
+            //ContLikes.Text = likes.ToString();
+            //contComentarios.Text = comentarios.ToString();
+
         }
 
         private void PostImagenMostrar_Load(object sender, EventArgs e)
@@ -83,6 +88,12 @@ namespace InterfazUsuario
             Reportar reportar = new Reportar();
             //reportar.id_post = id_post;
             reportar.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PostImagenAmpliar imagenForm = new PostImagenAmpliar(pictureBox1.Image);
+            imagenForm.ShowDialog();
         }
     }
 }

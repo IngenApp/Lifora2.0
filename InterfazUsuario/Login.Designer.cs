@@ -83,6 +83,7 @@ namespace InterfazUsuario
             this.txtBoxPass.PasswordChar = '*';
             this.txtBoxPass.Size = new System.Drawing.Size(380, 36);
             this.txtBoxPass.TabIndex = 3;
+            this.txtBoxPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxPass_KeyDown);
             // 
             // linklblRegitrarse
             // 

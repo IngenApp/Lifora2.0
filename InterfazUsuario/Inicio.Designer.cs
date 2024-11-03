@@ -29,8 +29,8 @@ namespace InterfazUsuario
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             System.Windows.Forms.PictureBox pictureBox7;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.txtBoxBuscar = new System.Windows.Forms.TextBox();
             this.btnGroups = new System.Windows.Forms.Button();
             this.btnCreateEvents = new System.Windows.Forms.Button();
@@ -58,6 +58,7 @@ namespace InterfazUsuario
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelBuscar = new System.Windows.Forms.Label();
             pictureBox7 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -66,8 +67,18 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox7)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = System.Drawing.Color.White;
+            pictureBox7.Image = global::InterfazUsuario.Properties.Resources.Buscar;
+            pictureBox7.Location = new System.Drawing.Point(634, 10);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(35, 35);
+            pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 66;
+            pictureBox7.TabStop = false;
             // 
             // txtBoxBuscar
             // 
@@ -183,7 +194,7 @@ namespace InterfazUsuario
             this.btnWriting.TabIndex = 20;
             this.btnWriting.Text = "button8";
             this.btnWriting.UseVisualStyleBackColor = false;
-            this.btnWriting.Click += new System.EventHandler(this.button8_Click);
+            this.btnWriting.Click += new System.EventHandler(this.MuroTexto);
             // 
             // btnPhotos
             // 
@@ -198,7 +209,7 @@ namespace InterfazUsuario
             this.btnPhotos.TabIndex = 21;
             this.btnPhotos.Text = "button9";
             this.btnPhotos.UseVisualStyleBackColor = false;
-            this.btnPhotos.Click += new System.EventHandler(this.button9_Click);
+            this.btnPhotos.Click += new System.EventHandler(this.MuroImagenes);
             // 
             // btnVideo
             // 
@@ -213,7 +224,7 @@ namespace InterfazUsuario
             this.btnVideo.TabIndex = 22;
             this.btnVideo.Text = "button10";
             this.btnVideo.UseVisualStyleBackColor = false;
-            this.btnVideo.Click += new System.EventHandler(this.button10_Click);
+            this.btnVideo.Click += new System.EventHandler(this.MuroVideos);
             // 
             // btnMusic
             // 
@@ -228,7 +239,7 @@ namespace InterfazUsuario
             this.btnMusic.TabIndex = 23;
             this.btnMusic.Text = "button11";
             this.btnMusic.UseVisualStyleBackColor = false;
-            this.btnMusic.Click += new System.EventHandler(this.button11_Click);
+            this.btnMusic.Click += new System.EventHandler(this.MuroAudios);
             // 
             // Reproductor
             // 
@@ -400,17 +411,6 @@ namespace InterfazUsuario
             this.labelBuscar.Text = "Buscar";
             this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // pictureBox7
-            // 
-            pictureBox7.BackColor = System.Drawing.Color.White;
-            pictureBox7.Image = global::InterfazUsuario.Properties.Resources.Buscar;
-            pictureBox7.Location = new System.Drawing.Point(634, 10);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new System.Drawing.Size(35, 35);
-            pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox7.TabIndex = 66;
-            pictureBox7.TabStop = false;
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,6 +452,8 @@ namespace InterfazUsuario
             this.Text = "Lifora";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inicio_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Inicio_FormClosed);
+            this.Load += new System.EventHandler(this.Inicio_Load);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -460,7 +462,6 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

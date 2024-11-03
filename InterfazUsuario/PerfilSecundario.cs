@@ -25,20 +25,6 @@ namespace InterfazUsuario
             MakeCircularPictureBox(pictureBox2);
             MakeCircularPictureBox(pictureBox1);
 
-            panel2.Hide();
-            panel1.Show();
-            panel3.Hide();
-            panel4.Hide();
-            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3" };
-            List<String> contenido = new List<string> { "post1", "post2", "post3" };
-            List<String> cantidadLikes = new List<string> { "10", "15", "20" };
-            List<String> cantidadComentarios = new List<string> { "15", "20", "30" };
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostTextoMostrar form = new PostTextoMostrar(Apodo[i], contenido[i], cantidadLikes[i], cantidadComentarios[i]);
-                AgregarPostTexto(form);
-
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -140,11 +126,13 @@ namespace InterfazUsuario
             panel4.Hide();
             //post del perfil
             List<String> Apodo = new List<string> { "Apodo", "Apodo", "Apodo", "Apodo" };
+            List<String> idImagen = new List<string> { @"D:\Azir Cosp\1.jpg", @"D:\Azir Cosp\3.jpg", @"D:\Azir Cosp\6.jpg", @"D:\Azir Cosp\7.jpg", @"D:\Azir Cosp\8.jpg", @"D:\Azir Cosp\11.jpg", @"D:\Azir Cosp\9.jpg", @"D:\Azir Cosp\1.jpg12" };
+
             panel2.Controls.Clear();
 
             for (int i = 0; i < Apodo.Count; i++)
             {
-                PostImagenMostrar form = new PostImagenMostrar(Apodo[i]);
+                PostImagenMostrar form = new PostImagenMostrar(Apodo[i], idImagen[i]);
                 AgregarPostImagen(form);
             }
         }
@@ -202,11 +190,13 @@ namespace InterfazUsuario
             panel3.Hide();
             panel4.Show();
             List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
+            List<string> idAudios = new List<string> { @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\01 - Silent Hill.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\02 - All.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\03 - The Wait.mp3", @"DC:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\04 - Until Death.mp3" };
+
             panel4.Controls.Clear();
 
             for (int i = 0; i < Apodo.Count; i++)
             {
-                PostAudioMostrar form = new PostAudioMostrar(Apodo[i]);
+                PostAudioMostrar form = new PostAudioMostrar(Apodo[i],idAudios[i]);
                 AgregarPostAudio(form);
             }
         }

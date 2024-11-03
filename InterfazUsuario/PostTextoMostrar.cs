@@ -19,6 +19,8 @@ namespace InterfazUsuario
             this.ControlBox = false;
             this.Text = "";
             labelApodo.Text = Apodo;
+            lblLikes.Text = cantidadLikes;
+            lblComentarios.Text = cantidadComentarios;
             
 
         }
@@ -33,38 +35,10 @@ namespace InterfazUsuario
             PerfilSecundario perfil = new PerfilSecundario();
             perfil.Show();
 
-            //if (el eprfil es el mio, actualiza; si es distinto al mio)
+            //if (el eprfil es el mio, actualiza; si es distinto al mio, abre)
             
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //cantidad de likes
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //cantidad de comentarios
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //like
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //comentar
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            VerComentarPost comentar = new VerComentarPost();
-            comentar.Show();
-
-
-            // pasarle id_post al form para poder comentarlo
-        }
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {

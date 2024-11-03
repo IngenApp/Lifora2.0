@@ -35,7 +35,7 @@ namespace InterfazUsuario
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.labelFecha = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.NickName = new System.Windows.Forms.LinkLabel();
             this.Report = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -54,7 +54,7 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(20, 37);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(336, 122);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(358, 122);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // linkLabel4
@@ -101,32 +101,32 @@ namespace InterfazUsuario
             // 
             this.labelFecha.AutoSize = true;
             this.labelFecha.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha.Location = new System.Drawing.Point(314, 16);
+            this.labelFecha.Location = new System.Drawing.Point(336, 16);
             this.labelFecha.Name = "labelFecha";
             this.labelFecha.Size = new System.Drawing.Size(42, 18);
             this.labelFecha.TabIndex = 25;
             this.labelFecha.Text = "label2";
             this.labelFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // linkLabel1
+            // NickName
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
-            this.linkLabel1.Location = new System.Drawing.Point(20, 10);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(77, 24);
-            this.linkLabel1.TabIndex = 26;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Apodo";
+            this.NickName.AutoSize = true;
+            this.NickName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NickName.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.NickName.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.NickName.Location = new System.Drawing.Point(20, 10);
+            this.NickName.Name = "NickName";
+            this.NickName.Size = new System.Drawing.Size(77, 24);
+            this.NickName.TabIndex = 26;
+            this.NickName.TabStop = true;
+            this.NickName.Text = "Apodo";
             // 
             // Report
             // 
             this.Report.BackColor = System.Drawing.Color.Transparent;
             this.Report.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Report.Image = global::InterfazUsuario.Properties.Resources.Reportar;
-            this.Report.Location = new System.Drawing.Point(326, 236);
+            this.Report.Location = new System.Drawing.Point(348, 236);
             this.Report.Name = "Report";
             this.Report.Size = new System.Drawing.Size(30, 30);
             this.Report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -180,7 +180,7 @@ namespace InterfazUsuario
             this.richTextBox1.Location = new System.Drawing.Point(20, 165);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(336, 65);
+            this.richTextBox1.Size = new System.Drawing.Size(358, 65);
             this.richTextBox1.TabIndex = 36;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
@@ -188,10 +188,10 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 271);
+            this.ClientSize = new System.Drawing.Size(400, 270);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Report);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.NickName);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.pictureBox4);
@@ -200,6 +200,7 @@ namespace InterfazUsuario
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel6);
             this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PostAudioMostrar";
             this.Text = "PostAudioMostrar";
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
@@ -222,7 +223,7 @@ namespace InterfazUsuario
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel linkLabel6;
         private System.Windows.Forms.Label labelFecha;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel NickName;
         private System.Windows.Forms.PictureBox Report;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }

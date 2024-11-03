@@ -34,12 +34,12 @@ namespace InterfazUsuario
             this.NickName = new System.Windows.Forms.LinkLabel();
             this.labelFecha = new System.Windows.Forms.Label();
             this.Report = new System.Windows.Forms.PictureBox();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.contCompartidas = new System.Windows.Forms.LinkLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.contComentarios = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.ContLikes = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Report)).BeginInit();
@@ -54,8 +54,10 @@ namespace InterfazUsuario
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(20, 37);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(349, 226);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(350, 226);
             this.axWindowsMediaPlayer1.TabIndex = 0;
+            this.axWindowsMediaPlayer1.DoubleClickEvent += new AxWMPLib._WMPOCXEvents_DoubleClickEventHandler(this.axWindowsMediaPlayer1_DoubleClickEvent);
+            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
             // 
             // NickName
             // 
@@ -74,10 +76,10 @@ namespace InterfazUsuario
             // labelFecha
             // 
             this.labelFecha.AutoSize = true;
-            this.labelFecha.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha.Location = new System.Drawing.Point(327, 16);
+            this.labelFecha.Font = new System.Drawing.Font("Arial Unicode MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.Location = new System.Drawing.Point(318, 13);
             this.labelFecha.Name = "labelFecha";
-            this.labelFecha.Size = new System.Drawing.Size(42, 18);
+            this.labelFecha.Size = new System.Drawing.Size(52, 21);
             this.labelFecha.TabIndex = 19;
             this.labelFecha.Text = "label2";
             this.labelFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -87,7 +89,7 @@ namespace InterfazUsuario
             this.Report.BackColor = System.Drawing.Color.Transparent;
             this.Report.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Report.Image = global::InterfazUsuario.Properties.Resources.Reportar;
-            this.Report.Location = new System.Drawing.Point(339, 340);
+            this.Report.Location = new System.Drawing.Point(340, 340);
             this.Report.Name = "Report";
             this.Report.Size = new System.Drawing.Size(30, 30);
             this.Report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -95,19 +97,19 @@ namespace InterfazUsuario
             this.Report.TabStop = false;
             this.Report.Click += new System.EventHandler(this.Report_Click);
             // 
-            // linkLabel4
+            // contCompartidas
             // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel4.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(131)))), ((int)(((byte)(83)))));
-            this.linkLabel4.Location = new System.Drawing.Point(222, 352);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(43, 18);
-            this.linkLabel4.TabIndex = 33;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "10000";
+            this.contCompartidas.AutoSize = true;
+            this.contCompartidas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.contCompartidas.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contCompartidas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.contCompartidas.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(131)))), ((int)(((byte)(83)))));
+            this.contCompartidas.Location = new System.Drawing.Point(222, 352);
+            this.contCompartidas.Name = "contCompartidas";
+            this.contCompartidas.Size = new System.Drawing.Size(43, 18);
+            this.contCompartidas.TabIndex = 33;
+            this.contCompartidas.TabStop = true;
+            this.contCompartidas.Text = "10000";
             // 
             // pictureBox4
             // 
@@ -121,18 +123,18 @@ namespace InterfazUsuario
             this.pictureBox4.TabIndex = 32;
             this.pictureBox4.TabStop = false;
             // 
-            // linkLabel5
+            // contComentarios
             // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel5.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
-            this.linkLabel5.Location = new System.Drawing.Point(137, 352);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(43, 18);
-            this.linkLabel5.TabIndex = 31;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "10000";
+            this.contComentarios.AutoSize = true;
+            this.contComentarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.contComentarios.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contComentarios.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.contComentarios.Location = new System.Drawing.Point(137, 352);
+            this.contComentarios.Name = "contComentarios";
+            this.contComentarios.Size = new System.Drawing.Size(43, 18);
+            this.contComentarios.TabIndex = 31;
+            this.contComentarios.TabStop = true;
+            this.contComentarios.Text = "10000";
             // 
             // pictureBox3
             // 
@@ -160,18 +162,18 @@ namespace InterfazUsuario
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // linkLabel6
+            // ContLikes
             // 
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel6.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.linkLabel6.Location = new System.Drawing.Point(56, 352);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(43, 18);
-            this.linkLabel6.TabIndex = 28;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "10000";
+            this.ContLikes.AutoSize = true;
+            this.ContLikes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ContLikes.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContLikes.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.ContLikes.Location = new System.Drawing.Point(56, 352);
+            this.ContLikes.Name = "ContLikes";
+            this.ContLikes.Size = new System.Drawing.Size(43, 18);
+            this.ContLikes.TabIndex = 28;
+            this.ContLikes.TabStop = true;
+            this.ContLikes.Text = "10000";
             // 
             // richTextBox1
             // 
@@ -180,7 +182,7 @@ namespace InterfazUsuario
             this.richTextBox1.Location = new System.Drawing.Point(20, 269);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(349, 65);
+            this.richTextBox1.Size = new System.Drawing.Size(350, 65);
             this.richTextBox1.TabIndex = 35;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
@@ -188,19 +190,19 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 376);
+            this.ClientSize = new System.Drawing.Size(390, 375);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Report);
-            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.contCompartidas);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.contComentarios);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.linkLabel6);
+            this.Controls.Add(this.ContLikes);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.NickName);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "PostVideoMostrar";
             this.Text = "PostVideoMostrar";
@@ -220,12 +222,12 @@ namespace InterfazUsuario
         private System.Windows.Forms.LinkLabel NickName;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.PictureBox Report;
-        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel contCompartidas;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel contComentarios;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.LinkLabel ContLikes;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

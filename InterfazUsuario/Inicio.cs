@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
+using InterfazUsuario;
 using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
 
@@ -19,27 +20,16 @@ namespace InterfazUsuario
     {
         public Form Login;
         public string email;
-
+        private GestorDePosts gestorDePosts;
 
         public Inicio()
         {
             InitializeComponent();
             CargarIdioma();
+            gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
             MakeCircularPictureBox(pictureBox2);
-            panel2.Hide();
-            panel1.Show();
-            panel3.Hide();
-            panel4.Hide();
-            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3" };
-            List<String> contenido = new List<string> { "post1", "post2", "post3" };
-            List<String> cantidadLikes = new List<string> { "10", "15", "20" };
-            List<String> cantidadComentarios = new List<string> { "15", "20", "30" };
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostTextoMostrar form = new PostTextoMostrar(Apodo[i], contenido[i], cantidadLikes[i], cantidadComentarios[i]);
-                AgregarPostTexto(form);
 
-            }
+
         }
 
         private void MakeCircularPictureBox(PictureBox pictureBox2)
@@ -156,127 +146,60 @@ namespace InterfazUsuario
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void MuroTexto(object sender, EventArgs e)
         {
             panel2.Hide();
             panel1.Show();
             panel3.Hide();
             panel4.Hide();
+            List<string> apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo6" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
             //con los post de los que sigo
-            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3" };
-            List<String> contenido = new List<string> { "post1", "post2", "post3" };
-            List<String> cantidadLikes = new List<string> { "10", "15", "20" };
-            List<String> cantidadComentarios = new List<string> { "15", "20", "30" };
-            for (int i =0; i< Apodo.Count;i++)
-            {
-                PostTextoMostrar form = new PostTextoMostrar(Apodo[i], contenido[i], cantidadLikes[i], cantidadComentarios[i]);
-                AgregarPostTexto(form);
-
-            }
-        }
-        private void AgregarPostTexto(Form PostTextoMostrar)
-        {
-            PostTextoMostrar.TopLevel = false;
-            PostTextoMostrar.Dock = DockStyle.Top;
-
-            panel1.Controls.Add(PostTextoMostrar);
-            panel1.Tag = PostTextoMostrar;
-
-            PostTextoMostrar.Show();
-        }
-        private void AgregarPostImagen(Form PostImagenMostrar)
-        {
-            PostImagenMostrar.TopLevel = false;
-            PostImagenMostrar.Dock = DockStyle.None;
- 
-            int count = panel2.Controls.Count;
-            int x = (count % 2) * PostImagenMostrar.Width;
-            int y = (count / 2) * PostImagenMostrar.Height;
-
-            PostImagenMostrar.Location = new Point(x, y);
-            panel2.Controls.Add(PostImagenMostrar);
-            panel2.Tag = PostImagenMostrar;
-
-            PostImagenMostrar.Show();
+            gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios);
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void MuroImagenes(object sender, EventArgs e)
         {
             panel1.Hide();
             panel2.Show();
             panel3.Hide();
             panel4.Hide();
-            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo5", "Apodo5", "Apodo5" };
-            panel2.Controls.Clear();
+            List<string> apodos = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo6", "Apodo7", "Apodo8" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
+            List<string> rutasImagenes = new List<string> { @"D:\Azir Cosp\1.jpg", @"D:\Azir Cosp\3.jpg", @"D:\Azir Cosp\6.jpg", @"D:\Azir Cosp\7.jpg", @"D:\Azir Cosp\8.jpg", @"D:\Azir Cosp\11.jpg", @"D:\Azir Cosp\9.jpg", @"D:\Azir Cosp\12.jpg" };
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
 
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostImagenMostrar form = new PostImagenMostrar(Apodo[i]); 
-                AgregarPostImagen(form); 
-            }
+            gestorDePosts.CargarImagenes(apodos, descripcion, rutasImagenes, cantidadLikes, cantidadComentarios);
         }
 
-        private void AgregarPostVideo(Form PostVideoMostrar)
-        {
-            PostVideoMostrar.TopLevel = false;
-            PostVideoMostrar.Dock = DockStyle.None;
 
-            int count = panel3.Controls.Count;
-            int x = (count % 2) * PostVideoMostrar.Width;
-            int y = (count / 2) * PostVideoMostrar.Height;
-
-            PostVideoMostrar.Location = new Point(x, y);
-            panel3.Controls.Add(PostVideoMostrar);
-            panel3.Tag = PostVideoMostrar;
-
-            PostVideoMostrar.Show();
-        }
-
-        private void button10_Click(object sender, EventArgs e)
+        private void MuroVideos(object sender, EventArgs e)
         {
             panel1.Hide();
             panel2.Hide();
             panel3.Show();
             panel4.Hide();
-            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
-            panel3.Controls.Clear();
+            List<string> apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
+            List<string> idVideo = new List<string> { @"C:\Users\stive\OneDrive\Escritorio\ME GUSTA EL ARTE - Cancion.mp4", @"D:\Azir Cosp\Azir.mp4", @"C:\Users\stive\OneDrive\Escritorio\ME GUSTA EL ARTE - Cancion.mp4", @"D:\Azir Cosp\Azir.mp4" };
 
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostVideoMostrar form = new PostVideoMostrar(Apodo[i]);
-                AgregarPostVideo(form);
-            }
+            gestorDePosts.CargarVideos(apodo, idVideo);
         }
-        private void AgregarPostAudio(Form PostAudioMostrar)
-        {
-            PostAudioMostrar.TopLevel = false;
-            PostAudioMostrar.Dock = DockStyle.None;
+    
 
-            int count = panel4.Controls.Count;
-            int x = (count % 2) * PostAudioMostrar.Width;
-            int y = (count / 2) * PostAudioMostrar.Height;
-
-            PostAudioMostrar.Location = new Point(x, y);
-            panel4.Controls.Add(PostAudioMostrar);
-            panel4.Tag = PostAudioMostrar;
-
-            PostAudioMostrar.Show();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
+        private void MuroAudios(object sender, EventArgs e)
         {
             panel1.Hide();
             panel2.Hide();
             panel3.Hide();
             panel4.Show();
-            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
-            panel4.Controls.Clear();
 
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostAudioMostrar form = new PostAudioMostrar(Apodo[i]);
-                AgregarPostAudio(form);
-            }
+            List<string> apodos = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
+            List<string> idAudios= new List<string> { @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\01 - Silent Hill.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\02 - All.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\03 - The Wait.mp3", @"DC:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\04 - Until Death.mp3"};
+
+            gestorDePosts.CargarAudios(apodos, idAudios);
         }
 
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
@@ -284,9 +207,10 @@ namespace InterfazUsuario
             Settings.Default.Save();
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+            MuroTexto(this, EventArgs.Empty);
         }
     }
 
