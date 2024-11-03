@@ -16,7 +16,7 @@ namespace InterfazUsuario
         {
             InitializeComponent();
             richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
-            
+
             axWindowsMediaPlayer1.URL = idAudios;
 
             NickName.Text = apodo;
@@ -24,6 +24,7 @@ namespace InterfazUsuario
             //labelFecha.Text = fecha;
             ContLikes.Text = likes;
             contComentarios.Text = comentarios;
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -65,6 +66,11 @@ namespace InterfazUsuario
             Reportar reportar = new Reportar();
             //reportar.id_post = id_post;
             reportar.Show();
+        }
+
+        private void PostAudioMostrar_Load(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.Ctlcontrols.pause();
         }
     }
 }

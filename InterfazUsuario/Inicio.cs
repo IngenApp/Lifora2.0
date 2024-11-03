@@ -215,6 +215,9 @@ namespace InterfazUsuario
         private void Inicio_Load(object sender, EventArgs e)
         {
             MuroTexto(this, EventArgs.Empty);
+            ReproductorPublicidad.URL = @"C:\Users\stive\OneDrive\Escritorio\MEGUSTA.mp4";
+            ReproductorPublicidad.uiMode = "none";
+            ReproductorPublicidad.settings.mute = true;
         }
     }
 

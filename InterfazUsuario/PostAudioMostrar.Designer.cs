@@ -203,6 +203,7 @@ namespace InterfazUsuario
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PostAudioMostrar";
             this.Text = "PostAudioMostrar";
+            this.Load += new System.EventHandler(this.PostAudioMostrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Report)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
