@@ -12,18 +12,20 @@ namespace InterfazUsuario
 {
     public partial class PostVideoMostrar : Form
     {
-
-        public PostVideoMostrar(string apodo, string idVideo/*, string descripcion, int idPost, int likes, int comentarios, string fecha*/)
+        public string videoPath;
+        public PostVideoMostrar(string apodo, string descripcion, string idVideo, string likes, string comentarios)
         {
             InitializeComponent();
             richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
 
             axWindowsMediaPlayer1.URL = idVideo;
             NickName.Text = apodo;
-            //richTextBox1.Text = descripcion;
+            richTextBox1.Text = descripcion;
             //labelFecha.Text = fecha;
-            //ContLikes.Text = likes.ToString();
-            //contComentarios.Text = comentarios.ToString();
+            ContLikes.Text = likes.ToString();
+            contComentarios.Text = comentarios.ToString();
+
+            videoPath = idVideo;
 
 
             this.ControlBox = false;

@@ -36,10 +36,10 @@ namespace InterfazUsuario
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.contComentarios = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.ContLikes = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -125,19 +125,19 @@ namespace InterfazUsuario
             this.pictureBox4.TabIndex = 32;
             this.pictureBox4.TabStop = false;
             // 
-            // linkLabel5
+            // contComentarios
             // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel5.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
-            this.linkLabel5.Location = new System.Drawing.Point(141, 456);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(43, 18);
-            this.linkLabel5.TabIndex = 31;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "10000";
+            this.contComentarios.AutoSize = true;
+            this.contComentarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.contComentarios.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contComentarios.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.contComentarios.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.contComentarios.Location = new System.Drawing.Point(141, 456);
+            this.contComentarios.Name = "contComentarios";
+            this.contComentarios.Size = new System.Drawing.Size(43, 18);
+            this.contComentarios.TabIndex = 31;
+            this.contComentarios.TabStop = true;
+            this.contComentarios.Text = "10000";
             // 
             // pictureBox3
             // 
@@ -163,19 +163,19 @@ namespace InterfazUsuario
             this.pictureBox5.TabIndex = 29;
             this.pictureBox5.TabStop = false;
             // 
-            // linkLabel6
+            // ContLikes
             // 
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel6.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel6.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.linkLabel6.Location = new System.Drawing.Point(60, 456);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(43, 18);
-            this.linkLabel6.TabIndex = 28;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "10000";
+            this.ContLikes.AutoSize = true;
+            this.ContLikes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ContLikes.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContLikes.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.ContLikes.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.ContLikes.Location = new System.Drawing.Point(60, 456);
+            this.ContLikes.Name = "ContLikes";
+            this.ContLikes.Size = new System.Drawing.Size(43, 18);
+            this.ContLikes.TabIndex = 28;
+            this.ContLikes.TabStop = true;
+            this.ContLikes.Text = "10000";
             // 
             // richTextBox1
             // 
@@ -197,10 +197,10 @@ namespace InterfazUsuario
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.contComentarios);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.linkLabel6);
+            this.Controls.Add(this.ContLikes);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
@@ -227,10 +227,10 @@ namespace InterfazUsuario
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel contComentarios;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.LinkLabel ContLikes;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

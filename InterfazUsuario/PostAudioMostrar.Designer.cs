@@ -32,8 +32,8 @@ namespace InterfazUsuario
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PostAudioMostrar));
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.contComentarios = new System.Windows.Forms.LinkLabel();
+            this.ContLikes = new System.Windows.Forms.LinkLabel();
             this.labelFecha = new System.Windows.Forms.Label();
             this.NickName = new System.Windows.Forms.LinkLabel();
             this.Report = new System.Windows.Forms.PictureBox();
@@ -71,31 +71,31 @@ namespace InterfazUsuario
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "10000";
             // 
-            // linkLabel5
+            // contComentarios
             // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel5.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
-            this.linkLabel5.Location = new System.Drawing.Point(137, 248);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(43, 18);
-            this.linkLabel5.TabIndex = 22;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "10000";
+            this.contComentarios.AutoSize = true;
+            this.contComentarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.contComentarios.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contComentarios.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.contComentarios.Location = new System.Drawing.Point(137, 248);
+            this.contComentarios.Name = "contComentarios";
+            this.contComentarios.Size = new System.Drawing.Size(43, 18);
+            this.contComentarios.TabIndex = 22;
+            this.contComentarios.TabStop = true;
+            this.contComentarios.Text = "10000";
             // 
-            // linkLabel6
+            // ContLikes
             // 
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel6.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.linkLabel6.Location = new System.Drawing.Point(56, 248);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(43, 18);
-            this.linkLabel6.TabIndex = 19;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "10000";
+            this.ContLikes.AutoSize = true;
+            this.ContLikes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ContLikes.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContLikes.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.ContLikes.Location = new System.Drawing.Point(56, 248);
+            this.ContLikes.Name = "ContLikes";
+            this.ContLikes.Size = new System.Drawing.Size(43, 18);
+            this.ContLikes.TabIndex = 19;
+            this.ContLikes.TabStop = true;
+            this.ContLikes.Text = "10000";
             // 
             // labelFecha
             // 
@@ -195,10 +195,10 @@ namespace InterfazUsuario
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.contComentarios);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.linkLabel6);
+            this.Controls.Add(this.ContLikes);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PostAudioMostrar";
@@ -218,10 +218,10 @@ namespace InterfazUsuario
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel contComentarios;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.LinkLabel ContLikes;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.LinkLabel NickName;
         private System.Windows.Forms.PictureBox Report;

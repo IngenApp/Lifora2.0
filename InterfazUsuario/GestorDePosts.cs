@@ -20,15 +20,15 @@ namespace InterfazUsuario
     {
         private readonly Panel _panelTexto;
         private readonly Panel _panelImagen;
-        private readonly Panel _panelAudio;
         private readonly Panel _panelVideo;
+        private readonly Panel _panelAudio;
 
-        public GestorDePosts(Panel panelTexto, Panel panelImagen, Panel panelAudio, Panel panelVideo)
+        public GestorDePosts(Panel panelTexto, Panel panelImagen, Panel panelVideo, Panel panelAudio)
         {
             _panelTexto = panelTexto;
             _panelImagen = panelImagen;
-            _panelAudio = panelAudio;
             _panelVideo = panelVideo;
+            _panelAudio = panelAudio;
         }
 
         public void AgregarPostTexto(Form postTextoMostrar)
@@ -69,13 +69,13 @@ namespace InterfazUsuario
             postImagenMostrar.Show();
         }
 
-        public void CargarImagenes(List<string> apodos, List<string> descripcion, List<string> rutasImagenes, List<string> cantidadLikes, List<string> cantidadComentarios)
+        public void CargarImagenes(List<string> apodos, List<string> descripcion, List<string> idImagenes, List<string> cantidadLikes, List<string> cantidadComentarios)
         {
             _panelImagen.Controls.Clear();
 
             for (int i = 0; i < apodos.Count; i++)
             {
-                PostImagenMostrar form = new PostImagenMostrar(apodos[i], descripcion[i], rutasImagenes[i], cantidadLikes[i], cantidadComentarios[i]);
+                PostImagenMostrar form = new PostImagenMostrar(apodos[i], descripcion[i], idImagenes[i], cantidadLikes[i], cantidadComentarios[i]);
                 AgregarPostImagen(form);
             }
         }
@@ -95,13 +95,13 @@ namespace InterfazUsuario
             postAudioMostrar.Show();
         }
 
-        public void CargarAudios(List<string> apodos, List<string> idAudios)
+        public void CargarAudios(List<string> apodos, List<string> descripcion, List<string> idAudios, List<string> cantidadLikes, List<string> cantidadComentarios)
         {
             _panelAudio.Controls.Clear();
 
             for (int i = 0; i < apodos.Count; i++)
             {
-                PostAudioMostrar form = new PostAudioMostrar(apodos[i], idAudios[i]);
+                PostAudioMostrar form = new PostAudioMostrar(apodos[i], descripcion[i], idAudios[i], cantidadLikes[i], cantidadComentarios[i]);
                 AgregarPostAudio(form);
             }
         }
@@ -121,13 +121,13 @@ namespace InterfazUsuario
             postVideoMostrar.Show();
         }
 
-        public void CargarVideos(List<string> apodo, List<string> idVideo)
+        public void CargarVideos(List<string> apodo, List<string> descripcion, List<string> idVideo, List<string> cantidadLikes, List<string> cantidadComentarios)
         {
             _panelVideo.Controls.Clear();
 
             for (int i = 0; i < apodo.Count; i++)
             {
-                PostVideoMostrar form = new PostVideoMostrar(apodo[i], idVideo[i]);
+                PostVideoMostrar form = new PostVideoMostrar(apodo[i], descripcion[i], idVideo[i], cantidadLikes[i], cantidadComentarios[i]);
                 AgregarPostVideo(form);
             }
         }

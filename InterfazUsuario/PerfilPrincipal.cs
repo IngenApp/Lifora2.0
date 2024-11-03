@@ -177,16 +177,16 @@ namespace InterfazUsuario
     
         private void MuroTextos(object sender, EventArgs e)
         {
-            panel2.Hide();
             panel1.Show();
+            panel2.Hide();
             panel3.Hide();
             panel4.Hide();
             List<string> apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo6" };
-            List<string> contenido = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
             List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
             List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
-            //MIS POST
-            gestorDePosts.PostTexto(apodo, contenido, cantidadLikes, cantidadComentarios);
+            //con los post de los que sigo
+            gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios);
         }
    
 
@@ -203,12 +203,12 @@ namespace InterfazUsuario
             panel3.Hide();
             panel4.Hide();
             List<string> apodos = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo6", "Apodo7", "Apodo8" };
-            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
-            List<string> rutasImagenes = new List<string> { @"D:\Azir Cosp\1.jpg", @"D:\Azir Cosp\3.jpg", @"D:\Azir Cosp\6.jpg", @"D:\Azir Cosp\7.jpg", @"D:\Azir Cosp\8.jpg", @"D:\Azir Cosp\11.jpg", @"D:\Azir Cosp\9.jpg", @"D:\Azir Cosp\12.jpg" };
-            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
-            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3", "post2", "post3" };
+            List<string> idImagenes = new List<string> { @"D:\Azir Cosp\1.jpg", @"D:\Azir Cosp\3.jpg", @"D:\Azir Cosp\6.jpg", @"D:\Azir Cosp\7.jpg", @"D:\Azir Cosp\8.jpg", @"D:\Azir Cosp\11.jpg", @"D:\Azir Cosp\9.jpg", @"D:\Azir Cosp\12.jpg" };
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30", "15", "20" };
 
-            gestorDePosts.CargarImagenes(apodos, descripcion, rutasImagenes, cantidadLikes, cantidadComentarios);
+            gestorDePosts.CargarImagenes(apodos, descripcion, idImagenes, cantidadLikes, cantidadComentarios);
         }
 
         private void MuroVideos(object sender, EventArgs e)
@@ -218,9 +218,11 @@ namespace InterfazUsuario
             panel3.Show();
             panel4.Hide();
             List<string> apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
             List<string> idVideo = new List<string> { @"C:\Users\stive\OneDrive\Escritorio\ME GUSTA EL ARTE - Cancion.mp4", @"D:\Azir Cosp\Azir.mp4", @"C:\Users\stive\OneDrive\Escritorio\ME GUSTA EL ARTE - Cancion.mp4", @"D:\Azir Cosp\Azir.mp4" };
-
-            gestorDePosts.CargarVideos(apodo, idVideo);
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
+            gestorDePosts.CargarVideos(apodo, descripcion, idVideo, cantidadLikes, cantidadComentarios);
         }
 
         private void MuroAudios(object sender, EventArgs e)
@@ -231,9 +233,11 @@ namespace InterfazUsuario
             panel4.Show();
 
             List<string> apodos = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
-            List<string> idAudios = new List<string> { @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\01 - Silent Hill.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\02 - All.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\03 - The Wait.mp3", @"DC:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\04 - Until Death.mp3" };
-
-            gestorDePosts.CargarAudios(apodos, idAudios);
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
+            List<string> idAudios = new List<string> { @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\01 - Silent Hill.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\02 - All.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\03 - The Wait.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\04 - Until Death.mp3" };
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
+            gestorDePosts.CargarAudios(apodos, descripcion, idAudios, cantidadLikes, cantidadComentarios);
         }
 
        

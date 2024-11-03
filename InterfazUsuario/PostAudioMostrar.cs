@@ -12,7 +12,7 @@ namespace InterfazUsuario
 {
     public partial class PostAudioMostrar : Form
     {
-        public PostAudioMostrar(string apodo, string idAudios /*Agregar resto de datos*/)
+        public PostAudioMostrar(string apodo, string descripcion, string idAudios, string likes, string comentarios)
         {
             InitializeComponent();
             richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
@@ -20,10 +20,10 @@ namespace InterfazUsuario
             axWindowsMediaPlayer1.URL = idAudios;
 
             NickName.Text = apodo;
-            //richTextBox1.Text = descripcion;
+            richTextBox1.Text = descripcion;
             //labelFecha.Text = fecha;
-            //ContLikes.Text = likes.ToString();
-            //contComentarios.Text = comentarios.ToString();
+            ContLikes.Text = likes;
+            contComentarios.Text = comentarios;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

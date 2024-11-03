@@ -12,17 +12,17 @@ namespace InterfazUsuario
 {
     public partial class PostImagenMostrar : Form
     {
-        public PostImagenMostrar(string apodo, string idImagen, string descripcion, int idPost, int likes, int comentarios)
+        public PostImagenMostrar(string apodo, string descripcion, string idImagen,  string likes, string comentarios)
         {
             InitializeComponent();
             richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
             
             linkLabel1.Text = apodo;
             pictureBox1.Image = Image.FromFile(idImagen);
-            //richTextBox1.Text = descripcion;
+            richTextBox1.Text = descripcion;
             //labelFecha.Text = fecha;
-            //ContLikes.Text = likes.ToString();
-            //contComentarios.Text = comentarios.ToString();
+            ContLikes.Text = likes;
+            contComentarios.Text = comentarios;
 
         }
 

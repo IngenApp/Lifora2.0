@@ -81,7 +81,7 @@ namespace InterfazUsuario
             this.btnWriting.TabIndex = 58;
             this.btnWriting.Text = "button5";
             this.btnWriting.UseVisualStyleBackColor = false;
-            this.btnWriting.Click += new System.EventHandler(this.btnWriting_Click);
+            this.btnWriting.Click += new System.EventHandler(this.MuroTextos);
             // 
             // btnMusic
             // 
@@ -96,7 +96,7 @@ namespace InterfazUsuario
             this.btnMusic.TabIndex = 53;
             this.btnMusic.Text = "button10";
             this.btnMusic.UseVisualStyleBackColor = false;
-            this.btnMusic.Click += new System.EventHandler(this.btnMusic_Click);
+            this.btnMusic.Click += new System.EventHandler(this.MuroAudios);
             // 
             // btnVideo
             // 
@@ -111,7 +111,7 @@ namespace InterfazUsuario
             this.btnVideo.TabIndex = 52;
             this.btnVideo.Text = "button9";
             this.btnVideo.UseVisualStyleBackColor = false;
-            this.btnVideo.Click += new System.EventHandler(this.btnVideo_Click);
+            this.btnVideo.Click += new System.EventHandler(this.MuroVideos);
             // 
             // btnPhotos
             // 
@@ -126,7 +126,7 @@ namespace InterfazUsuario
             this.btnPhotos.TabIndex = 51;
             this.btnPhotos.Text = "button8";
             this.btnPhotos.UseVisualStyleBackColor = false;
-            this.btnPhotos.Click += new System.EventHandler(this.btnPhotos_Click);
+            this.btnPhotos.Click += new System.EventHandler(this.MuroImagenes);
             // 
             // panel1
             // 
@@ -325,7 +325,7 @@ namespace InterfazUsuario
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 68;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.button2_Click);
+
             // 
             // pictureBox3
             // 
