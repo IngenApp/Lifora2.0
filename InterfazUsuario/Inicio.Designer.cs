@@ -30,6 +30,7 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
+            System.Windows.Forms.PictureBox pictureBox7;
             this.txtBoxBuscar = new System.Windows.Forms.TextBox();
             this.btnGroups = new System.Windows.Forms.Button();
             this.btnCreateEvents = new System.Windows.Forms.Button();
@@ -41,9 +42,9 @@ namespace InterfazUsuario
             this.btnPhotos = new System.Windows.Forms.Button();
             this.btnVideo = new System.Windows.Forms.Button();
             this.btnMusic = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.Reproductor = new AxWMPLib.AxWindowsMediaPlayer();
+            this.Calendario = new System.Windows.Forms.MonthCalendar();
+            this.ReproductorPublicidad = new AxWMPLib.AxWindowsMediaPlayer();
             this.Nickname = new System.Windows.Forms.LinkLabel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -56,14 +57,16 @@ namespace InterfazUsuario
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelBuscar = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBoxBuscar
@@ -72,7 +75,7 @@ namespace InterfazUsuario
             this.txtBoxBuscar.Location = new System.Drawing.Point(285, 10);
             this.txtBoxBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxBuscar.Name = "txtBoxBuscar";
-            this.txtBoxBuscar.Size = new System.Drawing.Size(399, 36);
+            this.txtBoxBuscar.Size = new System.Drawing.Size(385, 36);
             this.txtBoxBuscar.TabIndex = 17;
             // 
             // btnGroups
@@ -145,7 +148,7 @@ namespace InterfazUsuario
             this.InARow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.InARow.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InARow.ForeColor = System.Drawing.Color.White;
-            this.InARow.Location = new System.Drawing.Point(688, -1);
+            this.InARow.Location = new System.Drawing.Point(674, 2);
             this.InARow.Margin = new System.Windows.Forms.Padding(2);
             this.InARow.Name = "InARow";
             this.InARow.Size = new System.Drawing.Size(150, 50);
@@ -159,7 +162,7 @@ namespace InterfazUsuario
             this.World.Cursor = System.Windows.Forms.Cursors.Hand;
             this.World.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.World.ForeColor = System.Drawing.Color.White;
-            this.World.Location = new System.Drawing.Point(842, -1);
+            this.World.Location = new System.Drawing.Point(828, 2);
             this.World.Margin = new System.Windows.Forms.Padding(2);
             this.World.Name = "World";
             this.World.Size = new System.Drawing.Size(150, 50);
@@ -173,7 +176,7 @@ namespace InterfazUsuario
             this.btnWriting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWriting.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWriting.ForeColor = System.Drawing.Color.White;
-            this.btnWriting.Location = new System.Drawing.Point(285, 600);
+            this.btnWriting.Location = new System.Drawing.Point(275, 600);
             this.btnWriting.Margin = new System.Windows.Forms.Padding(2);
             this.btnWriting.Name = "btnWriting";
             this.btnWriting.Size = new System.Drawing.Size(150, 50);
@@ -188,7 +191,7 @@ namespace InterfazUsuario
             this.btnPhotos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPhotos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhotos.ForeColor = System.Drawing.Color.White;
-            this.btnPhotos.Location = new System.Drawing.Point(439, 600);
+            this.btnPhotos.Location = new System.Drawing.Point(429, 600);
             this.btnPhotos.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhotos.Name = "btnPhotos";
             this.btnPhotos.Size = new System.Drawing.Size(150, 50);
@@ -203,7 +206,7 @@ namespace InterfazUsuario
             this.btnVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVideo.ForeColor = System.Drawing.Color.White;
-            this.btnVideo.Location = new System.Drawing.Point(593, 600);
+            this.btnVideo.Location = new System.Drawing.Point(583, 600);
             this.btnVideo.Margin = new System.Windows.Forms.Padding(2);
             this.btnVideo.Name = "btnVideo";
             this.btnVideo.Size = new System.Drawing.Size(150, 50);
@@ -218,7 +221,7 @@ namespace InterfazUsuario
             this.btnMusic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMusic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMusic.ForeColor = System.Drawing.Color.White;
-            this.btnMusic.Location = new System.Drawing.Point(747, 600);
+            this.btnMusic.Location = new System.Drawing.Point(737, 600);
             this.btnMusic.Margin = new System.Windows.Forms.Padding(2);
             this.btnMusic.Name = "btnMusic";
             this.btnMusic.Size = new System.Drawing.Size(150, 50);
@@ -227,35 +230,36 @@ namespace InterfazUsuario
             this.btnMusic.UseVisualStyleBackColor = false;
             this.btnMusic.Click += new System.EventHandler(this.button11_Click);
             // 
-            // axWindowsMediaPlayer1
+            // Reproductor
             // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1012, 447);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(240, 200);
-            this.axWindowsMediaPlayer1.TabIndex = 25;
+            this.Reproductor.Enabled = true;
+            this.Reproductor.Location = new System.Drawing.Point(1020, 445);
+            this.Reproductor.Name = "Reproductor";
+            this.Reproductor.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("Reproductor.OcxState")));
+            this.Reproductor.Size = new System.Drawing.Size(227, 200);
+            this.Reproductor.TabIndex = 25;
             // 
-            // monthCalendar1
+            // Calendario
             // 
-            this.monthCalendar1.BackColor = System.Drawing.Color.White;
-            this.monthCalendar1.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthCalendar1.Location = new System.Drawing.Point(1019, 244);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 27;
+            this.Calendario.BackColor = System.Drawing.Color.White;
+            this.Calendario.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendario.Location = new System.Drawing.Point(1020, 245);
+            this.Calendario.Name = "Calendario";
+            this.Calendario.TabIndex = 27;
             // 
-            // axWindowsMediaPlayer2
+            // ReproductorPublicidad
             // 
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(1012, 10);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(240, 200);
-            this.axWindowsMediaPlayer2.TabIndex = 29;
+            this.ReproductorPublicidad.Enabled = true;
+            this.ReproductorPublicidad.Location = new System.Drawing.Point(1020, 10);
+            this.ReproductorPublicidad.Name = "ReproductorPublicidad";
+            this.ReproductorPublicidad.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ReproductorPublicidad.OcxState")));
+            this.ReproductorPublicidad.Size = new System.Drawing.Size(227, 200);
+            this.ReproductorPublicidad.TabIndex = 29;
             // 
             // Nickname
             // 
             this.Nickname.AutoSize = true;
+            this.Nickname.BackColor = System.Drawing.Color.Transparent;
             this.Nickname.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Nickname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nickname.Location = new System.Drawing.Point(30, 621);
@@ -396,12 +400,24 @@ namespace InterfazUsuario
             this.labelBuscar.Text = "Buscar";
             this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = System.Drawing.Color.White;
+            pictureBox7.Image = global::InterfazUsuario.Properties.Resources.Buscar;
+            pictureBox7.Location = new System.Drawing.Point(634, 10);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(35, 35);
+            pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 66;
+            pictureBox7.TabStop = false;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.fondo_inicio;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallppaerLifora;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(pictureBox7);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -412,9 +428,9 @@ namespace InterfazUsuario
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.Nickname);
-            this.Controls.Add(this.axWindowsMediaPlayer2);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.ReproductorPublicidad);
+            this.Controls.Add(this.Calendario);
+            this.Controls.Add(this.Reproductor);
             this.Controls.Add(this.btnMusic);
             this.Controls.Add(this.btnVideo);
             this.Controls.Add(this.btnPhotos);
@@ -436,14 +452,15 @@ namespace InterfazUsuario
             this.Text = "Lifora";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inicio_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Inicio_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,9 +481,9 @@ namespace InterfazUsuario
         private System.Windows.Forms.Button btnPhotos;
         private System.Windows.Forms.Button btnVideo;
         private System.Windows.Forms.Button btnMusic;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
+        private AxWMPLib.AxWindowsMediaPlayer Reproductor;
+        private System.Windows.Forms.MonthCalendar Calendario;
+        private AxWMPLib.AxWindowsMediaPlayer ReproductorPublicidad;
         private System.Windows.Forms.LinkLabel Nickname;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;

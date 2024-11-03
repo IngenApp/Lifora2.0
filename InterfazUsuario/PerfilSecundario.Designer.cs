@@ -30,10 +30,7 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilSecundario));
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnWriting = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnMusic = new System.Windows.Forms.Button();
             this.btnVideo = new System.Windows.Forms.Button();
             this.btnPhotos = new System.Windows.Forms.Button();
@@ -56,24 +53,18 @@ namespace InterfazUsuario
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.ReproductorPublicidad = new AxWMPLib.AxWindowsMediaPlayer();
+            this.Calendario = new System.Windows.Forms.MonthCalendar();
+            this.Reproductor = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).BeginInit();
             this.SuspendLayout();
-            // 
-            // axWindowsMediaPlayer2
-            // 
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(999, 12);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(240, 200);
-            this.axWindowsMediaPlayer2.TabIndex = 59;
             // 
             // btnWriting
             // 
@@ -89,21 +80,6 @@ namespace InterfazUsuario
             this.btnWriting.Text = "button5";
             this.btnWriting.UseVisualStyleBackColor = false;
             this.btnWriting.Click += new System.EventHandler(this.btnWriting_Click);
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(1012, 256);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 57;
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(999, 449);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(240, 200);
-            this.axWindowsMediaPlayer1.TabIndex = 55;
             // 
             // btnMusic
             // 
@@ -384,12 +360,41 @@ namespace InterfazUsuario
             this.pictureBox2.TabIndex = 49;
             this.pictureBox2.TabStop = false;
             // 
+            // ReproductorPublicidad
+            // 
+            this.ReproductorPublicidad.Enabled = true;
+            this.ReproductorPublicidad.Location = new System.Drawing.Point(1020, 10);
+            this.ReproductorPublicidad.Name = "ReproductorPublicidad";
+            this.ReproductorPublicidad.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ReproductorPublicidad.OcxState")));
+            this.ReproductorPublicidad.Size = new System.Drawing.Size(227, 200);
+            this.ReproductorPublicidad.TabIndex = 84;
+            // 
+            // Calendario
+            // 
+            this.Calendario.BackColor = System.Drawing.Color.White;
+            this.Calendario.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendario.Location = new System.Drawing.Point(1020, 245);
+            this.Calendario.Name = "Calendario";
+            this.Calendario.TabIndex = 83;
+            // 
+            // Reproductor
+            // 
+            this.Reproductor.Enabled = true;
+            this.Reproductor.Location = new System.Drawing.Point(1020, 445);
+            this.Reproductor.Name = "Reproductor";
+            this.Reproductor.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("Reproductor.OcxState")));
+            this.Reproductor.Size = new System.Drawing.Size(227, 200);
+            this.Reproductor.TabIndex = 82;
+            // 
             // PerfilSecundario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.perfil;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallppaerLifora;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.ReproductorPublicidad);
+            this.Controls.Add(this.Calendario);
+            this.Controls.Add(this.Reproductor);
             this.Controls.Add(this.Nickname);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.btnMessages);
@@ -408,9 +413,6 @@ namespace InterfazUsuario
             this.Controls.Add(this.btnSeguir);
             this.Controls.Add(this.btnWriting);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.axWindowsMediaPlayer2);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.btnMusic);
             this.Controls.Add(this.btnVideo);
             this.Controls.Add(this.btnPhotos);
@@ -423,14 +425,14 @@ namespace InterfazUsuario
             this.Name = "PerfilSecundario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lifora";
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,10 +441,7 @@ namespace InterfazUsuario
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
         private System.Windows.Forms.Button btnWriting;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Button btnMusic;
         private System.Windows.Forms.Button btnVideo;
         private System.Windows.Forms.Button btnPhotos;
@@ -464,5 +463,8 @@ namespace InterfazUsuario
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button btnMessages;
         private System.Windows.Forms.LinkLabel Nickname;
+        private AxWMPLib.AxWindowsMediaPlayer ReproductorPublicidad;
+        private System.Windows.Forms.MonthCalendar Calendario;
+        private AxWMPLib.AxWindowsMediaPlayer Reproductor;
     }
 }

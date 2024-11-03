@@ -47,24 +47,25 @@ namespace InterfazUsuario
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(27, 49);
+            this.textBox1.Location = new System.Drawing.Point(20, 61);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(400, 36);
+            this.textBox1.Size = new System.Drawing.Size(411, 36);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(27, 115);
+            this.textBox2.Location = new System.Drawing.Point(20, 131);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(400, 36);
+            this.textBox2.Size = new System.Drawing.Size(411, 36);
             this.textBox2.TabIndex = 1;
             // 
             // labelCrearEvento
             // 
             this.labelCrearEvento.AutoSize = true;
+            this.labelCrearEvento.BackColor = System.Drawing.Color.Transparent;
             this.labelCrearEvento.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCrearEvento.Location = new System.Drawing.Point(22, 22);
+            this.labelCrearEvento.Location = new System.Drawing.Point(20, 30);
             this.labelCrearEvento.Name = "labelCrearEvento";
             this.labelCrearEvento.Size = new System.Drawing.Size(68, 28);
             this.labelCrearEvento.TabIndex = 2;
@@ -73,7 +74,7 @@ namespace InterfazUsuario
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(27, 182);
+            this.richTextBox1.Location = new System.Drawing.Point(20, 201);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(243, 176);
             this.richTextBox1.TabIndex = 3;
@@ -82,14 +83,14 @@ namespace InterfazUsuario
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Arial Unicode MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(27, 364);
+            this.dateTimePicker1.Location = new System.Drawing.Point(20, 383);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(243, 24);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(276, 182);
+            this.pictureBox1.Location = new System.Drawing.Point(281, 201);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -102,7 +103,7 @@ namespace InterfazUsuario
             this.btnCrearEvento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrearEvento.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearEvento.ForeColor = System.Drawing.Color.White;
-            this.btnCrearEvento.Location = new System.Drawing.Point(332, 338);
+            this.btnCrearEvento.Location = new System.Drawing.Point(337, 357);
             this.btnCrearEvento.Name = "btnCrearEvento";
             this.btnCrearEvento.Size = new System.Drawing.Size(94, 53);
             this.btnCrearEvento.TabIndex = 20;
@@ -115,7 +116,7 @@ namespace InterfazUsuario
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::InterfazUsuario.Properties.Resources.adjunto;
-            this.pictureBox2.Location = new System.Drawing.Point(276, 338);
+            this.pictureBox2.Location = new System.Drawing.Point(281, 357);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -127,7 +128,7 @@ namespace InterfazUsuario
             // 
             this.labelLugarEvento.AutoSize = true;
             this.labelLugarEvento.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLugarEvento.Location = new System.Drawing.Point(23, 88);
+            this.labelLugarEvento.Location = new System.Drawing.Point(20, 100);
             this.labelLugarEvento.Name = "labelLugarEvento";
             this.labelLugarEvento.Size = new System.Drawing.Size(68, 28);
             this.labelLugarEvento.TabIndex = 22;
@@ -137,7 +138,7 @@ namespace InterfazUsuario
             // 
             this.labelInfoEvento.AutoSize = true;
             this.labelInfoEvento.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfoEvento.Location = new System.Drawing.Point(23, 154);
+            this.labelInfoEvento.Location = new System.Drawing.Point(20, 170);
             this.labelInfoEvento.Name = "labelInfoEvento";
             this.labelInfoEvento.Size = new System.Drawing.Size(68, 28);
             this.labelInfoEvento.TabIndex = 23;
@@ -147,7 +148,8 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 411);
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallpaperEmergente;
+            this.ClientSize = new System.Drawing.Size(459, 441);
             this.Controls.Add(this.labelInfoEvento);
             this.Controls.Add(this.labelLugarEvento);
             this.Controls.Add(this.pictureBox2);

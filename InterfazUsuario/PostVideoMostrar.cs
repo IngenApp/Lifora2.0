@@ -15,6 +15,7 @@ namespace InterfazUsuario
         public PostVideoMostrar(String Apodo)
         {
             InitializeComponent();
+            richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
             this.ControlBox = false;
             this.Text = "";
             NickName.Text = Apodo;
@@ -70,6 +71,19 @@ namespace InterfazUsuario
                 // Compartir
 
             }
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            VerComentarPost comentar = new VerComentarPost();
+            comentar.Show();
+
+            // Pasarle id_post para comentar
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            // darle like
         }
     }
 }

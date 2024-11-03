@@ -15,6 +15,7 @@ namespace InterfazUsuario
         public PostAudioMostrar(string Apodo)
         {
             InitializeComponent();
+            richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
             this.ControlBox = false;
             this.Text = "";
             linkLabel1.Text = Apodo;
@@ -46,6 +47,12 @@ namespace InterfazUsuario
                 
             }
             
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            // darle like
+
         }
     }
 }

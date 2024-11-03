@@ -446,8 +446,12 @@
     <None Include="Resources\compartir.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\wallpaperEmergente.png" />
+    <None Include="Resources\wallppaerLifora.png" />
     <None Include="Resources\Sin título-3.png" />
     <None Include="Resources\alerta.png" />
+    <None Include="Resources\Buscar.png" />
+    <None Include="Resources\comentar.png" />
     <Content Include="Resources\DejarDeSeguir.png" />
     <None Include="Resources\Seguir1.png" />
     <None Include="Resources\DejarDeSeguir1.png" />
@@ -456,6 +460,8 @@
     <None Include="Resources\perfil.png" />
     <None Include="Resources\fondo inicio.png" />
     <None Include="Resources\fondogrupos.png" />
+    <None Include="Resources\Like.png" />
+    <None Include="Resources\Reportar.png" />
     <Content Include="Resources\Seguir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

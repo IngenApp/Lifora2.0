@@ -15,10 +15,11 @@ namespace InterfazUsuario
         public PostTextoMostrar(string Apodo, string contenido, string cantidadLikes, string cantidadComentarios)
         {
             InitializeComponent();
+            richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
             this.ControlBox = false;
             this.Text = "";
             labelApodo.Text = Apodo;
-            label1.Text = contenido;
+            
 
         }
      
@@ -63,6 +64,19 @@ namespace InterfazUsuario
 
 
             // pasarle id_post al form para poder comentarlo
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            VerComentarPost comentar = new VerComentarPost();
+            comentar.Show();
+
+            // Pasarle id_post para comentar
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            // darle like
         }
     }
 }

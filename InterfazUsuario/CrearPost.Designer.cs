@@ -42,7 +42,7 @@ namespace InterfazUsuario
             this.btnWriting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.btnWriting.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWriting.ForeColor = System.Drawing.Color.White;
-            this.btnWriting.Location = new System.Drawing.Point(12, 90);
+            this.btnWriting.Location = new System.Drawing.Point(14, 99);
             this.btnWriting.Name = "btnWriting";
             this.btnWriting.Size = new System.Drawing.Size(150, 50);
             this.btnWriting.TabIndex = 5;
@@ -55,7 +55,7 @@ namespace InterfazUsuario
             this.btnPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.btnPhotos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhotos.ForeColor = System.Drawing.Color.White;
-            this.btnPhotos.Location = new System.Drawing.Point(168, 90);
+            this.btnPhotos.Location = new System.Drawing.Point(170, 99);
             this.btnPhotos.Name = "btnPhotos";
             this.btnPhotos.Size = new System.Drawing.Size(150, 50);
             this.btnPhotos.TabIndex = 6;
@@ -68,7 +68,7 @@ namespace InterfazUsuario
             this.btnVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.btnVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVideo.ForeColor = System.Drawing.Color.White;
-            this.btnVideo.Location = new System.Drawing.Point(324, 90);
+            this.btnVideo.Location = new System.Drawing.Point(326, 99);
             this.btnVideo.Name = "btnVideo";
             this.btnVideo.Size = new System.Drawing.Size(150, 50);
             this.btnVideo.TabIndex = 7;
@@ -81,7 +81,7 @@ namespace InterfazUsuario
             this.btnMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.btnMusic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMusic.ForeColor = System.Drawing.Color.White;
-            this.btnMusic.Location = new System.Drawing.Point(480, 90);
+            this.btnMusic.Location = new System.Drawing.Point(482, 99);
             this.btnMusic.Name = "btnMusic";
             this.btnMusic.Size = new System.Drawing.Size(150, 50);
             this.btnMusic.TabIndex = 8;
@@ -92,8 +92,9 @@ namespace InterfazUsuario
             // labelPostInfo
             // 
             this.labelPostInfo.AutoSize = true;
+            this.labelPostInfo.BackColor = System.Drawing.Color.Transparent;
             this.labelPostInfo.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPostInfo.Location = new System.Drawing.Point(124, 25);
+            this.labelPostInfo.Location = new System.Drawing.Point(122, 27);
             this.labelPostInfo.Name = "labelPostInfo";
             this.labelPostInfo.Size = new System.Drawing.Size(395, 28);
             this.labelPostInfo.TabIndex = 9;
@@ -103,6 +104,7 @@ namespace InterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallpaperEmergente;
             this.ClientSize = new System.Drawing.Size(644, 161);
             this.Controls.Add(this.labelPostInfo);
             this.Controls.Add(this.btnMusic);
