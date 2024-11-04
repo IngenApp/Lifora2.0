@@ -51,14 +51,19 @@ namespace InterfazUsuario
         {
             if (txtBoxNombre.Text.Equals("") || txtBoxApellido.Text.Equals("") || txtBoxFechaNAc.Text.Equals("") || txtBoxApodo.Text.Equals(""))
             {
-                MessageBox.Show("Complete los campos");
-                return;
-            }
-           
-
-                try
+                if (Settings.Default.Idioma == "es-UY")
                 {
-                    Dictionary<string, string> loginData = new Dictionary<string, string>()
+                    MessageBox.Show("LComplete los campos");
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("Fill in the fields");
+                }
+            }
+
+            try
+            {
+                Dictionary<string, string> loginData = new Dictionary<string, string>()
         {
             { "email", email },
             { "nombre", txtBoxNombre.Text },
@@ -69,32 +74,39 @@ namespace InterfazUsuario
             { "apodo", txtBoxApodo.Text },
             { "idioma", "espanol" }
         };
-                    string requestBody = JsonConvert.SerializeObject(loginData);
+                string requestBody = JsonConvert.SerializeObject(loginData);
 
-                    RestClient client = new RestClient("https://localhost:44331/");
-                    RestRequest request = new RestRequest("/api/Usuario/CrearUsuario", Method.Post);
+                RestClient client = new RestClient("https://localhost:44331/");
+                RestRequest request = new RestRequest("/api/Usuario/CrearUsuario", Method.Post);
 
-                    request.AddJsonBody(requestBody);
-                    request.AddHeader("Accept", "application/json");
-                    request.AddHeader("Content-Type", "application/json");
+                request.AddJsonBody(requestBody);
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("Content-Type", "application/json");
 
-                    RestResponse response = client.Execute(request);
-                    if (response.IsSuccessStatusCode)
+                RestResponse response = client.Execute(request);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    if (Settings.Default.Idioma == "es-UY")
                     {
                         MessageBox.Show("Usuario creado correctamente");
-                        this.Close();
-                        if (Registrarse1 != null)
-                        {
-                            Registrarse1.Close();
-                        }
-                        return;
                     }
-                    MessageBox.Show("Error al crear el usuario: " + response.Content);
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("User created correctly");
+                    }
+
+                    this.Close();
+                    if (Registrarse1 != null)
+                    {
+                        Registrarse1.Close();
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ocurrió un error: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
+            }
             }
         
             private void Registrarse2_FormClosing(object sender, FormClosingEventArgs e)

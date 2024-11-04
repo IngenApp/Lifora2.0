@@ -136,7 +136,7 @@
     <value>Post</value>
   </data>
   <data name="btnEvento" xml:space="preserve">
-    <value>Abrir</value>
+    <value>Open</value>
   </data>
   <data name="btnGroups" xml:space="preserve">
     <value>Groups</value>
@@ -149,6 +149,9 @@
   </data>
   <data name="btnMessages" xml:space="preserve">
     <value>Messages</value>
+  </data>
+  <data name="btnMisGrupos" xml:space="preserve">
+    <value>My groups</value>
   </data>
   <data name="btnMusic" xml:space="preserve">
     <value>Music</value>
@@ -176,6 +179,9 @@
   </data>
   <data name="btnSeguidos" xml:space="preserve">
     <value>IDOLS</value>
+  </data>
+  <data name="btnTodosGrupos" xml:space="preserve">
+    <value>All groups</value>
   </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
@@ -206,6 +212,9 @@
   </data>
   <data name="labelCrearEvento" xml:space="preserve">
     <value>Event Name</value>
+  </data>
+  <data name="labelCrearPost" xml:space="preserve">
+    <value>What do you want to share?</value>
   </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Email</value>
@@ -245,6 +254,9 @@
   </data>
   <data name="labelTelefono" xml:space="preserve">
     <value>Phone</value>
+  </data>
+  <data name="lableMensajes" xml:space="preserve">
+    <value>Messages</value>
   </data>
   <data name="lblSubTituloRegistro" xml:space="preserve">
     <value>To share and view art together!</value>

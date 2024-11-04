@@ -28,13 +28,8 @@ namespace InterfazUsuario
         }
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {
-            // Crear un objeto GraphicsPath para definir la forma circular
             GraphicsPath path = new GraphicsPath();
-
-            // Añadir una elipse al path con el tamaño del PictureBox
             path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
-
-            // Asignar la región circular al PictureBox
             pictureBox2.Region = new Region(path);
         }
 
@@ -49,25 +44,20 @@ namespace InterfazUsuario
             this.Close();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-            openFileDialog.Title = "Selecciona una imagen";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                rutaImagen = openFileDialog.FileName;
-               
-            }
-        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-            openFileDialog.Title = "Selecciona una imagen";
+            if (Settings.Default.Idioma == "es-UY")
+            {
+                openFileDialog.Title = "Selecciona una imagen";
+
+            }
+            if (Settings.Default.Idioma == "en-US")
+            {
+                openFileDialog.Title = "Select an image";
+            }
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -95,17 +85,35 @@ namespace InterfazUsuario
             //Crear Evento
             if (string.IsNullOrEmpty(richTextBox1.Text) || string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
             {
-                MessageBox.Show("Ingrese lo que desea el nombre y la descripcion del Evento");
+                if (Settings.Default.Idioma == "es-UY")
+                {
+                    MessageBox.Show("Ingrese el nombre y la descripcion del evento");
+
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("Enter the name and description of the event");
+                }
+                
             }
             else
             {
                 if (string.IsNullOrEmpty(rutaImagen))
                 {
-                    MessageBox.Show("Selecciona una imagen");
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Selecciona una imagen");
+
+                    }
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Select an image");
+                    }
+  
                 }
                 else
                 {
-                    //Api crear Post Audio
+                    //Api crear EVENTO
                     this.Close();
 
                 }

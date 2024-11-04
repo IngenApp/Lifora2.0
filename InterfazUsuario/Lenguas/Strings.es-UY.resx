@@ -136,7 +136,7 @@
     <value>Post</value>
   </data>
   <data name="btnEvento" xml:space="preserve">
-    <value>Open</value>
+    <value>Abrir</value>
   </data>
   <data name="btnGroups" xml:space="preserve">
     <value>Grupos</value>
@@ -149,6 +149,9 @@
   </data>
   <data name="btnMessages" xml:space="preserve">
     <value>Mensajes</value>
+  </data>
+  <data name="btnMisGrupos" xml:space="preserve">
+    <value>Mis grupos</value>
   </data>
   <data name="btnMusic" xml:space="preserve">
     <value>Musica</value>
@@ -177,6 +180,9 @@
   <data name="btnSeguidos" xml:space="preserve">
     <value>IDOLS</value>
   </data>
+  <data name="btnTodosGrupos" xml:space="preserve">
+    <value>Todos</value>
+  </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
   </data>
@@ -204,6 +210,9 @@
   <data name="labelBuscar" xml:space="preserve">
     <value>Buscar</value>
   </data>
+  <data name="labelCrearPost" xml:space="preserve">
+    <value>Que deseas compartir?</value>
+  </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Correo</value>
   </data>
@@ -221,6 +230,9 @@
   </data>
   <data name="labelLugarEvento" xml:space="preserve">
     <value>Lugar</value>
+  </data>
+  <data name="labelMensajes" xml:space="preserve">
+    <value>Mensajes</value>
   </data>
   <data name="labelNombre" xml:space="preserve">
     <value>Nombre</value>

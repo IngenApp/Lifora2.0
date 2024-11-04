@@ -163,5 +163,13 @@ namespace InterfazUsuario
             //reportar.Apodo = Apodo;
             reportar.Show();
         }
+
+        private void PerfilSecundario_Load(object sender, EventArgs e)
+        {
+            MuroTextos(this, EventArgs.Empty);
+            ReproductorPublicidad.URL = @"C:\Users\stive\OneDrive\Escritorio\MEGUSTA.mp4";
+            ReproductorPublicidad.uiMode = "none";
+            ReproductorPublicidad.settings.mute = true;
+        }
     }
 }

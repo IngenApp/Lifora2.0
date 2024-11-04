@@ -43,13 +43,29 @@ namespace InterfazUsuario
         {
             if (string.IsNullOrEmpty(richTextBox1.Text))
             {
-                MessageBox.Show("Ingrese lo que desea compartir");
+                if (Settings.Default.Idioma == "es-UY")
+                {
+                    MessageBox.Show("Ingrese lo que desea compartir");
+
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("Enter what you want to share");
+                }
             }
             else
             {
                 if (string.IsNullOrEmpty(rutaVideo))
                 {
-                    MessageBox.Show("Selecciona un Audio");
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Selecciona un video");
+
+                    }
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Select a video");
+                    }
                 }
                 else
                 {
@@ -76,7 +92,15 @@ namespace InterfazUsuario
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.Filter = "Archivos de video (*.mp4;*.avi;*.mov;*.mkv)|*.mp4;*.avi;*.mov;*.mkv";
-            openFileDialog.Title = "Selecciona un video";
+            if (Settings.Default.Idioma == "es-UY")
+            {
+                openFileDialog.Title = "Selecciona un video";
+
+            }
+            if (Settings.Default.Idioma == "en-US")
+            {
+                openFileDialog.Title = "Select a video";
+            }
 
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)

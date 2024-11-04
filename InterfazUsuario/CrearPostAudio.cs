@@ -43,13 +43,29 @@ namespace InterfazUsuario
         {
             if (string.IsNullOrEmpty(richTextBox1.Text))
             {
-                MessageBox.Show("Ingrese lo que desea compartir");
+                if (Settings.Default.Idioma == "es-UY")
+                {
+                    MessageBox.Show("Ingrese lo que desea compartir");
+
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("Enter what you want to share");
+                }
             }
             else
             {
                 if (string.IsNullOrEmpty(rutaAudio))
                 {
-                    MessageBox.Show("Selecciona un Audio");
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Selecciona un audio");
+
+                    }
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Select a audio");
+                    }
                 }
                 else
                 {
@@ -76,7 +92,16 @@ namespace InterfazUsuario
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.Filter = "Archivos de audio (*.mp3;*.wav;*.wma)|*.mp3;*.wav;*.wma";
-            openFileDialog.Title = "Selecciona un archivo de audio";
+
+            if(Settings.Default.Idioma == "es-UY")
+            {
+                openFileDialog.Title = "Selecciona un audio";
+
+            }
+            if (Settings.Default.Idioma == "en-US")
+            {
+                openFileDialog.Title = "Select a audio";
+            }
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -87,6 +112,7 @@ namespace InterfazUsuario
                 axWindowsMediaPlayer1.Ctlcontrols.play();
             }
         }
+
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {
             // Crear un objeto GraphicsPath para definir la forma circular

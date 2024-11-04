@@ -162,6 +162,7 @@ namespace InterfazUsuario
 
         private void MuroImagenes(object sender, EventArgs e)
         {
+           
             panel1.Hide();
             panel2.Show();
             panel3.Hide();
@@ -178,6 +179,7 @@ namespace InterfazUsuario
 
         private void MuroVideos(object sender, EventArgs e)
         {
+            
             panel1.Hide();
             panel2.Hide();
             panel3.Show();
@@ -193,11 +195,11 @@ namespace InterfazUsuario
 
         private void MuroAudios(object sender, EventArgs e)
         {
+            
             panel1.Hide();
             panel2.Hide();
             panel3.Hide();
             panel4.Show();
-
             List<string> apodos = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
             List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
             List<string> idAudios= new List<string> { @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\01 - Silent Hill.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\02 - All.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\03 - The Wait.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\04 - Until Death.mp3" };

@@ -69,7 +69,15 @@ namespace InterfazUsuario
                 }
                 else
                 {
-                    MessageBox.Show("Credenciales incorrectas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Credenciales incorrectas");
+
+                    }
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Incorrect credentials");
+                    }
                 }
             }
             catch (Exception ex)

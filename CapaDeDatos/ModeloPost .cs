@@ -144,6 +144,8 @@ namespace Modelo
             return ListaPost;
 
         }
+
+
         public List<ModeloPost> ObtenerPostTexto()
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();

@@ -134,5 +134,10 @@ namespace InterfazUsuario
             //reportar.NombreGrupo= NombreGrupo;
             reportar.Show();
         }
+
+        private void Grupos_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

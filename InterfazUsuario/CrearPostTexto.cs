@@ -47,7 +47,15 @@ namespace InterfazUsuario
             //api crear post de texto
             if (string.IsNullOrEmpty(richTextBox1.Text))
             {
-                MessageBox.Show("Ingrese lo que desea compartir");
+                if (Settings.Default.Idioma == "es-UY")
+                {
+                    MessageBox.Show("Ingrese lo que desea compartir");
+
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("Enter what you want to share");
+                }
             }
             else
             {

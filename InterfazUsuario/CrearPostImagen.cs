@@ -50,13 +50,29 @@ namespace InterfazUsuario
 
             if (string.IsNullOrEmpty(richTextBox1.Text) )
             {
-                MessageBox.Show("Ingrese lo que desea compartir");
+                if (Settings.Default.Idioma == "es-UY")
+                {
+                    MessageBox.Show("Ingrese lo que desea compartir");
+
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("Enter what you want to share");
+                }
             }
             else
             {
                 if (string.IsNullOrEmpty(rutaImagen))
                 {
-                    MessageBox.Show("Selecciona un Audio");
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Selecciona una Imagen");
+
+                    }
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Select an image");
+                    }
                 }
                 else
                 {
@@ -78,7 +94,15 @@ namespace InterfazUsuario
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-            openFileDialog.Title = "Selecciona una imagen";
+            if (Settings.Default.Idioma == "es-UY")
+            {
+                openFileDialog.Title = "Selecciona una imagen";
+
+            }
+            if (Settings.Default.Idioma == "en-US")
+            {
+                openFileDialog.Title = "Select an image";
+            }
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {

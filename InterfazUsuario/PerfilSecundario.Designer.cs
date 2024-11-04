@@ -325,7 +325,6 @@ namespace InterfazUsuario
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 68;
             this.pictureBox4.TabStop = false;
-
             // 
             // pictureBox3
             // 
@@ -443,6 +442,7 @@ namespace InterfazUsuario
             this.Name = "PerfilSecundario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lifora";
+            this.Load += new System.EventHandler(this.PerfilSecundario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

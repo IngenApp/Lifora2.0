@@ -101,6 +101,7 @@ namespace InterfazUsuario
 
             for (int i = 0; i < apodos.Count; i++)
             {
+                //Revisar si hay una sentencia ya creada q la cierre
                 PostAudioMostrar form = new PostAudioMostrar(apodos[i], descripcion[i], idAudios[i], cantidadLikes[i], cantidadComentarios[i]);
                 AgregarPostAudio(form);
             }
