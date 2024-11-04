@@ -32,11 +32,11 @@ namespace Controladores
             HabilitarEvento.idEvento = id_evento;
             HabilitarEvento.HabilitarEvento();
         }
-        public static Dictionary<string, string> BuscarEventoPorId(int id_evento)
+        public static Dictionary<string, string> BuscarEventoPorNombre(string nombreEvento)
         {
             ModeloEventos modeloEvento = new ModeloEventos();
-            modeloEvento.idEvento = id_evento;
-            return modeloEvento.ObtenerEventoPorId();
+            modeloEvento.nombreEvento = nombreEvento;
+            return modeloEvento.ObtenerEventoPorNombreEvento();
         }
     
         public static void ModificarEvento(string idEvento, string nombre_evento, string informacion, string lugar, string fecha)
@@ -59,7 +59,8 @@ namespace Controladores
             tabla.Columns.Add("Fecha", typeof(DateTime));
             tabla.Columns.Add("habilitado", typeof(Boolean));
             tabla.Columns.Add("ID_Perfil", typeof(string));
-           
+            tabla.Columns.Add("id_foto_evento", typeof(string));
+
             ModeloEventos ListarEventos = new ModeloEventos();
             foreach (ModeloEventos p in ListarEventos.ObtenerEventos())
             {
@@ -71,6 +72,7 @@ namespace Controladores
                 fila["Fecha"] = p.fechaEvento;
                 fila["habilitado"] = p.habilitado;
                 fila["ID_Perfil"] = p.idPerfil;
+                fila["id_foto_evento"] = p.idFotoEvento;
                 tabla.Rows.Add(fila);
             }
             return tabla;

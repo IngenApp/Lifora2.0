@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnComentarPost" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="btnCrearEvento" xml:space="preserve">
+    <value>Create</value>
+  </data>
   <data name="btnCrearGrupo" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="btnCrearPost" xml:space="preserve">
     <value>Create</value>
   </data>
   <data name="btnCreateEvents" xml:space="preserve">
@@ -125,6 +134,9 @@
   </data>
   <data name="btnCreatePost" xml:space="preserve">
     <value>Post</value>
+  </data>
+  <data name="btnEvento" xml:space="preserve">
+    <value>Open</value>
   </data>
   <data name="btnGroups" xml:space="preserve">
     <value>Groups</value>
@@ -138,11 +150,17 @@
   <data name="btnMessages" xml:space="preserve">
     <value>Messages</value>
   </data>
+  <data name="btnMisGrupos" xml:space="preserve">
+    <value>My groups</value>
+  </data>
   <data name="btnMusic" xml:space="preserve">
     <value>Music</value>
   </data>
   <data name="btnNext" xml:space="preserve">
     <value>Next</value>
+  </data>
+  <data name="btnOk" xml:space="preserve">
+    <value>Ok</value>
   </data>
   <data name="btnPhotos" xml:space="preserve">
     <value>Photos</value>
@@ -150,11 +168,20 @@
   <data name="btnRegister" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="btnReportarNo" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="btnReportarSi" xml:space="preserve">
+    <value>YES</value>
+  </data>
   <data name="btnSeguidores" xml:space="preserve">
-    <value>Followers</value>
+    <value>FANS</value>
   </data>
   <data name="btnSeguidos" xml:space="preserve">
-    <value>Follows</value>
+    <value>IDOLS</value>
+  </data>
+  <data name="btnTodosGrupos" xml:space="preserve">
+    <value>All groups</value>
   </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
@@ -166,7 +193,7 @@
     <value>Description</value>
   </data>
   <data name="Follower" xml:space="preserve">
-    <value>Followers</value>
+    <value>FANS</value>
   </data>
   <data name="InARow" xml:space="preserve">
     <value>Following</value>
@@ -180,21 +207,32 @@
   <data name="labelApodo" xml:space="preserve">
     <value>Nickname</value>
   </data>
-  <data name="labelAvisoPass" xml:space="preserve">
-    <value>Passwords must be between 
-8 and 24 characters, in addition 
-they must contain a capital letter, 
-a lowercase, a number 
-and a special character!</value>
-  </data>
   <data name="labelBuscar" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="labelCrearEvento" xml:space="preserve">
+    <value>Event Name</value>
+  </data>
+  <data name="labelCrearPost" xml:space="preserve">
+    <value>What do you want to share?</value>
   </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="labelEventos" xml:space="preserve">
+    <value>Events</value>
+  </data>
   <data name="labelFechaDeNac" xml:space="preserve">
     <value>Date of Birth</value>
+  </data>
+  <data name="labelGrupos" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="labelInfo" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="labelLugarEvento" xml:space="preserve">
+    <value>Location</value>
   </data>
   <data name="labelNombre" xml:space="preserve">
     <value>Name</value>
@@ -208,8 +246,17 @@ and a special character!</value>
   <data name="labelPassword" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="labelPostInfo" xml:space="preserve">
+    <value>Select the Post you want to share!</value>
+  </data>
+  <data name="labelReportar" xml:space="preserve">
+    <value>Report?</value>
+  </data>
   <data name="labelTelefono" xml:space="preserve">
     <value>Phone</value>
+  </data>
+  <data name="lableMensajes" xml:space="preserve">
+    <value>Messages</value>
   </data>
   <data name="lblSubTituloRegistro" xml:space="preserve">
     <value>To share and view art together!</value>
@@ -243,6 +290,9 @@ and a special character!</value>
   </data>
   <data name="Publicity" xml:space="preserve">
     <value>Publicity</value>
+  </data>
+  <data name="richTextBoxAvisoPass" xml:space="preserve">
+    <value>Passwords must be between 8 and 24 characters, in addition they must contain a capital letter, a lowercase, a number and a special character!</value>
   </data>
   <data name="tituloCrearPost" xml:space="preserve">
     <value>Create Post</value>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,6 @@ using System.Globalization;
 using System.Threading;
 using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
-using System.Drawing.Drawing2D;
 
 namespace InterfazUsuario
 {
@@ -24,6 +24,13 @@ namespace InterfazUsuario
         {
             InitializeComponent();
             CargarIdioma();
+            MakeCircularPictureBox(pictureBox2);
+        }
+        private void MakeCircularPictureBox(PictureBox pictureBox2)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
+            pictureBox2.Region = new Region(path);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,13 +39,30 @@ namespace InterfazUsuario
 
             if (string.IsNullOrEmpty(richTextBox1.Text) || string.IsNullOrEmpty(textBox1.Text))
             {
-                MessageBox.Show("Ingrese lo que desea el nombre y la descripcion del grupo");
+                if (Settings.Default.Idioma == "es-UY")
+                {
+                    MessageBox.Show("Ingrese el nombre y la descripcion del grupo");
+
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("Enter the name and description of the group");
+                }
+               
             }
             else
             {
                 if (string.IsNullOrEmpty(rutaImagen))
                 {
-                    MessageBox.Show("Selecciona una imagen");
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Selecciona una imagen");
+
+                    }
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Select an image");
+                    }
                 }
                 else
                 {
@@ -54,7 +78,16 @@ namespace InterfazUsuario
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-            openFileDialog.Title = "Selecciona una imagen";
+            if (Settings.Default.Idioma == "es-UY")
+            {
+                openFileDialog.Title = "Selecciona una imagen";
+
+            }
+            if (Settings.Default.Idioma == "en-US")
+            {
+                openFileDialog.Title = "Select an image";
+            }
+
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {

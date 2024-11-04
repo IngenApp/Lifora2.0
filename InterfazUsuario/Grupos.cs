@@ -21,6 +21,7 @@ namespace InterfazUsuario
         {
             InitializeComponent();
             CargarIdioma();
+            richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
             MakeCircularPictureBox(pictureBox2);
             MakeCircularPictureBox(pictureBox1);
 
@@ -120,6 +121,23 @@ namespace InterfazUsuario
                 Mensajes.MensajeInstancia.WindowState = FormWindowState.Normal;
                 Mensajes.MensajeInstancia.BringToFront();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Report_Click(object sender, EventArgs e)
+        {
+            Reportar reportar = new Reportar();
+            //reportar.NombreGrupo= NombreGrupo;
+            reportar.Show();
+        }
+
+        private void Grupos_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

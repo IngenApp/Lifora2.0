@@ -12,17 +12,25 @@ namespace InterfazUsuario
 {
     public partial class PostVideoMostrar : Form
     {
-        public PostVideoMostrar(String Apodo)
+        public string videoPath;
+        public PostVideoMostrar(string apodo, string descripcion, string idVideo, string likes, string comentarios)
         {
             InitializeComponent();
+            richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
+
+            axWindowsMediaPlayer1.URL = idVideo;
+            NickName.Text = apodo;
+            richTextBox1.Text = descripcion;
+            //labelFecha.Text = fecha;
+            ContLikes.Text = likes.ToString();
+            contComentarios.Text = comentarios.ToString();
+
+            videoPath = idVideo;
+
+
             this.ControlBox = false;
             this.Text = "";
-            linkLabel1.Text = Apodo;
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //cantidad de likes
+            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -32,24 +40,35 @@ namespace InterfazUsuario
             perfilSecundario.Show();
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-            //cantidad de comentarios
+            VerComentarPost comentar = new VerComentarPost();
+            comentar.Show();
+            // Pasarle id_post para comentar
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-            //like
+            // darle like
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Report_Click(object sender, EventArgs e)
         {
-            //comentar
+            Reportar reportar = new Reportar();
+            //reportar.id_post = id_post;
+            reportar.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
-            //compartir
+
+        }
+
+        private void axWindowsMediaPlayer1_DoubleClickEvent(object sender, AxWMPLib._WMPOCXEvents_DoubleClickEvent e)
+        {
+            PostVideoAmpliar fullscreenForm = new PostVideoAmpliar(videoPath);
+            fullscreenForm.Show();
+            axWindowsMediaPlayer1.Ctlcontrols.pause();
         }
     }
 }

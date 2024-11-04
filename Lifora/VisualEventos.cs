@@ -140,20 +140,5 @@ namespace Lifora
         {
             dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
         }
-
-        private void VisualEventos_Load(object sender, EventArgs e)
-        {
-            var perfil = ControladorCuentaUsuario.PerfilManager.PerfilActual;
-
-            if (perfil != null)
-            {
-                email1.Text = perfil.email; // Asigna el apodo a un Label
- 
-            }
-            else
-            {
-                MessageBox.Show("No hay perfil disponible.");
-            }
-        }
     }
 }

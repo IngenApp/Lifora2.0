@@ -69,31 +69,21 @@ namespace InterfazUsuario
                 }
                 else
                 {
-                    MessageBox.Show("Credenciales incorrectas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Credenciales incorrectas");
+
+                    }
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Incorrect credentials");
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-        /*  if (ControladorCuentaUsuario.Login(txtBoxMail.Text, txtBoxPassword.Text) == true)
-            {
-           
-                Inicio Inicio = new Inicio();
-            Inicio.Show();
-            Inicio.Login = this;
-            this.Hide();
-
-               
-            
-            }
-            else
-            {
-                MessageBox.Show("Credenciales incorrectas");
-            }
-            */
         }
        
         public void CargarIdioma()
@@ -124,6 +114,17 @@ namespace InterfazUsuario
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.Save();
+        }
+
+        private void txtBoxPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

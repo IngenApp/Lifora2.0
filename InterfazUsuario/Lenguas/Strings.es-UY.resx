@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnComentarPost" xml:space="preserve">
+    <value>Comentar</value>
+  </data>
+  <data name="btnCrearEvento" xml:space="preserve">
+    <value>Crear</value>
+  </data>
   <data name="btnCrearGrupo" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="btnCrearPost" xml:space="preserve">
     <value>Crear</value>
   </data>
   <data name="btnCreateEvents" xml:space="preserve">
@@ -125,6 +134,9 @@
   </data>
   <data name="btnCreatePost" xml:space="preserve">
     <value>Post</value>
+  </data>
+  <data name="btnEvento" xml:space="preserve">
+    <value>Abrir</value>
   </data>
   <data name="btnGroups" xml:space="preserve">
     <value>Grupos</value>
@@ -138,11 +150,17 @@
   <data name="btnMessages" xml:space="preserve">
     <value>Mensajes</value>
   </data>
+  <data name="btnMisGrupos" xml:space="preserve">
+    <value>Mis grupos</value>
+  </data>
   <data name="btnMusic" xml:space="preserve">
     <value>Musica</value>
   </data>
   <data name="btnNext" xml:space="preserve">
     <value>Siguiente</value>
+  </data>
+  <data name="btnOk" xml:space="preserve">
+    <value>Entiendo</value>
   </data>
   <data name="btnPhotos" xml:space="preserve">
     <value>Fotos</value>
@@ -150,11 +168,20 @@
   <data name="btnRegister" xml:space="preserve">
     <value>Registrarse</value>
   </data>
+  <data name="btnReportarNo" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="btnReportarSi" xml:space="preserve">
+    <value>SI</value>
+  </data>
   <data name="btnSeguidores" xml:space="preserve">
-    <value>Seguidores</value>
+    <value>FANS</value>
   </data>
   <data name="btnSeguidos" xml:space="preserve">
-    <value>Seguidos</value>
+    <value>IDOLS</value>
+  </data>
+  <data name="btnTodosGrupos" xml:space="preserve">
+    <value>Todos</value>
   </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
@@ -180,24 +207,38 @@
   <data name="labelApodo" xml:space="preserve">
     <value>Apodo</value>
   </data>
-  <data name="labelAvisoPass" xml:space="preserve">
-    <value>Las contrasenas deben tener entre 
-8 y 24 caracteres, ademas deben 
-contener una mayuscula, 
-una minuscula, un numero 
-y un caracter especial!</value>
-  </data>
   <data name="labelBuscar" xml:space="preserve">
     <value>Buscar</value>
+  </data>
+  <data name="labelCrearPost" xml:space="preserve">
+    <value>Que deseas compartir?</value>
   </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Correo</value>
   </data>
+  <data name="labelEventos" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
   <data name="labelFechaDeNac" xml:space="preserve">
     <value>Fecha de Nacimiento</value>
   </data>
+  <data name="labelGrupos" xml:space="preserve">
+    <value>Grupos</value>
+  </data>
+  <data name="labelInfo" xml:space="preserve">
+    <value>Informacion</value>
+  </data>
+  <data name="labelLugarEvento" xml:space="preserve">
+    <value>Lugar</value>
+  </data>
+  <data name="labelMensajes" xml:space="preserve">
+    <value>Mensajes</value>
+  </data>
   <data name="labelNombre" xml:space="preserve">
     <value>Nombre</value>
+  </data>
+  <data name="labelNombreEvento" xml:space="preserve">
+    <value>Nombre del Evento</value>
   </data>
   <data name="labelNombreGrupo" xml:space="preserve">
     <value>Nombre de grupo</value>
@@ -207,6 +248,12 @@ y un caracter especial!</value>
   </data>
   <data name="labelPassword" xml:space="preserve">
     <value>Contrasena</value>
+  </data>
+  <data name="labelPostInfo" xml:space="preserve">
+    <value>Seleccione el Post que desee compartir!</value>
+  </data>
+  <data name="labelReportar" xml:space="preserve">
+    <value>Reportar?</value>
   </data>
   <data name="labelTelefono" xml:space="preserve">
     <value>Telefono</value>
@@ -243,6 +290,9 @@ y un caracter especial!</value>
   </data>
   <data name="Publicity" xml:space="preserve">
     <value>Publicidad</value>
+  </data>
+  <data name="richTextBoxAvisoPass" xml:space="preserve">
+    <value>Las contrasenas deben tener entre 8 y 24 caracteres, ademas deben contener una mayuscula, una minuscula, un numero y un caracter especial!</value>
   </data>
   <data name="tituloCrearPost" xml:space="preserve">
     <value>Crear Post</value>

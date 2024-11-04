@@ -12,12 +12,18 @@ namespace InterfazUsuario
 {
     public partial class PostImagenMostrar : Form
     {
-        public PostImagenMostrar(string Apodo)
+        public PostImagenMostrar(string apodo, string descripcion, string idImagen,  string likes, string comentarios)
         {
             InitializeComponent();
-            this.ControlBox = false;
-            this.Text = "";
-            linkLabel1.Text = Apodo;
+            richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
+            
+            linkLabel1.Text = apodo;
+            pictureBox1.Image = Image.FromFile(idImagen);
+            richTextBox1.Text = descripcion;
+            //labelFecha.Text = fecha;
+            ContLikes.Text = likes;
+            contComentarios.Text = comentarios;
+
         }
 
         private void PostImagenMostrar_Load(object sender, EventArgs e)
@@ -55,6 +61,39 @@ namespace InterfazUsuario
         private void button3_Click(object sender, EventArgs e)
         {
             //compartir
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            VerComentarPost comentar = new VerComentarPost();
+            comentar.Show();
+
+            // Pasarle id_post para comentar
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Deseas compartir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verifica la respuesta del usuario
+            if (resultado == DialogResult.Yes)
+            {
+                // Compartir
+
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Reportar reportar = new Reportar();
+            //reportar.id_post = id_post;
+            reportar.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PostImagenAmpliar imagenForm = new PostImagenAmpliar(pictureBox1.Image);
+            imagenForm.ShowDialog();
         }
     }
 }

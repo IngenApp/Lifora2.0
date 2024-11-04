@@ -15,10 +15,13 @@ namespace InterfazUsuario
         public PostTextoMostrar(string Apodo, string contenido, string cantidadLikes, string cantidadComentarios)
         {
             InitializeComponent();
+            richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
             this.ControlBox = false;
             this.Text = "";
-            linkLabel4.Text = Apodo;
-            label1.Text = contenido;
+            labelApodo.Text = Apodo;
+            lblLikes.Text = cantidadLikes;
+            lblComentarios.Text = cantidadComentarios;
+            
 
         }
      
@@ -32,28 +35,29 @@ namespace InterfazUsuario
             PerfilSecundario perfil = new PerfilSecundario();
             perfil.Show();
 
-            //if (el eprfil es el mio, actualiza; si es distinto al mio)
+            //if (el eprfil es el mio, actualiza; si es distinto al mio, abre)
             
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-            //cantidad de likes
+            VerComentarPost comentar = new VerComentarPost();
+            comentar.Show();
+
+            // Pasarle id_post para comentar
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-            //cantidad de comentarios
+            // darle like
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Report_Click(object sender, EventArgs e)
         {
-            //like
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //comentar
+            Reportar reportar = new Reportar();
+            //reportar.id_post = id_post;
+            reportar.Show();
         }
     }
 }

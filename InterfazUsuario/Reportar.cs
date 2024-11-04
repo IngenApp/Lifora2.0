@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
+using InterfazUsuario.Lenguas;
+using InterfazUsuario.Properties;
+using System.Drawing.Drawing2D;
+
+namespace InterfazUsuario
+{
+    public partial class Reportar : Form
+    {
+        public int idPost=0, idComentario=0, idEvento=0;
+        public string nombreGrupo, Apodo;
+        public Reportar()
+        {
+            InitializeComponent();
+            CargarIdioma();
+
+            
+        }
+        public void CargarIdioma()
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Idioma);
+
+                Idioma.CambiarTexto(this.Controls);
+            }
+            catch (CultureNotFoundException)
+            {
+                Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
+            }
+        }
+
+        private void btnReportarSi_Click(object sender, EventArgs e)
+        {
+            //Reportar
+            if(idPost != 0)
+            {
+                //ReportarPost
+            }
+            if(idComentario != 0)
+            {
+                //ReportarComentario
+            }
+            if (!string.IsNullOrEmpty(nombreGrupo))
+            {
+                //ReportarGrupo
+            }
+            if (!string.IsNullOrEmpty(Apodo))
+            {
+                //reportarPerfil
+            }
+                if (idEvento != 0)
+            {
+                //reportarEvento
+            }
+        }
+
+        private void btnReportarNo_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

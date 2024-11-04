@@ -30,10 +30,7 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilPrincipal));
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnWriting = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnMusic = new System.Windows.Forms.Button();
             this.btnVideo = new System.Windows.Forms.Button();
             this.btnPhotos = new System.Windows.Forms.Button();
@@ -43,7 +40,6 @@ namespace InterfazUsuario
             this.btnMessages = new System.Windows.Forms.Button();
             this.btnCreatePost = new System.Windows.Forms.Button();
             this.Information = new System.Windows.Forms.Button();
-            this.Nickname = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -58,8 +54,10 @@ namespace InterfazUsuario
             this.labelSeguidores = new System.Windows.Forms.Label();
             this.btnSeguidos = new System.Windows.Forms.Button();
             this.btnSeguidores = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.Nickname = new System.Windows.Forms.LinkLabel();
+            this.ReproductorPublicidad = new AxWMPLib.AxWindowsMediaPlayer();
+            this.Calendario = new System.Windows.Forms.MonthCalendar();
+            this.Reproductor = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -67,87 +65,69 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).BeginInit();
             this.SuspendLayout();
-            // 
-            // axWindowsMediaPlayer2
-            // 
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(1012, 9);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(240, 200);
-            this.axWindowsMediaPlayer2.TabIndex = 45;
             // 
             // btnWriting
             // 
             this.btnWriting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnWriting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWriting.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWriting.ForeColor = System.Drawing.Color.White;
-            this.btnWriting.Location = new System.Drawing.Point(285, 600);
+            this.btnWriting.Location = new System.Drawing.Point(275, 600);
             this.btnWriting.Margin = new System.Windows.Forms.Padding(2);
             this.btnWriting.Name = "btnWriting";
             this.btnWriting.Size = new System.Drawing.Size(150, 50);
             this.btnWriting.TabIndex = 44;
             this.btnWriting.Text = "button5";
             this.btnWriting.UseVisualStyleBackColor = false;
-            this.btnWriting.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(1019, 242);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 43;
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(1012, 449);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(240, 200);
-            this.axWindowsMediaPlayer1.TabIndex = 41;
+            this.btnWriting.Click += new System.EventHandler(this.MuroTextos);
             // 
             // btnMusic
             // 
             this.btnMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnMusic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMusic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMusic.ForeColor = System.Drawing.Color.White;
-            this.btnMusic.Location = new System.Drawing.Point(747, 600);
+            this.btnMusic.Location = new System.Drawing.Point(737, 600);
             this.btnMusic.Margin = new System.Windows.Forms.Padding(2);
             this.btnMusic.Name = "btnMusic";
             this.btnMusic.Size = new System.Drawing.Size(150, 50);
             this.btnMusic.TabIndex = 39;
             this.btnMusic.Text = "button10";
             this.btnMusic.UseVisualStyleBackColor = false;
-            this.btnMusic.Click += new System.EventHandler(this.button10_Click);
+            this.btnMusic.Click += new System.EventHandler(this.MuroAudios);
             // 
             // btnVideo
             // 
             this.btnVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVideo.ForeColor = System.Drawing.Color.White;
-            this.btnVideo.Location = new System.Drawing.Point(593, 600);
+            this.btnVideo.Location = new System.Drawing.Point(583, 600);
             this.btnVideo.Margin = new System.Windows.Forms.Padding(2);
             this.btnVideo.Name = "btnVideo";
             this.btnVideo.Size = new System.Drawing.Size(150, 50);
             this.btnVideo.TabIndex = 38;
             this.btnVideo.Text = "button9";
             this.btnVideo.UseVisualStyleBackColor = false;
-            this.btnVideo.Click += new System.EventHandler(this.button9_Click);
+            this.btnVideo.Click += new System.EventHandler(this.MuroVideos);
             // 
             // btnPhotos
             // 
             this.btnPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnPhotos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPhotos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhotos.ForeColor = System.Drawing.Color.White;
-            this.btnPhotos.Location = new System.Drawing.Point(439, 600);
+            this.btnPhotos.Location = new System.Drawing.Point(429, 600);
             this.btnPhotos.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhotos.Name = "btnPhotos";
             this.btnPhotos.Size = new System.Drawing.Size(150, 50);
             this.btnPhotos.TabIndex = 37;
             this.btnPhotos.Text = "button8";
             this.btnPhotos.UseVisualStyleBackColor = false;
-            this.btnPhotos.Click += new System.EventHandler(this.button8_Click);
+            this.btnPhotos.Click += new System.EventHandler(this.MuroImagenes);
             // 
             // panel1
             // 
@@ -161,6 +141,7 @@ namespace InterfazUsuario
             // btnGroups
             // 
             this.btnGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnGroups.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGroups.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGroups.ForeColor = System.Drawing.Color.White;
             this.btnGroups.Location = new System.Drawing.Point(11, 423);
@@ -176,6 +157,7 @@ namespace InterfazUsuario
             // btnCreateEvents
             // 
             this.btnCreateEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnCreateEvents.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateEvents.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateEvents.ForeColor = System.Drawing.Color.White;
             this.btnCreateEvents.Location = new System.Drawing.Point(11, 369);
@@ -191,6 +173,7 @@ namespace InterfazUsuario
             // btnMessages
             // 
             this.btnMessages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnMessages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMessages.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMessages.ForeColor = System.Drawing.Color.White;
             this.btnMessages.Location = new System.Drawing.Point(11, 315);
@@ -206,6 +189,7 @@ namespace InterfazUsuario
             // btnCreatePost
             // 
             this.btnCreatePost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnCreatePost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreatePost.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePost.ForeColor = System.Drawing.Color.White;
             this.btnCreatePost.Location = new System.Drawing.Point(11, 261);
@@ -221,6 +205,7 @@ namespace InterfazUsuario
             // Information
             // 
             this.Information.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.Information.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Information.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Information.ForeColor = System.Drawing.Color.White;
             this.Information.Location = new System.Drawing.Point(11, 477);
@@ -232,20 +217,6 @@ namespace InterfazUsuario
             this.Information.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Information.UseVisualStyleBackColor = false;
             this.Information.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // Nickname
-            // 
-            this.Nickname.AutoSize = true;
-            this.Nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nickname.LinkColor = System.Drawing.Color.Black;
-            this.Nickname.Location = new System.Drawing.Point(17, 163);
-            this.Nickname.Name = "Nickname";
-            this.Nickname.Size = new System.Drawing.Size(136, 31);
-            this.Nickname.TabIndex = 49;
-            this.Nickname.TabStop = true;
-            this.Nickname.Text = "linkLabel3";
-            this.Nickname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Nickname.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // panel2
             // 
@@ -277,6 +248,7 @@ namespace InterfazUsuario
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox7.ErrorImage = null;
             this.pictureBox7.Image = global::InterfazUsuario.Properties.Resources.ingo;
             this.pictureBox7.Location = new System.Drawing.Point(20, 485);
@@ -289,9 +261,10 @@ namespace InterfazUsuario
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox6.ErrorImage = null;
             this.pictureBox6.Image = global::InterfazUsuario.Properties.Resources.grupos;
-            this.pictureBox6.Location = new System.Drawing.Point(20, 431);
+            this.pictureBox6.Location = new System.Drawing.Point(19, 431);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(35, 35);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -301,6 +274,7 @@ namespace InterfazUsuario
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.ErrorImage = null;
             this.pictureBox5.Image = global::InterfazUsuario.Properties.Resources.eventos;
             this.pictureBox5.Location = new System.Drawing.Point(20, 376);
@@ -313,6 +287,7 @@ namespace InterfazUsuario
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.ErrorImage = null;
             this.pictureBox4.Image = global::InterfazUsuario.Properties.Resources.mensaje;
             this.pictureBox4.Location = new System.Drawing.Point(20, 322);
@@ -326,6 +301,7 @@ namespace InterfazUsuario
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(106)))), ((int)(((byte)(209)))));
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.ErrorImage = null;
             this.pictureBox3.Image = global::InterfazUsuario.Properties.Resources.post;
             this.pictureBox3.Location = new System.Drawing.Point(20, 269);
@@ -338,8 +314,9 @@ namespace InterfazUsuario
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::InterfazUsuario.Properties.Resources.Logo_2;
-            this.pictureBox1.Location = new System.Drawing.Point(31, 549);
+            this.pictureBox1.Location = new System.Drawing.Point(30, 550);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
@@ -351,6 +328,7 @@ namespace InterfazUsuario
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::InterfazUsuario.Properties.Resources.silent_hill_2_remake_maria_1024x576;
             this.pictureBox2.Location = new System.Drawing.Point(11, 11);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
@@ -365,9 +343,10 @@ namespace InterfazUsuario
             // 
             this.labelSeguidos.AutoSize = true;
             this.labelSeguidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
-            this.labelSeguidos.Location = new System.Drawing.Point(107, 217);
+            this.labelSeguidos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSeguidos.Location = new System.Drawing.Point(100, 217);
             this.labelSeguidos.Name = "labelSeguidos";
-            this.labelSeguidos.Size = new System.Drawing.Size(35, 13);
+            this.labelSeguidos.Size = new System.Drawing.Size(47, 15);
             this.labelSeguidos.TabIndex = 77;
             this.labelSeguidos.Text = "label2";
             // 
@@ -375,43 +354,92 @@ namespace InterfazUsuario
             // 
             this.labelSeguidores.AutoSize = true;
             this.labelSeguidores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
+            this.labelSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSeguidores.Location = new System.Drawing.Point(28, 217);
             this.labelSeguidores.Name = "labelSeguidores";
-            this.labelSeguidores.Size = new System.Drawing.Size(35, 13);
+            this.labelSeguidores.Size = new System.Drawing.Size(47, 15);
             this.labelSeguidores.TabIndex = 76;
             this.labelSeguidores.Text = "label1";
             // 
             // btnSeguidos
             // 
             this.btnSeguidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
-            this.btnSeguidos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguidos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeguidos.ForeColor = System.Drawing.Color.Black;
             this.btnSeguidos.Location = new System.Drawing.Point(86, 206);
             this.btnSeguidos.Name = "btnSeguidos";
             this.btnSeguidos.Size = new System.Drawing.Size(75, 50);
             this.btnSeguidos.TabIndex = 75;
-            this.btnSeguidos.Text = "Follows";
+            this.btnSeguidos.Text = "IDOLS";
             this.btnSeguidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidos.UseVisualStyleBackColor = false;
             // 
             // btnSeguidores
             // 
             this.btnSeguidores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(215)))), ((int)(((byte)(170)))));
-            this.btnSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeguidores.ForeColor = System.Drawing.Color.Black;
             this.btnSeguidores.Location = new System.Drawing.Point(11, 206);
             this.btnSeguidores.Name = "btnSeguidores";
             this.btnSeguidores.Size = new System.Drawing.Size(75, 50);
             this.btnSeguidores.TabIndex = 74;
-            this.btnSeguidores.Text = "Followers";
+            this.btnSeguidores.Text = "FANS";
             this.btnSeguidores.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidores.UseVisualStyleBackColor = false;
+            // 
+            // Nickname
+            // 
+            this.Nickname.AutoSize = true;
+            this.Nickname.BackColor = System.Drawing.Color.Transparent;
+            this.Nickname.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Nickname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nickname.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.Nickname.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.Nickname.Location = new System.Drawing.Point(40, 163);
+            this.Nickname.Name = "Nickname";
+            this.Nickname.Size = new System.Drawing.Size(77, 24);
+            this.Nickname.TabIndex = 78;
+            this.Nickname.TabStop = true;
+            this.Nickname.Text = "Apodo";
+            this.Nickname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ReproductorPublicidad
+            // 
+            this.ReproductorPublicidad.Enabled = true;
+            this.ReproductorPublicidad.Location = new System.Drawing.Point(1020, 10);
+            this.ReproductorPublicidad.Name = "ReproductorPublicidad";
+            this.ReproductorPublicidad.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ReproductorPublicidad.OcxState")));
+            this.ReproductorPublicidad.Size = new System.Drawing.Size(227, 200);
+            this.ReproductorPublicidad.TabIndex = 81;
+            // 
+            // Calendario
+            // 
+            this.Calendario.BackColor = System.Drawing.Color.White;
+            this.Calendario.Font = new System.Drawing.Font("Arial Unicode MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendario.Location = new System.Drawing.Point(1020, 245);
+            this.Calendario.Name = "Calendario";
+            this.Calendario.TabIndex = 80;
+            // 
+            // Reproductor
+            // 
+            this.Reproductor.Enabled = true;
+            this.Reproductor.Location = new System.Drawing.Point(1020, 445);
+            this.Reproductor.Name = "Reproductor";
+            this.Reproductor.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("Reproductor.OcxState")));
+            this.Reproductor.Size = new System.Drawing.Size(227, 200);
+            this.Reproductor.TabIndex = 79;
             // 
             // PerfilPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallppaerLifora;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.ReproductorPublicidad);
+            this.Controls.Add(this.Calendario);
+            this.Controls.Add(this.Reproductor);
+            this.Controls.Add(this.Nickname);
             this.Controls.Add(this.labelSeguidos);
             this.Controls.Add(this.labelSeguidores);
             this.Controls.Add(this.btnSeguidos);
@@ -424,13 +452,9 @@ namespace InterfazUsuario
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.Nickname);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Information);
-            this.Controls.Add(this.axWindowsMediaPlayer2);
             this.Controls.Add(this.btnWriting);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.btnMusic);
             this.Controls.Add(this.btnVideo);
             this.Controls.Add(this.btnPhotos);
@@ -446,11 +470,10 @@ namespace InterfazUsuario
             this.MaximizeBox = false;
             this.Name = "PerfilPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Perfil";
+            this.Text = "Lifora";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PerfilPrincipal_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PerfilPrincipal_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.Load += new System.EventHandler(this.PerfilPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -458,17 +481,15 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
         private System.Windows.Forms.Button btnWriting;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Button btnMusic;
         private System.Windows.Forms.Button btnVideo;
         private System.Windows.Forms.Button btnPhotos;
@@ -480,7 +501,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.Button btnCreatePost;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Information;
-        private System.Windows.Forms.LinkLabel Nickname;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
@@ -493,5 +513,9 @@ namespace InterfazUsuario
         private System.Windows.Forms.Label labelSeguidores;
         private System.Windows.Forms.Button btnSeguidos;
         private System.Windows.Forms.Button btnSeguidores;
+        private System.Windows.Forms.LinkLabel Nickname;
+        private AxWMPLib.AxWindowsMediaPlayer ReproductorPublicidad;
+        private System.Windows.Forms.MonthCalendar Calendario;
+        private AxWMPLib.AxWindowsMediaPlayer Reproductor;
     }
 }
