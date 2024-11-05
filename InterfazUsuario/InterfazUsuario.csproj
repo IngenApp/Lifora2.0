@@ -123,6 +123,7 @@
     <Compile Include="AvisoPass.Designer.cs">
       <DependentUpon>AvisoPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatosDePerfil.cs" />
     <Compile Include="GestorDePosts.cs" />
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>

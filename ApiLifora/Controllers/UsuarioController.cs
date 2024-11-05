@@ -14,6 +14,29 @@ namespace ApiLifora.Controllers
     public class UsuarioController : ApiController
     {
 
+        [Route("api/Usuario/MeSiguen/{idPerfil:int}")]
+        [HttpGet]
+        public IHttpActionResult MeSiguen(int idPerfil)
+        {
+            try
+            {
+                List<string> seguidores = ControladorCuentaUsuario.ObtenerSeguidores(idPerfil);
+
+                if (seguidores == null || seguidores.Count == 0)
+                {
+                    return NotFound();
+                }
+
+                return Ok(seguidores);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception($"Ocurrió un error al obtener los seguidores: {ex.Message}", ex));
+            }
+        }
+
+
+
         [Route("api/Usuario/ListarUsuarios")]
         [HttpGet]
         public IHttpActionResult ListarUsuarios()
@@ -144,7 +167,7 @@ namespace ApiLifora.Controllers
         }
 
         [Route("api/Usuario/DeshabilitarUsuario/{id:int}")]
-        [HttpDelete]
+        [HttpPut]
         public IHttpActionResult DeshabilitaCuentaUsuario(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
@@ -154,7 +177,7 @@ namespace ApiLifora.Controllers
         }
 
         [Route("api/Usuario/HabilitarUsuario{id:int}")]
-        [HttpDelete]
+        [HttpPut]
         public IHttpActionResult HabilitarCuentaUsuario(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
@@ -162,6 +185,10 @@ namespace ApiLifora.Controllers
             resultado.Add("mensaje", "Usuario habilitado exitosamente");
             return Ok(resultado);
         }
+
+
+
+
 
         /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
         [HttpGet]

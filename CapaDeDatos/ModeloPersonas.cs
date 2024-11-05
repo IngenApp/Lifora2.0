@@ -15,7 +15,37 @@ namespace Modelo
         public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo;
         public bool habilitacion;
 
+        public List<string> ObtenerSeguidores(int idPerfil)
+        {
+            var seguidores = new List<string>();
 
+            try
+            {
+                string sql = @"SELECT perfil.apodo FROM sigue  JOIN perfil ON sigue.id_perfil_1 = perfil.id_perfil 
+            WHERE sigue.id_perfil_2 = @idPerfil";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@idPerfil", idPerfil);
+
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    while (this.Lector.Read())
+                    {
+                        seguidores.Add(this.Lector.GetString("apodo"));
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error de MySQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return seguidores;
+        }
         public void GuardarCuentaUsuario()
         {
             string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
