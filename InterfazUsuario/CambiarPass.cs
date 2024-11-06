@@ -40,8 +40,17 @@ namespace InterfazUsuario
 
         private void btnCambiar_Click(object sender, EventArgs e)
         {
-            //Actualizar
-            this.Close();
+                if (!textBoxPass.Text.Equals(DatosDePerfil.contrasena))
+                MessageBox.Show("La contraseña actual es incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+                if (!textBoxPassNuevo.Text.Equals(textBoxPassNuevo2.Text))
+                    MessageBox.Show("Las contraseñas nuevas no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+                DatosDePerfil.contrasena = textBoxPassNuevo.Text;
+                this.Close();
+                  
         }
 
         private void CambiarPass_Load(object sender, EventArgs e)

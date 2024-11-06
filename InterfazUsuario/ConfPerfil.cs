@@ -24,6 +24,7 @@ namespace InterfazUsuario
         {
             InitializeComponent();
             CargarIdioma();
+           
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -53,7 +54,9 @@ namespace InterfazUsuario
 
         private void btnCambiar_Click(object sender, EventArgs e)
         {
-            // Actualizar el perfil
+             textBox1.Text = DatosDePerfil.nombre;
+            textBox2.Text = DatosDePerfil.apellido;
+            textBox3.Text = DatosDePerfil.apodo;
             this.Close();
         }
 

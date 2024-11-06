@@ -27,7 +27,7 @@ namespace InterfazUsuario
         {
             Registrarse1 Registrarse1 = new Registrarse1();
             Registrarse1.Show();
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -85,13 +85,24 @@ namespace InterfazUsuario
             if (perfil != null)
             {
                 AsignarDatosDePerfil(perfil);
+
+                if (perfil.ContainsKey("contrasena"))
+                {
+                    ModificarUsuario(idPerfil, perfil["email"], perfil["apodo"], perfil["atributo1"], perfil["atributo2"], perfil["contrasena"], perfil["idioma"], int.Parse(perfil["idFotoPerfil"]));
+                }
+                else
+                {
+                    MessageBox.Show("La contraseña no está disponible en los datos de perfil.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 MeSiguen(idPerfil);
                 Seguidos(idPerfil);
-                //  CantidadMeSiguen(idPerfil);
-                // CantidadSeguidos(idPerfil);
+                CantidadMeSiguen(idPerfil);
+                CantidadSeguidos(idPerfil);
                 AbrirInicio();
             }
         }
+
 
         private void MostrarMensajeCredencialesIncorrectas()
         {
@@ -134,6 +145,7 @@ namespace InterfazUsuario
             DatosDePerfil.atributo1 = perfil["atributo1"];
             DatosDePerfil.atributo2 = perfil["atributo2"];
 
+
         }
 
         private static void MeSiguen(int idPerfil)
@@ -156,28 +168,28 @@ namespace InterfazUsuario
 
         }
 
-        /*        private static void CantidadMeSiguen(int idPerfil)
-                {
-                    RestClient client = new RestClient("https://localhost:44331/");
-                    RestRequest request = new RestRequest($"api/Usuario/CantidadSeguidores/{idPerfil}/", Method.Get);
-                    request.AddHeader("Accept", "application/json");
+        private static void CantidadMeSiguen(int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44331/");
+            RestRequest request = new RestRequest($"api/Usuario/CantidadSeguidores/{idPerfil}/", Method.Get);
+            request.AddHeader("Accept", "application/json");
 
-                    RestResponse response = client.Execute(request);
+            RestResponse response = client.Execute(request);
 
-                    if (response.IsSuccessful)
-                    {
-                        var result = JsonConvert.DeserializeObject<dynamic>(response.Content);
-                        int cantidadMeSiguen = result?.cantidadSeguidores;
+            if (response.IsSuccessful)
+            {
+                var result = JsonConvert.DeserializeObject<dynamic>(response.Content);
+                int cantidadMeSiguen = result?.cantidadSeguidores;
 
-                        DatosDePerfil.CantidadSeguidores = cantidadMeSiguen;
-                        return;
-                    }
+                DatosDePerfil.CantidadSeguidores = cantidadMeSiguen;
+                return;
+            }
 
-                    Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
-                    DatosDePerfil.CantidadSeguidores = 0; 
-                    return;
-                }
-        */
+            Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
+            DatosDePerfil.CantidadSeguidores = 0;
+            return;
+        }
+
         private static void Seguidos(int idPerfil)
         {
             RestClient client = new RestClient("https://localhost:44331/");
@@ -197,29 +209,63 @@ namespace InterfazUsuario
             return;
         }
 
-        /*       private static void CantidadSeguidos(int idPerfil)
-               {
-                   RestClient client = new RestClient("https://localhost:44331/");
-                   RestRequest request = new RestRequest($"api/Usuario/CantidadSeguidos/{idPerfil}/", Method.Get);
-                   request.AddHeader("Accept", "application/json");
+        private static void CantidadSeguidos(int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44331/");
+            RestRequest request = new RestRequest($"api/Usuario/CantidadSeguidos/{idPerfil}/", Method.Get);
+            request.AddHeader("Accept", "application/json");
 
-                   RestResponse response = client.Execute(request);
+            RestResponse response = client.Execute(request);
 
-                   if (response.IsSuccessful)
-                   {
-                       var result = JsonConvert.DeserializeObject<dynamic>(response.Content);
-                       int cantidadSeguidos = result?.cantidadSeguidos;
+            if (response.IsSuccessful)
+            {
+                var result = JsonConvert.DeserializeObject<dynamic>(response.Content);
+                int cantidadSeguidos = result?.cantidadSeguidos;
 
-                       DatosDePerfil.CantidadSeguidos = cantidadSeguidos;
-                       return;
-                   }
+                DatosDePerfil.CantidadSeguidos = cantidadSeguidos;
+                return;
+            }
 
-                   Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
-                   DatosDePerfil.CantidadSeguidos = 0; 
-                   return;
-               }
-       */
+            Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
+            DatosDePerfil.CantidadSeguidos = 0;
+            return;
+        }
 
+
+        private static void ModificarUsuario(int id, string email, string apodo, string atributo1, string atributo2, string contrasena, string idioma, int idFotoPerfil)
+        {
+            try
+            {
+                var client = new RestClient("https://localhost:44331/");
+                var request = new RestRequest($"api/Usuario/ModificarUsuario/{id}/", Method.Put);
+                request.AddHeader("Accept", "application/json");
+
+                var usuarioData = new
+                {
+                    email = email,
+                    apodo = apodo,
+                    atributo1 = atributo1,
+                    atributo2 = atributo2,
+                    contrasena = contrasena,
+                    idioma = string.IsNullOrEmpty(idioma) ? "espanol" : idioma,
+                    idFotoPerfil = idFotoPerfil
+                };
+                request.AddJsonBody(usuarioData);
+
+                RestResponse response = client.Execute(request);
+
+                if (response.IsSuccessful)
+                {
+                    MessageBox.Show("Usuario modificado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                MessageBox.Show("Error al modificar el usuario: " + response.Content, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un problema al intentar modificar el usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void AbrirInicio()
         {
             Inicio inicio = new Inicio();

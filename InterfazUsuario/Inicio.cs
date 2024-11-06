@@ -24,6 +24,7 @@ namespace InterfazUsuario
             gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
             MakeCircularPictureBox(pictureBox2);
             Nickname.Text = DatosDePerfil.apodo;
+           
         }
 
         private void CargarDatosPerfil()

@@ -8,7 +8,11 @@ namespace InterfazUsuario
     public class DatosDePerfil
     {
 
+
+        
+
         public static int idPerfil { get; set; }
+        public static string contrasena { get; set; }
         public static string nombre { get; set; }
         public static string apellido { get; set; }
         public static string fechaNacimiento { get; set; }

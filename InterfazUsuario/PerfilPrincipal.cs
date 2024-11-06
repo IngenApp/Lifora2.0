@@ -23,7 +23,7 @@ namespace InterfazUsuario
             gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
             MakeCircularPictureBox(pictureBox2);
             MakeCircularPictureBox(pictureBox1);
-
+            Nickname.Text = DatosDePerfil.apodo;
 
         }
         public void CargarIdioma()
@@ -82,12 +82,12 @@ namespace InterfazUsuario
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //cantidad de gente que me sigo
+            labelSeguidores.Text = DatosDePerfil.CantidadSeguidores.ToString();
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // cantidad de gente que sigo
+            labelSeguidos.Text = DatosDePerfil.CantidadSeguidores.ToString();
         }
 
         private void PerfilPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -256,12 +256,10 @@ namespace InterfazUsuario
 
         private void btnSeguidos_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnSeguidores_Click(object sender, EventArgs e)
         {
-
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
