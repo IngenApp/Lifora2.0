@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
+using RestSharp;
+using Newtonsoft.Json;
 
 namespace InterfazUsuario
 {
@@ -28,9 +23,43 @@ namespace InterfazUsuario
             CargarIdioma();
             gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
             MakeCircularPictureBox(pictureBox2);
-
-
+           
         }
+
+        private void CargarDatosPerfil()
+        {
+            string email = DatosDePerfil.email; 
+            Dictionary<string, string> perfil = ObtenerDatosPerfilDesdeApi(email);
+
+            if (perfil == null)
+            {
+                MessageBox.Show("No se pudieron obtener los datos del perfil.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DatosDePerfil.idPerfil = int.Parse(perfil["idPerfil"]);
+            DatosDePerfil.nombre = perfil["nombre"];
+            DatosDePerfil.apellido = perfil["apellido"];
+            DatosDePerfil.fechaNacimiento = perfil["fechaNacimiento"];
+            DatosDePerfil.email = perfil["email"];
+            DatosDePerfil.telefono = perfil["telefono"];
+            DatosDePerfil.apodo = perfil["apodo"];
+            DatosDePerfil.idFotoPerfil = string.IsNullOrEmpty(perfil["idFotoPerfil"]) ? (int?)null : int.Parse(perfil["idFotoPerfil"]);
+            DatosDePerfil.idioma = perfil["idioma"];
+            DatosDePerfil.atributo1 = perfil["atributo1"];
+            DatosDePerfil.atributo2 = perfil["atributo2"];
+            Nickname.Text = DatosDePerfil.apodo;
+        }
+        private Dictionary<string, string> ObtenerDatosPerfilDesdeApi(string email)
+        {
+            RestClient client = new RestClient("http://localhost:44331/");
+            RestRequest request = new RestRequest($"/api/Usuario/{email}", Method.Get);
+            request.AddHeader("Accept", "application/json");
+
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+        }
+
+
 
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {

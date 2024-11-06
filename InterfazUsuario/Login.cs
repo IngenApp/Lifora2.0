@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
 using Newtonsoft.Json;
 using RestSharp;
-using Controladores;
 
 
 namespace InterfazUsuario
@@ -40,52 +32,107 @@ namespace InterfazUsuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-          Dictionary<string, string> loginData = new Dictionary<string, string>()
+            try
+            {
+                RestResponse response = HacerSolicitudLogin();
+
+                if (response.IsSuccessful)
+                {
+                    ProcesarLoginExitoso();
+                    return;
+                }
+
+                MostrarMensajeCredencialesIncorrectas();
+            }
+            catch (Exception ex)
+            {
+                MostrarError(ex.Message);
+            }
+        }
+        private Dictionary<string, string> CrearDatosLogin()
+        {
+            return new Dictionary<string, string>
             {
                 { "email", txtBoxEmail.Text },
                 { "contrasena", txtBoxPass.Text }
             };
+        }
 
-            string requestBody = JsonConvert.SerializeObject(loginData);
+        private RestResponse HacerSolicitudLogin()
+        {
+            string requestBody = JsonConvert.SerializeObject(CrearDatosLogin());
 
             RestClient client = new RestClient("https://localhost:44331/");
             RestRequest request = new RestRequest("/api/Usuario/Login", Method.Post);
-           
-            request.RequestFormat = DataFormat.Json;
-            request.AddBody(requestBody);
+
+            request.AddJsonBody(requestBody);
             request.AddHeader("Accept", "application/json");
             request.AddHeader("Content-Type", "application/json");
 
-            try
-            {
-                RestResponse response = client.Execute(request);
+            return client.Execute(request);
+        }
 
-                if (response.IsSuccessStatusCode)
-                {
-                    Inicio inicio = new Inicio();
-                    inicio.Show();
-                    inicio.Login = this;
-                    this.Hide();
-                }
-                else
-                {
-                    if (Settings.Default.Idioma == "es-UY")
-                    {
-                        MessageBox.Show("Credenciales incorrectas");
+        private void ProcesarLoginExitoso()
+        {
+            string email = txtBoxEmail.Text;
+            Dictionary<string, string> perfil = ObtenerPerfilUsuario(email);
 
-                    }
-                    if (Settings.Default.Idioma == "en-US")
-                    {
-                        MessageBox.Show("Incorrect credentials");
-                    }
-                }
-            }
-            catch (Exception ex)
+            if (perfil != null)
             {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AsignarDatosDePerfil(perfil);
+                AbrirInicio();
             }
         }
-       
+
+        private void MostrarMensajeCredencialesIncorrectas()
+        {
+            if (Settings.Default.Idioma == "es-UY")
+            {
+                MessageBox.Show("Credenciales incorrectas");
+            }
+            else if (Settings.Default.Idioma == "en-US")
+            {
+                MessageBox.Show("Incorrect credentials");
+            }
+        }
+        private void MostrarError(string mensaje)
+        {
+            MessageBox.Show($"Ocurrió un error: {mensaje}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private Dictionary<string, string> ObtenerPerfilUsuario(string email)
+        {
+            RestClient client = new RestClient("http://localhost:44331/");
+            RestRequest request = new RestRequest($"/api/Usuario/{email}", Method.Get);
+            request.AddHeader("Accept", "application/json");
+
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+        }
+
+        private void AsignarDatosDePerfil(Dictionary<string, string> perfil)
+        {
+            DatosDePerfil.idPerfil = int.Parse(perfil["idPerfil"]);
+            DatosDePerfil.nombre = perfil["nombre"];
+            DatosDePerfil.apellido = perfil["apellido"];
+            DatosDePerfil.fechaNacimiento = perfil["fechaNacimiento"];
+            DatosDePerfil.email = perfil["email"];
+            DatosDePerfil.telefono = perfil["telefono"];
+            DatosDePerfil.apodo = perfil["apodo"];
+            DatosDePerfil.idFotoPerfil = string.IsNullOrEmpty(perfil["idFotoPerfil"]) ? (int?)null : int.Parse(perfil["idFotoPerfil"]);
+            DatosDePerfil.idioma = perfil["idioma"];
+            DatosDePerfil.atributo1 = perfil["atributo1"];
+            DatosDePerfil.atributo2 = perfil["atributo2"];
+        }
+
+        private void AbrirInicio()
+        {
+            Inicio inicio = new Inicio();
+            inicio.Show();
+            inicio.Login = this;
+            this.Hide();
+        }
+
         public void CargarIdioma()
         {
             try

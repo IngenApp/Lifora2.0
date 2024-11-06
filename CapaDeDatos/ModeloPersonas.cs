@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql;
+
 using MySql.Data.MySqlClient;
 
 namespace Modelo
@@ -15,7 +11,37 @@ namespace Modelo
         public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo;
         public bool habilitacion;
 
+        public List<string> ObtenerSeguidores(int idPerfil)
+        {
+            var seguidores = new List<string>();
 
+            try
+            {
+                string sql = @"SELECT perfil.apodo FROM sigue  JOIN perfil ON sigue.id_perfil_1 = perfil.id_perfil 
+            WHERE sigue.id_perfil_2 = @idPerfil";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@idPerfil", idPerfil);
+
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    while (this.Lector.Read())
+                    {
+                        seguidores.Add(this.Lector.GetString("apodo"));
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error de MySQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return seguidores;
+        }
         public void GuardarCuentaUsuario()
         {
             string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
@@ -182,40 +208,49 @@ namespace Modelo
             }
 
         }
-        public void ObtenerIdPerfilPorEmail(string email)
+        public bool ObtenerIdPerfilPorEmail(string email)
         {
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 
+                   FROM perfil p 
+                   JOIN cuenta_usuario cu ON p.email = cu.email 
+                   JOIN cuenta_lifora cl ON cu.email = cl.email 
+                   JOIN usuario u ON cl.id_usuario = u.id_usuario 
+                   WHERE p.email = @email;";
 
-            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.email = @email; ";
             try
             {
                 this.Comando.CommandText = sql;
-                this.Comando.Parameters.Clear(); 
+                this.Comando.Parameters.Clear();
                 this.Comando.Parameters.AddWithValue("@email", email);
 
                 using (this.Lector = this.Comando.ExecuteReader())
                 {
-                    if (this.Lector.Read()) 
+                    if (this.Lector.Read())
                     {
-                        idPerfil = Convert.ToInt32(Lector["id_perfil"]);
-                        nombre = Lector["nombre"].ToString();
-                        apellido = Lector["apellido"].ToString();
-                        fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
+                        this.idPerfil = Convert.ToInt32(Lector["id_perfil"]);
+                        this.nombre = Lector["nombre"].ToString();
+                        this.apellido = Lector["apellido"].ToString();
+                        this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
                         this.email = Lector["email"].ToString();
-                        telefono = Lector["telefono"].ToString();
-                        apodo = Lector["apodo"].ToString();
-                        idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"]);
-                        idioma = Lector["idioma"].ToString();
-                        atributo1 = Lector["atributo1"].ToString();
-                        atributo2 = Lector["atributo2"].ToString();
+                        this.telefono = Lector["telefono"].ToString();
+                        this.apodo = Lector["apodo"].ToString();
+                        if(Lector["id_foto_perfil"].ToString() != "")
+                            this.idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"].ToString());
+                        this.idioma = Lector["idioma"].ToString();
+                        this.atributo1 = Lector["atributo1"].ToString();
+                        this.atributo2 = Lector["atributo2"].ToString();
+                        
+                        return true;
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine($"Error: {ex.Message}");
             }
 
+            return false; 
         }
+    
     }
 }
