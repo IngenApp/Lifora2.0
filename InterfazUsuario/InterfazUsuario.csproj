@@ -123,35 +123,35 @@
     <Compile Include="AvisoPass.Designer.cs">
       <DependentUpon>AvisoPass.cs</DependentUpon>
     </Compile>
-<Compile Include="DatosDePerfil.cs" />
-<Compile Include="CambiarPass.cs">
-  <SubType>Form</SubType>
-</Compile>
-<Compile Include="CambiarPass.Designer.cs">
-  <DependentUpon>CambiarPass.cs</DependentUpon>
-</Compile>
-<Compile Include="ConfPerfil.cs">
-  <SubType>Form</SubType>
-</Compile>
-<Compile Include="ConfPerfil.Designer.cs">
-  <DependentUpon>ConfPerfil.cs</DependentUpon>
-</Compile>
-<Compile Include="EditarPost.cs">
-  <SubType>Form</SubType>
-</Compile>
-<Compile Include="EditarPost.Designer.cs">
-  <DependentUpon>EditarPost.cs</DependentUpon>
-</Compile>
-<Compile Include="Eventos.cs">
-  <SubType>Form</SubType>
-</Compile>
-<Compile Include="Eventos.Designer.cs">
-  <DependentUpon>Eventos.cs</DependentUpon>
-</Compile>
-<Compile Include="GestorDePosts.cs" />
-<Compile Include="CrearEvento.cs">
-  <SubType>Form</SubType>
-</Compile>
+    <Compile Include="DatosDePerfil.cs" />
+    <Compile Include="CambiarPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarPass.Designer.cs">
+      <DependentUpon>CambiarPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfPerfil.Designer.cs">
+      <DependentUpon>ConfPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarPost.Designer.cs">
+      <DependentUpon>EditarPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eventos.Designer.cs">
+      <DependentUpon>Eventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorDePosts.cs" />
+    <Compile Include="CrearEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GestorDePosts.cs" />
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>

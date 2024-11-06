@@ -208,7 +208,45 @@ namespace Modelo
             }
 
         }
-        public bool ObtenerIdPerfilPorEmail(string email)
+
+        public void ObtenerPerfilPorEmail(string email)
+        {
+
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.email = @email; ";
+            try
+            {
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@email", email);
+
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    if (this.Lector.Read())
+                    {
+                        this.idPerfil = Convert.ToInt32(Lector["id_perfil"]);
+                        this.nombre = Lector["nombre"].ToString();
+                        this.apellido = Lector["apellido"].ToString();
+                        this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
+                        this.email = Lector["email"].ToString();
+                        this.telefono = Lector["telefono"].ToString();
+                        this.apodo = Lector["apodo"].ToString();
+                        this.idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"]);
+                        this.idioma = Lector["idioma"].ToString();
+                        this.atributo1 = Lector["atributo1"].ToString();
+                        this.atributo2 = Lector["atributo2"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+        }
+
+
+        /*   public bool ObtenerIdPerfilPorEmail(string email)
         {
             string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 
                    FROM perfil p 
@@ -251,6 +289,6 @@ namespace Modelo
 
             return false; 
         }
-    
+    */
     }
 }

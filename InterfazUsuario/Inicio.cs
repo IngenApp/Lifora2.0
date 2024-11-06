@@ -23,7 +23,7 @@ namespace InterfazUsuario
             CargarIdioma();
             gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
             MakeCircularPictureBox(pictureBox2);
-           
+            Nickname.Text = DatosDePerfil.apodo;
         }
 
         private void CargarDatosPerfil()
@@ -47,7 +47,7 @@ namespace InterfazUsuario
             DatosDePerfil.idioma = perfil["idioma"];
             DatosDePerfil.atributo1 = perfil["atributo1"];
             DatosDePerfil.atributo2 = perfil["atributo2"];
-            Nickname.Text = DatosDePerfil.apodo;
+          
         }
         private Dictionary<string, string> ObtenerDatosPerfilDesdeApi(string email)
         {

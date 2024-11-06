@@ -102,8 +102,8 @@ namespace InterfazUsuario
 
         private Dictionary<string, string> ObtenerPerfilUsuario(string email)
         {
-            RestClient client = new RestClient("http://localhost:44331/");
-            RestRequest request = new RestRequest($"/api/Usuario/{email}", Method.Get);
+            RestClient client = new RestClient("https://localhost:44331/");
+            RestRequest request = new RestRequest($"/api/Usuario/{email}/", Method.Get);
             request.AddHeader("Accept", "application/json");
 
             RestResponse response = client.Execute(request);
@@ -112,17 +112,18 @@ namespace InterfazUsuario
 
         private void AsignarDatosDePerfil(Dictionary<string, string> perfil)
         {
-            DatosDePerfil.idPerfil = int.Parse(perfil["idPerfil"]);
-            DatosDePerfil.nombre = perfil["nombre"];
-            DatosDePerfil.apellido = perfil["apellido"];
-            DatosDePerfil.fechaNacimiento = perfil["fechaNacimiento"];
+            DatosDePerfil.idPerfil = int.Parse(perfil["id_perfil"]);
+            DatosDePerfil.apodo = perfil["apodo"];
             DatosDePerfil.email = perfil["email"];
             DatosDePerfil.telefono = perfil["telefono"];
-            DatosDePerfil.apodo = perfil["apodo"];
-            DatosDePerfil.idFotoPerfil = string.IsNullOrEmpty(perfil["idFotoPerfil"]) ? (int?)null : int.Parse(perfil["idFotoPerfil"]);
+            DatosDePerfil.nombre = perfil["nombre"];
+            DatosDePerfil.apellido = perfil["apellido"];
+            DatosDePerfil.fechaNacimiento = perfil["fecha_nacimiento"];
+            DatosDePerfil.idFotoPerfil = string.IsNullOrEmpty(perfil["id_foto_perfil"]) ? (int?)null : int.Parse(perfil["id_foto_perfil"]);
             DatosDePerfil.idioma = perfil["idioma"];
             DatosDePerfil.atributo1 = perfil["atributo1"];
             DatosDePerfil.atributo2 = perfil["atributo2"];
+
         }
 
         private void AbrirInicio()
