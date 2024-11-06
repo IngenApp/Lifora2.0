@@ -225,6 +225,9 @@
   <data name="labelEventos" xml:space="preserve">
     <value>Eventos</value>
   </data>
+  <data name="labelFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
   <data name="labelFechaDeNac" xml:space="preserve">
     <value>Fecha de Nacimiento</value>
   </data>

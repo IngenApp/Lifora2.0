@@ -228,6 +228,9 @@
   <data name="labelEventos" xml:space="preserve">
     <value>Events</value>
   </data>
+  <data name="labelFecha" xml:space="preserve">
+    <value>Date</value>
+  </data>
   <data name="labelFechaDeNac" xml:space="preserve">
     <value>Date of Birth</value>
   </data>

@@ -23,7 +23,6 @@ namespace InterfazUsuario
         public CambiarPass()
         {
             InitializeComponent();
-            CargarIdioma();
         }
         public void CargarIdioma()
         {
@@ -42,11 +41,12 @@ namespace InterfazUsuario
         private void btnCambiar_Click(object sender, EventArgs e)
         {
             //Actualizar
+            this.Close();
         }
 
         private void CambiarPass_Load(object sender, EventArgs e)
         {
-
+            CargarIdioma();
         }
     }
     

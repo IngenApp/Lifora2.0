@@ -68,5 +68,20 @@ namespace InterfazUsuario
             // Asignar la región circular al PictureBox
             pictureBox2.Region = new Region(path);
         }
+
+        private void btnEvento_Click(object sender, EventArgs e)
+        {
+            // if(datagridview.Selection != null)
+            // valores de ejemplo apra abrir un grupo
+            int idEvento = 1;
+            string nombreEvento = "Proyecto de la Utu";
+            string lugarEvento = "UTU Buceo";
+            string infoEvento = "proyecto relaizado por IngenApp";
+            string fechaEvento = "15 noviembre 2024";
+            string idFotoEvento = @"D:\IngenApp\Logo\logo.png";
+            Eventos eventos = new Eventos(idEvento, nombreEvento, lugarEvento, infoEvento, fechaEvento, idFotoEvento);
+            eventos.Show();
+            //else(mensaje)
+        }
     }
 }

@@ -68,6 +68,7 @@ namespace InterfazUsuario
             this.btnEvento.TabIndex = 56;
             this.btnEvento.Text = "Abrir";
             this.btnEvento.UseVisualStyleBackColor = false;
+            this.btnEvento.Click += new System.EventHandler(this.btnEvento_Click);
             // 
             // pictureBox1
             // 

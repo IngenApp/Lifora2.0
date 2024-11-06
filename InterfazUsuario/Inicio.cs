@@ -72,6 +72,7 @@ namespace InterfazUsuario
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
             // actualizar muro
         }
 
@@ -195,7 +196,8 @@ namespace InterfazUsuario
 
         private void MuroAudios(object sender, EventArgs e)
         {
-            
+       
+
             panel1.Hide();
             panel2.Hide();
             panel3.Hide();

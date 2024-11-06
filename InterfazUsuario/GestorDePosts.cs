@@ -44,8 +44,22 @@ namespace InterfazUsuario
 
         public void PostTexto(List<string> apodo, List<string> descripcion, List<string> cantidadLikes, List<string> cantidadComentarios)
         {
+            var formulariosActuales = new List<Form>();
+            foreach (Control control in _panelTexto.Controls)
+            {
+                if (control is Form form)
+                {
+                    formulariosActuales.Add(form);
+                }
+            }
+            foreach (var form in formulariosActuales)
+            {
+                form.Close();
+                form.Dispose();
+                
+            }
             _panelTexto.Controls.Clear();
-           
+
             for (int i = 0; i < apodo.Count; i++)
             {
                 PostTextoMostrar form = new PostTextoMostrar(apodo[i], descripcion[i], cantidadLikes[i], cantidadComentarios[i]);
@@ -71,6 +85,20 @@ namespace InterfazUsuario
 
         public void CargarImagenes(List<string> apodos, List<string> descripcion, List<string> idImagenes, List<string> cantidadLikes, List<string> cantidadComentarios)
         {
+            var formulariosActuales = new List<Form>();
+            foreach (Control control in _panelImagen.Controls)
+            {
+                if (control is Form form)
+                {
+                    formulariosActuales.Add(form);
+                }
+            }
+            foreach (var form in formulariosActuales)
+            {
+                form.Close();
+                form.Dispose();
+
+            }
             _panelImagen.Controls.Clear();
 
             for (int i = 0; i < apodos.Count; i++)
@@ -97,11 +125,24 @@ namespace InterfazUsuario
 
         public void CargarAudios(List<string> apodos, List<string> descripcion, List<string> idAudios, List<string> cantidadLikes, List<string> cantidadComentarios)
         {
+            var formulariosActuales = new List<Form>();
+            foreach (Control control in _panelAudio.Controls)
+            {
+                if (control is Form form)
+                {
+                    formulariosActuales.Add(form);
+                }
+            }
+            foreach (var form in formulariosActuales)
+            {
+                form.Close();
+                form.Dispose();
+
+            }
             _panelAudio.Controls.Clear();
 
             for (int i = 0; i < apodos.Count; i++)
             {
-                //Revisar si hay una sentencia ya creada q la cierre
                 PostAudioMostrar form = new PostAudioMostrar(apodos[i], descripcion[i], idAudios[i], cantidadLikes[i], cantidadComentarios[i]);
                 AgregarPostAudio(form);
             }
@@ -124,6 +165,20 @@ namespace InterfazUsuario
 
         public void CargarVideos(List<string> apodo, List<string> descripcion, List<string> idVideo, List<string> cantidadLikes, List<string> cantidadComentarios)
         {
+            var formulariosActuales = new List<Form>();
+            foreach (Control control in _panelVideo.Controls)
+            {
+                if (control is Form form)
+                {
+                    formulariosActuales.Add(form);
+                }
+            }
+            foreach (var form in formulariosActuales)
+            {
+                form.Close();
+                form.Dispose();
+
+            }
             _panelVideo.Controls.Clear();
 
             for (int i = 0; i < apodo.Count; i++)

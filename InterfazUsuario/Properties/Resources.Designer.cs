@@ -274,6 +274,16 @@ namespace InterfazUsuario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GustaEvento {
+            get {
+                object obj = ResourceManager.GetObject("GustaEvento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ingo {
             get {
                 object obj = ResourceManager.GetObject("ingo", resourceCulture);
@@ -314,9 +324,29 @@ namespace InterfazUsuario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Lugar {
+            get {
+                object obj = ResourceManager.GetObject("Lugar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mensaje {
             get {
                 object obj = ResourceManager.GetObject("mensaje", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap No_me_gusta_evento {
+            get {
+                object obj = ResourceManager.GetObject("No me gusta evento", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
