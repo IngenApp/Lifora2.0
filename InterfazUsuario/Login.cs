@@ -60,6 +60,7 @@ namespace InterfazUsuario
                 { "email", txtBoxEmail.Text },
                 { "contrasena", txtBoxPass.Text }
             };
+           
         }
 
         private RestResponse HacerSolicitudLogin()
@@ -231,13 +232,12 @@ namespace InterfazUsuario
             return;
         }
 
-
         private static void ModificarUsuario(int id, string email, string apodo, string atributo1, string atributo2, string contrasena, string idioma, int idFotoPerfil)
         {
             try
             {
-                var client = new RestClient("https://localhost:44331/");
-                var request = new RestRequest($"api/Usuario/ModificarUsuario/{id}/", Method.Put);
+                RestClient client = new RestClient("https://localhost:44331/");
+                RestRequest request = new RestRequest($"api/Usuario/ModificarUsuario/{id}/", Method.Put);
                 request.AddHeader("Accept", "application/json");
 
                 var usuarioData = new
@@ -256,8 +256,20 @@ namespace InterfazUsuario
 
                 if (response.IsSuccessful)
                 {
-                    MessageBox.Show("Usuario modificado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    var resultado = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+                    if (resultado != null && resultado.ContainsKey("mensaje"))
+                    {
+                        DatosDePerfil.email = email;
+                        DatosDePerfil.apodo = apodo;
+                        DatosDePerfil.atributo1 = atributo1;
+                        DatosDePerfil.atributo2 = atributo2;
+                        DatosDePerfil.contrasena = contrasena;
+                        DatosDePerfil.idioma = string.IsNullOrEmpty(idioma) ? "espanol" : idioma;
+                        DatosDePerfil.idFotoPerfil = idFotoPerfil;
+
+                        MessageBox.Show("Usuario modificado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                 }
                 MessageBox.Show("Error al modificar el usuario: " + response.Content, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -10,7 +10,7 @@ namespace Modelo
     public class ModeloPost : Modelo
     {
         public int idPost, idPerfil, idComentario, idEvento;
-        public string post, descripcion, apodo, fecha, comentario, idImagen, idVideo, idAudio;
+        public string post, descripcion, apodo, fecha, comentario, idAudio, idImagen, idVideo;
         public bool habilitado, comparteHabilitado;
         public DateTime fechaHora, fechaComparte;
 
@@ -83,7 +83,7 @@ namespace Modelo
         }
 
 
-        public void DarLike()
+        public void DarLike(int idPost, int idPerfil)
         {
            
             string sqlInsert = $"INSERT INTO likes (id_post, id_perfil, fecha) VALUES (@id_post, @id_perfil, NOW()); commit;";
@@ -94,15 +94,25 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
 
         }
-        public void EliminarLike()
+        public void EliminarLike(int idPost, int idPerfil)
         {
-            string sql = "DELETE FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil; commit;";
+            string sql = "DELETE FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil;";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
-            this.Comando.ExecuteNonQuery();
+
+            try
+            {
+                this.Comando.ExecuteNonQuery();
+                Console.WriteLine("Like eliminado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar el like: {ex.Message}");
+            }
         }
+
         public int ContarLikes()
         {
             string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post;";
@@ -146,30 +156,20 @@ namespace Modelo
         }
 
 
-        public List<ModeloPost> ObtenerPostTexto()
+        public List<ModeloPost> ObtenerPostTexto(int idPerfil)
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();
 
-            string sql = @"
-        SELECT 
-            p.id_post, 
-            p.descripcion, 
-            p.fecha_hora, 
-            p.habilitado, 
-            pf.apodo, 
-            pf.id_perfil 
-        FROM 
-            post p 
-        JOIN 
-            texto t ON p.id_post = t.id_post 
-        LEFT JOIN 
-            perfil pf ON p.id_perfil = pf.id_perfil 
-        WHERE 
-            p.habilitado = TRUE AND p.id_perfil= @id_perfil;";
+            string sql = @"SELECT p.id_post, p.descripcion, p.fecha_hora, p.habilitado, pf.apodo, pf.id_perfil 
+                    FROM post p
+                    JOIN texto t ON p.id_post = t.id_post
+                    LEFT JOIN perfil pf ON p.id_perfil = pf.id_perfil
+                    WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil;";
 
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
             using (this.Lector = this.Comando.ExecuteReader())
             {
                 while (this.Lector.Read())
@@ -180,7 +180,7 @@ namespace Modelo
                         descripcion = this.Lector["descripcion"].ToString(),
                         fecha = this.Lector["fecha_hora"].ToString(),
                         habilitado = Convert.ToBoolean(this.Lector["habilitado"]),
-                        apodo = this.Lector["apodo"] != DBNull.Value ? this.Lector["apodo"].ToString() : string.Empty, 
+                        apodo = this.Lector["apodo"] != DBNull.Value ? this.Lector["apodo"].ToString() : string.Empty,
                         idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
                     };
 
@@ -189,6 +189,10 @@ namespace Modelo
             }
             return ListaPost;
         }
+
+
+
+
         public List<ModeloPost> ObtenerPostImagen()
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();
@@ -390,7 +394,7 @@ namespace Modelo
         }
         public int ContarComentarios()
         {
-            string sql = "SELECT COUNT(*) FROM comentarios WHERE id_post = @id_post; commit";
+            string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post; commit";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
@@ -400,7 +404,7 @@ namespace Modelo
 
 
 
-        public void CompartirPost()
+        public void CompartirPost(int idPost, int idPerfil)
         {
             string sql = $"INSERT INTO comparte (id_perfil, id_post, fecha_hora) VALUES (@id_perfil, @id_post, NOW()); commit;";
 
@@ -410,6 +414,7 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
+       
         public void DeshabilitarComparte()
         {
             string sql = $"UPDATE comparte SET habilitado = FALSE WHERE id_post = @id_post; commit";
