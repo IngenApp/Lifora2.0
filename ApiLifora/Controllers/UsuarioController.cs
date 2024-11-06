@@ -11,6 +11,7 @@ namespace ApiLifora.Controllers
 {
     public class UsuarioController : ApiController
     {
+
         [Route("api/Usuario/{email}")]
         [HttpGet]
         public IHttpActionResult ObtenerPerfilPorMail(string email)
@@ -19,7 +20,7 @@ namespace ApiLifora.Controllers
 
             if (perfil == null || !perfil.Any())
                 return NotFound();
-            
+
             return Ok(perfil);
 
         }
@@ -34,9 +35,7 @@ namespace ApiLifora.Controllers
                 List<string> seguidores = ControladorCuentaUsuario.ObtenerSeguidores(idPerfil);
 
                 if (seguidores == null || seguidores.Count == 0)
-                {
                     return NotFound();
-                }
 
                 return Ok(seguidores);
             }
@@ -45,6 +44,66 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Ocurrió un error al obtener los seguidores: {ex.Message}", ex));
             }
         }
+
+
+        [Route("api/Usuario/CantidadSeguidores/{idPerfil:int}")]
+        [HttpGet]
+        public IHttpActionResult ObtenerCantidadSeguidores(int idPerfil)
+        {
+            try
+            {
+                int cantidadSeguidores = ControladorCuentaUsuario.ObtenerCantidadSeguidores(idPerfil);
+
+                if (cantidadSeguidores < 0)
+                    return NotFound();
+
+                return Ok(new { cantidadSeguidores });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception($"Ocurrió un error al obtener la cantidad de seguidores: {ex.Message}", ex));
+            }
+        }
+
+        [Route("api/Usuario/Sigo/{idPerfil:int}")]
+        [HttpGet]
+        public IHttpActionResult Seguidos(int idPerfil)
+        {
+            try
+            {
+                List<string> seguidos = ControladorCuentaUsuario.ObtenerSeguidos(idPerfil);
+                if (seguidos == null || seguidos.Count == 0)
+                    return NotFound();
+
+                return Ok(seguidos);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception($"Ocurrio un error al obtener los seguidos: {ex.Message}", ex));
+            }
+        }
+
+        [Route("api/Usuario/CantidadSeguidos/{idPerfil:int}")]
+        [HttpGet]
+        public IHttpActionResult ObtenerCantidadSeguidos(int idPerfil)
+        {
+            try
+            {
+                int cantidadSeguidos = ControladorCuentaUsuario.ObtenerCantidadSeguidos(idPerfil);
+
+                if (cantidadSeguidos < 0)
+                    return NotFound();
+
+                return Ok(new { cantidadSeguidos });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception($"Ocurrió un error al obtener la cantidad de seguidos: {ex.Message}", ex));
+            }
+        }
+
+
+
 
 
         [Route("api/Usuario/ListarUsuarios")]
@@ -201,32 +260,32 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
-  
 
-    
 
-    /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
-    [HttpGet]
-    public IHttpActionResult BuscarUsuarioPorId(int id)
-    {
-        Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
-        if (datosUsuario != null && datosUsuario.ContainsKey("resultado") && datosUsuario["resultado"] == "true")
+
+
+        /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
+        [HttpGet]
+        public IHttpActionResult BuscarUsuarioPorId(int id)
         {
-            ModeloApiUsuario usuario = new ModeloApiUsuario();
-            usuario.idUsuario = Int32.Parse(datosUsuario["id_usuario"]);
-            usuario.nombre = datosUsuario["nombre"];
-            usuario.apellido = datosUsuario["apellido"];
-            usuario.telefono = datosUsuario["telefono"];
-            usuario.email = datosUsuario["email"];
-            usuario.fechaNacimiento = datosUsuario["fecha_nacimiento"];
-            if (datosUsuario.ContainsKey("habilitado"))
+            Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
+            if (datosUsuario != null && datosUsuario.ContainsKey("resultado") && datosUsuario["resultado"] == "true")
             {
-                usuario.habilitacion = Boolean.Parse(datosUsuario["habilitado"]);
+                ModeloApiUsuario usuario = new ModeloApiUsuario();
+                usuario.idUsuario = Int32.Parse(datosUsuario["id_usuario"]);
+                usuario.nombre = datosUsuario["nombre"];
+                usuario.apellido = datosUsuario["apellido"];
+                usuario.telefono = datosUsuario["telefono"];
+                usuario.email = datosUsuario["email"];
+                usuario.fechaNacimiento = datosUsuario["fecha_nacimiento"];
+                if (datosUsuario.ContainsKey("habilitado"))
+                {
+                    usuario.habilitacion = Boolean.Parse(datosUsuario["habilitado"]);
+                }
+                return Ok(usuario);
             }
-            return Ok(usuario);
-        }
-        return NotFound();
-    }*/
+            return NotFound();
+        }*/
 
 
     }

@@ -42,6 +42,103 @@ namespace Modelo
 
             return seguidores;
         }
+
+        public int ObtenerCantidadSeguidores(int idPerfil)
+        {
+            int cantidadSeguidores = 0;
+
+            try
+            {
+                string sql = @"SELECT COUNT(*) FROM sigue 
+                       WHERE id_perfil_2 = @idPerfil";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@idPerfil", idPerfil);
+
+                object result = this.Comando.ExecuteScalar();
+
+                if (result != DBNull.Value)
+                {
+                    cantidadSeguidores = Convert.ToInt32(result);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error de MySQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return cantidadSeguidores;
+        }
+
+
+        public List<string> ObtenerSeguidos(int idPerfil)
+        {
+            var seguidos = new List<string>();
+
+            try
+            {
+                string sql = @"SELECT perfil.apodo FROM sigue 
+                       JOIN perfil ON sigue.id_perfil_2 = perfil.id_perfil 
+                       WHERE sigue.id_perfil_1 = @idPerfil";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@idPerfil", idPerfil);
+
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    while (this.Lector.Read())
+                    {
+                        seguidos.Add(this.Lector.GetString("apodo"));
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error de MySQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return seguidos;
+        }
+
+        public int ObtenerCantidadSeguidos(int idPerfil)
+        {
+            int cantidadSeguidos = 0;
+
+            try
+            {
+                string sql = @"SELECT COUNT(*) FROM sigue 
+                       WHERE id_perfil_1 = @idPerfil";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@idPerfil", idPerfil);
+
+                object result = this.Comando.ExecuteScalar();
+
+                if (result != DBNull.Value)
+                {
+                    cantidadSeguidos = Convert.ToInt32(result);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error de MySQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return cantidadSeguidos;
+        }
+
         public void GuardarCuentaUsuario()
         {
             string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
@@ -172,7 +269,7 @@ namespace Modelo
             this.Lector.Close();
             return bd;
         }
-         
+
         public void ObtenerIdPerfilPorApodo(string apodo)
         {
 
@@ -180,12 +277,12 @@ namespace Modelo
             try
             {
                 this.Comando.CommandText = sql;
-                this.Comando.Parameters.Clear(); 
+                this.Comando.Parameters.Clear();
                 this.Comando.Parameters.AddWithValue("@apodo", apodo);
 
                 using (this.Lector = this.Comando.ExecuteReader())
                 {
-                    if (this.Lector.Read()) 
+                    if (this.Lector.Read())
                     {
                         idPerfil = Convert.ToInt32(Lector["id_perfil"]);
                         nombre = Lector["nombre"].ToString();
@@ -208,45 +305,7 @@ namespace Modelo
             }
 
         }
-
-        public void ObtenerPerfilPorEmail(string email)
-        {
-
-            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.email = @email; ";
-            try
-            {
-                this.Comando.CommandText = sql;
-                this.Comando.Parameters.Clear();
-                this.Comando.Parameters.AddWithValue("@email", email);
-
-                using (this.Lector = this.Comando.ExecuteReader())
-                {
-                    if (this.Lector.Read())
-                    {
-                        this.idPerfil = Convert.ToInt32(Lector["id_perfil"]);
-                        this.nombre = Lector["nombre"].ToString();
-                        this.apellido = Lector["apellido"].ToString();
-                        this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
-                        this.email = Lector["email"].ToString();
-                        this.telefono = Lector["telefono"].ToString();
-                        this.apodo = Lector["apodo"].ToString();
-                        this.idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"]);
-                        this.idioma = Lector["idioma"].ToString();
-                        this.atributo1 = Lector["atributo1"].ToString();
-                        this.atributo2 = Lector["atributo2"].ToString();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-
-        }
-
-
-        /*   public bool ObtenerIdPerfilPorEmail(string email)
+        public bool ObtenerIdPerfilPorEmail(string email)
         {
             string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 
                    FROM perfil p 
@@ -272,12 +331,12 @@ namespace Modelo
                         this.email = Lector["email"].ToString();
                         this.telefono = Lector["telefono"].ToString();
                         this.apodo = Lector["apodo"].ToString();
-                        if(Lector["id_foto_perfil"].ToString() != "")
+                        if (Lector["id_foto_perfil"].ToString() != "")
                             this.idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"].ToString());
                         this.idioma = Lector["idioma"].ToString();
                         this.atributo1 = Lector["atributo1"].ToString();
                         this.atributo2 = Lector["atributo2"].ToString();
-                        
+
                         return true;
                     }
                 }
@@ -287,8 +346,8 @@ namespace Modelo
                 Console.WriteLine($"Error: {ex.Message}");
             }
 
-            return false; 
+            return false;
         }
-    */
+
     }
 }

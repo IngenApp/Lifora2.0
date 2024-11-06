@@ -13,6 +13,44 @@ namespace Controladores
 
             return modelo.ObtenerSeguidores(idPerfil);
         }
+
+        public static int ObtenerCantidadSeguidores(int idPerfil)
+        {
+            try
+            {
+                ModeloPersonas modeloPersonas = new ModeloPersonas();
+                int cantidadSeguidores = modeloPersonas.ObtenerCantidadSeguidores(idPerfil);
+                return cantidadSeguidores;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener la cantidad de seguidores: {ex.Message}");
+                return 0;
+            }
+        }
+
+        public static List<string> ObtenerSeguidos(int idPerfil)
+        {
+            ModeloPersonas modelo = new ModeloPersonas();
+            return modelo.ObtenerSeguidos(idPerfil);
+        }
+
+
+        public static int ObtenerCantidadSeguidos(int idPerfil)
+        {
+            try
+            {
+                ModeloPersonas modeloPersonas = new ModeloPersonas();
+                int cantidadSeguidos = modeloPersonas.ObtenerCantidadSeguidos(idPerfil);
+                return cantidadSeguidos;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener la cantidad de seguidos: {ex.Message}");
+                return 0;
+            }
+        }
+
         public static void AltaCuentaUsuario(string nombre, string apellido, string fechaNacimiento, string email, string telefono, string contrasena)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
@@ -22,7 +60,7 @@ namespace Controladores
             CuentaUsuario.email = email;
             CuentaUsuario.telefono = telefono;
             CuentaUsuario.contrasena = contrasena;
-            CuentaUsuario.GuardarCuentaUsuario();             
+            CuentaUsuario.GuardarCuentaUsuario();
         }
         public static void CrearPerfil(string apodo, string email, string idioma)
         {
@@ -30,7 +68,7 @@ namespace Controladores
             crearPerfil.apodo = apodo;
             crearPerfil.email = email;
             crearPerfil.idioma = idioma;
-            crearPerfil.CrearPerfil();       
+            crearPerfil.CrearPerfil();
         }
         public static bool Login(string email, string contrasena)
         {
@@ -123,55 +161,33 @@ namespace Controladores
             return tabla;
         }
 
-
         public static Dictionary<string, string> ObtenerPerfilPorMail(string mail)
         {
             Dictionary<string, string> perfil = new Dictionary<string, string>();
             ModeloPersonas persona = new ModeloPersonas();
-            persona.ObtenerPerfilPorEmail(mail);
 
-            perfil.Add("Apodo", persona.apodo);
-            perfil.Add("ID_Perfil", persona.idPerfil.ToString());
-            perfil.Add("Email", persona.email);
-            perfil.Add("Telefono", persona.telefono);
-            perfil.Add("Nombre", persona.nombre);
-            perfil.Add("Apellido", persona.apellido);
-            perfil.Add("FechaNacimiento", persona.fechaNacimiento);
-            perfil.Add("ID_FotoPerfil", persona.idFotoPerfil.ToString());
-            perfil.Add("Idioma", persona.idioma);
-            perfil.Add("Atributo1", persona.atributo1);
-            perfil.Add("Atributo2", persona.atributo2);
+            if (persona.ObtenerIdPerfilPorEmail(mail))
+            {
+                perfil.Add("resultado", "true");
+                perfil.Add("apodo", persona.apodo);
+                perfil.Add("id_perfil", persona.idPerfil.ToString());
+                perfil.Add("email", persona.email);
+                perfil.Add("telefono", persona.telefono);
+                perfil.Add("nombre", persona.nombre);
+                perfil.Add("apellido", persona.apellido);
+                perfil.Add("fecha_nacimiento", persona.fechaNacimiento);
+                perfil.Add("id_foto_perfil", persona.idFotoPerfil.ToString());
+                perfil.Add("idioma", persona.idioma);
+                perfil.Add("atributo1", persona.atributo1);
+                perfil.Add("atributo2", persona.atributo2);
 
+                return perfil;
+            }
+
+            perfil.Add("resultado", "false");
             return perfil;
         }
 
-        /*        public static Dictionary<string, string> ObtenerPerfilPorMail(string mail)
-                {
-                    Dictionary<string, string> perfil = new Dictionary<string, string>();
-                    ModeloPersonas persona = new ModeloPersonas();
-
-                    if (persona.ObtenerIdPerfilPorEmail(mail))
-                    {
-                        perfil.Add("resultado", "true");
-                        perfil.Add("apodo", persona.apodo);                      
-                        perfil.Add("id_perfil", persona.idPerfil.ToString());     
-                        perfil.Add("email", persona.email);                       
-                        perfil.Add("telefono", persona.telefono);                 
-                        perfil.Add("nombre", persona.nombre);                     
-                        perfil.Add("apellido", persona.apellido);                  
-                        perfil.Add("fecha_nacimiento", persona.fechaNacimiento);   
-                        perfil.Add("id_foto_perfil", persona.idFotoPerfil.ToString()); 
-                        perfil.Add("idioma", persona.idioma);                      
-                        perfil.Add("atributo1", persona.atributo1);              
-                        perfil.Add("atributo2", persona.atributo2);               
-
-                        return perfil;
-                    }
-
-                    perfil.Add("resultado", "false");
-                    return perfil;
-                }
-        */
 
         public static PerfilSecundario ObtenerPerfilSecundario(string apodo)
         {
@@ -227,7 +243,7 @@ namespace Controladores
             public string email { get; set; }
             public string telefono { get; set; }
             public string apodo { get; set; }
-            public int? idFotoPerfil { get; set; } 
+            public int? idFotoPerfil { get; set; }
             public string idioma { get; set; }
             public string atributo1 { get; set; }
             public string atributo2 { get; set; }
@@ -241,7 +257,7 @@ namespace Controladores
             public string email { get; set; }
             public string telefono { get; set; }
             public string apodo { get; set; }
-            public int idFotoPerfil { get; set; } 
+            public int idFotoPerfil { get; set; }
             public string idioma { get; set; }
             public string atributo1 { get; set; }
             public string atributo2 { get; set; }
@@ -250,8 +266,8 @@ namespace Controladores
         {
             public static PerfilPrincipal PerfilActual { get; set; }
         }
-   
-    }    
+
+    }
 }
 
 

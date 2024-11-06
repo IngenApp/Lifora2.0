@@ -41,7 +41,6 @@ namespace InterfazUsuario
                     ProcesarLoginExitoso();
                     return;
                 }
-
                 MostrarMensajeCredencialesIncorrectas();
             }
             catch (Exception ex)
@@ -49,6 +48,11 @@ namespace InterfazUsuario
                 MostrarError(ex.Message);
             }
         }
+
+
+
+
+
         private Dictionary<string, string> CrearDatosLogin()
         {
             return new Dictionary<string, string>
@@ -76,10 +80,15 @@ namespace InterfazUsuario
         {
             string email = txtBoxEmail.Text;
             Dictionary<string, string> perfil = ObtenerPerfilUsuario(email);
+            int idPerfil = DatosDePerfil.idPerfil;
 
             if (perfil != null)
             {
                 AsignarDatosDePerfil(perfil);
+                MeSiguen(idPerfil);
+                Seguidos(idPerfil);
+                //  CantidadMeSiguen(idPerfil);
+                // CantidadSeguidos(idPerfil);
                 AbrirInicio();
             }
         }
@@ -95,6 +104,7 @@ namespace InterfazUsuario
                 MessageBox.Show("Incorrect credentials");
             }
         }
+
         private void MostrarError(string mensaje)
         {
             MessageBox.Show($"Ocurrió un error: {mensaje}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -126,6 +136,90 @@ namespace InterfazUsuario
 
         }
 
+        private static void MeSiguen(int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44331/");
+            RestRequest request = new RestRequest($"api/Usuario/MeSiguen/{idPerfil}/", Method.Get);
+            request.AddHeader("Accept", "application/json");
+
+            RestResponse response = client.Execute(request);
+
+            if (response.IsSuccessful)
+            {
+                List<string> meSiguen = JsonConvert.DeserializeObject<List<string>>(response.Content);
+                DatosDePerfil.Seguidores = meSiguen;
+                return;
+            }
+            Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
+            DatosDePerfil.Seguidores = new List<string>();
+            return;
+
+        }
+
+        /*        private static void CantidadMeSiguen(int idPerfil)
+                {
+                    RestClient client = new RestClient("https://localhost:44331/");
+                    RestRequest request = new RestRequest($"api/Usuario/CantidadSeguidores/{idPerfil}/", Method.Get);
+                    request.AddHeader("Accept", "application/json");
+
+                    RestResponse response = client.Execute(request);
+
+                    if (response.IsSuccessful)
+                    {
+                        var result = JsonConvert.DeserializeObject<dynamic>(response.Content);
+                        int cantidadMeSiguen = result?.cantidadSeguidores;
+
+                        DatosDePerfil.CantidadSeguidores = cantidadMeSiguen;
+                        return;
+                    }
+
+                    Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
+                    DatosDePerfil.CantidadSeguidores = 0; 
+                    return;
+                }
+        */
+        private static void Seguidos(int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44331/");
+            RestRequest request = new RestRequest($"api/Usuario/Sigo/{idPerfil}/", Method.Get);
+            request.AddHeader("Accept", "application/json");
+
+            RestResponse response = client.Execute(request);
+
+            if (response.IsSuccessful)
+            {
+                List<string> seguidos = JsonConvert.DeserializeObject<List<string>>(response.Content);
+                DatosDePerfil.Seguidos = seguidos;
+                return;
+            }
+            Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
+            DatosDePerfil.Seguidos = new List<string>();
+            return;
+        }
+
+        /*       private static void CantidadSeguidos(int idPerfil)
+               {
+                   RestClient client = new RestClient("https://localhost:44331/");
+                   RestRequest request = new RestRequest($"api/Usuario/CantidadSeguidos/{idPerfil}/", Method.Get);
+                   request.AddHeader("Accept", "application/json");
+
+                   RestResponse response = client.Execute(request);
+
+                   if (response.IsSuccessful)
+                   {
+                       var result = JsonConvert.DeserializeObject<dynamic>(response.Content);
+                       int cantidadSeguidos = result?.cantidadSeguidos;
+
+                       DatosDePerfil.CantidadSeguidos = cantidadSeguidos;
+                       return;
+                   }
+
+                   Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
+                   DatosDePerfil.CantidadSeguidos = 0; 
+                   return;
+               }
+       */
+
         private void AbrirInicio()
         {
             Inicio inicio = new Inicio();
@@ -133,6 +227,10 @@ namespace InterfazUsuario
             inicio.Login = this;
             this.Hide();
         }
+
+
+
+
 
         public void CargarIdioma()
         {
