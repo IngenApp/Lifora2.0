@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using Controladores;
 using ApiLifora.Models;
@@ -13,6 +11,19 @@ namespace ApiLifora.Controllers
 {
     public class UsuarioController : ApiController
     {
+        [Route("api/Usuario/{email}")]
+        [HttpGet]
+        public IHttpActionResult ObtenerPerfilPorMail(string email)
+        {
+            Dictionary<string, string> perfil = ControladorCuentaUsuario.ObtenerPerfilPorMail(email);
+
+            if (perfil == null || !perfil.Any())
+                return NotFound();
+            
+            return Ok(perfil);
+
+        }
+
 
         [Route("api/Usuario/MeSiguen/{idPerfil:int}")]
         [HttpGet]
@@ -34,7 +45,6 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Ocurrió un error al obtener los seguidores: {ex.Message}", ex));
             }
         }
-
 
 
         [Route("api/Usuario/ListarUsuarios")]
@@ -73,6 +83,7 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Error al listar los usuarios: {ex.Message}", ex));
             }
         }
+
 
         [Route("api/Usuario/CrearUsuario")]
         [HttpPost]
@@ -113,6 +124,7 @@ namespace ApiLifora.Controllers
             }
         }
 
+
         [Route("api/Usuario/Login")]
         [HttpPost]
         public IHttpActionResult Login(ModeloApiUsuario login)
@@ -130,6 +142,7 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Ocurrió un error durante el inicio de sesión.: {ex.Message}", ex));
             }
         }
+
 
         [Route("api/Usuario/ModificarUsuario/{id:int}")]
         [HttpPut]
@@ -166,6 +179,7 @@ namespace ApiLifora.Controllers
             }
         }
 
+
         [Route("api/Usuario/DeshabilitarUsuario/{id:int}")]
         [HttpPut]
         public IHttpActionResult DeshabilitaCuentaUsuario(int id)
@@ -175,6 +189,7 @@ namespace ApiLifora.Controllers
             resultado.Add("mensaje", "Usuario deshabilitado exitosamente");
             return Ok(resultado);
         }
+
 
         [Route("api/Usuario/HabilitarUsuario{id:int}")]
         [HttpPut]
@@ -186,32 +201,32 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
+  
 
+    
 
-
-
-        /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
-        [HttpGet]
-        public IHttpActionResult BuscarUsuarioPorId(int id)
+    /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
+    [HttpGet]
+    public IHttpActionResult BuscarUsuarioPorId(int id)
+    {
+        Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
+        if (datosUsuario != null && datosUsuario.ContainsKey("resultado") && datosUsuario["resultado"] == "true")
         {
-            Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
-            if (datosUsuario != null && datosUsuario.ContainsKey("resultado") && datosUsuario["resultado"] == "true")
+            ModeloApiUsuario usuario = new ModeloApiUsuario();
+            usuario.idUsuario = Int32.Parse(datosUsuario["id_usuario"]);
+            usuario.nombre = datosUsuario["nombre"];
+            usuario.apellido = datosUsuario["apellido"];
+            usuario.telefono = datosUsuario["telefono"];
+            usuario.email = datosUsuario["email"];
+            usuario.fechaNacimiento = datosUsuario["fecha_nacimiento"];
+            if (datosUsuario.ContainsKey("habilitado"))
             {
-                ModeloApiUsuario usuario = new ModeloApiUsuario();
-                usuario.idUsuario = Int32.Parse(datosUsuario["id_usuario"]);
-                usuario.nombre = datosUsuario["nombre"];
-                usuario.apellido = datosUsuario["apellido"];
-                usuario.telefono = datosUsuario["telefono"];
-                usuario.email = datosUsuario["email"];
-                usuario.fechaNacimiento = datosUsuario["fecha_nacimiento"];
-                if (datosUsuario.ContainsKey("habilitado"))
-                {
-                    usuario.habilitacion = Boolean.Parse(datosUsuario["habilitado"]);
-                }
-                return Ok(usuario);
+                usuario.habilitacion = Boolean.Parse(datosUsuario["habilitado"]);
             }
-            return NotFound();
-        }*/
+            return Ok(usuario);
+        }
+        return NotFound();
+    }*/
 
 
     }

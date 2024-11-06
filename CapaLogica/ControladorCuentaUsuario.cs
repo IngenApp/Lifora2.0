@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using Modelo;
 using System.Data;
 
@@ -126,6 +122,35 @@ namespace Controladores
 
             return tabla;
         }
+
+        public static Dictionary<string, string> ObtenerPerfilPorMail(string mail)
+        {
+            Dictionary<string, string> perfil = new Dictionary<string, string>();
+            ModeloPersonas persona = new ModeloPersonas();
+
+            if (persona.ObtenerIdPerfilPorEmail(mail))
+            {
+                perfil.Add("resultado", "true");
+                perfil.Add("apodo", persona.apodo);                      
+                perfil.Add("id_perfil", persona.idPerfil.ToString());     
+                perfil.Add("email", persona.email);                       
+                perfil.Add("telefono", persona.telefono);                 
+                perfil.Add("nombre", persona.nombre);                     
+                perfil.Add("apellido", persona.apellido);                  
+                perfil.Add("fecha_nacimiento", persona.fechaNacimiento);   
+                perfil.Add("id_foto_perfil", persona.idFotoPerfil.ToString()); 
+                perfil.Add("idioma", persona.idioma);                      
+                perfil.Add("atributo1", persona.atributo1);              
+                perfil.Add("atributo2", persona.atributo2);               
+
+                return perfil;
+            }
+
+            perfil.Add("resultado", "false");
+            return perfil;
+        }
+
+
         public static PerfilSecundario ObtenerPerfilSecundario(string apodo)
         {
             ModeloPersonas perfil = new ModeloPersonas();
@@ -203,9 +228,8 @@ namespace Controladores
         {
             public static PerfilPrincipal PerfilActual { get; set; }
         }
-    }
-    
-    
+   
+    }    
 }
 
 

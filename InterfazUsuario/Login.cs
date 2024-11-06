@@ -32,63 +32,107 @@ namespace InterfazUsuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> loginData = new Dictionary<string, string>()
-    {
-        { "email", txtBoxEmail.Text },
-        { "contrasena", txtBoxPass.Text }
-    };
+            try
+            {
+                RestResponse response = HacerSolicitudLogin();
 
-            string requestBody = JsonConvert.SerializeObject(loginData);
+                if (response.IsSuccessful)
+                {
+                    ProcesarLoginExitoso();
+                    return;
+                }
+
+                MostrarMensajeCredencialesIncorrectas();
+            }
+            catch (Exception ex)
+            {
+                MostrarError(ex.Message);
+            }
+        }
+        private Dictionary<string, string> CrearDatosLogin()
+        {
+            return new Dictionary<string, string>
+            {
+                { "email", txtBoxEmail.Text },
+                { "contrasena", txtBoxPass.Text }
+            };
+        }
+
+        private RestResponse HacerSolicitudLogin()
+        {
+            string requestBody = JsonConvert.SerializeObject(CrearDatosLogin());
 
             RestClient client = new RestClient("https://localhost:44331/");
             RestRequest request = new RestRequest("/api/Usuario/Login", Method.Post);
 
-            request.RequestFormat = DataFormat.Json;
-            request.AddBody(requestBody);
+            request.AddJsonBody(requestBody);
             request.AddHeader("Accept", "application/json");
             request.AddHeader("Content-Type", "application/json");
 
-            try
+            return client.Execute(request);
+        }
+
+        private void ProcesarLoginExitoso()
+        {
+            string email = txtBoxEmail.Text;
+            Dictionary<string, string> perfil = ObtenerPerfilUsuario(email);
+
+            if (perfil != null)
             {
-                RestResponse response = client.Execute(request);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    try
-                    {
-                        DatosDePerfil perfil = DatosDePerfil.ObtenerPerfilPorEmail(txtBoxEmail.Text);
-                        MessageBox.Show($"Bienvenido, {perfil.nombre} {perfil.apellido}", "Perfil cargado");
-                        Inicio inicio = new Inicio();
-                        inicio.Show();
-                        inicio.Login = this;
-                        this.Hide();
-                        return;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Ocurrió un error al obtener el perfil: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
-
-                if (Settings.Default.Idioma == "es-UY")
-                {
-                    MessageBox.Show("Credenciales incorrectas");
-                    return;
-                }
-
-                if (Settings.Default.Idioma == "en-US")
-                {
-                    MessageBox.Show("Incorrect credentials");
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AsignarDatosDePerfil(perfil);
+                AbrirInicio();
             }
         }
-       
+
+        private void MostrarMensajeCredencialesIncorrectas()
+        {
+            if (Settings.Default.Idioma == "es-UY")
+            {
+                MessageBox.Show("Credenciales incorrectas");
+            }
+            else if (Settings.Default.Idioma == "en-US")
+            {
+                MessageBox.Show("Incorrect credentials");
+            }
+        }
+        private void MostrarError(string mensaje)
+        {
+            MessageBox.Show($"Ocurrió un error: {mensaje}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private Dictionary<string, string> ObtenerPerfilUsuario(string email)
+        {
+            RestClient client = new RestClient("http://localhost:44331/");
+            RestRequest request = new RestRequest($"/api/Usuario/{email}", Method.Get);
+            request.AddHeader("Accept", "application/json");
+
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+        }
+
+        private void AsignarDatosDePerfil(Dictionary<string, string> perfil)
+        {
+            DatosDePerfil.idPerfil = int.Parse(perfil["idPerfil"]);
+            DatosDePerfil.nombre = perfil["nombre"];
+            DatosDePerfil.apellido = perfil["apellido"];
+            DatosDePerfil.fechaNacimiento = perfil["fechaNacimiento"];
+            DatosDePerfil.email = perfil["email"];
+            DatosDePerfil.telefono = perfil["telefono"];
+            DatosDePerfil.apodo = perfil["apodo"];
+            DatosDePerfil.idFotoPerfil = string.IsNullOrEmpty(perfil["idFotoPerfil"]) ? (int?)null : int.Parse(perfil["idFotoPerfil"]);
+            DatosDePerfil.idioma = perfil["idioma"];
+            DatosDePerfil.atributo1 = perfil["atributo1"];
+            DatosDePerfil.atributo2 = perfil["atributo2"];
+        }
+
+        private void AbrirInicio()
+        {
+            Inicio inicio = new Inicio();
+            inicio.Show();
+            inicio.Login = this;
+            this.Hide();
+        }
+
         public void CargarIdioma()
         {
             try
