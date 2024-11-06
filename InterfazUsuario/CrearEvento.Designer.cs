@@ -40,8 +40,10 @@ namespace InterfazUsuario
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelLugarEvento = new System.Windows.Forms.Label();
             this.labelInfo = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -57,7 +59,7 @@ namespace InterfazUsuario
             this.textBox2.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(20, 131);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(411, 36);
+            this.textBox2.Size = new System.Drawing.Size(347, 36);
             this.textBox2.TabIndex = 1;
             // 
             // labelCrearEvento
@@ -144,12 +146,23 @@ namespace InterfazUsuario
             this.labelInfo.TabIndex = 23;
             this.labelInfo.Text = "label2";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::InterfazUsuario.Properties.Resources.Lugar;
+            this.pictureBox3.Location = new System.Drawing.Point(372, 122);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 24;
+            this.pictureBox3.TabStop = false;
+            // 
             // CrearEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallpaperEmergente;
             this.ClientSize = new System.Drawing.Size(459, 441);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.labelLugarEvento);
             this.Controls.Add(this.pictureBox2);
@@ -167,6 +180,7 @@ namespace InterfazUsuario
             this.Text = "Lifora";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +198,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelLugarEvento;
         private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

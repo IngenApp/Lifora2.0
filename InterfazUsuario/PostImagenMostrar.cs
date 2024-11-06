@@ -95,5 +95,20 @@ namespace InterfazUsuario
             PostImagenAmpliar imagenForm = new PostImagenAmpliar(pictureBox1.Image);
             imagenForm.ShowDialog();
         }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            if (EditarPost.eventoInstancia == null || EditarPost.eventoInstancia.IsDisposed)
+            {
+                EditarPost.eventoInstancia = new EditarPost();
+                EditarPost.eventoInstancia.Show();
+            }
+            else
+            {
+                EditarPost.eventoInstancia.Close();
+                EditarPost.eventoInstancia = new EditarPost();
+                EditarPost.eventoInstancia.Show();
+            }
+        }
     }
 }

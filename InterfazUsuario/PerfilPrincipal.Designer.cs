@@ -58,6 +58,7 @@ namespace InterfazUsuario
             this.ReproductorPublicidad = new AxWMPLib.AxWindowsMediaPlayer();
             this.Calendario = new System.Windows.Forms.MonthCalendar();
             this.Reproductor = new AxWMPLib.AxWindowsMediaPlayer();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -67,6 +68,7 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // btnWriting
@@ -349,6 +351,7 @@ namespace InterfazUsuario
             this.labelSeguidos.Size = new System.Drawing.Size(47, 15);
             this.labelSeguidos.TabIndex = 77;
             this.labelSeguidos.Text = "label2";
+            this.labelSeguidos.Click += new System.EventHandler(this.btnSeguidos_Click);
             // 
             // labelSeguidores
             // 
@@ -360,6 +363,7 @@ namespace InterfazUsuario
             this.labelSeguidores.Size = new System.Drawing.Size(47, 15);
             this.labelSeguidores.TabIndex = 76;
             this.labelSeguidores.Text = "label1";
+            this.labelSeguidores.Click += new System.EventHandler(this.btnSeguidores_Click);
             // 
             // btnSeguidos
             // 
@@ -373,6 +377,7 @@ namespace InterfazUsuario
             this.btnSeguidos.Text = "IDOLS";
             this.btnSeguidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidos.UseVisualStyleBackColor = false;
+            this.btnSeguidos.Click += new System.EventHandler(this.btnSeguidos_Click);
             // 
             // btnSeguidores
             // 
@@ -386,6 +391,7 @@ namespace InterfazUsuario
             this.btnSeguidores.Text = "FANS";
             this.btnSeguidores.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidores.UseVisualStyleBackColor = false;
+            this.btnSeguidores.Click += new System.EventHandler(this.btnSeguidores_Click);
             // 
             // Nickname
             // 
@@ -429,6 +435,18 @@ namespace InterfazUsuario
             this.Reproductor.Size = new System.Drawing.Size(227, 200);
             this.Reproductor.TabIndex = 79;
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = global::InterfazUsuario.Properties.Resources.conf;
+            this.pictureBox8.Location = new System.Drawing.Point(143, 9);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 82;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
             // PerfilPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +454,7 @@ namespace InterfazUsuario
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallppaerLifora;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.ReproductorPublicidad);
             this.Controls.Add(this.Calendario);
             this.Controls.Add(this.Reproductor);
@@ -464,6 +483,7 @@ namespace InterfazUsuario
             this.Controls.Add(this.btnCreateEvents);
             this.Controls.Add(this.btnMessages);
             this.Controls.Add(this.btnCreatePost);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -483,6 +503,7 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReproductorPublicidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,5 +538,6 @@ namespace InterfazUsuario
         private AxWMPLib.AxWindowsMediaPlayer ReproductorPublicidad;
         private System.Windows.Forms.MonthCalendar Calendario;
         private AxWMPLib.AxWindowsMediaPlayer Reproductor;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

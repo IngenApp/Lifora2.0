@@ -123,6 +123,30 @@
     <Compile Include="AvisoPass.Designer.cs">
       <DependentUpon>AvisoPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="CambiarPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarPass.Designer.cs">
+      <DependentUpon>CambiarPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfPerfil.Designer.cs">
+      <DependentUpon>ConfPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarPost.Designer.cs">
+      <DependentUpon>EditarPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eventos.Designer.cs">
+      <DependentUpon>Eventos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestorDePosts.cs" />
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
@@ -301,6 +325,12 @@
     <EmbeddedResource Include="AvisoPass.resx">
       <DependentUpon>AvisoPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CambiarPass.resx">
+      <DependentUpon>CambiarPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfPerfil.resx">
+      <DependentUpon>ConfPerfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearPostVideo.resx">
       <DependentUpon>CrearPostVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarPost.resx">
+      <DependentUpon>EditarPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eventos.resx">
+      <DependentUpon>Eventos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventosMenu.resx">
       <DependentUpon>EventosMenu.cs</DependentUpon>
@@ -525,6 +561,8 @@
     <None Include="Resources\alerta.png" />
     <None Include="Resources\Buscar.png" />
     <None Include="Resources\comentar.png" />
+    <None Include="Resources\conf.png" />
+    <None Include="Resources\cerrar.png" />
     <Content Include="Resources\DejarDeSeguir.png" />
     <None Include="Resources\Seguir1.png" />
     <None Include="Resources\DejarDeSeguir1.png" />
@@ -539,6 +577,10 @@
     <None Include="Resources\Fondo Fotos.png" />
     <None Include="Resources\Fondo Fotos1.png" />
     <None Include="Resources\FondoPostImagen.jpg" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Lugar.png" />
+    <None Include="Resources\GustaEvento.png" />
+    <None Include="Resources\No me gusta evento.png" />
     <Content Include="Resources\Seguir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

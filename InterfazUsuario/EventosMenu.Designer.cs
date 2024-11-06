@@ -40,10 +40,21 @@ namespace InterfazUsuario
             this.btnTodosEventos = new System.Windows.Forms.Button();
             this.btnMisEventos = new System.Windows.Forms.Button();
             pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            pictureBox2.Image = global::InterfazUsuario.Properties.Resources.Buscar;
+            pictureBox2.Location = new System.Drawing.Point(622, 73);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(30, 30);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 65;
+            pictureBox2.TabStop = false;
             // 
             // btnEvento
             // 
@@ -57,6 +68,7 @@ namespace InterfazUsuario
             this.btnEvento.TabIndex = 56;
             this.btnEvento.Text = "Abrir";
             this.btnEvento.UseVisualStyleBackColor = false;
+            this.btnEvento.Click += new System.EventHandler(this.btnEvento_Click);
             // 
             // pictureBox1
             // 
@@ -102,17 +114,6 @@ namespace InterfazUsuario
             this.labelEventos.TabIndex = 57;
             this.labelEventos.Text = "Eventos";
             this.labelEventos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            pictureBox2.Image = global::InterfazUsuario.Properties.Resources.Buscar;
-            pictureBox2.Location = new System.Drawing.Point(622, 70);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(35, 35);
-            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 65;
-            pictureBox2.TabStop = false;
             // 
             // textBoxBuscarEvento
             // 
@@ -169,9 +170,9 @@ namespace InterfazUsuario
             this.Name = "EventosMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lifora";
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

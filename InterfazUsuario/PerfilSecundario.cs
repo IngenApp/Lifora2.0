@@ -171,5 +171,15 @@ namespace InterfazUsuario
             ReproductorPublicidad.uiMode = "none";
             ReproductorPublicidad.settings.mute = true;
         }
+
+        private void btnSeguidores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSeguidos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
