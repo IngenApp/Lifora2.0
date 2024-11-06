@@ -221,6 +221,20 @@ namespace InterfazUsuario
             ReproductorPublicidad.uiMode = "none";
             ReproductorPublicidad.settings.mute = true;
         }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (ConfPerfil.PostInstancia == null || ConfPerfil.PostInstancia.IsDisposed)
+            {
+                ConfPerfil.PostInstancia = new ConfPerfil();
+                ConfPerfil.PostInstancia.Show();
+            }
+            else
+            {
+                ConfPerfil.PostInstancia.WindowState = FormWindowState.Normal;
+                ConfPerfil.PostInstancia.BringToFront();
+            }
+        }
     }
 
 }

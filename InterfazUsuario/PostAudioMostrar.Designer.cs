@@ -36,12 +36,14 @@ namespace InterfazUsuario
             this.ContLikes = new System.Windows.Forms.LinkLabel();
             this.labelFecha = new System.Windows.Forms.Label();
             this.NickName = new System.Windows.Forms.LinkLabel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Report = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Report)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -100,10 +102,10 @@ namespace InterfazUsuario
             // labelFecha
             // 
             this.labelFecha.AutoSize = true;
-            this.labelFecha.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha.Location = new System.Drawing.Point(336, 16);
+            this.labelFecha.Font = new System.Drawing.Font("Arial Unicode MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.Location = new System.Drawing.Point(300, 14);
             this.labelFecha.Name = "labelFecha";
-            this.labelFecha.Size = new System.Drawing.Size(42, 18);
+            this.labelFecha.Size = new System.Drawing.Size(52, 21);
             this.labelFecha.TabIndex = 25;
             this.labelFecha.Text = "label2";
             this.labelFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -120,6 +122,30 @@ namespace InterfazUsuario
             this.NickName.TabIndex = 26;
             this.NickName.TabStop = true;
             this.NickName.Text = "Apodo";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.richTextBox1.Font = new System.Drawing.Font("Arial Unicode MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(20, 165);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(358, 65);
+            this.richTextBox1.TabIndex = 36;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::InterfazUsuario.Properties.Resources.Edit;
+            this.pictureBox1.Location = new System.Drawing.Point(358, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Report
             // 
@@ -173,22 +199,12 @@ namespace InterfazUsuario
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.richTextBox1.Font = new System.Drawing.Font("Arial Unicode MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(20, 165);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(358, 65);
-            this.richTextBox1.TabIndex = 36;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            // 
             // PostAudioMostrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 270);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Report);
             this.Controls.Add(this.NickName);
@@ -205,6 +221,7 @@ namespace InterfazUsuario
             this.Text = "PostAudioMostrar";
             this.Load += new System.EventHandler(this.PostAudioMostrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Report)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -227,5 +244,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.LinkLabel NickName;
         private System.Windows.Forms.PictureBox Report;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
