@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnCambiar" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
   <data name="btnComentarPost" xml:space="preserve">
     <value>Comentar</value>
   </data>
@@ -148,7 +151,7 @@
     <value>Iniciar sesión</value>
   </data>
   <data name="btnMessages" xml:space="preserve">
-    <value>Mensajes</value>
+    <value>Chats</value>
   </data>
   <data name="btnMisGrupos" xml:space="preserve">
     <value>Mis grupos</value>
@@ -201,6 +204,9 @@
   <data name="Information" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="labelActualizarPost" xml:space="preserve">
+    <value>Actualizar post</value>
+  </data>
   <data name="labelApellido" xml:space="preserve">
     <value>Apellido</value>
   </data>
@@ -218,6 +224,9 @@
   </data>
   <data name="labelEventos" xml:space="preserve">
     <value>Eventos</value>
+  </data>
+  <data name="labelFecha" xml:space="preserve">
+    <value>Fecha</value>
   </data>
   <data name="labelFechaDeNac" xml:space="preserve">
     <value>Fecha de Nacimiento</value>
@@ -257,6 +266,9 @@
   </data>
   <data name="labelTelefono" xml:space="preserve">
     <value>Telefono</value>
+  </data>
+  <data name="lblCambiarContrasena" xml:space="preserve">
+    <value>Cambiar Contrasena</value>
   </data>
   <data name="lblSubTituloRegistro" xml:space="preserve">
     <value>Para compartir y ver artes juntos!</value>

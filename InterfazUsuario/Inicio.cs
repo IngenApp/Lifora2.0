@@ -101,6 +101,7 @@ namespace InterfazUsuario
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
             // actualizar muro
         }
 
@@ -224,7 +225,8 @@ namespace InterfazUsuario
 
         private void MuroAudios(object sender, EventArgs e)
         {
-            
+       
+
             panel1.Hide();
             panel2.Hide();
             panel3.Hide();
@@ -249,6 +251,20 @@ namespace InterfazUsuario
             ReproductorPublicidad.URL = @"C:\Users\stive\OneDrive\Escritorio\MEGUSTA.mp4";
             ReproductorPublicidad.uiMode = "none";
             ReproductorPublicidad.settings.mute = true;
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (ConfPerfil.PostInstancia == null || ConfPerfil.PostInstancia.IsDisposed)
+            {
+                ConfPerfil.PostInstancia = new ConfPerfil();
+                ConfPerfil.PostInstancia.Show();
+            }
+            else
+            {
+                ConfPerfil.PostInstancia.WindowState = FormWindowState.Normal;
+                ConfPerfil.PostInstancia.BringToFront();
+            }
         }
     }
 

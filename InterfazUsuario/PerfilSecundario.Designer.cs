@@ -205,6 +205,7 @@ namespace InterfazUsuario
             this.btnSeguidores.Text = "FANS";
             this.btnSeguidores.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidores.UseVisualStyleBackColor = false;
+            this.btnSeguidores.Click += new System.EventHandler(this.btnSeguidores_Click);
             // 
             // btnSeguidos
             // 
@@ -219,6 +220,7 @@ namespace InterfazUsuario
             this.btnSeguidos.Text = "IDOLS";
             this.btnSeguidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSeguidos.UseVisualStyleBackColor = false;
+            this.btnSeguidos.Click += new System.EventHandler(this.btnSeguidos_Click);
             // 
             // labelSeguidores
             // 
@@ -232,6 +234,7 @@ namespace InterfazUsuario
             this.labelSeguidores.TabIndex = 72;
             this.labelSeguidores.Text = "label1";
             this.labelSeguidores.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSeguidores.Click += new System.EventHandler(this.btnSeguidores_Click);
             // 
             // labelSeguidos
             // 
@@ -245,6 +248,7 @@ namespace InterfazUsuario
             this.labelSeguidos.TabIndex = 73;
             this.labelSeguidos.Text = "label2";
             this.labelSeguidos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSeguidos.Click += new System.EventHandler(this.btnSeguidos_Click);
             // 
             // panel4
             // 

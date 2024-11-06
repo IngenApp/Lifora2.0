@@ -57,6 +57,7 @@ namespace InterfazUsuario
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelBuscar = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             pictureBox7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).BeginInit();
@@ -67,15 +68,16 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox7
             // 
             pictureBox7.BackColor = System.Drawing.Color.White;
             pictureBox7.Image = global::InterfazUsuario.Properties.Resources.Buscar;
-            pictureBox7.Location = new System.Drawing.Point(634, 10);
+            pictureBox7.Location = new System.Drawing.Point(637, 13);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new System.Drawing.Size(35, 35);
+            pictureBox7.Size = new System.Drawing.Size(30, 30);
             pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 66;
             pictureBox7.TabStop = false;
@@ -272,10 +274,12 @@ namespace InterfazUsuario
             this.Nickname.AutoSize = true;
             this.Nickname.BackColor = System.Drawing.Color.Transparent;
             this.Nickname.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Nickname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nickname.Location = new System.Drawing.Point(30, 621);
+            this.Nickname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nickname.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.Nickname.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.Nickname.Location = new System.Drawing.Point(33, 613);
             this.Nickname.Name = "Nickname";
-            this.Nickname.Size = new System.Drawing.Size(77, 24);
+            this.Nickname.Size = new System.Drawing.Size(100, 32);
             this.Nickname.TabIndex = 30;
             this.Nickname.TabStop = true;
             this.Nickname.Text = "Apodo";
@@ -411,12 +415,25 @@ namespace InterfazUsuario
             this.labelBuscar.Text = "Buscar";
             this.labelBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = global::InterfazUsuario.Properties.Resources.conf;
+            this.pictureBox8.Location = new System.Drawing.Point(143, 455);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 83;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallppaerLifora;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.pictureBox8);
             this.Controls.Add(pictureBox7);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.panel4);
@@ -462,6 +479,7 @@ namespace InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,5 +513,6 @@ namespace InterfazUsuario
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelBuscar;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

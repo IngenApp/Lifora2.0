@@ -89,6 +89,7 @@ namespace InterfazUsuario
             // 
             this.linklblRegitrarse.AutoSize = true;
             this.linklblRegitrarse.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblRegitrarse.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linklblRegitrarse.LinkColor = System.Drawing.Color.Gray;
             this.linklblRegitrarse.Location = new System.Drawing.Point(740, 397);
             this.linklblRegitrarse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -169,6 +170,7 @@ namespace InterfazUsuario
             this.linkLabel4.AutoSize = true;
             this.linkLabel4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.linkLabel4.Location = new System.Drawing.Point(193, 585);
             this.linkLabel4.Name = "linkLabel4";
@@ -183,6 +185,7 @@ namespace InterfazUsuario
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
             this.linkLabel5.Location = new System.Drawing.Point(357, 585);
             this.linkLabel5.Name = "linkLabel5";
