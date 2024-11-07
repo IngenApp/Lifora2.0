@@ -19,7 +19,7 @@ namespace InterfazUsuario
         }
 
         
-           private void CrearPostTexto(int idPerfil, string descripcion)
+                private void CrearPostTexto(int idPerfil, string descripcion)
                 {
                     var client = new RestClient("https://localhost:44358/");
                     var request = new RestRequest("api/Post/CrearPostTexto/", Method.Post);
@@ -173,7 +173,173 @@ namespace InterfazUsuario
                     this.Hide();
                 }
 
-        
+
+
+
+        public int ContarComentarios(int idPost)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ContarComentarios/{idPost}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al contar los comentarios.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
+            return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+        }
+        public string DeshabilitarComentario(int idComentario)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/DeshabilitarComentario/{idComentario}", Method.Put);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al deshabilitar el comentario.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        public string HabilitarComentario(int idComentario)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/HabilitarComentario/{idComentario}", Method.Put);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al habilitar el comentario.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        public string ModificarComentario(int idComentario, string nuevoComentario)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest("api/Post/ModificarComentario", Method.Put);
+            request.AddJsonBody(new { idComentario = idComentario, comentario = nuevoComentario });
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al modificar el comentario.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        public string CompartirPost(int idPost, int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/CompartirPost/{idPost}/{idPerfil}", Method.Post);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al compartir el post.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        public string DarLike(int idPost, int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest("api/Post/DarLike", Method.Post);
+            request.AddJsonBody(new { idPost = idPost, idPerfil = idPerfil });
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al dar like.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        public string EliminarLike(int idPost, int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest("api/Post/EliminarLike", Method.Post);
+            request.AddJsonBody(new { idPost = idPost, idPerfil = idPerfil });
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al eliminar like.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        public int ContarLikes(int idPost)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ContarLikes/{idPost}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al contar los likes.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
+            return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+        }
+        public string ComentarPost(int idPost, int idPerfil, string comentario)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest("api/Post/ComentarPost", Method.Post);
+            request.AddJsonBody(new { idPost = idPost, idPerfil = idPerfil, comentario = comentario });
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al comentar el post.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        public List<string> ObtenerPostTexto(int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ObtenerTexto/{idPerfil}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al obtener las publicaciones de texto.");
+
+            var posts = JsonConvert.DeserializeObject<List<string>>(response.Content);
+            return posts;
+        }
+        public List<string> ObtenerPostImagen(int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ObtenerImagen/{idPerfil}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al obtener las publicaciones con imágenes.");
+
+            var posts = JsonConvert.DeserializeObject<List<string>>(response.Content);
+            return posts;
+        }
+        public List<string> ObtenerPostVideo(int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ObtenerVideo/{idPerfil}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al obtener las publicaciones con video.");
+
+            var posts = JsonConvert.DeserializeObject<List<string>>(response.Content);
+            return posts;
+        }
+        public List<string> ObtenerPostAudio(int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ObtenerAudio/{idPerfil}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al obtener las publicaciones con audio.");
+
+            var posts = JsonConvert.DeserializeObject<List<string>>(response.Content);
+            return posts;
+        }
+
+
+
+
 
 
 
@@ -275,6 +441,12 @@ namespace InterfazUsuario
         {
             DatosDePerfil.Seguidores = DatosDePerfil.Seguidores ?? new List<string>();
             DatosDePerfil.Seguidos = DatosDePerfil.Seguidos ?? new List<string>();
+
+            if (perfil.TryGetValue("cantidad_seguidores", out string cantidadSeguidoresValue) && int.TryParse(cantidadSeguidoresValue, out int cantidadSeguidores))
+                DatosDePerfil.CantidadSeguidores = cantidadSeguidores;
+
+            if (perfil.TryGetValue("cantidad_seguidos", out string cantidadSeguidosValue) && int.TryParse(cantidadSeguidosValue, out int cantidadSeguidos))
+                DatosDePerfil.CantidadSeguidos = cantidadSeguidos;
 
             if (perfil.TryGetValue("id_perfil", out string idPerfilValue) && int.TryParse(idPerfilValue, out int idPerfil))
                 DatosDePerfil.idPerfil = idPerfil;

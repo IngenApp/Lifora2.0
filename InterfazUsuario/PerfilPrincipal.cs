@@ -24,7 +24,8 @@ namespace InterfazUsuario
             MakeCircularPictureBox(pictureBox2);
             MakeCircularPictureBox(pictureBox1);
             Nickname.Text = DatosDePerfil.apodo;
-
+            labelSeguidores.Text = DatosDePerfil.CantidadSeguidores.ToString();
+            labelSeguidos.Text = DatosDePerfil.CantidadSeguidos.ToString();
         }
         public void CargarIdioma()
         {
