@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
-using Newtonsoft.Json;
-using RestSharp;
-using Controladores;
+
 
 namespace InterfazUsuario
 {
@@ -54,9 +44,24 @@ namespace InterfazUsuario
 
         private void btnCambiar_Click(object sender, EventArgs e)
         {
-             textBox1.Text = DatosDePerfil.nombre;
-            textBox2.Text = DatosDePerfil.apellido;
-            textBox3.Text = DatosDePerfil.apodo;
+            string nuevoNombre = textBox1.Text;
+            string nuevoApellido = textBox2.Text;
+            string nuevoApodo = textBox3.Text;
+            string nuevoEmail = DatosDePerfil.email;
+            string nuevoAtributo1 = DatosDePerfil.atributo1;
+            string nuevoAtributo2 = DatosDePerfil.atributo2;
+            string nuevaContrasena = DatosDePerfil.contrasena;
+            string idioma = Settings.Default.Idioma;
+
+            int idPerfil = DatosDePerfil.idPerfil;
+            int idFotoPerfil = (int)DatosDePerfil.idFotoPerfil;
+
+            Login.ModificarUsuario(idPerfil, nuevoEmail, nuevoApodo, nuevoAtributo1, nuevoAtributo2, nuevaContrasena, idioma, idFotoPerfil);
+
+            DatosDePerfil.nombre = nuevoNombre;
+            DatosDePerfil.apellido = nuevoApellido;
+            DatosDePerfil.apodo = nuevoApodo;
+
             this.Close();
         }
 

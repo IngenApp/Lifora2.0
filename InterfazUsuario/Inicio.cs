@@ -26,7 +26,46 @@ namespace InterfazUsuario
             Nickname.Text = DatosDePerfil.apodo;
            
         }
+        private void AsignarDatosDePerfil(Dictionary<string, string> perfil)
+        {
+            DatosDePerfil.Seguidores = DatosDePerfil.Seguidores ?? new List<string>();
+            DatosDePerfil.Seguidos = DatosDePerfil.Seguidos ?? new List<string>();
 
+            if (perfil.TryGetValue("id_perfil", out string idPerfilValue) && int.TryParse(idPerfilValue, out int idPerfil))
+                DatosDePerfil.idPerfil = idPerfil;
+
+            if (perfil.TryGetValue("apodo", out string apodo))
+                DatosDePerfil.apodo = apodo;
+
+            if (perfil.TryGetValue("email", out string email))
+                DatosDePerfil.email = email;
+
+            if (perfil.TryGetValue("telefono", out string telefono))
+                DatosDePerfil.telefono = telefono;
+
+            if (perfil.TryGetValue("nombre", out string nombre))
+                DatosDePerfil.nombre = nombre;
+
+            if (perfil.TryGetValue("apellido", out string apellido))
+                DatosDePerfil.apellido = apellido;
+
+            if (perfil.TryGetValue("fecha_nacimiento", out string fechaNacimiento))
+                DatosDePerfil.fechaNacimiento = fechaNacimiento;
+
+            if (perfil.TryGetValue("id_foto_perfil", out string idFotoPerfilValue) && int.TryParse(idFotoPerfilValue, out int idFotoPerfil))
+                DatosDePerfil.idFotoPerfil = idFotoPerfil;
+            else
+                DatosDePerfil.idFotoPerfil = null;
+
+            if (perfil.TryGetValue("idioma", out string idioma))
+                DatosDePerfil.idioma = idioma;
+
+            if (perfil.TryGetValue("atributo1", out string atributo1))
+                DatosDePerfil.atributo1 = atributo1;
+
+            if (perfil.TryGetValue("atributo2", out string atributo2))
+                DatosDePerfil.atributo2 = atributo2;
+        }
         private void CargarDatosPerfil()
         {
             string email = DatosDePerfil.email; 

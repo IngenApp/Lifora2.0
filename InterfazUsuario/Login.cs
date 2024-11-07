@@ -18,6 +18,184 @@ namespace InterfazUsuario
             CargarIdioma();
         }
 
+        
+           private void CrearPostTexto(int idPerfil, string descripcion)
+                {
+                    var client = new RestClient("https://localhost:44358/");
+                    var request = new RestRequest("api/Post/CrearPostTexto/", Method.Post);
+                    request.AddJsonBody(new { idPerfil, descripcion });
+
+                    var response = client.Execute(request);
+                    if (!response.IsSuccessful)
+                        throw new Exception("Error al crear el post de texto.");
+                }
+
+                private void CrearPostImagen(int idPerfil, string descripcion, string idImagen)
+                {
+                    var client = new RestClient("https://localhost:44358/");
+                    var request = new RestRequest("api/Post/CrearPostImagen/", Method.Post);
+                    request.AddJsonBody(new { idPerfil, descripcion, idImagen });
+
+                    var response = client.Execute(request);
+                    if (!response.IsSuccessful)
+                        throw new Exception("Error al crear el post con imagen.");
+                }
+
+                private void CrearPostVideo(int idPerfil, string descripcion, string idVideo)
+                {
+                    var client = new RestClient("https://localhost:44358/");
+                    var request = new RestRequest("api/Post/CrearPostVideo/", Method.Post);
+                    request.AddJsonBody(new { idPerfil, descripcion, idVideo });
+
+                    var response = client.Execute(request);
+                    if (!response.IsSuccessful)
+                        throw new Exception("Error al crear el post con video.");
+                }
+
+                private void CrearPostAudio(int idPerfil, string descripcion, string idAudio)
+                {
+                    var client = new RestClient("https://localhost:44358/");
+                    var request = new RestRequest("api/Post/CrearPostAudio/", Method.Post);
+                    request.AddJsonBody(new { idPerfil, descripcion, idAudio });
+
+                    var response = client.Execute(request);
+                    if (!response.IsSuccessful)
+                        throw new Exception("Error al crear el post con audio.");
+                }
+
+                private void ModificarPost(int id, string nuevaDescripcion)
+                {
+                    var client = new RestClient("https://localhost:44358/");
+                    var request = new RestRequest($"api/Post/ModificarPost/{id}/", Method.Put);
+                    request.AddJsonBody(new { descripcion = nuevaDescripcion });
+
+                    var response = client.Execute(request);
+
+                    if (!response.IsSuccessful)
+                        MessageBox.Show($"Error al modificar el post: {response.Content}");
+                    else
+                        MessageBox.Show("Post modificado exitosamente.");
+                }
+
+                private void DeshabilitarPost(int id)
+                {
+                    var client = new RestClient("https://localhost:44358/");
+                    var request = new RestRequest($"api/Post/DeshabilitarPost/{id}/", Method.Delete);
+
+                    var response = client.Execute(request);
+
+                    if (!response.IsSuccessful)
+                        MessageBox.Show($"Error al deshabilitar el post: {response.Content}");
+                    else
+                        MessageBox.Show("Post deshabilitado exitosamente.");
+                }
+
+                private void HabilitarPost(int id)
+                {
+                    var client = new RestClient("https://localhost:44358/");
+                    var request = new RestRequest($"api/Post/HabilitarPost/{id}/", Method.Put);
+
+                    var response = client.Execute(request);
+
+                    if (!response.IsSuccessful)
+                        MessageBox.Show($"Error al habilitar el post: {response.Content}");
+                    else
+                        MessageBox.Show("Post habilitado exitosamente.");
+                }
+                public static void ModificarUsuario(int id, string email, string apodo, string atributo1, string atributo2, string contrasena, string idioma, int idFotoPerfil)
+                {
+                    try
+                    {
+                        RestClient client = new RestClient("https://localhost:44331/");
+                        RestRequest request = new RestRequest($"api/Usuario/ModificarUsuario/{id}/", Method.Put);
+                        request.AddHeader("Accept", "application/json");
+
+                        var usuarioData = new
+                        {
+                            email,
+                            apodo,
+                            atributo1,
+                            atributo2,
+                            idioma = string.IsNullOrEmpty(idioma) ? "espanol" : idioma,
+                            idFotoPerfil
+                        };
+                        request.AddJsonBody(usuarioData);
+
+                        RestResponse response = client.Execute(request);
+
+                        if (!response.IsSuccessful)
+                        {
+                            MessageBox.Show("Error al modificar el usuario: " + response.Content, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario modificado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Hubo un problema al intentar modificar el usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                private RestResponse HacerSolicitudLogin()
+                {
+                    var datosLogin = CrearDatosLogin();
+                    string requestBody = JsonConvert.SerializeObject(datosLogin);
+
+                    RestClient client = new RestClient("https://localhost:44331/");
+                    RestRequest request = new RestRequest("/api/Usuario/Login", Method.Post);
+
+                    request.AddJsonBody(requestBody);
+                    request.AddHeader("Accept", "application/json");
+                    request.AddHeader("Content-Type", "application/json");
+
+                    return client.Execute(request);
+                }
+
+                private void ProcesarLoginExitoso()
+                {
+                    string email = txtBoxEmail.Text;
+                    Dictionary<string, string> perfil = ObtenerPerfilUsuario(email);
+                    if (perfil == null)
+                    {
+                    MessageBox.Show("El perfil de usuario no existe.");
+                    return;
+                    }
+                    AsignarDatosDePerfil(perfil);
+                    AbrirInicio();
+                }
+
+                private void AbrirInicio()
+                {
+                    Inicio inicio = new Inicio();
+                    inicio.Show();
+                    this.Hide();
+                }
+
+        
+
+
+
+        private List<string> ObtenerPosts()
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest("api/Post/ListarPost/", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al obtener los posts desde la API.");
+
+            try
+            {
+                var posts = JsonConvert.DeserializeObject<List<string>>(response.Content);
+                return posts;
+            }
+            catch (JsonException ex)
+            {
+                throw new Exception($"Error al deserializar la respuesta JSON: {response.Content}", ex);
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -50,9 +228,6 @@ namespace InterfazUsuario
         }
 
 
-
-
-
         private Dictionary<string, string> CrearDatosLogin()
         {
             return new Dictionary<string, string>
@@ -62,48 +237,6 @@ namespace InterfazUsuario
             };
            
         }
-
-        private RestResponse HacerSolicitudLogin()
-        {
-            string requestBody = JsonConvert.SerializeObject(CrearDatosLogin());
-
-            RestClient client = new RestClient("https://localhost:44331/");
-            RestRequest request = new RestRequest("/api/Usuario/Login", Method.Post);
-
-            request.AddJsonBody(requestBody);
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Content-Type", "application/json");
-
-            return client.Execute(request);
-        }
-
-        private void ProcesarLoginExitoso()
-        {
-            string email = txtBoxEmail.Text;
-            Dictionary<string, string> perfil = ObtenerPerfilUsuario(email);
-            int idPerfil = DatosDePerfil.idPerfil;
-
-            if (perfil != null)
-            {
-                AsignarDatosDePerfil(perfil);
-
-                if (perfil.ContainsKey("contrasena"))
-                {
-                    ModificarUsuario(idPerfil, perfil["email"], perfil["apodo"], perfil["atributo1"], perfil["atributo2"], perfil["contrasena"], perfil["idioma"], int.Parse(perfil["idFotoPerfil"]));
-                }
-                else
-                {
-                    MessageBox.Show("La contraseña no está disponible en los datos de perfil.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                MeSiguen(idPerfil);
-                Seguidos(idPerfil);
-                CantidadMeSiguen(idPerfil);
-                CantidadSeguidos(idPerfil);
-                AbrirInicio();
-            }
-        }
-
 
         private void MostrarMensajeCredencialesIncorrectas()
         {
@@ -129,25 +262,59 @@ namespace InterfazUsuario
             request.AddHeader("Accept", "application/json");
 
             RestResponse response = client.Execute(request);
+            if (!response.IsSuccessful || string.IsNullOrEmpty(response.Content))
+            {
+                MessageBox.Show("No se encontró el perfil de usuario.");
+                return null;
+            }
+
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
         }
 
         private void AsignarDatosDePerfil(Dictionary<string, string> perfil)
         {
-            DatosDePerfil.idPerfil = int.Parse(perfil["id_perfil"]);
-            DatosDePerfil.apodo = perfil["apodo"];
-            DatosDePerfil.email = perfil["email"];
-            DatosDePerfil.telefono = perfil["telefono"];
-            DatosDePerfil.nombre = perfil["nombre"];
-            DatosDePerfil.apellido = perfil["apellido"];
-            DatosDePerfil.fechaNacimiento = perfil["fecha_nacimiento"];
-            DatosDePerfil.idFotoPerfil = string.IsNullOrEmpty(perfil["id_foto_perfil"]) ? (int?)null : int.Parse(perfil["id_foto_perfil"]);
-            DatosDePerfil.idioma = perfil["idioma"];
-            DatosDePerfil.atributo1 = perfil["atributo1"];
-            DatosDePerfil.atributo2 = perfil["atributo2"];
+            DatosDePerfil.Seguidores = DatosDePerfil.Seguidores ?? new List<string>();
+            DatosDePerfil.Seguidos = DatosDePerfil.Seguidos ?? new List<string>();
 
+            if (perfil.TryGetValue("id_perfil", out string idPerfilValue) && int.TryParse(idPerfilValue, out int idPerfil))
+                DatosDePerfil.idPerfil = idPerfil;
 
+            if (perfil.TryGetValue("apodo", out string apodo))
+                DatosDePerfil.apodo = apodo;
+
+            if (perfil.TryGetValue("email", out string email))
+                DatosDePerfil.email = email;
+
+            if (perfil.TryGetValue("telefono", out string telefono))
+                DatosDePerfil.telefono = telefono;
+
+            if (perfil.TryGetValue("nombre", out string nombre))
+                DatosDePerfil.nombre = nombre;
+
+            if (perfil.TryGetValue("apellido", out string apellido))
+                DatosDePerfil.apellido = apellido;
+
+            if (perfil.TryGetValue("fecha_nacimiento", out string fechaNacimiento))
+                DatosDePerfil.fechaNacimiento = fechaNacimiento;
+
+            if (perfil.TryGetValue("id_foto_perfil", out string idFotoPerfilValue) && int.TryParse(idFotoPerfilValue, out int idFotoPerfil))
+                DatosDePerfil.idFotoPerfil = idFotoPerfil;
+            else
+                DatosDePerfil.idFotoPerfil = null;
+
+            if (perfil.TryGetValue("idioma", out string idioma))
+                DatosDePerfil.idioma = idioma;
+
+            if (perfil.TryGetValue("atributo1", out string atributo1))
+                DatosDePerfil.atributo1 = atributo1;
+
+            if (perfil.TryGetValue("atributo2", out string atributo2))
+                DatosDePerfil.atributo2 = atributo2;
         }
+
+
+
+
 
         private static void MeSiguen(int idPerfil)
         {
@@ -230,60 +397,6 @@ namespace InterfazUsuario
             Console.WriteLine($"Error: {response.StatusCode} - {response.ErrorMessage}");
             DatosDePerfil.CantidadSeguidos = 0;
             return;
-        }
-
-        private static void ModificarUsuario(int id, string email, string apodo, string atributo1, string atributo2, string contrasena, string idioma, int idFotoPerfil)
-        {
-            try
-            {
-                RestClient client = new RestClient("https://localhost:44331/");
-                RestRequest request = new RestRequest($"api/Usuario/ModificarUsuario/{id}/", Method.Put);
-                request.AddHeader("Accept", "application/json");
-
-                var usuarioData = new
-                {
-                    email = email,
-                    apodo = apodo,
-                    atributo1 = atributo1,
-                    atributo2 = atributo2,
-                    contrasena = contrasena,
-                    idioma = string.IsNullOrEmpty(idioma) ? "espanol" : idioma,
-                    idFotoPerfil = idFotoPerfil
-                };
-                request.AddJsonBody(usuarioData);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.IsSuccessful)
-                {
-                    var resultado = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
-                    if (resultado != null && resultado.ContainsKey("mensaje"))
-                    {
-                        DatosDePerfil.email = email;
-                        DatosDePerfil.apodo = apodo;
-                        DatosDePerfil.atributo1 = atributo1;
-                        DatosDePerfil.atributo2 = atributo2;
-                        DatosDePerfil.contrasena = contrasena;
-                        DatosDePerfil.idioma = string.IsNullOrEmpty(idioma) ? "espanol" : idioma;
-                        DatosDePerfil.idFotoPerfil = idFotoPerfil;
-
-                        MessageBox.Show("Usuario modificado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                }
-                MessageBox.Show("Error al modificar el usuario: " + response.Content, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hubo un problema al intentar modificar el usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void AbrirInicio()
-        {
-            Inicio inicio = new Inicio();
-            inicio.Show();
-            inicio.Login = this;
-            this.Hide();
         }
 
 

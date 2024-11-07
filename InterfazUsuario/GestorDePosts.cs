@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
-using System.Threading;
-using InterfazUsuario.Lenguas;
-using InterfazUsuario.Properties;
 
 namespace InterfazUsuario
 {
-    
+
     public class GestorDePosts
     {
         private readonly Panel _panelTexto;

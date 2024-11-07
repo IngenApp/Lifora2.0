@@ -8,9 +8,12 @@ namespace InterfazUsuario
     public class DatosDePerfil
     {
 
-
-        
-
+        public static string idVideo { get; set; }
+        public static string idAudio { get; set; }
+        public static string descripcion { get; set; }
+        public static string idImagen { get; set; }
+        public static string nuevaDescripcion { get; set; }
+        public static int idPost { get; set; }
         public static int idPerfil { get; set; }
         public static string contrasena { get; set; }
         public static string nombre { get; set; }

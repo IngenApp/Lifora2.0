@@ -24,6 +24,7 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+      
         public void CrearPostImagen()
         {
             string sql = $"insert into post (id_perfil, descripcion, fecha_hora) values(@id_perfil, @descripcion, now()); insert into multimedia (id_post) values (last_insert_id()); insert into imagen (id_post, id_imagen) values (last_insert_id(), @id_imagen)); commit;";
@@ -160,11 +161,10 @@ namespace Modelo
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();
 
-            string sql = @"SELECT p.id_post, p.descripcion, p.fecha_hora, p.habilitado, pf.apodo, pf.id_perfil 
-                    FROM post p
-                    JOIN texto t ON p.id_post = t.id_post
-                    LEFT JOIN perfil pf ON p.id_perfil = pf.id_perfil
-                    WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil;";
+            string sql = @"SELECT p.id_post, p.descripcion, p.fecha_hora, pf.apodo, pf.id_perfil
+                   FROM post p
+                   LEFT JOIN perfil pf ON p.id_perfil = pf.id_perfil
+                   WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil;";
 
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
@@ -179,7 +179,6 @@ namespace Modelo
                         idPost = Convert.ToInt32(this.Lector["id_post"]),
                         descripcion = this.Lector["descripcion"].ToString(),
                         fecha = this.Lector["fecha_hora"].ToString(),
-                        habilitado = Convert.ToBoolean(this.Lector["habilitado"]),
                         apodo = this.Lector["apodo"] != DBNull.Value ? this.Lector["apodo"].ToString() : string.Empty,
                         idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
                     };
