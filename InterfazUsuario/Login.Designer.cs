@@ -66,35 +66,35 @@ namespace InterfazUsuario
             // txtBoxEmail
             // 
             this.txtBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBoxEmail.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxEmail.Location = new System.Drawing.Point(662, 212);
             this.txtBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxEmail.Name = "txtBoxEmail";
-            this.txtBoxEmail.Size = new System.Drawing.Size(380, 36);
+            this.txtBoxEmail.Size = new System.Drawing.Size(380, 31);
             this.txtBoxEmail.TabIndex = 2;
             // 
             // txtBoxPass
             // 
             this.txtBoxPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBoxPass.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxPass.Location = new System.Drawing.Point(662, 280);
             this.txtBoxPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxPass.Name = "txtBoxPass";
             this.txtBoxPass.PasswordChar = '*';
-            this.txtBoxPass.Size = new System.Drawing.Size(380, 36);
+            this.txtBoxPass.Size = new System.Drawing.Size(380, 31);
             this.txtBoxPass.TabIndex = 3;
             this.txtBoxPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxPass_KeyDown);
             // 
             // linklblRegitrarse
             // 
             this.linklblRegitrarse.AutoSize = true;
-            this.linklblRegitrarse.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblRegitrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblRegitrarse.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linklblRegitrarse.LinkColor = System.Drawing.Color.Gray;
             this.linklblRegitrarse.Location = new System.Drawing.Point(740, 397);
             this.linklblRegitrarse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linklblRegitrarse.Name = "linklblRegitrarse";
-            this.linklblRegitrarse.Size = new System.Drawing.Size(231, 28);
+            this.linklblRegitrarse.Size = new System.Drawing.Size(232, 25);
             this.linklblRegitrarse.TabIndex = 4;
             this.linklblRegitrarse.TabStop = true;
             this.linklblRegitrarse.Text = "No tienes una Cuenta?";
@@ -209,20 +209,20 @@ namespace InterfazUsuario
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmail.Location = new System.Drawing.Point(657, 182);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(64, 28);
+            this.labelEmail.Size = new System.Drawing.Size(65, 25);
             this.labelEmail.TabIndex = 28;
             this.labelEmail.Text = "Email";
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Location = new System.Drawing.Point(657, 250);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(123, 28);
+            this.labelPassword.Size = new System.Drawing.Size(123, 25);
             this.labelPassword.TabIndex = 29;
             this.labelPassword.Text = "Contrasena";
             // 

@@ -7,8 +7,8 @@ namespace Modelo
 {
     public class ModeloPersonas : Modelo
     {
-        public int idPerfil, idUsuario, idCuenta, idFotoPerfil;
-        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo;
+        public int idPerfil, idUsuario, idCuenta ;
+        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo, idFotoPerfil;
         public bool habilitacion;
 
         public List<string> ObtenerSeguidores(int idPerfil)
@@ -42,7 +42,6 @@ namespace Modelo
 
             return seguidores;
         }
-
         public int ObtenerCantidadSeguidores(int idPerfil)
         {
             int cantidadSeguidores = 0;
@@ -73,8 +72,6 @@ namespace Modelo
 
             return cantidadSeguidores;
         }
-
-
         public List<string> ObtenerSeguidos(int idPerfil)
         {
             var seguidos = new List<string>();
@@ -107,7 +104,6 @@ namespace Modelo
 
             return seguidos;
         }
-
         public int ObtenerCantidadSeguidos(int idPerfil)
         {
             int cantidadSeguidos = 0;
@@ -138,7 +134,6 @@ namespace Modelo
 
             return cantidadSeguidos;
         }
-
         public void GuardarCuentaUsuario()
         {
             string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
@@ -284,17 +279,17 @@ namespace Modelo
                 {
                     if (this.Lector.Read())
                     {
-                        idPerfil = Convert.ToInt32(Lector["id_perfil"]);
-                        nombre = Lector["nombre"].ToString();
-                        apellido = Lector["apellido"].ToString();
-                        fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
-                        email = Lector["email"].ToString();
-                        telefono = Lector["telefono"].ToString();
+                        this.idPerfil = Convert.ToInt32(Lector["id_perfil"]);
+                        this.nombre = Lector["nombre"].ToString();
+                        this.apellido = Lector["apellido"].ToString();
+                        this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
+                        this.email = Lector["email"].ToString();
+                        this.telefono = Lector["telefono"].ToString();
                         this.apodo = Lector["apodo"].ToString();
-                        idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"]);
-                        idioma = Lector["idioma"].ToString();
-                        atributo1 = Lector["atributo1"].ToString();
-                        atributo2 = Lector["atributo2"].ToString();
+                        this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
+                        this.idioma = Lector["idioma"].ToString();
+                        this.atributo1 = Lector["atributo1"].ToString();
+                        this.atributo2 = Lector["atributo2"].ToString();
                     }
                 }
             }
@@ -307,7 +302,7 @@ namespace Modelo
         }
         public bool ObtenerIdPerfilPorEmail(string email)
         {
-            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2, cl.contrasena 
                    FROM perfil p 
                    JOIN cuenta_usuario cu ON p.email = cu.email 
                    JOIN cuenta_lifora cl ON cu.email = cl.email 
@@ -329,10 +324,10 @@ namespace Modelo
                         this.apellido = Lector["apellido"].ToString();
                         this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
                         this.email = Lector["email"].ToString();
+                        this.contrasena = Lector["contrasena"].ToString();
                         this.telefono = Lector["telefono"].ToString();
                         this.apodo = Lector["apodo"].ToString();
-                        if (Lector["id_foto_perfil"].ToString() != "")
-                            this.idFotoPerfil = Convert.ToInt32(Lector["id_foto_perfil"].ToString());
+                        this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
                         this.idioma = Lector["idioma"].ToString();
                         this.atributo1 = Lector["atributo1"].ToString();
                         this.atributo2 = Lector["atributo2"].ToString();
@@ -348,6 +343,7 @@ namespace Modelo
 
             return false;
         }
+
 
     }
 }

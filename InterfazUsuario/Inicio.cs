@@ -24,82 +24,8 @@ namespace InterfazUsuario
             gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
             MakeCircularPictureBox(pictureBox2);
             Nickname.Text = DatosDePerfil.apodo;
-           
+            labelBuscar.Text = DatosDePerfil.contrasena;
         }
-        private void AsignarDatosDePerfil(Dictionary<string, string> perfil)
-        {
-            DatosDePerfil.Seguidores = DatosDePerfil.Seguidores ?? new List<string>();
-            DatosDePerfil.Seguidos = DatosDePerfil.Seguidos ?? new List<string>();
-
-            if (perfil.TryGetValue("id_perfil", out string idPerfilValue) && int.TryParse(idPerfilValue, out int idPerfil))
-                DatosDePerfil.idPerfil = idPerfil;
-
-            if (perfil.TryGetValue("apodo", out string apodo))
-                DatosDePerfil.apodo = apodo;
-
-            if (perfil.TryGetValue("email", out string email))
-                DatosDePerfil.email = email;
-
-            if (perfil.TryGetValue("telefono", out string telefono))
-                DatosDePerfil.telefono = telefono;
-
-            if (perfil.TryGetValue("nombre", out string nombre))
-                DatosDePerfil.nombre = nombre;
-
-            if (perfil.TryGetValue("apellido", out string apellido))
-                DatosDePerfil.apellido = apellido;
-
-            if (perfil.TryGetValue("fecha_nacimiento", out string fechaNacimiento))
-                DatosDePerfil.fechaNacimiento = fechaNacimiento;
-
-            if (perfil.TryGetValue("id_foto_perfil", out string idFotoPerfilValue) && int.TryParse(idFotoPerfilValue, out int idFotoPerfil))
-                DatosDePerfil.idFotoPerfil = idFotoPerfil;
-            else
-                DatosDePerfil.idFotoPerfil = null;
-
-            if (perfil.TryGetValue("idioma", out string idioma))
-                DatosDePerfil.idioma = idioma;
-
-            if (perfil.TryGetValue("atributo1", out string atributo1))
-                DatosDePerfil.atributo1 = atributo1;
-
-            if (perfil.TryGetValue("atributo2", out string atributo2))
-                DatosDePerfil.atributo2 = atributo2;
-        }
-        private void CargarDatosPerfil()
-        {
-            string email = DatosDePerfil.email; 
-            Dictionary<string, string> perfil = ObtenerDatosPerfilDesdeApi(email);
-
-            if (perfil == null)
-            {
-                MessageBox.Show("No se pudieron obtener los datos del perfil.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            DatosDePerfil.idPerfil = int.Parse(perfil["idPerfil"]);
-            DatosDePerfil.nombre = perfil["nombre"];
-            DatosDePerfil.apellido = perfil["apellido"];
-            DatosDePerfil.fechaNacimiento = perfil["fechaNacimiento"];
-            DatosDePerfil.email = perfil["email"];
-            DatosDePerfil.telefono = perfil["telefono"];
-            DatosDePerfil.apodo = perfil["apodo"];
-            DatosDePerfil.idFotoPerfil = string.IsNullOrEmpty(perfil["idFotoPerfil"]) ? (int?)null : int.Parse(perfil["idFotoPerfil"]);
-            DatosDePerfil.idioma = perfil["idioma"];
-            DatosDePerfil.atributo1 = perfil["atributo1"];
-            DatosDePerfil.atributo2 = perfil["atributo2"];
-          
-        }
-        private Dictionary<string, string> ObtenerDatosPerfilDesdeApi(string email)
-        {
-            RestClient client = new RestClient("http://localhost:44331/");
-            RestRequest request = new RestRequest($"/api/Usuario/{email}", Method.Get);
-            request.AddHeader("Accept", "application/json");
-
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
-        }
-
-
 
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {
@@ -245,7 +171,6 @@ namespace InterfazUsuario
 
             gestorDePosts.CargarImagenes(apodos, descripcion, idImagenes, cantidadLikes, cantidadComentarios);
         }
-
 
         private void MuroVideos(object sender, EventArgs e)
         {

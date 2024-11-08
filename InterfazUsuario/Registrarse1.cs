@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
 using System.Text.RegularExpressions;
 
@@ -81,12 +73,10 @@ namespace InterfazUsuario
                 }
             }
         }
-
         private void Registrarse1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.Save();
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             AvisoPass aviso = new AvisoPass();
