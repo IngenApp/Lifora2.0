@@ -35,6 +35,7 @@ namespace Controladores
             return modelo.ObtenerSeguidos(idPerfil);
         }
 
+
         public static int ObtenerCantidadSeguidos(int idPerfil)
         {
             try
@@ -95,19 +96,26 @@ namespace Controladores
             CuentaUsuario.idUsuario = idUsuario;
             CuentaUsuario.HabilitarCuentaUsuario();
         }
+
+
+
+
+
         public static void ModificarCuenta(string email, string emailNuevo, string nombre, string apellido, string telefono)
         {
-            ModeloPersonas ModCuenta = new ModeloPersonas();
-            ModCuenta.email = email;
-            ModCuenta.emailNuevo = emailNuevo;
-            ModCuenta.nombre = nombre;
-            ModCuenta.apellido = apellido;
-            ModCuenta.telefono = telefono;
-            ModCuenta.ModificarCuentaUsuario();
+            ModeloPersonas modCuenta = new ModeloPersonas();
+            modCuenta.email = email;
+            modCuenta.emailNuevo = emailNuevo;
+            modCuenta.nombre = nombre;
+            modCuenta.apellido = apellido;
+            modCuenta.telefono = telefono;
+
+            modCuenta.ModificarCuentaUsuario();
         }
         public static void ModificarPerfil(string email, string apodo, string idFotoPerfil, string idioma, string atributo1, string atributo2, string contrasena)
         {
             ModeloPersonas ModPerf = new ModeloPersonas();
+
             ModPerf.email = email;
             ModPerf.apodo = apodo;
             ModPerf.idFotoPerfil = idFotoPerfil;
@@ -116,8 +124,14 @@ namespace Controladores
             ModPerf.atributo2 = atributo2;
             ModPerf.contrasena = contrasena;
             ModPerf.ModificarPerfilUsuario();
-
         }
+
+
+
+
+
+
+
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
@@ -159,13 +173,12 @@ namespace Controladores
 
             return tabla;
         }
-
         public static Dictionary<string, string> ObtenerPerfilPorMail(string mail)
         {
             Dictionary<string, string> perfil = new Dictionary<string, string>();
             ModeloPersonas persona = new ModeloPersonas();
 
-            if (persona.ObtenerIdPerfilPorEmail(mail))
+            if (persona.ObtenerPerfilPorEmail(mail))
             {
                 perfil.Add("resultado", "true");
                 perfil.Add("apodo", persona.apodo);
@@ -176,7 +189,7 @@ namespace Controladores
                 perfil.Add("nombre", persona.nombre);
                 perfil.Add("apellido", persona.apellido);
                 perfil.Add("fecha_nacimiento", persona.fechaNacimiento);
-                perfil.Add("id_foto_perfil", persona.idFotoPerfil.ToString());
+                perfil.Add("idFotoPerfil", persona.idFotoPerfil);
                 perfil.Add("idioma", persona.idioma);
                 perfil.Add("atributo1", persona.atributo1);
                 perfil.Add("atributo2", persona.atributo2);
@@ -234,6 +247,8 @@ namespace Controladores
 
             return pf;
         }
+
+
         public class PerfilPrincipal
         {
             public int idPerfil { get; set; }
@@ -266,6 +281,10 @@ namespace Controladores
         {
             public static PerfilPrincipal PerfilActual { get; set; }
         }
+
+
+
+
 
     }
 }

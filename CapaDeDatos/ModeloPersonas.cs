@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
     public class ModeloPersonas : Modelo
     {
-        public int idPerfil, idUsuario, idCuenta ;
+        public int idPerfil, idUsuario, idCuenta;
         public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo, idFotoPerfil;
         public bool habilitacion;
 
@@ -42,6 +42,7 @@ namespace Modelo
 
             return seguidores;
         }
+
         public int ObtenerCantidadSeguidores(int idPerfil)
         {
             int cantidadSeguidores = 0;
@@ -72,6 +73,8 @@ namespace Modelo
 
             return cantidadSeguidores;
         }
+
+
         public List<string> ObtenerSeguidos(int idPerfil)
         {
             var seguidos = new List<string>();
@@ -104,6 +107,7 @@ namespace Modelo
 
             return seguidos;
         }
+
         public int ObtenerCantidadSeguidos(int idPerfil)
         {
             int cantidadSeguidos = 0;
@@ -134,6 +138,7 @@ namespace Modelo
 
             return cantidadSeguidos;
         }
+
         public void GuardarCuentaUsuario()
         {
             string sql = $"CALL crear_usuario_cuenta(@nombre, @apellido, @fecha_nacimiento, @email, @telefono, @contrasenia);";
@@ -170,39 +175,64 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
+
+
+
         public void ModificarCuentaUsuario()
         {
-            this.Comando.Parameters.Clear();
-            string sql = "CALL actualizar_usuario_cuenta(@p_email_antiguo, @p_email_nuevo, @p_nombre, @p_apellido, @p_telefono);";
+            try
+            {
+                this.Comando.Parameters.Clear();
+                string sql = "CALL actualizar_usuario_cuenta(@p_email_antiguo, @p_email_nuevo, @p_nombre, @p_apellido, @p_telefono);";
 
-            this.Comando.Parameters.AddWithValue("@p_email_antiguo", email);
-            this.Comando.Parameters.AddWithValue("@p_email_nuevo", emailNuevo);
-            this.Comando.Parameters.AddWithValue("@p_nombre", nombre);
-            this.Comando.Parameters.AddWithValue("@p_apellido", apellido);
-            this.Comando.Parameters.AddWithValue("@p_telefono", telefono);
+                this.Comando.Parameters.AddWithValue("@p_email_antiguo", email);
+                this.Comando.Parameters.AddWithValue("@p_email_nuevo", emailNuevo);
+                this.Comando.Parameters.AddWithValue("@p_nombre", nombre);
+                this.Comando.Parameters.AddWithValue("@p_apellido", apellido);
+                this.Comando.Parameters.AddWithValue("@p_telefono", telefono);
 
-            this.Comando.CommandText = sql;
-            this.Comando.Prepare();
-            this.Comando.ExecuteNonQuery();
-
+                this.Comando.CommandText = sql;
+                this.Comando.CommandType = CommandType.Text;
+                this.Comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al modificar la cuenta del usuario: " + ex.Message);
+                throw;
+            }
         }
         public void ModificarPerfilUsuario()
         {
-            this.Comando.Parameters.Clear();
-            string sql = "CALL actualizar_perfil_usuario(@p_email, @p_apodo, @p_id_foto_perfil, @p_idioma, @p_atributo1, @p_atributo2, @p_contrasena);";
+            try
+            {
+                this.Comando.Parameters.Clear();
 
-            this.Comando.Parameters.AddWithValue("@p_email", email);
-            this.Comando.Parameters.AddWithValue("@p_apodo", apodo);
-            this.Comando.Parameters.AddWithValue("@p_id_foto_perfil", idFotoPerfil);
-            this.Comando.Parameters.AddWithValue("@p_idioma", idioma);
-            this.Comando.Parameters.AddWithValue("@p_atributo1", atributo1);
-            this.Comando.Parameters.AddWithValue("@p_atributo2", atributo2);
-            this.Comando.Parameters.AddWithValue("@p_contrasena", contrasena);
+                string sql = "CALL actualizar_perfil_usuario(@p_email, @p_apodo, @p_id_foto_perfil, @p_idioma, @p_atributo1, @p_atributo2, @p_contrasena);";
 
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
+                this.Comando.Parameters.AddWithValue("p_email", email);
+                this.Comando.Parameters.AddWithValue("p_apodo", apodo);
+                this.Comando.Parameters.AddWithValue("p_id_foto_perfil", idFotoPerfil);
+                this.Comando.Parameters.AddWithValue("p_idioma", idioma);
+                this.Comando.Parameters.AddWithValue("p_atributo1", atributo1);
+                this.Comando.Parameters.AddWithValue("p_atributo2", atributo2);
+                this.Comando.Parameters.AddWithValue("p_contrasena", contrasena);
 
+                this.Comando.CommandText = sql;
+                this.Comando.CommandType = CommandType.Text;
+
+                this.Comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al modificar el perfil del usuario: " + ex.Message);
+                throw;
+            }
         }
+
+
+
+
+
         public bool Autenticar()
         {
             string sql = $"SELECT COUNT(*) FROM cuenta_lifora c JOIN cuenta_usuario u ON c.email = u.email WHERE c.email = @email AND c.contrasenia = @contrasenia AND c.habilitado = 1;";
@@ -300,9 +330,47 @@ namespace Modelo
             }
 
         }
-        public bool ObtenerIdPerfilPorEmail(string email)
+        public void ObtenerIdPerfilPorEmail(string email)
         {
-            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2, cl.contrasena 
+
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.email = @email; ";
+            try
+            {
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@email", email);
+
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    if (this.Lector.Read())
+                    {
+                        this.idPerfil = Convert.ToInt32(Lector["id_perfil"]);
+                        this.nombre = Lector["nombre"].ToString();
+                        this.apellido = Lector["apellido"].ToString();
+                        this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
+                        this.email = Lector["email"].ToString();
+                        this.telefono = Lector["telefono"].ToString();
+                        this.apodo = Lector["apodo"].ToString();
+                        this.idFotoPerfil = Lector["id_foto_perfil"].ToString(); ;
+                        this.idioma = Lector["idioma"].ToString();
+                        this.atributo1 = Lector["atributo1"].ToString();
+                        this.atributo2 = Lector["atributo2"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+        }
+
+        public bool ObtenerPerfilPorEmail(string email)
+        {
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, 
+                          p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, 
+                          p.atributo2, cl.contrasenia 
                    FROM perfil p 
                    JOIN cuenta_usuario cu ON p.email = cu.email 
                    JOIN cuenta_lifora cl ON cu.email = cl.email 
@@ -324,10 +392,13 @@ namespace Modelo
                         this.apellido = Lector["apellido"].ToString();
                         this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
                         this.email = Lector["email"].ToString();
-                        this.contrasena = Lector["contrasena"].ToString();
+                        this.contrasena = Lector["contrasenia"].ToString();
                         this.telefono = Lector["telefono"].ToString();
                         this.apodo = Lector["apodo"].ToString();
-                        this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
+
+                        if (!string.IsNullOrEmpty(Lector["id_foto_perfil"].ToString()))
+                            this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
+
                         this.idioma = Lector["idioma"].ToString();
                         this.atributo1 = Lector["atributo1"].ToString();
                         this.atributo2 = Lector["atributo2"].ToString();
@@ -344,6 +415,56 @@ namespace Modelo
             return false;
         }
 
+
+
+
+        /*
+                public bool ObtenerPerfilPorEmail(string email)
+                {
+                    string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, 
+                                  p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, 
+                                  p.atributo1, p.atributo2, cu.contrasena 
+                           FROM perfil p 
+                           JOIN cuenta_usuario cu ON p.email = cu.email 
+                           JOIN cuenta_lifora cl ON cu.email = cl.email 
+                           JOIN usuario u ON cl.id_usuario = u.id_usuario 
+                           WHERE p.email = @email;";
+
+                    try
+                    {
+                        this.Comando.CommandText = sql;
+                        this.Comando.Parameters.Clear();
+                        this.Comando.Parameters.AddWithValue("@email", email);
+
+                        using (this.Lector = this.Comando.ExecuteReader())
+                        {
+                            if (this.Lector.Read())
+                            {
+                                this.idPerfil = Convert.ToInt32(Lector["id_perfil"]);
+                                this.nombre = Lector["nombre"].ToString();
+                                this.apellido = Lector["apellido"].ToString();
+                                this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
+                                this.email = Lector["email"].ToString();
+                                this.contrasena = Lector["contrasena"].ToString();
+                                this.telefono = Lector["telefono"].ToString();
+                                this.apodo = Lector["apodo"].ToString();
+                                this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
+                                this.idioma = Lector["idioma"].ToString();
+                                this.atributo1 = Lector["atributo1"].ToString();
+                                this.atributo2 = Lector["atributo2"].ToString();
+
+                                return true;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error: {ex.Message}");
+                    }
+
+                    return false;
+                }
+                */
 
     }
 }
