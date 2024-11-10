@@ -16,7 +16,6 @@ namespace InterfazUsuario
         public Form Login;
         public string email;
         private GestorDePosts gestorDePosts;
-
         public Inicio()
         {
             InitializeComponent();
@@ -24,9 +23,21 @@ namespace InterfazUsuario
             gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
             MakeCircularPictureBox(pictureBox2);
             Nickname.Text = DatosDePerfil.apodo;
-            labelBuscar.Text = DatosDePerfil.contrasena;
-        }
+            /*        string mensaje = $"ID Perfil: {DatosDePerfil.idPerfil}\n" +
+                          $"Nombre: {DatosDePerfil.nombre}\n" +
+                          $"Apellido: {DatosDePerfil.apellido}\n" +
+                          $"Fecha de Nacimiento: {DatosDePerfil.fechaNacimiento}\n" +
+                          $"Email: {DatosDePerfil.email}\n" +
+                          $"Contraseña: {DatosDePerfil.contrasena}\n" +
+                          $"Teléfono: {DatosDePerfil.telefono}\n" +
+                          $"Apodo: {DatosDePerfil.apodo}\n" +
+                          $"ID Foto Perfil: {DatosDePerfil.idFotoPerfil}\n" +
+                          $"Idioma: {DatosDePerfil.idioma}\n" +
+                          $"Atributo 1: {DatosDePerfil.atributo1}\n" +
+                          $"Atributo 2: {DatosDePerfil.atributo2}";
 
+                    MessageBox.Show(mensaje, "Datos del Perfil", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+        }
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {
             GraphicsPath path = new GraphicsPath();
@@ -46,6 +57,7 @@ namespace InterfazUsuario
                 Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
         }
+ 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             PerfilPrincipal perfil = new PerfilPrincipal();
@@ -148,6 +160,7 @@ namespace InterfazUsuario
             gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios);
         }
 
+
         public List<string> ObtenerPostTexto(int idPerfil)
         {
             RestClient client = new RestClient("https://localhost:44358/");
@@ -160,6 +173,7 @@ namespace InterfazUsuario
             var posts = JsonConvert.DeserializeObject<List<string>>(response.Content);
             return posts;
         }
+
 
         private void MuroImagenes(object sender, EventArgs e)
         {

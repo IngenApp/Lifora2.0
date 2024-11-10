@@ -11,8 +11,6 @@ namespace ApiLifora.Controllers
 {
     public class UsuarioController : ApiController
     {
-
-
         [Route("api/Usuario/{email}/")]
         [HttpGet]
         public IHttpActionResult ObtenerPerfilPorMail(string email)
@@ -25,7 +23,6 @@ namespace ApiLifora.Controllers
             return Ok(perfil);
 
         }
-
 
         [Route("api/Usuario/MeSiguen/{idPerfil:int}")]
         [HttpGet]
@@ -45,7 +42,6 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Ocurrió un error al obtener los seguidores: {ex.Message}", ex));
             }
         }
-
 
         [Route("api/Usuario/CantidadSeguidores/{idPerfil:int}")]
         [HttpGet]
@@ -103,15 +99,6 @@ namespace ApiLifora.Controllers
             }
         }
 
-
-
-
-
-
-
-
-
-
         [Route("api/Usuario/ModificarPerfil/{email}")]
         [HttpPut]
         public IHttpActionResult ModificarUsuario(string email, ModeloApiUsuario usuario)
@@ -142,7 +129,6 @@ namespace ApiLifora.Controllers
             }
         }
 
-
         [Route("api/Usuario/ModificarCuenta/{id:int}")]
         [HttpPut]
         public IHttpActionResult ModificarCuenta(int id, ModeloApiUsuario usuario)
@@ -170,11 +156,6 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Error al modificar la cuenta: {ex.Message}", ex));
             }
         }
-
-
-
-
-
 
         [Route("api/Usuario/ListarUsuarios")]
         [HttpGet]
@@ -212,7 +193,6 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Error al listar los usuarios: {ex.Message}", ex));
             }
         }
-
 
         [Route("api/Usuario/CrearUsuario")]
         [HttpPost]
@@ -253,7 +233,6 @@ namespace ApiLifora.Controllers
             }
         }
 
-
         [Route("api/Usuario/Login")]
         [HttpPost]
         public IHttpActionResult Login(ModeloApiUsuario login)
@@ -271,11 +250,6 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Ocurrió un error durante el inicio de sesión.: {ex.Message}", ex));
             }
         }
-
-
-
-
-
 
         /*    [Route("api/Usuario/ModificarUsuario/{id:int}/")]
             [HttpPut]
@@ -314,8 +288,6 @@ namespace ApiLifora.Controllers
             }
         */
 
-
-
         [Route("api/Usuario/DeshabilitarUsuario/{id:int}")]
         [HttpPut]
         public IHttpActionResult DeshabilitaCuentaUsuario(int id)
@@ -326,7 +298,6 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
-
         [Route("api/Usuario/HabilitarUsuario{id:int}")]
         [HttpPut]
         public IHttpActionResult HabilitarCuentaUsuario(int id)
@@ -336,10 +307,6 @@ namespace ApiLifora.Controllers
             resultado.Add("mensaje", "Usuario habilitado exitosamente");
             return Ok(resultado);
         }
-
-
-
-
 
     }
 }

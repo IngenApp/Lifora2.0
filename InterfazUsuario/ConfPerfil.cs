@@ -49,15 +49,14 @@ namespace InterfazUsuario
                 string emailNuevo = DatosDePerfil.emailNuevo;
                 string nombre = textBox1.Text;
                 string apellido = textBox2.Text;
-                string telefono = textBox3.Text;
-                string apodo = DatosDePerfil.apodo;
+                string telefono = DatosDePerfil.telefono;
+                string apodo = textBox3.Text;
                 string idFotoPerfil = DatosDePerfil.idFotoPerfil;
                 string idioma = DatosDePerfil.idioma;
                 string atributo1 = DatosDePerfil.atributo1;
                 string atributo2 = DatosDePerfil.atributo2;
                 string contrasena = DatosDePerfil.contrasena;
                 ModificarUsuario(idPerfil, email, emailNuevo, nombre, apellido, telefono, apodo, idFotoPerfil, idioma, atributo1, atributo2, contrasena);
-
 
                 this.Close();
             }
@@ -90,13 +89,7 @@ namespace InterfazUsuario
 
                 var usuarioData = new
                 {
-                    email,
-                    apodo,
-                    idFotoPerfil,
-                    idioma = string.IsNullOrEmpty(idioma) ? "espanol" : idioma,
-                    atributo1,
-                    atributo2,
-                    contrasena
+                    email,apodo,idFotoPerfil,idioma = string.IsNullOrEmpty(idioma) ? "espanol" : idioma,atributo1,atributo2,contrasena
                 };
                 request.AddJsonBody(usuarioData);
                 RestResponse response = client.Execute(request);
@@ -124,12 +117,7 @@ namespace InterfazUsuario
 
                 var usuarioData = new
                 {
-                    email,
-                    emailNuevo = string.IsNullOrEmpty(emailNuevo) ? email : emailNuevo,
-                    nombre,
-                    apellido,
-                    telefono
-                };
+                    email, emailNuevo = string.IsNullOrEmpty(emailNuevo) ? email : emailNuevo, nombre, apellido, telefono };
                 request.AddJsonBody(usuarioData);
 
                 RestResponse response = client.Execute(request);

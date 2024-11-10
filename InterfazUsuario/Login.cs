@@ -7,7 +7,6 @@ using InterfazUsuario.Properties;
 using Newtonsoft.Json;
 using RestSharp;
 
-
 namespace InterfazUsuario
 {
     public partial class Login : Form
@@ -173,8 +172,6 @@ namespace InterfazUsuario
                 e.SuppressKeyPress = true;
             }
         }
-
-
 
     }
 }
