@@ -24,7 +24,6 @@ namespace InterfazUsuario
             MakeCircularPictureBox(pictureBox2);
             MakeCircularPictureBox(pictureBox1);
             Nickname.Text = DatosDePerfil.apodo;
-
         }
         public void CargarIdioma()
         {
@@ -82,12 +81,11 @@ namespace InterfazUsuario
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            labelSeguidores.Text = DatosDePerfil.CantidadSeguidores.ToString();
+           
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            labelSeguidos.Text = DatosDePerfil.CantidadSeguidores.ToString();
         }
 
         private void PerfilPrincipal_FormClosing(object sender, FormClosingEventArgs e)

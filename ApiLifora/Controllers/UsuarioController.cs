@@ -46,7 +46,7 @@ namespace ApiLifora.Controllers
         }
 
 
-        [Route("api/Usuario/CantidadSeguidores/{idPerfil:int}")]
+        [Route("api/Usuario/CantidadSeguidores/{idPerfil:int}/")]
         [HttpGet]
         public IHttpActionResult ObtenerCantidadSeguidores(int idPerfil)
         {

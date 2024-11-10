@@ -35,7 +35,6 @@ namespace Controladores
             return modelo.ObtenerSeguidos(idPerfil);
         }
 
-
         public static int ObtenerCantidadSeguidos(int idPerfil)
         {
             try
@@ -106,7 +105,7 @@ namespace Controladores
             ModCuenta.telefono = telefono;
             ModCuenta.ModificarCuentaUsuario();
         }
-        public static void ModificarPerfil(string email, string apodo, int idFotoPerfil, string idioma, string atributo1, string atributo2, string contrasena)
+        public static void ModificarPerfil(string email, string apodo, string idFotoPerfil, string idioma, string atributo1, string atributo2, string contrasena)
         {
             ModeloPersonas ModPerf = new ModeloPersonas();
             ModPerf.email = email;
@@ -172,6 +171,7 @@ namespace Controladores
                 perfil.Add("apodo", persona.apodo);
                 perfil.Add("id_perfil", persona.idPerfil.ToString());
                 perfil.Add("email", persona.email);
+                perfil.Add("contrasena", persona.contrasena);
                 perfil.Add("telefono", persona.telefono);
                 perfil.Add("nombre", persona.nombre);
                 perfil.Add("apellido", persona.apellido);
@@ -243,7 +243,7 @@ namespace Controladores
             public string email { get; set; }
             public string telefono { get; set; }
             public string apodo { get; set; }
-            public int? idFotoPerfil { get; set; }
+            public string idFotoPerfil { get; set; }
             public string idioma { get; set; }
             public string atributo1 { get; set; }
             public string atributo2 { get; set; }
@@ -257,7 +257,7 @@ namespace Controladores
             public string email { get; set; }
             public string telefono { get; set; }
             public string apodo { get; set; }
-            public int idFotoPerfil { get; set; }
+            public string idFotoPerfil { get; set; }
             public string idioma { get; set; }
             public string atributo1 { get; set; }
             public string atributo2 { get; set; }

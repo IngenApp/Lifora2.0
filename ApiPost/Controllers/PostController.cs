@@ -203,6 +203,9 @@ namespace ApiPost.Controllers
             }
         }
 
+       
+        
+        
         [Route("api/Post/DarLike")]
         [HttpPost]
         public IHttpActionResult DarLike(ModeloApiPost like)
@@ -275,6 +278,8 @@ namespace ApiPost.Controllers
             }
         }
 
+
+
         [Route("api/Post/ContarComentarios/{id:int}")]
         [HttpGet]
         public IHttpActionResult ContarComentarios(int id)
@@ -338,7 +343,7 @@ namespace ApiPost.Controllers
                 return InternalServerError(new Exception("Error al modificar el comentario.", ex));
             }
         }
-
+                
         [Route("api/Post/CompartirPost/{idPost:int}/{idPerfil:int}")]
         [HttpPost]
         public IHttpActionResult CompartirPost(int idPost, int idPerfil)
@@ -359,6 +364,9 @@ namespace ApiPost.Controllers
         }
 
 
+      
+        
+        
         [Route("api/Post/ObtenerTexto/{idPerfil:int}")]
         [HttpGet]
         public IHttpActionResult ObtenerPostTexto(int idPerfil)
@@ -373,8 +381,6 @@ namespace ApiPost.Controllers
                 return InternalServerError(new Exception($"Error al obtener publicaciones de texto: {ex.Message}", ex));
             }
         }
-
-
 
         [Route("api/Post/ObtenerImagen/{idPerfil:int}")]
         [HttpGet]

@@ -41,7 +41,7 @@ namespace InterfazUsuario
             DatosDePerfil.email = perfil["email"];
             DatosDePerfil.telefono = perfil["telefono"];
             DatosDePerfil.apodo = perfil["apodo"];
-            DatosDePerfil.idFotoPerfil = string.IsNullOrEmpty(perfil["idFotoPerfil"]) ? (int?)null : int.Parse(perfil["idFotoPerfil"]);
+            DatosDePerfil.idFotoPerfil = perfil["idFotoPerfil"];
             DatosDePerfil.idioma = perfil["idioma"];
             DatosDePerfil.atributo1 = perfil["atributo1"];
             DatosDePerfil.atributo2 = perfil["atributo2"];

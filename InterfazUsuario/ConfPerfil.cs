@@ -44,24 +44,6 @@ namespace InterfazUsuario
 
         private void btnCambiar_Click(object sender, EventArgs e)
         {
-            string nuevoNombre = textBox1.Text;
-            string nuevoApellido = textBox2.Text;
-            string nuevoApodo = textBox3.Text;
-            string nuevoEmail = DatosDePerfil.email;
-            string nuevoAtributo1 = DatosDePerfil.atributo1;
-            string nuevoAtributo2 = DatosDePerfil.atributo2;
-            string nuevaContrasena = DatosDePerfil.contrasena;
-            string idioma = Settings.Default.Idioma;
-
-            int idPerfil = DatosDePerfil.idPerfil;
-            int idFotoPerfil = (int)DatosDePerfil.idFotoPerfil;
-
-            Login.ModificarUsuario(idPerfil, nuevoEmail, nuevoApodo, nuevoAtributo1, nuevoAtributo2, nuevaContrasena, idioma, idFotoPerfil);
-
-            DatosDePerfil.nombre = nuevoNombre;
-            DatosDePerfil.apellido = nuevoApellido;
-            DatosDePerfil.apodo = nuevoApodo;
-
             this.Close();
         }
 
