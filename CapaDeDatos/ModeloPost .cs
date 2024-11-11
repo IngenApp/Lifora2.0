@@ -13,8 +13,6 @@ namespace Modelo
         public string post, descripcion, apodo, fecha, comentario, idAudio, idImagen, idVideo;
         public bool habilitado, comparteHabilitado;
         public DateTime fechaHora, fechaComparte;
-
-
         public void CrearPostTexto()
         {
             string sql = $"insert into post (id_perfil, descripcion, fecha_hora) values(@id_perfil, @descripcion, now()); insert into texto (id_post) values (last_insert_id()); commit;";
@@ -24,16 +22,40 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-      
-        public void CrearPostImagen()
+        public void CrearPostImagen(int idPerfil, string descripcion, string idImagen)
         {
-            string sql = $"insert into post (id_perfil, descripcion, fecha_hora) values(@id_perfil, @descripcion, now()); insert into multimedia (id_post) values (last_insert_id()); insert into imagen (id_post, id_imagen) values (last_insert_id(), @id_imagen)); commit;";
-            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
-            this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
-            this.Comando.Parameters.AddWithValue("@id_imagen", idImagen);
-            this.Comando.Prepare();
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
+            using (var transaction = this.Comando.Connection.BeginTransaction())
+            {
+                this.Comando.Transaction = transaction;
+
+                try
+                {
+                    string sql = @"
+                INSERT INTO post (id_perfil, descripcion, fecha_hora) 
+                VALUES (@id_perfil, @descripcion, NOW());
+
+                INSERT INTO multimedia (id_post) 
+                VALUES (LAST_INSERT_ID());
+
+                INSERT INTO imagen (id_post, id_imagen) 
+                VALUES (LAST_INSERT_ID(), @id_imagen);
+            ";
+
+                    this.Comando.Parameters.Clear();
+                    this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+                    this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
+                    this.Comando.Parameters.AddWithValue("@id_imagen", idImagen);
+
+                    this.Comando.CommandText = sql;
+                    this.Comando.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
         }
         public void CrearPostVideo()
         {
@@ -55,8 +77,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
-
         public void ModificarPost()
         {
             string sql = $"UPDATE post SET descripcion = @descripcion WHERE id_post = @id_post; commit;";
@@ -82,11 +102,9 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
-
-
         public void DarLike(int idPost, int idPerfil)
         {
-           
+
             string sqlInsert = $"INSERT INTO likes (id_post, id_perfil, fecha) VALUES (@id_post, @id_perfil, NOW()); commit;";
             this.Comando.CommandText = sqlInsert;
             this.Comando.Parameters.Clear();
@@ -113,7 +131,6 @@ namespace Modelo
                 Console.WriteLine($"Error al eliminar el like: {ex.Message}");
             }
         }
-
         public int ContarLikes()
         {
             string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post;";
@@ -124,9 +141,6 @@ namespace Modelo
             return contadorLikes;
         }
         //mostrar likes
-
- 
-
         public List<ModeloPost> ObtenerPost()
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();
@@ -150,13 +164,11 @@ namespace Modelo
 
                     ListaPost.Add(mp);
                 }
-            } 
+            }
 
             return ListaPost;
 
         }
-
-
         public List<ModeloPost> ObtenerPostTexto(int idPerfil)
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();
@@ -188,10 +200,6 @@ namespace Modelo
             }
             return ListaPost;
         }
-
-
-
-
         public List<ModeloPost> ObtenerPostImagen()
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();
@@ -324,8 +332,6 @@ namespace Modelo
 
             return listaPost;
         }
-
-
         public List<ModeloPost> ObtenerComentarios()
         {
             List<ModeloPost> Listacomentarios = new List<ModeloPost>();
@@ -381,7 +387,7 @@ namespace Modelo
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
             this.Comando.ExecuteNonQuery();
-        } 
+        }
         public void ModificarComentario()
         {
             string sql = $"UPDATE comentario SET comentario = @comentario WHERE id_comentario = @id_comentario; commit;";
@@ -400,9 +406,6 @@ namespace Modelo
             int contadorComentarios = Convert.ToInt32(this.Comando.ExecuteScalar());
             return contadorComentarios;
         }
-
-
-
         public void CompartirPost(int idPost, int idPerfil)
         {
             string sql = $"INSERT INTO comparte (id_perfil, id_post, fecha_hora) VALUES (@id_perfil, @id_post, NOW()); commit;";
@@ -413,7 +416,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
-       
         public void DeshabilitarComparte()
         {
             string sql = $"UPDATE comparte SET habilitado = FALSE WHERE id_post = @id_post; commit";
@@ -424,9 +426,7 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
- 
 
     }
 
 }
-

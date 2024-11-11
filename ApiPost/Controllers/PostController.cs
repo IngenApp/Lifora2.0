@@ -5,8 +5,8 @@ using System.Net.Http;
 using System.Web.Http;
 using Controladores;
 using System.Data;
-using ApiPost.Models;
 using System;
+using ApiPost.Models;
 
 namespace ApiPost.Controllers
 {
@@ -83,7 +83,7 @@ namespace ApiPost.Controllers
         }
 
         [Route("api/Post/HabilitarPost/{id:int}")]
-        [HttpPut] 
+        [HttpPut]
         public IHttpActionResult HabilitarPost(int id)
         {
             Dictionary<string, string> resultado = new Dictionary<string, string>();
@@ -96,12 +96,10 @@ namespace ApiPost.Controllers
             }
             catch (Exception ex)
             {
-                resultado.Add("error", ex.Message);  
+                resultado.Add("error", ex.Message);
                 return InternalServerError(new Exception("Error al habilitar el post.", ex));
             }
         }
-
-
 
         [Route("api/Post/CrearPostTexto")]
         [HttpPost]
@@ -203,9 +201,6 @@ namespace ApiPost.Controllers
             }
         }
 
-       
-        
-        
         [Route("api/Post/DarLike")]
         [HttpPost]
         public IHttpActionResult DarLike(ModeloApiPost like)
@@ -278,8 +273,6 @@ namespace ApiPost.Controllers
             }
         }
 
-
-
         [Route("api/Post/ContarComentarios/{id:int}")]
         [HttpGet]
         public IHttpActionResult ContarComentarios(int id)
@@ -343,7 +336,7 @@ namespace ApiPost.Controllers
                 return InternalServerError(new Exception("Error al modificar el comentario.", ex));
             }
         }
-                
+
         [Route("api/Post/CompartirPost/{idPost:int}/{idPerfil:int}")]
         [HttpPost]
         public IHttpActionResult CompartirPost(int idPost, int idPerfil)
@@ -363,10 +356,6 @@ namespace ApiPost.Controllers
             }
         }
 
-
-      
-        
-        
         [Route("api/Post/ObtenerTexto/{idPerfil:int}")]
         [HttpGet]
         public IHttpActionResult ObtenerPostTexto(int idPerfil)
@@ -374,7 +363,7 @@ namespace ApiPost.Controllers
             try
             {
                 var posts = ControladorPost.ObtenerPostTexto(idPerfil);
-                return Ok(posts); 
+                return Ok(posts);
             }
             catch (Exception ex)
             {
@@ -426,10 +415,6 @@ namespace ApiPost.Controllers
                 return InternalServerError(new Exception($"Error al obtener publicaciones con audio: {ex.Message}", ex));
             }
         }
-
-
-
-
 
     }
 }

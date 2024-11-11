@@ -8,7 +8,6 @@ namespace Controladores
 
     public class ControladorPost
     {
-
         public static void CompartirPost(int idPost, int idPerfil)
         {
             try
@@ -22,68 +21,61 @@ namespace Controladores
                 Console.WriteLine($"Error al compartir el post: {ex.Message}");
             }
         }
-
         public static List<ModeloPost> ObtenerPostTexto(int idPerfil)
         {
             try
             {
                 ModeloPost modelo = new ModeloPost();
-                return modelo.ObtenerPostTexto(idPerfil); 
+                return modelo.ObtenerPostTexto(idPerfil);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error al obtener publicaciones de texto: " + ex.Message);
-                return new List<ModeloPost>(); 
+                return new List<ModeloPost>();
             }
         }
-
-
         public static List<ModeloPost> ObtenerPostImagen(int idPerfil)
         {
             try
             {
                 ModeloPost modelo = new ModeloPost();
-                modelo.idPerfil = idPerfil;  
+                modelo.idPerfil = idPerfil;
                 return modelo.ObtenerPostImagen();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error al obtener publicaciones con imágenes: " + ex.Message);
-                return new List<ModeloPost>();  
+                return new List<ModeloPost>();
             }
         }
-
         public static List<ModeloPost> ObtenerPostVideo(int idPerfil)
         {
             try
             {
                 ModeloPost modelo = new ModeloPost();
-                modelo.idPerfil = idPerfil;  
+                modelo.idPerfil = idPerfil;
                 return modelo.ObtenerPostVideo();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error al obtener publicaciones con video: " + ex.Message);
-                return new List<ModeloPost>(); 
+                return new List<ModeloPost>();
             }
         }
-
         public static List<ModeloPost> ObtenerPostAudio(int idPerfil)
         {
             try
             {
                 ModeloPost modelo = new ModeloPost();
-                modelo.idPerfil = idPerfil; 
+                modelo.idPerfil = idPerfil;
                 return modelo.ObtenerPostAudio();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error al obtener publicaciones con audio: " + ex.Message);
-                return new List<ModeloPost>();  
+                return new List<ModeloPost>();
             }
         }
-
-
         public static void CrearPostTexto(int idPerfil, string descripcion)
         {
             ModeloPost CreaPost = new ModeloPost();
@@ -94,10 +86,8 @@ namespace Controladores
         public static void CrearPostImagen(int idPerfil, string descripcion, string idImagen)
         {
             ModeloPost CreaPost = new ModeloPost();
-            CreaPost.idPerfil = idPerfil;
-            CreaPost.descripcion = descripcion;
-            CreaPost.idImagen = idImagen;
-            CreaPost.CrearPostImagen();
+
+            CreaPost.CrearPostImagen(idPerfil, descripcion, idImagen);
         }
         public static void CrearPostVideo(int idPerfil, string descripcion, string idVideo)
         {
@@ -115,7 +105,6 @@ namespace Controladores
             CreaPost.idAudio = idAudio;
             CreaPost.CrearPostAudio();
         }
-
         public static void ModificarPost(string idPost, string nuevaDescripcion)
         {
             ModeloPost ModPostBO = new ModeloPost();
@@ -135,7 +124,6 @@ namespace Controladores
             HabilitarPost.idPost = idPost;
             HabilitarPost.HabilitarPost();
         }
-
         public static void DarLike(int idPost, int idPerfil)
         {
             ModeloPost modeloPost = new ModeloPost();
@@ -149,7 +137,6 @@ namespace Controladores
                 Console.WriteLine($"Error al registrar el like: {ex.Message}");
             }
         }
-
         public static void EliminarLike(int idPost, int idPerfil)
         {
             ModeloPost modeloPost = new ModeloPost();
@@ -163,14 +150,12 @@ namespace Controladores
                 Console.WriteLine($"Error al eliminar el like: {ex.Message}");
             }
         }
-
         public static int ContarLikes(int idPost)
-        {   
+        {
             ModeloPost modeloPost = new ModeloPost();
             modeloPost.idPost = idPost;
-            return  modeloPost.ContarLikes();    
+            return modeloPost.ContarLikes();
         }
-
         public static void ComentarPost(string idPost, string idPerfil, string comentario)
         {
             ModeloPost ComentarPost = new ModeloPost();
@@ -214,8 +199,6 @@ namespace Controladores
             ModificarComentario.comentario = comentario;
             ModificarComentario.ModificarComentario();
         }
-
-
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
@@ -244,9 +227,6 @@ namespace Controladores
         }
         // ANDRES
         //realizar metodo para tomar los datos de los post texto, video, imagen y audio necesarios para mostrar en pantalla por API
-
-   
-
         public static DataTable ListarComentarios(string idPost)
         {
             DataTable tabla = new DataTable();
@@ -268,7 +248,7 @@ namespace Controladores
                 fila["Habilitado"] = p.habilitado;
                 fila["Apodo"] = p.apodo;
                 fila["ID_Perfil"] = p.idPerfil;
-               
+
 
                 tabla.Rows.Add(fila);
             }
