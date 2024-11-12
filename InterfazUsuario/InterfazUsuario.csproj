@@ -152,10 +152,6 @@
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestorDePosts.cs" />
-    <Compile Include="CrearEvento.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="CrearEvento.Designer.cs">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </Compile>
@@ -533,6 +529,10 @@
     <None Include="Resources\black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-business-document-illustration-isolated-on-white-background-vector.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApiPost\ApiPost.csproj">
+      <Project>{C09A4EA9-BCE0-4F70-B47F-5BEC42F991B5}</Project>
+      <Name>ApiPost</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaLogica\Controladores.csproj">
       <Project>{AD87CD6D-FCD9-42BA-B697-A86F541333D2}</Project>
       <Name>Controladores</Name>

@@ -147,7 +147,7 @@ namespace Modelo
 
             return apodos;
         }
-  
+/*  
         public void AsociarPostAGrupo(int idGrupo, int idPost)
         {
             string sql = @"INSERT INTO grupo_post (id_grupos, id_post) VALUES (@id_grupos, @id_post);";
@@ -236,7 +236,7 @@ namespace Modelo
                 return false;
             }
         }
-
+*/
 
         public ModeloGrupos BuscarGrupoPorId(int idGrupo)
         {

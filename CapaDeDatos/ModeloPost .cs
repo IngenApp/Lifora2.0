@@ -140,6 +140,26 @@ namespace Modelo
             int contadorLikes = Convert.ToInt32(this.Comando.ExecuteScalar());
             return contadorLikes;
         }
+        public bool VerificarSiDioLike(int idPost, int idPerfil)
+        {
+            string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil;";
+            this.Comando.CommandText = sql;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+            try
+            {
+                int count = Convert.ToInt32(this.Comando.ExecuteScalar());
+                return count > 0; 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al verificar si dio like: {ex.Message}");
+                return false; 
+            }
+        }
+
         //mostrar likes
         public List<ModeloPost> ObtenerPost()
         {
@@ -169,37 +189,51 @@ namespace Modelo
             return ListaPost;
 
         }
-        public List<ModeloPost> ObtenerPostTexto(int idPerfil)
+
+        public List<ModeloPost> ObtenerPostsPorPerfil(int idPerfil)
         {
-            List<ModeloPost> ListaPost = new List<ModeloPost>();
+            List<ModeloPost> listaPosts = new List<ModeloPost>();
 
             string sql = @"SELECT p.id_post, p.descripcion, p.fecha_hora, pf.apodo, pf.id_perfil
                    FROM post p
                    LEFT JOIN perfil pf ON p.id_perfil = pf.id_perfil
                    WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil;";
 
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
-
-            using (this.Lector = this.Comando.ExecuteReader())
+            try
             {
-                while (this.Lector.Read())
-                {
-                    ModeloPost mp = new ModeloPost
-                    {
-                        idPost = Convert.ToInt32(this.Lector["id_post"]),
-                        descripcion = this.Lector["descripcion"].ToString(),
-                        fecha = this.Lector["fecha_hora"].ToString(),
-                        apodo = this.Lector["apodo"] != DBNull.Value ? this.Lector["apodo"].ToString() : string.Empty,
-                        idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
-                    };
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
 
-                    ListaPost.Add(mp);
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    while (this.Lector.Read())
+                    {
+                        ModeloPost mp = new ModeloPost
+                        {
+                            idPost = Convert.ToInt32(this.Lector["id_post"]),
+                            descripcion = this.Lector["descripcion"].ToString(),
+                            fecha = Convert.ToDateTime(this.Lector["fecha_hora"]).ToString("yyyy-MM-dd HH:mm:ss"),
+                            apodo = this.Lector["apodo"].ToString(),
+                            idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
+                        };
+
+                        listaPosts.Add(mp);
+                    }
                 }
             }
-            return ListaPost;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar los posts: {ex.Message}");
+            }
+            finally
+            {
+                this.Lector?.Close();
+            }
+
+            return listaPosts;
         }
+
         public List<ModeloPost> ObtenerPostImagen()
         {
             List<ModeloPost> ListaPost = new List<ModeloPost>();

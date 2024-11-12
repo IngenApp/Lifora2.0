@@ -124,12 +124,12 @@ namespace ApiEventos.Controllers
             }
         }
 
-        [Route("api/Evento/BuscarEvento/{id:int}")]
+        [Route("api/Evento/BuscarEvento/{nombreEvento}")]
         [HttpGet]
-        public IHttpActionResult BuscarEvento(int id)
+        public IHttpActionResult BuscarEvento(string nombreEvento)
         {
             ModeloApiEventos evento = new ModeloApiEventos();
-            Dictionary<string, string> datosEvento = ControladorEventos.BuscarEventoPorId(id);
+            Dictionary<string, string> datosEvento = ControladorEventos.BuscarEventoPorNombre(nombreEvento);
 
             if (datosEvento != null && datosEvento["resultado"] == "true")
             {

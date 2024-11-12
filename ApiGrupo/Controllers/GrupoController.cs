@@ -213,7 +213,7 @@ namespace ApiGrupo.Controllers
             }
 
 
-
+/*
         [Route("api/Post/AsociarPostAGrupo")]
         [HttpPost]
         public IHttpActionResult AsociarPostAGrupo(ModeloApiPost post)
@@ -301,7 +301,7 @@ namespace ApiGrupo.Controllers
                 return InternalServerError(new Exception($"Error al verificar si el post pertenece al grupo: {ex.Message}", ex));
             }
         }
-
+*/
 
 
 

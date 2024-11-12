@@ -41,6 +41,68 @@ namespace ApiPost.Controllers
             }
         }
 
+
+        [Route("api/Post/ObtenerTexto/{idPerfil:int}")]
+        [HttpGet]
+        public IHttpActionResult ObtenerTextoPost(int idPerfil)
+        {
+            List<ModeloApiPost> listaPosts = new List<ModeloApiPost>();
+            try
+            {
+                DataTable posts = ControladorPost.ObtenerTextoPost(idPerfil);
+                foreach (DataRow post in posts.Rows)
+                {
+                    ModeloApiPost p = new ModeloApiPost();
+                    p.idPost = Int32.Parse(post["id_post"].ToString());
+                    p.descripcion = post["descripcion"].ToString();
+                    p.fecha = post["fecha"].ToString();
+                    p.apodo = post["apodo"].ToString();
+                    p.idPerfil = Int32.Parse(post["id_perfil"].ToString());
+
+                    listaPosts.Add(p);
+                }
+
+                return Ok(listaPosts);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al listar los posts.", ex));
+            }
+
+        }
+
+        [Route("api/Post/CrearPostTexto")]
+        [HttpPost]
+        public IHttpActionResult CrearPostTexto(ModeloApiPost post)
+        {
+            if (post == null || string.IsNullOrEmpty(post.descripcion))
+            {
+                return BadRequest("El contenido del post es requerido.");
+            }
+
+            try
+            {
+                ControladorPost.CrearPostTexto(post.idPerfil, post.descripcion);
+
+                Dictionary<string, string> resultado = new Dictionary<string, string>
+        {
+            { "mensaje", "Post creado exitosamente" }
+        };
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al crear el post.", ex));
+            }
+        }
+
+
+
+
+
+
+
         [Route("api/Post/ModificarPost/{id:int}")]
         [HttpPut]
         public IHttpActionResult ModificarPost(int id, ModeloApiPost post)
@@ -101,31 +163,6 @@ namespace ApiPost.Controllers
             }
         }
 
-        [Route("api/Post/CrearPostTexto")]
-        [HttpPost]
-        public IHttpActionResult CrearPostTexto(ModeloApiPost post)
-        {
-            if (post == null || string.IsNullOrEmpty(post.descripcion))
-            {
-                return BadRequest("El contenido del post es requerido.");
-            }
-
-            try
-            {
-                ControladorPost.CrearPostTexto(post.idPerfil, post.descripcion);
-
-                Dictionary<string, string> resultado = new Dictionary<string, string>
-        {
-            { "mensaje", "Post creado exitosamente" }
-        };
-
-                return Ok(resultado);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al crear el post.", ex));
-            }
-        }
 
         [Route("api/Post/CrearPostImagen")]
         [HttpPost]
@@ -238,6 +275,29 @@ namespace ApiPost.Controllers
                 return InternalServerError(new Exception("Error al eliminar el like.", ex));
             }
         }
+
+        [Route("api/Post/VerificarSiDioLike")]
+        [HttpPost]
+        public IHttpActionResult VerificarSiDioLike(ModeloApiPost like)
+        {
+            if (like == null || like.idPost <= 0 || like.idPerfil <= 0)
+            {
+                return BadRequest("Datos inválidos para verificar el like.");
+            }
+
+            try
+            {
+                bool yaDioLike = ControladorPost.VerificarSiDioLike(like.idPost, like.idPerfil);
+                return Ok(new { yaDioLike = yaDioLike });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al verificar si dio like.", ex));
+            }
+        }
+
+
+
 
         [Route("api/Post/ContarLikes/{id:int}")]
         [HttpGet]
@@ -356,20 +416,15 @@ namespace ApiPost.Controllers
             }
         }
 
-        [Route("api/Post/ObtenerTexto/{idPerfil:int}")]
-        [HttpGet]
-        public IHttpActionResult ObtenerPostTexto(int idPerfil)
-        {
-            try
-            {
-                var posts = ControladorPost.ObtenerPostTexto(idPerfil);
-                return Ok(posts);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception($"Error al obtener publicaciones de texto: {ex.Message}", ex));
-            }
-        }
+
+
+
+
+
+  
+
+
+
 
         [Route("api/Post/ObtenerImagen/{idPerfil:int}")]
         [HttpGet]

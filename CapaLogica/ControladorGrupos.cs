@@ -92,7 +92,7 @@ namespace Controladores
             return grupoInfo;
         }
  
-        
+    /*    
         public static void AsociarPostAGrupo(int idGrupo, int idPost)
         {
             ModeloGrupos grupo = new ModeloGrupos();
@@ -113,7 +113,7 @@ namespace Controladores
             ModeloGrupos grupo = new ModeloGrupos();
             return grupo.EsPostDeGrupo(idGrupo, idPost);
         }
-        
+   */     
         public static void ModificarGrupo(int idGrupo, string nombre, string informacion, string idFotoGrupo)
         {
             ModeloGrupos grupo = new ModeloGrupos();

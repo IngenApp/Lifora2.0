@@ -8,6 +8,9 @@ using System.Threading;
 using InterfazUsuario.Properties;
 using RestSharp;
 using Newtonsoft.Json;
+using ApiPost.Models;
+using System.Data;
+using System.Text;
 
 namespace InterfazUsuario
 {
@@ -23,20 +26,7 @@ namespace InterfazUsuario
             gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
             MakeCircularPictureBox(pictureBox2);
             Nickname.Text = DatosDePerfil.apodo;
-            /*        string mensaje = $"ID Perfil: {DatosDePerfil.idPerfil}\n" +
-                          $"Nombre: {DatosDePerfil.nombre}\n" +
-                          $"Apellido: {DatosDePerfil.apellido}\n" +
-                          $"Fecha de Nacimiento: {DatosDePerfil.fechaNacimiento}\n" +
-                          $"Email: {DatosDePerfil.email}\n" +
-                          $"Contraseña: {DatosDePerfil.contrasena}\n" +
-                          $"Teléfono: {DatosDePerfil.telefono}\n" +
-                          $"Apodo: {DatosDePerfil.apodo}\n" +
-                          $"ID Foto Perfil: {DatosDePerfil.idFotoPerfil}\n" +
-                          $"Idioma: {DatosDePerfil.idioma}\n" +
-                          $"Atributo 1: {DatosDePerfil.atributo1}\n" +
-                          $"Atributo 2: {DatosDePerfil.atributo2}";
 
-                    MessageBox.Show(mensaje, "Datos del Perfil", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
         }
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {
@@ -57,8 +47,7 @@ namespace InterfazUsuario
                 Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
         }
- 
-        private void pictureBox2_Click(object sender, EventArgs e)
+         private void pictureBox2_Click(object sender, EventArgs e)
         {
             PerfilPrincipal perfil = new PerfilPrincipal();
             perfil.Show();
@@ -146,32 +135,119 @@ namespace InterfazUsuario
                 GruposMenu.menuGruposInstancia.BringToFront();
             }
         }
+ 
         private void MuroTexto(object sender, EventArgs e)
         {
+            List<ModeloApiPost> posts = ObtenerPostTexto(DatosDePerfil.idPerfil);
+            List<string> apodo = new List<string>();
+            List<string> descripcion = new List<string>();
+            List<string> cantidadLikes = new List<string>();
+            List<string> cantidadComentarios = new List<string>();
+
+            foreach (var post in posts)
+            {
+                apodo.Add(post.apodo);
+                descripcion.Add(post.descripcion);
+
+                int likes = ContarLikes(post.idPost);
+                int comentarios = ContarComentarios(post.idPost);
+
+                cantidadLikes.Add(likes.ToString());
+                cantidadComentarios.Add(comentarios.ToString());
+            }
+
             panel1.Show();
-            panel2.Hide();       
+            panel2.Hide();
             panel3.Hide();
             panel4.Hide();
-            List<string> apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo6" };
-            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
-            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
-            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
-            //con los post de los que sigo
+
             gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios);
+
         }
 
+     
 
-        public List<string> ObtenerPostTexto(int idPerfil)
+        /*11*/
+        private static List<ModeloApiPost> ObtenerPostTexto(int idPerfil)
         {
             RestClient client = new RestClient("https://localhost:44358/");
             RestRequest request = new RestRequest($"api/Post/ObtenerTexto/{idPerfil}", Method.Get);
+            request.AddHeader("Accept", "application/json");
+            RestResponse response = client.Execute(request);
+            List<ModeloApiPost> posts;
+            posts = JsonConvert.DeserializeObject<List<ModeloApiPost>>(response.Content);
+
+            return posts;
+        }
+        /*22*/
+ /*       private void listar()
+        {
+            List<ModeloApiPost> posts = ObtenerPostTexto(DatosDePerfil.idPerfil);
+            DataTable tabla = generarDataTable(posts);
+            richTextBox1.Text = DataTableToString(tabla);
+        }
+ */
+        
+        private string DataTableToString(DataTable tabla)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (DataColumn columna in tabla.Columns)
+            {
+                sb.Append(columna.ColumnName + "\t");
+            }
+            sb.AppendLine();
+
+            foreach (DataRow fila in tabla.Rows)
+            {
+                foreach (var item in fila.ItemArray)
+                {
+                    sb.Append(item.ToString() + "\t");
+                }
+                sb.AppendLine();
+            }
+
+            return sb.ToString();
+        }
+        /*2*/
+        private static DataTable generarDataTable(List<ModeloApiPost> posts)
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("descripcion", typeof(string));
+
+            foreach (ModeloApiPost p in posts)
+            {
+                DataRow fila = tabla.NewRow();
+                fila["descripcion"] = p.descripcion;
+                tabla.Rows.Add(fila);
+            }
+
+            return tabla;
+        }
+
+        public int ContarLikes(int idPost)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ContarLikes/{idPost}", Method.Get);
             var response = client.Execute(request);
 
             if (!response.IsSuccessful)
-                throw new Exception("Error al obtener las publicaciones de texto.");
+                throw new Exception("Error al contar los likes.");
 
-            var posts = JsonConvert.DeserializeObject<List<string>>(response.Content);
-            return posts;
+            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
+            return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+        }
+        public int ContarComentarios(int idPost)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ContarComentarios/{idPost}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al contar los comentarios.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
+            return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
         }
 
 
@@ -244,7 +320,7 @@ namespace InterfazUsuario
             }
         }
 
-
+  
     }
 }
 
@@ -366,7 +442,8 @@ public static void ModificarUsuario(int id, string email, string apodo, string a
                     {
                         MessageBox.Show("Hubo un problema al intentar modificar el usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }       
+                }     
+
 public int ContarComentarios(int idPost)
         {
             RestClient client = new RestClient("https://localhost:44358/");
@@ -378,7 +455,8 @@ public int ContarComentarios(int idPost)
 
             var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
             return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
-        }       
+        }    
+
 public string DeshabilitarComentario(int idComentario)
         {
             RestClient client = new RestClient("https://localhost:44358/");
