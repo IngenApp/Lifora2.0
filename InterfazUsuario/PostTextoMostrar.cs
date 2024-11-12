@@ -21,6 +21,7 @@ namespace InterfazUsuario
             this.ControlBox = false;
             this.Text = "";
             labelApodo.Text = Apodo;
+            richTextBox1.Text = contenido;
             lblLikes.Text = cantidadLikes;
             lblComentarios.Text = cantidadComentarios;
         }   
