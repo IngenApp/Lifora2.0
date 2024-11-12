@@ -206,6 +206,12 @@ namespace Controladores
             modeloPost.idPost = idPost;
             return modeloPost.ContarLikes();
         }
+        public static int ContarComentarios(int idPost)
+        {
+            ModeloPost modeloPost = new ModeloPost();
+            modeloPost.idPost = idPost;
+            return modeloPost.ContarComentarios();
+        }
         public static void ComentarPost(string idPost, string idPerfil, string comentario)
         {
             ModeloPost ComentarPost = new ModeloPost();
@@ -223,12 +229,6 @@ namespace Controladores
             ComentarPost.idPerfil = perfilID;
             ComentarPost.comentario = comentario;
             ComentarPost.ComentarPost();
-        }
-        public static int ContarComentarios(int idPost)
-        {
-            ModeloPost modeloPost = new ModeloPost();
-            modeloPost.idPost = idPost;
-            return modeloPost.ContarComentarios();
         }
         public static void DeshabilitarComentario(int idComentario)
         {

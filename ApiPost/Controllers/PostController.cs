@@ -22,13 +22,15 @@ namespace ApiPost.Controllers
                 DataTable posts = ControladorPost.ListarPost();
                 foreach (DataRow post in posts.Rows)
                 {
-                    ModeloApiPost p = new ModeloApiPost();
-                    p.idPost = Int32.Parse(post["id_post"].ToString());
-                    p.descripcion = post["descripcion"].ToString();
-                    p.fecha = post["fecha"].ToString();
-                    p.habilitado = bool.Parse(post["habilitado"].ToString());
-                    p.apodo = post["apodo"].ToString();
-                    p.idPerfil = Int32.Parse(post["id_perfil"].ToString());
+                    ModeloApiPost p = new ModeloApiPost
+                    {
+                        IdPost = Int32.Parse(post["id_post"].ToString()),
+                        Descripcion = post["descripcion"].ToString(),
+                        Fecha = post["fecha"].ToString(),
+                        Habilitado = bool.Parse(post["habilitado"].ToString()),
+                        Apodo = post["apodo"].ToString(),
+                        IdPerfil = Int32.Parse(post["id_perfil"].ToString())
+                    };
 
                     listaPosts.Add(p);
                 }
@@ -40,7 +42,6 @@ namespace ApiPost.Controllers
                 return InternalServerError(new Exception("Error al listar los posts.", ex));
             }
         }
-
 
         [Route("api/Post/ObtenerTexto/{idPerfil:int}")]
         [HttpGet]
@@ -52,12 +53,14 @@ namespace ApiPost.Controllers
                 DataTable posts = ControladorPost.ObtenerTextoPost(idPerfil);
                 foreach (DataRow post in posts.Rows)
                 {
-                    ModeloApiPost p = new ModeloApiPost();
-                    p.idPost = Int32.Parse(post["id_post"].ToString());
-                    p.descripcion = post["descripcion"].ToString();
-                    p.fecha = post["fecha"].ToString();
-                    p.apodo = post["apodo"].ToString();
-                    p.idPerfil = Int32.Parse(post["id_perfil"].ToString());
+                    ModeloApiPost p = new ModeloApiPost
+                    {
+                        IdPost = Int32.Parse(post["id_post"].ToString()),
+                        Descripcion = post["descripcion"].ToString(),
+                        Fecha = post["fecha"].ToString(),
+                        Apodo = post["apodo"].ToString(),
+                        IdPerfil = Int32.Parse(post["id_perfil"].ToString())
+                    };
 
                     listaPosts.Add(p);
                 }
@@ -68,21 +71,127 @@ namespace ApiPost.Controllers
             {
                 return InternalServerError(new Exception("Error al listar los posts.", ex));
             }
+        }
 
+        [Route("api/Post/ContarComentarios/{id:int}")]
+        [HttpGet]
+        public IHttpActionResult ContarComentarios(int id)
+        {
+            try
+            {
+                int cantidad = ControladorPost.ContarComentarios(id);
+                return Ok(new { cantidad });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al contar los comentarios.", ex));
+            }
+        }
+
+        [Route("api/Post/ContarLikes/{id:int}")]
+        [HttpGet]
+        public IHttpActionResult ContarLikes(int id)
+        {
+            try
+            {
+                int cantidad = ControladorPost.ContarLikes(id);
+                return Ok(new { cantidad });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al contar los likes.", ex));
+            }
+        }
+
+        [Route("api/Post/DarLike")]
+        [HttpPost]
+        public IHttpActionResult DarLike(ModeloApiPost like)
+        {
+            if (like == null || like.IdPost <= 0 || like.IdPerfil <= 0)
+            {
+                return BadRequest("Datos inválidos para dar like.");
+            }
+            try
+            {
+                ControladorPost.DarLike(like.IdPost, like.IdPerfil);
+                return Ok(new { mensaje = "Like registrado correctamente" });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al registrar el like.", ex));
+            }
+        }
+
+        [Route("api/Post/EliminarLike")]
+        [HttpPost]
+        public IHttpActionResult EliminarLike(ModeloApiPost like)
+        {
+            if (like == null || like.IdPost <= 0 || like.IdPerfil <= 0)
+            {
+                return BadRequest("Datos inválidos para eliminar el like.");
+            }
+            try
+            {
+                ControladorPost.EliminarLike(like.IdPost, like.IdPerfil);
+                return Ok(new { mensaje = "Like eliminado correctamente" });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al eliminar el like.", ex));
+            }
+        }
+
+        [Route("api/Post/VerificarSiDioLike")]
+        [HttpPost]
+        public IHttpActionResult VerificarSiDioLike(ModeloApiPost like)
+        {
+            if (like == null || like.IdPost <= 0 || like.IdPerfil <= 0)
+            {
+                return BadRequest("Datos inválidos para verificar el like.");
+            }
+
+            try
+            {
+                bool yaDioLike = ControladorPost.VerificarSiDioLike(like.IdPost, like.IdPerfil);
+                return Ok(new { yaDioLike });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al verificar si dio like.", ex));
+            }
+        }
+
+        [Route("api/Post/ComentarPost")]
+        [HttpPost]
+        public IHttpActionResult ComentarPost(ModeloApiPost comentario)
+        {
+            if (comentario == null || string.IsNullOrEmpty(comentario.Comentario) || comentario.IdPost <= 0 || comentario.IdPerfil <= 0)
+            {
+                return BadRequest("Datos inválidos para comentar.");
+            }
+            try
+            {
+                ControladorPost.ComentarPost(comentario.IdPost.ToString(), comentario.IdPerfil.ToString(), comentario.Comentario);
+                return Ok(new { mensaje = "Comentario agregado exitosamente" });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al comentar el post.", ex));
+            }
         }
 
         [Route("api/Post/CrearPostTexto")]
         [HttpPost]
         public IHttpActionResult CrearPostTexto(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.descripcion))
+            if (post == null || string.IsNullOrEmpty(post.Descripcion)) // Propiedad con auto-property
             {
                 return BadRequest("El contenido del post es requerido.");
             }
 
             try
             {
-                ControladorPost.CrearPostTexto(post.idPerfil, post.descripcion);
+                ControladorPost.CrearPostTexto(post.IdPerfil, post.Descripcion);
 
                 Dictionary<string, string> resultado = new Dictionary<string, string>
         {
@@ -97,27 +206,21 @@ namespace ApiPost.Controllers
             }
         }
 
-
-
-
-
-
-
         [Route("api/Post/ModificarPost/{id:int}")]
         [HttpPut]
         public IHttpActionResult ModificarPost(int id, ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.descripcion))
+            if (post == null || string.IsNullOrEmpty(post.Descripcion)) 
             {
                 return BadRequest("El contenido del post es requerido.");
             }
             try
             {
-                ControladorPost.ModificarPost(id.ToString(), post.descripcion);
+                ControladorPost.ModificarPost(id.ToString(), post.Descripcion);
                 Dictionary<string, string> resultado = new Dictionary<string, string>
-            {
-                { "mensaje", "Post modificado exitosamente" }
-            };
+        {
+            { "mensaje", "Post modificado exitosamente" }
+        };
                 return Ok(resultado);
             }
             catch (Exception ex)
@@ -152,7 +255,6 @@ namespace ApiPost.Controllers
             try
             {
                 ControladorPost.HabilitarPost(id);
-
                 resultado.Add("mensaje", "Post habilitado exitosamente");
                 return Ok(resultado);
             }
@@ -163,18 +265,17 @@ namespace ApiPost.Controllers
             }
         }
 
-
         [Route("api/Post/CrearPostImagen")]
         [HttpPost]
         public IHttpActionResult CrearPostImagen(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.descripcion) || string.IsNullOrEmpty(post.idImagen))
+            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdImagen)) 
             {
                 return BadRequest("El contenido del post y la imagen son requeridos.");
             }
             try
             {
-                ControladorPost.CrearPostImagen(post.idPerfil, post.descripcion, post.idImagen);
+                ControladorPost.CrearPostImagen(post.IdPerfil, post.Descripcion, post.IdImagen);
 
                 Dictionary<string, string> resultado = new Dictionary<string, string>
         {
@@ -193,13 +294,13 @@ namespace ApiPost.Controllers
         [HttpPost]
         public IHttpActionResult CrearPostVideo(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.descripcion) || string.IsNullOrEmpty(post.idVideo))
+            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdVideo)) 
             {
                 return BadRequest("El contenido del post y el video son requeridos.");
             }
             try
             {
-                ControladorPost.CrearPostVideo(post.idPerfil, post.descripcion, post.idVideo);
+                ControladorPost.CrearPostVideo(post.IdPerfil, post.Descripcion, post.IdVideo);
 
                 Dictionary<string, string> resultado = new Dictionary<string, string>
         {
@@ -217,13 +318,13 @@ namespace ApiPost.Controllers
         [HttpPost]
         public IHttpActionResult CrearPostAudio(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.descripcion) || string.IsNullOrEmpty(post.idAudio))
+            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdAudio)) 
             {
                 return BadRequest("El contenido del post y el audio son requeridos.");
             }
             try
             {
-                ControladorPost.CrearPostAudio(post.idPerfil, post.descripcion, post.idAudio);
+                ControladorPost.CrearPostAudio(post.IdPerfil, post.Descripcion, post.IdAudio);
 
                 Dictionary<string, string> resultado = new Dictionary<string, string>
         {
@@ -235,116 +336,6 @@ namespace ApiPost.Controllers
             catch (Exception ex)
             {
                 return InternalServerError(new Exception("Error al crear el post.", ex));
-            }
-        }
-
-        [Route("api/Post/DarLike")]
-        [HttpPost]
-        public IHttpActionResult DarLike(ModeloApiPost like)
-        {
-            if (like == null || like.idPost <= 0 || like.idPerfil <= 0)
-            {
-                return BadRequest("Datos inválidos para dar like.");
-            }
-            try
-            {
-                ControladorPost.DarLike(like.idPost, like.idPerfil);
-                return Ok(new { mensaje = "Like registrado correctamente" });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al registrar el like.", ex));
-            }
-        }
-
-        [Route("api/Post/EliminarLike")]
-        [HttpPost]
-        public IHttpActionResult EliminarLike(ModeloApiPost like)
-        {
-            if (like == null || like.idPost <= 0 || like.idPerfil <= 0)
-            {
-                return BadRequest("Datos inválidos para eliminar el like.");
-            }
-            try
-            {
-                ControladorPost.EliminarLike(like.idPost, like.idPerfil);
-                return Ok(new { mensaje = "Like eliminado correctamente" });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al eliminar el like.", ex));
-            }
-        }
-
-        [Route("api/Post/VerificarSiDioLike")]
-        [HttpPost]
-        public IHttpActionResult VerificarSiDioLike(ModeloApiPost like)
-        {
-            if (like == null || like.idPost <= 0 || like.idPerfil <= 0)
-            {
-                return BadRequest("Datos inválidos para verificar el like.");
-            }
-
-            try
-            {
-                bool yaDioLike = ControladorPost.VerificarSiDioLike(like.idPost, like.idPerfil);
-                return Ok(new { yaDioLike = yaDioLike });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al verificar si dio like.", ex));
-            }
-        }
-
-
-
-
-        [Route("api/Post/ContarLikes/{id:int}")]
-        [HttpGet]
-        public IHttpActionResult ContarLikes(int id)
-        {
-            try
-            {
-                int cantidad = ControladorPost.ContarLikes(id);
-                return Ok(new { cantidad });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al contar los likes.", ex));
-            }
-        }
-
-        [Route("api/Post/ComentarPost")]
-        [HttpPost]
-        public IHttpActionResult ComentarPost(ModeloApiPost comentario)
-        {
-            if (comentario == null || string.IsNullOrEmpty(comentario.comentario) || comentario.idPost <= 0 || comentario.idPerfil <= 0)
-            {
-                return BadRequest("Datos inválidos para comentar.");
-            }
-            try
-            {
-                ControladorPost.ComentarPost(comentario.idPost.ToString(), comentario.idPerfil.ToString(), comentario.comentario);
-                return Ok(new { mensaje = "Comentario agregado exitosamente" });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al comentar el post.", ex));
-            }
-        }
-
-        [Route("api/Post/ContarComentarios/{id:int}")]
-        [HttpGet]
-        public IHttpActionResult ContarComentarios(int id)
-        {
-            try
-            {
-                int cantidad = ControladorPost.ContarComentarios(id);
-                return Ok(new { cantidad });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al contar los comentarios.", ex));
             }
         }
 
@@ -382,13 +373,13 @@ namespace ApiPost.Controllers
         [HttpPut]
         public IHttpActionResult ModificarComentario(ModeloApiPost comentario)
         {
-            if (comentario == null || string.IsNullOrEmpty(comentario.comentario) || comentario.idComentario <= 0)
+            if (comentario == null || string.IsNullOrEmpty(comentario.Comentario) || comentario.IdComentario <= 0)
             {
                 return BadRequest("Datos inválidos para modificar el comentario.");
             }
             try
             {
-                ControladorPost.ModificarComentario(comentario.idComentario.ToString(), comentario.comentario);
+                ControladorPost.ModificarComentario(comentario.IdComentario.ToString(), comentario.Comentario);
                 return Ok(new { mensaje = "Comentario modificado exitosamente" });
             }
             catch (Exception ex)
@@ -421,7 +412,7 @@ namespace ApiPost.Controllers
 
 
 
-  
+
 
 
 
@@ -433,8 +424,7 @@ namespace ApiPost.Controllers
             try
             {
                 var posts = ControladorPost.ObtenerPostImagen(idPerfil);
-                return Ok(posts);
-            }
+                return Ok(posts);              }
             catch (Exception ex)
             {
                 return InternalServerError(new Exception($"Error al obtener publicaciones con imágenes: {ex.Message}", ex));
@@ -463,7 +453,7 @@ namespace ApiPost.Controllers
             try
             {
                 var posts = ControladorPost.ObtenerPostAudio(idPerfil);
-                return Ok(posts);
+                return Ok(posts); 
             }
             catch (Exception ex)
             {

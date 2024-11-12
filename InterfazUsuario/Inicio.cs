@@ -135,101 +135,51 @@ namespace InterfazUsuario
                 GruposMenu.menuGruposInstancia.BringToFront();
             }
         }
- 
-        private void MuroTexto(object sender, EventArgs e)
+         private void MuroTexto(object sender, EventArgs e)
         {
-            List<ModeloApiPost> posts = ObtenerPostTexto(DatosDePerfil.idPerfil);
-            List<string> apodo = new List<string>();
-            List<string> descripcion = new List<string>();
-            List<string> cantidadLikes = new List<string>();
-            List<string> cantidadComentarios = new List<string>();
-
-            foreach (var post in posts)
-            {
-                apodo.Add(post.apodo);
-                descripcion.Add(post.descripcion);
-
-                int likes = ContarLikes(post.idPost);
-                int comentarios = ContarComentarios(post.idPost);
-
-                cantidadLikes.Add(likes.ToString());
-                cantidadComentarios.Add(comentarios.ToString());
-            }
-
             panel1.Show();
             panel2.Hide();
             panel3.Hide();
             panel4.Hide();
+            List<ModeloApiPost> listaPosts = ListarTodosLosPost();
+            List<string> apodo = new List<string>();
+            List<string> descripcion = new List<string>();
+            List<string> cantidadLikes = new List<string>();
+            List<string> cantidadComentarios = new List<string>();
+            foreach (var post in listaPosts)
+            {
+                apodo.Add(post.Apodo);
+                descripcion.Add(post.Descripcion);
 
+                int likes = ContarLikes(post.IdPost);
+                int comentarios = ContarComentarios(post.IdPost);
+
+                cantidadLikes.Add(likes.ToString());
+                cantidadComentarios.Add(comentarios.ToString());
+            }
             gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios);
 
         }
-
-     
-
-        /*11*/
-        private static List<ModeloApiPost> ObtenerPostTexto(int idPerfil)
+        private static List<ModeloApiPost> ListarTodosLosPost()
         {
             RestClient client = new RestClient("https://localhost:44358/");
-            RestRequest request = new RestRequest($"api/Post/ObtenerTexto/{idPerfil}", Method.Get);
+            RestRequest request = new RestRequest("api/Post/ListarPost/", Method.Get);
             request.AddHeader("Accept", "application/json");
             RestResponse response = client.Execute(request);
-            List<ModeloApiPost> posts;
-            posts = JsonConvert.DeserializeObject<List<ModeloApiPost>>(response.Content);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al obtener los posts.");
+
+            List<ModeloApiPost> posts = JsonConvert.DeserializeObject<List<ModeloApiPost>>(response.Content);
 
             return posts;
         }
-        /*22*/
- /*       private void listar()
-        {
-            List<ModeloApiPost> posts = ObtenerPostTexto(DatosDePerfil.idPerfil);
-            DataTable tabla = generarDataTable(posts);
-            richTextBox1.Text = DataTableToString(tabla);
-        }
- */
-        
-        private string DataTableToString(DataTable tabla)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            foreach (DataColumn columna in tabla.Columns)
-            {
-                sb.Append(columna.ColumnName + "\t");
-            }
-            sb.AppendLine();
-
-            foreach (DataRow fila in tabla.Rows)
-            {
-                foreach (var item in fila.ItemArray)
-                {
-                    sb.Append(item.ToString() + "\t");
-                }
-                sb.AppendLine();
-            }
-
-            return sb.ToString();
-        }
-        /*2*/
-        private static DataTable generarDataTable(List<ModeloApiPost> posts)
-        {
-            DataTable tabla = new DataTable();
-            tabla.Columns.Add("descripcion", typeof(string));
-
-            foreach (ModeloApiPost p in posts)
-            {
-                DataRow fila = tabla.NewRow();
-                fila["descripcion"] = p.descripcion;
-                tabla.Rows.Add(fila);
-            }
-
-            return tabla;
-        }
-
-        public int ContarLikes(int idPost)
+        public static int ContarLikes(int idPost)
         {
             RestClient client = new RestClient("https://localhost:44358/");
             RestRequest request = new RestRequest($"api/Post/ContarLikes/{idPost}", Method.Get);
-            var response = client.Execute(request);
+            request.AddHeader("Accept", "application/json");
+            RestResponse response = client.Execute(request);
 
             if (!response.IsSuccessful)
                 throw new Exception("Error al contar los likes.");
@@ -237,11 +187,12 @@ namespace InterfazUsuario
             var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
             return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
         }
-        public int ContarComentarios(int idPost)
+        public static int ContarComentarios(int idPost)
         {
             RestClient client = new RestClient("https://localhost:44358/");
             RestRequest request = new RestRequest($"api/Post/ContarComentarios/{idPost}", Method.Get);
-            var response = client.Execute(request);
+            request.AddHeader("Accept", "application/json");
+            RestResponse response = client.Execute(request);
 
             if (!response.IsSuccessful)
                 throw new Exception("Error al contar los comentarios.");
@@ -251,6 +202,8 @@ namespace InterfazUsuario
         }
 
 
+
+    
         private void MuroImagenes(object sender, EventArgs e)
         {
            
@@ -323,6 +276,72 @@ namespace InterfazUsuario
   
     }
 }
+
+/*
+            private static List<ModeloApiPost> ListarTodosLosPost()
+            {
+                RestClient client = new RestClient("https://localhost:44358/");
+                RestRequest request = new RestRequest("api/Post/ListarPost/", Method.Get);
+                request.AddHeader("Accept", "application/json");
+                RestResponse response = client.Execute(request);
+
+                List<ModeloApiPost> posts = JsonConvert.DeserializeObject<List<ModeloApiPost>>(response.Content);
+
+                return posts;
+            }
+            private static List<ModeloApiPost> ObtenerPostTexto(int idPerfil)
+            {
+                RestClient client = new RestClient("https://localhost:44358/");
+                RestRequest request = new RestRequest($"api/Post/ObtenerTexto/{idPerfil}", Method.Get);
+                request.AddHeader("Accept", "application/json");
+                RestResponse response = client.Execute(request);
+
+                List<ModeloApiPost> posts = JsonConvert.DeserializeObject<List<ModeloApiPost>>(response.Content);
+
+                return posts;
+            }
+
+            public int ContarLikes(int idPost)
+            {
+                RestClient client = new RestClient("https://localhost:44358/");
+                RestRequest request = new RestRequest($"api/Post/ContarLikes/{idPost}", Method.Get);
+                var response = client.Execute(request);
+
+                if (!response.IsSuccessful)
+                    throw new Exception("Error al contar los likes.");
+
+                var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
+                return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+            }
+            public int ContarComentarios(int idPost)
+            {
+                RestClient client = new RestClient("https://localhost:44358/");
+                RestRequest request = new RestRequest($"api/Post/ContarComentarios/{idPost}", Method.Get);
+                var response = client.Execute(request);
+
+                if (!response.IsSuccessful)
+                    throw new Exception("Error al contar los comentarios.");
+
+                var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
+                return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+            }
+            private static DataTable generarDataTable(List<ModeloApiPost> posts)
+            {
+                DataTable tabla = new DataTable();
+                tabla.Columns.Add("idPerfil", typeof(int));
+                tabla.Columns.Add("descripcion", typeof(string));
+
+                foreach (ModeloApiPost p in posts)
+                {
+                    DataRow fila = tabla.NewRow();
+                    fila["idPerfil"] = p.idPerfil;
+                    fila["descripcion"] = p.descripcion;
+                    tabla.Rows.Add(fila);
+                }
+
+                return tabla;
+            }
+    */
 
 /*
                 
@@ -784,4 +803,232 @@ private static void CantidadSeguidos(int idPerfil)
             };
            
         }
- */ 
+ */
+
+
+/* if (CrearTextoPost(DatosDePerfil.idPerfil, richTextBox1.Text))
+                    {
+                        MessageBox.Show("Post Created");
+                    }
+
+
+
+
+
+  //api crear post de texto
+            if (string.IsNullOrEmpty(richTextBox1.Text))
+            {
+                if (CrearTextoPost(DatosDePerfil.idPerfil, richTextBox1.Text))
+                {
+                    MessageBox.Show("Post Creado");
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Ingrese lo que desea compartir");
+                    }
+                    else if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Enter what you want to share");
+
+                    }
+                }
+                return; 
+            }
+
+
+
+
+
+private bool CrearTextoPost(int idPerfil, string descripcion)
+{
+    Dictionary<string, string> data = new Dictionary<string, string>(){
+                { "idPerfil", DatosDePerfil.idPerfil.ToString() },
+                { "descripcion", richTextBox1.Text }
+            };
+    string requestBody = JsonConvert.SerializeObject(data);
+
+    var client = new RestClient("https://localhost:44358/");
+    var request = new RestRequest("api/Post/CrearPostTexto/", Method.Post);
+
+    request.RequestFormat = DataFormat.Json;
+    request.AddBody(requestBody);
+    request.AddHeader("Accept", "application/json");
+    request.AddHeader("Content-Type", "application/json");
+
+    RestResponse response = client.Execute(request);
+
+    if (response.IsSuccessStatusCode)
+        return true;
+    return false;
+}
+
+private static DataTable generarDataTable(List<ModeloApiPost> posts)
+{
+    DataTable tabla = new DataTable();
+    tabla.Columns.Add("idPerfil", typeof(int));
+    tabla.Columns.Add("descripcion", typeof(string));
+
+    foreach (ModeloApiPost p in posts)
+    {
+        DataRow fila = tabla.NewRow();
+        fila["idPerfil"] = p.idPerfil;
+        fila["descripcion"] = p.descripcion;
+        tabla.Rows.Add(fila);
+    }
+
+    return tabla;
+}
+
+
+
+if (CrearTextoPost(DatosDePerfil.idPerfil, richTextBox1.Text))
+                        {
+                        }
+ 
+ 
+ */
+
+/*   
+         private string DataTableToString(DataTable tabla)
+         {
+             StringBuilder sb = new StringBuilder();
+             foreach (DataColumn columna in tabla.Columns)
+             {
+                 sb.Append(columna.ColumnName + "\t");
+             }
+      private void listar()
+                   {
+                       list<modeloapipost> posts = obtenerposttexto(datosdeperfil.idperfil);
+                       datatable tabla = generardatatable(posts);
+                       richtextbox1.text = datatabletostring(tabla);
+                   }
+
+
+             sb.AppendLine();
+             foreach (DataRow fila in tabla.Rows)
+             {
+                 foreach (var item in fila.ItemArray)
+                 {
+                     sb.Append(item.ToString() + "\t");
+                 }
+                 sb.AppendLine();
+             }
+
+             return sb.ToString();
+         }
+
+            private string datatabletostring(datatable tabla)
+            {
+                stringbuilder sb = new stringbuilder();
+
+                foreach (datacolumn columna in tabla.columns)
+                {
+                    sb.append(columna.columnname + "\t");
+                }
+                sb.appendline();
+
+                foreach (datarow fila in tabla.rows)
+                {
+                    foreach (var item in fila.itemarray)
+                    {
+                        sb.append(item.tostring() + "\t");
+                    }
+                    sb.appendline();
+                }
+
+                return sb.tostring();
+            }
+            2
+
+            private static list<modeloapipost> listartodoslospost()
+            {
+                restclient client = new restclient("https://localhost:44358/");
+                restrequest request = new restrequest($"api/post/listarpost/", method.get);
+                request.addheader("accept", "application/json");
+                restresponse response = client.execute(request);
+                list<modeloapipost> posts;
+                posts = jsonconvert.deserializeobject<list<modeloapipost>>(response.content);
+
+                return posts;
+            }
+            private static list<modeloapipost> obtenerposttexto(int idperfil)
+            {
+                restclient client = new restclient("https://localhost:44358/");
+                restrequest request = new restrequest($"api/post/obtenertexto/{idperfil}", method.get);
+                request.addheader("accept", "application/json");
+                restresponse response = client.execute(request);
+                list<modeloapipost> posts;
+                posts = jsonconvert.deserializeobject<list<modeloapipost>>(response.content);
+
+                return posts;
+            }
+            2
+            private static datatable generardatatable(list<modeloapipost> posts)
+            {
+                datatable tabla = new datatable();
+                tabla.columns.add("idperfil", typeof(int));
+                tabla.columns.add("descripcion", typeof(string));
+
+                foreach (modeloapipost p in posts)
+                {
+                    datarow fila = tabla.newrow();
+                    fila["idperfil"] = p.idperfil;
+                    fila["descripcion"] = p.descripcion;
+                    tabla.rows.add(fila);
+                }
+
+                return tabla;
+            }
+            3
+            private void listar()
+            {
+                list<modeloapipost> posts = obtenerposttexto(datosdeperfil.idperfil);
+                datatable tabla = generardatatable(posts);
+                richtextbox1.text = datatabletostring(tabla);
+            }
+            private string datatabletostring(datatable tabla)
+            {
+                stringbuilder sb = new stringbuilder();
+
+                foreach (datacolumn columna in tabla.columns)
+                {
+                    sb.append(columna.columnname + "\t");
+                }
+                sb.appendline();
+
+                foreach (datarow fila in tabla.rows)
+                {
+                    foreach (var item in fila.itemarray)
+                    {
+                        sb.append(item.tostring() + "\t");
+                    }
+                    sb.appendline();
+                }
+
+                return sb.tostring();
+            }
+
+            public int contarlikes(int idpost)
+            {
+                restclient client = new restclient("https://localhost:44358/");
+                restrequest request = new restrequest($"api/post/contarlikes/{idpost}", method.get);
+                var response = client.execute(request);
+
+                if (!response.issuccessful)
+                    throw new exception("error al contar los likes.");
+
+                var result = jsonconvert.deserializeobject<dictionary<string, int>>(response.content);
+                return result.containskey("cantidad") ? result["cantidad"] : 0;
+            }
+            public int contarcomentarios(int idpost)
+            {
+                restclient client = new restclient("https://localhost:44358/");
+                restrequest request = new restrequest($"api/post/contarcomentarios/{idpost}", method.get);
+                var response = client.execute(request);
+
+                if (!response.issuccessful)
+                    throw new exception("error al contar los comentarios.");
+
+                var result = jsonconvert.deserializeobject<dictionary<string, int>>(response.content);
+                return result.containskey("cantidad") ? result["cantidad"] : 0;
+            }
+    */

@@ -140,6 +140,15 @@ namespace Modelo
             int contadorLikes = Convert.ToInt32(this.Comando.ExecuteScalar());
             return contadorLikes;
         }
+        public int ContarComentarios()
+        {
+            string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post; commit";
+            this.Comando.CommandText = sql;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            int contadorComentarios = Convert.ToInt32(this.Comando.ExecuteScalar());
+            return contadorComentarios;
+        }
         public bool VerificarSiDioLike(int idPost, int idPerfil)
         {
             string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil;";
@@ -430,15 +439,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@comentario", comentario);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
-        }
-        public int ContarComentarios()
-        {
-            string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post; commit";
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            int contadorComentarios = Convert.ToInt32(this.Comando.ExecuteScalar());
-            return contadorComentarios;
         }
         public void CompartirPost(int idPost, int idPerfil)
         {
