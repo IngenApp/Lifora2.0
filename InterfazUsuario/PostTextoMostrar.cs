@@ -14,7 +14,8 @@ namespace InterfazUsuario
 {
     public partial class PostTextoMostrar : Form
     {
-        public PostTextoMostrar(string Apodo, string contenido, string cantidadLikes, string cantidadComentarios)
+        public Inicio form;
+        public PostTextoMostrar(string Apodo, string contenido, string cantidadLikes, string cantidadComentarios,  string fecha)
         {
             InitializeComponent();
             richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
@@ -24,6 +25,7 @@ namespace InterfazUsuario
             richTextBox1.Text = contenido;
             lblLikes.Text = cantidadLikes;
             lblComentarios.Text = cantidadComentarios;
+            labelFecha.Text = fecha;
         }   
         private void PostTextoMostrar_Load(object sender, EventArgs e)
         {

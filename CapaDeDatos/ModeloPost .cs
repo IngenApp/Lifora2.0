@@ -223,15 +223,18 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
+
             int contadorLikes = Convert.ToInt32(this.Comando.ExecuteScalar());
             return contadorLikes;
         }
+
         public int ContarComentarios()
         {
-            string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post; commit";
+            string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post;";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
+
             int contadorComentarios = Convert.ToInt32(this.Comando.ExecuteScalar());
             return contadorComentarios;
         }

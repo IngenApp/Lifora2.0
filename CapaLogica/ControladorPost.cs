@@ -203,12 +203,14 @@ namespace Controladores
                 return false;
             }
         }
+
         public static int ContarLikes(int idPost)
         {
             ModeloPost modeloPost = new ModeloPost();
             modeloPost.idPost = idPost;
             return modeloPost.ContarLikes();
         }
+
         public static int ContarComentarios(int idPost)
         {
             ModeloPost modeloPost = new ModeloPost();

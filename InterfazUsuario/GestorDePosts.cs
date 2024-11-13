@@ -34,7 +34,7 @@ namespace InterfazUsuario
             postTextoMostrar.Show();
         }
 
-        public void PostTexto(List<string> apodo, List<string> descripcion, List<string> cantidadLikes, List<string> cantidadComentarios)
+        public void PostTexto(List<string> apodo, List<string> descripcion, List<string> cantidadLikes, List<string> cantidadComentarios, List<string> fecha)
         {
             var formulariosActuales = new List<Form>();
             foreach (Control control in _panelTexto.Controls)
@@ -54,7 +54,7 @@ namespace InterfazUsuario
 
             for (int i = 0; i < apodo.Count; i++)
             {
-                PostTextoMostrar form = new PostTextoMostrar(apodo[i], descripcion[i], cantidadLikes[i], cantidadComentarios[i]);
+                PostTextoMostrar form = new PostTextoMostrar(apodo[i], descripcion[i], cantidadLikes[i], cantidadComentarios[i], fecha[i]);
                 AgregarPostTexto(form);
             }
         }

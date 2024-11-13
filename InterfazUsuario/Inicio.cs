@@ -49,6 +49,7 @@ namespace InterfazUsuario
         }
          private void pictureBox2_Click(object sender, EventArgs e)
         {
+            
             PerfilPrincipal perfil = new PerfilPrincipal();
             perfil.Show();
             perfil.inicio = this;
@@ -146,6 +147,8 @@ namespace InterfazUsuario
             List<string> descripcion = new List<string>();
             List<string> cantidadLikes = new List<string>();
             List<string> cantidadComentarios = new List<string>();
+            List<string> fecha = new List<string>();
+
             foreach (var post in listaPosts)
             {
                 apodo.Add(post.Apodo);
@@ -156,8 +159,10 @@ namespace InterfazUsuario
 
                 cantidadLikes.Add(likes.ToString());
                 cantidadComentarios.Add(comentarios.ToString());
+
+                fecha.Add(post.FechaHora.ToString("dd/MM/yyyy HH:mm"));
             }
-            gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios);
+            gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios, fecha);
 
         }
         private static List<ModeloApiPost> ListarTodosLosPost()
@@ -176,8 +181,8 @@ namespace InterfazUsuario
         }
         public static int ContarLikes(int idPost)
         {
-            RestClient client = new RestClient("https://localhost:44358/");
-            RestRequest request = new RestRequest($"api/Post/ContarLikes/{idPost}", Method.Get);
+            RestClient client = new RestClient("https://localhost:44358/"); 
+            RestRequest request = new RestRequest($"api/Post/ContarLikes/{idPost}/", Method.Get);
             request.AddHeader("Accept", "application/json");
             RestResponse response = client.Execute(request);
 
@@ -187,10 +192,11 @@ namespace InterfazUsuario
             var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
             return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
         }
+
         public static int ContarComentarios(int idPost)
         {
-            RestClient client = new RestClient("https://localhost:44358/");
-            RestRequest request = new RestRequest($"api/Post/ContarComentarios/{idPost}", Method.Get);
+            RestClient client = new RestClient("https://localhost:44358/"); 
+            RestRequest request = new RestRequest($"api/Post/ContarComentarios/{idPost}/", Method.Get);
             request.AddHeader("Accept", "application/json");
             RestResponse response = client.Execute(request);
 
@@ -203,7 +209,7 @@ namespace InterfazUsuario
 
 
 
-    
+
         private void MuroImagenes(object sender, EventArgs e)
         {
            
