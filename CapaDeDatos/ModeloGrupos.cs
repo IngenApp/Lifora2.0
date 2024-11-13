@@ -12,7 +12,7 @@ namespace Modelo
     {
         public int idGrupo, idPerfil;
         public string nombre, informacion, fecha, idFotoGrupo;
-        public bool habilitado, silenciar;
+        public bool  silenciar;
         public void CrearGrupo()
         {
             string sql = "INSERT INTO grupos (id_perfil, nombre_grupo, informacion, fecha_hora) VALUES (@id_perfil, @nombre_grupo, @informacion, now()); commit;";
@@ -328,19 +328,23 @@ namespace Modelo
             string sql = "SELECT * FROM grupos";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
+
             while (this.Lector.Read())
             {
                 ModeloGrupos mg = new ModeloGrupos();
-                mg.idGrupo = Int32.Parse(this.Lector["id_grupos"].ToString());
+
+                mg.idGrupo = this.Lector["id_grupos"] != DBNull.Value ? Convert.ToInt32(this.Lector["id_grupos"]) : 0;
                 mg.nombre = this.Lector["nombre_grupo"].ToString();
                 mg.informacion = this.Lector["informacion"].ToString();
-                mg.habilitado = Convert.ToBoolean(this.Lector["habilitado"]);
-                mg.idPerfil = Int32.Parse(this.Lector["id_perfil"].ToString());   
+                mg.idPerfil = this.Lector["id_perfil"] != DBNull.Value ? Convert.ToInt32(this.Lector["id_perfil"]) : 0;
+
                 bd.Add(mg);
             }
+
             this.Lector.Close();
             return bd;
         }
+
 
     }
 }

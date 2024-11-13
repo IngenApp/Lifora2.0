@@ -107,20 +107,20 @@ namespace InterfazUsuario
             // 
             this.labelGrupos.AutoSize = true;
             this.labelGrupos.BackColor = System.Drawing.Color.Transparent;
-            this.labelGrupos.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGrupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGrupos.Location = new System.Drawing.Point(30, 30);
             this.labelGrupos.Name = "labelGrupos";
-            this.labelGrupos.Size = new System.Drawing.Size(82, 28);
+            this.labelGrupos.Size = new System.Drawing.Size(82, 25);
             this.labelGrupos.TabIndex = 58;
             this.labelGrupos.Text = "Grupos";
             this.labelGrupos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxBuscarGrupo
             // 
-            this.textBoxBuscarGrupo.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBuscarGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBuscarGrupo.Location = new System.Drawing.Point(233, 70);
             this.textBoxBuscarGrupo.Name = "textBoxBuscarGrupo";
-            this.textBoxBuscarGrupo.Size = new System.Drawing.Size(424, 36);
+            this.textBoxBuscarGrupo.Size = new System.Drawing.Size(424, 31);
             this.textBoxBuscarGrupo.TabIndex = 60;
             // 
             // btnMisGrupos
@@ -135,6 +135,7 @@ namespace InterfazUsuario
             this.btnMisGrupos.TabIndex = 61;
             this.btnMisGrupos.Text = "Mis Grupos";
             this.btnMisGrupos.UseVisualStyleBackColor = false;
+            this.btnMisGrupos.Click += new System.EventHandler(this.btnMisGrupos_Click);
             // 
             // btnTodosGrupos
             // 
@@ -148,6 +149,7 @@ namespace InterfazUsuario
             this.btnTodosGrupos.TabIndex = 62;
             this.btnTodosGrupos.Text = "Todos Grupo";
             this.btnTodosGrupos.UseVisualStyleBackColor = false;
+            this.btnTodosGrupos.Click += new System.EventHandler(this.btnTodosGrupos_Click);
             // 
             // GruposMenu
             // 

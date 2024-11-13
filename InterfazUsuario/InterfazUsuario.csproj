@@ -529,6 +529,10 @@
     <None Include="Resources\black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-business-document-illustration-isolated-on-white-background-vector.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApiGrupo\ApiGrupo.csproj">
+      <Project>{1C936101-76EF-4B29-92FB-BC14680DDDD0}</Project>
+      <Name>ApiGrupo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ApiPost\ApiPost.csproj">
       <Project>{C09A4EA9-BCE0-4F70-B47F-5BEC42F991B5}</Project>
       <Name>ApiPost</Name>

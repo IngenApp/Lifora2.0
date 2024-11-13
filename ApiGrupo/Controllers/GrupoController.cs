@@ -25,12 +25,13 @@ namespace ApiGrupo.Controllers
                 foreach (DataRow grupos in grupo.Rows)
                 {
                     ModeloApiGrupo mag = new ModeloApiGrupo();
-                    mag.idGrupo = Int32.Parse(grupos["ID_Grupo"].ToString());
+
+                    mag.idGrupo = grupos["ID_Grupo"] != DBNull.Value ? Convert.ToInt32(grupos["ID_Grupo"]) : 0;
                     mag.nombre = grupos["Nombre_Grupo"].ToString();
                     mag.informacion = grupos["Informacion"].ToString();
-                    mag.fecha = grupos["Fecha"].ToString();
-                    mag.habilitado = bool.Parse(grupos["Habilitado"].ToString());
-                    mag.idPerfil = Int32.Parse(grupos["ID_Perfil"].ToString());
+                    mag.fecha = grupos["Fecha"].ToString(); 
+                    mag.idPerfil = grupos["ID_Perfil"] != DBNull.Value ? Convert.ToInt32(grupos["ID_Perfil"]) : 0;
+
                     listarGrupos.Add(mag);
                 }
 
@@ -55,6 +56,7 @@ namespace ApiGrupo.Controllers
                     return BadRequest("Complete todos los campos.");
                 }
                 ControladorGrupos.CrearGrupo(grupo.idPerfil, grupo.nombre, grupo.informacion);
+
                 var resultado = new Dictionary<string, string>
         {
             { "mensaje", "Grupo creado exitosamente" }

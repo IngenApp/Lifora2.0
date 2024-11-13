@@ -12,11 +12,15 @@ using System.Threading;
 using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
 using System.Drawing.Drawing2D;
+using ApiGrupo.Models;
+using RestSharp;
+using Newtonsoft.Json;
 
 namespace InterfazUsuario
 {
     public partial class GruposMenu : Form
     {
+        private GestorDePosts gestorDePosts;
         public static GruposMenu menuGruposInstancia = null;
         public GruposMenu()
         {
@@ -50,13 +54,10 @@ namespace InterfazUsuario
         }
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {
-            // Crear un objeto GraphicsPath para definir la forma circular
             GraphicsPath path = new GraphicsPath();
 
-            // Añadir una elipse al path con el tamaño del PictureBox
             path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
 
-            // Asignar la región circular al PictureBox
             pictureBox2.Region = new Region(path);
         }
         public void CargarIdioma()
@@ -75,9 +76,48 @@ namespace InterfazUsuario
 
         private void btnGrupo_Click(object sender, EventArgs e)
         {
-            // verificar en el datagrid q grupo esta seleccionado
             Grupos grupos = new Grupos();
             grupos.Show();
+        }
+        public List<ModeloApiGrupo> ListarGrupos()
+        {
+            RestClient client = new RestClient("https://localhost:44325/");
+            RestRequest request = new RestRequest("api/Grupo/ListarGrupos", Method.Get);
+            request.AddHeader("Accept", "application/json");
+            RestResponse response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+            {
+                throw new Exception("Error al listar los grupos: " + response.ErrorMessage);
+            }
+            var grupos = JsonConvert.DeserializeObject<List<ModeloApiGrupo>>(response.Content);
+
+            return grupos ?? new List<ModeloApiGrupo>();
+        }
+        private void btnTodosGrupos_Click(object sender, EventArgs e)
+        {
+            List<ModeloApiGrupo> listaDeGrupos = new List<ModeloApiGrupo>();
+            List<String> nombre = new List<string>();
+            List<string> descripcion = new List<string>();
+            List<string> idGrupo = new List<string>();
+            List<string> apodo = new List<string>();
+            List<string> cantidadLikes = new List<string>();
+            List<string> cantidadComentarios = new List<string>();
+            List<String> fecha = new List<string>();
+            foreach (var grupos in listaDeGrupos)
+            {
+                nombre.Add(grupos.Nombre);
+                descripcion.Add(grupos.Informacion);
+
+            }
+            gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios, fecha);
+
+
+        }
+
+        private void btnMisGrupos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,8 +7,11 @@ namespace ApiGrupo.Models
 {
     public class ModeloApiGrupo
     {
-        public int idGrupo, idPerfil;
-        public string nombre, informacion, fecha, idFotoGrupo;
-        public bool habilitado, silenciar;
-    }
+            public int IdGrupo { get; set; }
+            public string Nombre { get; set; }
+            public string Informacion { get; set; }
+            public string Fecha { get; set; }
+            public string dFotoGrupo { get; set; }
+            public int IdPerfil { get; set; }
+        }
 }

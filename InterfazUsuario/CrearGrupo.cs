@@ -12,6 +12,8 @@ using System.Globalization;
 using System.Threading;
 using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
+using RestSharp;
+using Newtonsoft.Json;
 
 namespace InterfazUsuario
 {
@@ -32,10 +34,32 @@ namespace InterfazUsuario
             path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
             pictureBox2.Region = new Region(path);
         }
+        public static string CrearNuevoGrupo(int idPerfil, string nombre, string informacion) 
+        {
+            RestClient client = new RestClient("https://localhost:44325/"); 
+            RestRequest request = new RestRequest("api/Grupo/CrearGrupo", Method.Post);
+            request.AddHeader("Accept", "application/json");
+            
+            var grupo = new
+            {
+                idPerfil = idPerfil,
+                nombre = nombre,
+                informacion = informacion
+            };
+            request.AddJsonBody(grupo);
+
+            RestResponse response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al crear el grupo.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            CrearNuevoGrupo(DatosDePerfil.idPerfil, textBox1.Text,richTextBox1.Text);
 
             if (string.IsNullOrEmpty(richTextBox1.Text) || string.IsNullOrEmpty(textBox1.Text))
             {
