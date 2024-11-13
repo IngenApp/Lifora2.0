@@ -210,7 +210,7 @@ namespace ApiPost.Controllers
         [HttpPut]
         public IHttpActionResult ModificarPost(int id, ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.Descripcion)) 
+            if (post == null || string.IsNullOrEmpty(post.Descripcion))
             {
                 return BadRequest("El contenido del post es requerido.");
             }
@@ -269,7 +269,7 @@ namespace ApiPost.Controllers
         [HttpPost]
         public IHttpActionResult CrearPostImagen(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdImagen)) 
+            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdImagen))
             {
                 return BadRequest("El contenido del post y la imagen son requeridos.");
             }
@@ -294,7 +294,7 @@ namespace ApiPost.Controllers
         [HttpPost]
         public IHttpActionResult CrearPostVideo(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdVideo)) 
+            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdVideo))
             {
                 return BadRequest("El contenido del post y el video son requeridos.");
             }
@@ -318,7 +318,7 @@ namespace ApiPost.Controllers
         [HttpPost]
         public IHttpActionResult CrearPostAudio(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdAudio)) 
+            if (post == null || string.IsNullOrEmpty(post.Descripcion) || string.IsNullOrEmpty(post.IdAudio))
             {
                 return BadRequest("El contenido del post y el audio son requeridos.");
             }
@@ -424,7 +424,8 @@ namespace ApiPost.Controllers
             try
             {
                 var posts = ControladorPost.ObtenerPostImagen(idPerfil);
-                return Ok(posts);              }
+                return Ok(posts);
+            }
             catch (Exception ex)
             {
                 return InternalServerError(new Exception($"Error al obtener publicaciones con imágenes: {ex.Message}", ex));
@@ -453,7 +454,7 @@ namespace ApiPost.Controllers
             try
             {
                 var posts = ControladorPost.ObtenerPostAudio(idPerfil);
-                return Ok(posts); 
+                return Ok(posts);
             }
             catch (Exception ex)
             {

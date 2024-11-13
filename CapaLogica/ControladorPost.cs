@@ -47,8 +47,8 @@ namespace Controladores
 
             return tabla;
         }
-        public static DataTable ObtenerTextoPost(int idPost) 
-         {
+        public static DataTable ObtenerTextoPost(int idPost)
+        {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("ID_Post", typeof(int));
             tabla.Columns.Add("Descripcion", typeof(string));
@@ -161,17 +161,20 @@ namespace Controladores
             HabilitarPost.idPost = idPost;
             HabilitarPost.HabilitarPost();
         }
-        public static void DarLike(int idPost, int idPerfil)
+        public static bool DarLike(int idPost, int idPerfil)
         {
             ModeloPost modeloPost = new ModeloPost();
             try
             {
                 modeloPost.DarLike(idPost, idPerfil);
                 Console.WriteLine("Like registrado correctamente.");
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al registrar el like: {ex.Message}");
+
+                return false;
             }
         }
         public static void EliminarLike(int idPost, int idPerfil)
@@ -249,7 +252,7 @@ namespace Controladores
             ModificarComentario.comentario = comentario;
             ModificarComentario.ModificarComentario();
         }
- 
+
         // ANDRES
         //realizar metodo para tomar los datos de los post texto, video, imagen y audio necesarios para mostrar en pantalla por API
         public static DataTable ListarComentarios(string idPost)
