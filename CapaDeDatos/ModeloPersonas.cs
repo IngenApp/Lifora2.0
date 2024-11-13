@@ -8,8 +8,8 @@ namespace Modelo
     public class ModeloPersonas : Modelo
     {
         public int idPerfil, idUsuario, idCuenta;
-        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, atributo1, atributo2, emailNuevo, idFotoPerfil;
-        public bool habilitacion;
+        public string nombre, apellido, fechaNacimiento, email, telefono, contrasena, apodo, idioma, emailNuevo, idFotoPerfil;
+        public bool habilitacion, suscripcion;
 
         public List<string> ObtenerSeguidores(int idPerfil)
         {
@@ -207,14 +207,13 @@ namespace Modelo
             {
                 this.Comando.Parameters.Clear();
 
-                string sql = "CALL actualizar_perfil_usuario(@p_email, @p_apodo, @p_id_foto_perfil, @p_idioma, @p_atributo1, @p_atributo2, @p_contrasena);";
+                string sql = "CALL actualizar_perfil_usuario(@p_email, @p_apodo, @p_id_foto_perfil, @p_idioma, @suscripcion, @p_contrasena);";
 
                 this.Comando.Parameters.AddWithValue("p_email", email);
                 this.Comando.Parameters.AddWithValue("p_apodo", apodo);
                 this.Comando.Parameters.AddWithValue("p_id_foto_perfil", idFotoPerfil);
                 this.Comando.Parameters.AddWithValue("p_idioma", idioma);
-                this.Comando.Parameters.AddWithValue("p_atributo1", atributo1);
-                this.Comando.Parameters.AddWithValue("p_atributo2", atributo2);
+                this.Comando.Parameters.AddWithValue("p_atributo1", suscripcion);
                 this.Comando.Parameters.AddWithValue("p_contrasena", contrasena);
 
                 this.Comando.CommandText = sql;
@@ -264,8 +263,7 @@ namespace Modelo
         {
             List<ModeloPersonas> bd = new List<ModeloPersonas>();
 
-            string sql = @"SELECT p.id_perfil, p.apodo, p.email AS perfil_email, u.telefono AS cuenta_telefono, c.habilitado, c.id_usuario, usr.nombre, usr.apellido, usr.fecha_nacimiento, c.contrasenia, p.idioma, p.atributo1, p.atributo2
-                        FROM perfil p JOIN cuenta_usuario u ON p.email = u.email JOIN cuenta_lifora c ON u.email = c.email 
+            string sql = @"SELECT p.id_perfil, p.apodo, p.email AS perfil_email, u.telefono AS cuenta_telefono, c.habilitado, c.id_usuario, usr.nombre, usr.apellido, usr.fecha_nacimiento, c.contrasenia, p.idioma, p.suscripcion   FROM perfil p JOIN cuenta_usuario u ON p.email = u.email JOIN cuenta_lifora c ON u.email = c.email 
                         JOIN usuario usr ON c.id_usuario = usr.id_usuario ORDER BY c.id_usuario;";
 
             this.Comando.CommandText = sql;
@@ -286,8 +284,7 @@ namespace Modelo
                     fechaNacimiento = this.Lector["fecha_nacimiento"].ToString(),
                     contrasena = this.Lector["contrasenia"].ToString(),
                     idioma = this.Lector["idioma"].ToString(),
-                    atributo1 = this.Lector["atributo1"].ToString(),
-                    atributo2 = this.Lector["atributo2"].ToString()
+                    suscripcion = Convert.ToBoolean(this.Lector["suscripcion"])
                 };
                 bd.Add(mp);
             }
@@ -298,7 +295,7 @@ namespace Modelo
         public void ObtenerIdPerfilPorApodo(string apodo)
         {
 
-            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.apodo = @apodo; ";
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.suscripcion FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.apodo = @apodo; ";
             try
             {
                 this.Comando.CommandText = sql;
@@ -318,8 +315,7 @@ namespace Modelo
                         this.apodo = Lector["apodo"].ToString();
                         this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
                         this.idioma = Lector["idioma"].ToString();
-                        this.atributo1 = Lector["atributo1"].ToString();
-                        this.atributo2 = Lector["atributo2"].ToString();
+                        this.suscripcion = Convert.ToBoolean(this.Lector["suscripcion"]);
                     }
                 }
             }
@@ -333,7 +329,7 @@ namespace Modelo
         public void ObtenerIdPerfilPorEmail(string email)
         {
 
-            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, p.atributo2 FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.email = @email; ";
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.suscripcion FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.email = @email; ";
             try
             {
                 this.Comando.CommandText = sql;
@@ -353,8 +349,7 @@ namespace Modelo
                         this.apodo = Lector["apodo"].ToString();
                         this.idFotoPerfil = Lector["id_foto_perfil"].ToString(); ;
                         this.idioma = Lector["idioma"].ToString();
-                        this.atributo1 = Lector["atributo1"].ToString();
-                        this.atributo2 = Lector["atributo2"].ToString();
+                        this.suscripcion = Convert.ToBoolean(this.Lector["suscripcion"]);
                     }
                 }
             }
@@ -369,8 +364,7 @@ namespace Modelo
         public bool ObtenerPerfilPorEmail(string email)
         {
             string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, 
-                          p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.atributo1, 
-                          p.atributo2, cl.contrasenia 
+                          p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.suscripcion, cl.contrasenia 
                    FROM perfil p 
                    JOIN cuenta_usuario cu ON p.email = cu.email 
                    JOIN cuenta_lifora cl ON cu.email = cl.email 
@@ -400,8 +394,44 @@ namespace Modelo
                             this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
 
                         this.idioma = Lector["idioma"].ToString();
-                        this.atributo1 = Lector["atributo1"].ToString();
-                        this.atributo2 = Lector["atributo2"].ToString();
+                        suscripcion = Convert.ToBoolean(this.Lector["suscripcion"]);
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return false;
+        }
+        public bool ObtenerPerfilPorApodo(string apodo)
+        {
+            string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, p.suscripcion FROM perfil p JOIN cuenta_usuario cu ON p.email = cu.email JOIN cuenta_lifora cl ON cu.email = cl.email JOIN usuario u ON cl.id_usuario = u.id_usuario WHERE p.apodo = @apodo; ";
+            try
+            {
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@apodo", apodo);
+
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    if (this.Lector.Read())
+                    {
+                        this.idPerfil = Convert.ToInt32(Lector["id_perfil"]);
+                        this.nombre = Lector["nombre"].ToString();
+                        this.apellido = Lector["apellido"].ToString();
+                        this.fechaNacimiento = Convert.ToString(Lector["fecha_nacimiento"]);
+                        this.email = Lector["email"].ToString();
+                        this.telefono = Lector["telefono"].ToString();
+                        this.apodo = Lector["apodo"].ToString();
+
+                        if (!string.IsNullOrEmpty(Lector["id_foto_perfil"].ToString()))
+                            this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
+
+                        this.idioma = Lector["idioma"].ToString();
+                        this.suscripcion = Convert.ToBoolean(this.Lector["suscripcion"]);
 
                         return true;
                     }
@@ -415,14 +445,12 @@ namespace Modelo
         }
 
 
-
-
         /*
                 public bool ObtenerPerfilPorEmail(string email)
                 {
                     string sql = @"SELECT u.nombre, u.apellido, u.fecha_nacimiento, p.email, cl.telefono, 
                                   p.id_perfil, p.apodo, p.id_foto_perfil, p.idioma, 
-                                  p.atributo1, p.atributo2, cu.contrasena 
+                                  p.suscripcion, p.atributo2, cu.contrasena 
                            FROM perfil p 
                            JOIN cuenta_usuario cu ON p.email = cu.email 
                            JOIN cuenta_lifora cl ON cu.email = cl.email 
@@ -449,7 +477,7 @@ namespace Modelo
                                 this.apodo = Lector["apodo"].ToString();
                                 this.idFotoPerfil = Lector["id_foto_perfil"].ToString();
                                 this.idioma = Lector["idioma"].ToString();
-                                this.atributo1 = Lector["atributo1"].ToString();
+                                this.suscripcion = Lector["suscripcion"].ToString();
                                 this.atributo2 = Lector["atributo2"].ToString();
 
                                 return true;

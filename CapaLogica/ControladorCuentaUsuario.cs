@@ -13,7 +13,6 @@ namespace Controladores
 
             return modelo.ObtenerSeguidores(idPerfil);
         }
-
         public static int ObtenerCantidadSeguidores(int idPerfil)
         {
             try
@@ -28,14 +27,11 @@ namespace Controladores
                 return 0;
             }
         }
-
         public static List<string> ObtenerSeguidos(int idPerfil)
         {
             ModeloPersonas modelo = new ModeloPersonas();
             return modelo.ObtenerSeguidos(idPerfil);
         }
-
-
         public static int ObtenerCantidadSeguidos(int idPerfil)
         {
             try
@@ -50,7 +46,6 @@ namespace Controladores
                 return 0;
             }
         }
-
         public static void AltaCuentaUsuario(string nombre, string apellido, string fechaNacimiento, string email, string telefono, string contrasena)
         {
             ModeloPersonas CuentaUsuario = new ModeloPersonas();
@@ -96,11 +91,6 @@ namespace Controladores
             CuentaUsuario.idUsuario = idUsuario;
             CuentaUsuario.HabilitarCuentaUsuario();
         }
-
-
-
-
-
         public static void ModificarCuenta(string email, string emailNuevo, string nombre, string apellido, string telefono)
         {
             ModeloPersonas modCuenta = new ModeloPersonas();
@@ -112,7 +102,7 @@ namespace Controladores
 
             modCuenta.ModificarCuentaUsuario();
         }
-        public static void ModificarPerfil(string email, string apodo, string idFotoPerfil, string idioma, string atributo1, string atributo2, string contrasena)
+        public static void ModificarPerfil(string email, string apodo, string idFotoPerfil, string idioma, bool suscripcion,  string contrasena)
         {
             ModeloPersonas ModPerf = new ModeloPersonas();
 
@@ -120,18 +110,10 @@ namespace Controladores
             ModPerf.apodo = apodo;
             ModPerf.idFotoPerfil = idFotoPerfil;
             ModPerf.idioma = idioma;
-            ModPerf.atributo1 = atributo1;
-            ModPerf.atributo2 = atributo2;
+            ModPerf.suscripcion = suscripcion;
             ModPerf.contrasena = contrasena;
             ModPerf.ModificarPerfilUsuario();
         }
-
-
-
-
-
-
-
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
@@ -146,8 +128,7 @@ namespace Controladores
             tabla.Columns.Add("Contrasena", typeof(string));
             tabla.Columns.Add("Fecha Nacimiento", typeof(DateTime));
             tabla.Columns.Add("Idioma", typeof(string));
-            tabla.Columns.Add("Atributo1", typeof(string));
-            tabla.Columns.Add("Atributo2", typeof(string));
+            tabla.Columns.Add("suscripcion", typeof(bool));
 
             ModeloPersonas ListarPersonas = new ModeloPersonas();
 
@@ -165,8 +146,7 @@ namespace Controladores
                 fila["Contrasena"] = p.contrasena;
                 fila["Fecha Nacimiento"] = p.fechaNacimiento;
                 fila["Idioma"] = p.idioma;
-                fila["Atributo1"] = p.atributo1;
-                fila["Atributo2"] = p.atributo2;
+                fila["suscripcion"] = p.suscripcion;
 
                 tabla.Rows.Add(fila);
             }
@@ -191,8 +171,7 @@ namespace Controladores
                 perfil.Add("fecha_nacimiento", persona.fechaNacimiento);
                 perfil.Add("idFotoPerfil", persona.idFotoPerfil);
                 perfil.Add("idioma", persona.idioma);
-                perfil.Add("atributo1", persona.atributo1);
-                perfil.Add("atributo2", persona.atributo2);
+                perfil.Add("suscripcion", persona.suscripcion.ToString());
 
                 return perfil;
             }
@@ -200,7 +179,32 @@ namespace Controladores
             perfil.Add("resultado", "false");
             return perfil;
         }
+        public static Dictionary<string, string> ObtenerPerfilPorApodo(string apodo)
+        {
+            Dictionary<string, string> perfil = new Dictionary<string, string>();
+            ModeloPersonas persona = new ModeloPersonas();
 
+            if (persona.ObtenerPerfilPorApodo(apodo))
+            {
+                perfil.Add("resultado", "true");
+                perfil.Add("apodo", persona.apodo);
+                perfil.Add("id_perfil", persona.idPerfil.ToString());
+                perfil.Add("email", persona.email);
+                perfil.Add("contrasena", persona.contrasena);
+                perfil.Add("telefono", persona.telefono);
+                perfil.Add("nombre", persona.nombre);
+                perfil.Add("apellido", persona.apellido);
+                perfil.Add("fecha_nacimiento", persona.fechaNacimiento);
+                perfil.Add("idFotoPerfil", persona.idFotoPerfil);
+                perfil.Add("idioma", persona.idioma);
+                perfil.Add("suscripcion", persona.suscripcion.ToString());
+
+                return perfil;
+            }
+
+            perfil.Add("resultado", "false");
+            return perfil;
+        }
 
         public static PerfilSecundario ObtenerPerfilSecundario(string apodo)
         {
@@ -218,8 +222,7 @@ namespace Controladores
                 fechaNacimiento = perfil.fechaNacimiento,
                 idFotoPerfil = perfil.idFotoPerfil,
                 idioma = perfil.idioma,
-                atributo1 = perfil.atributo1,
-                atributo2 = perfil.atributo2
+                atributo1 = perfil.suscripcion.ToString()
             };
 
             return pf;
@@ -241,14 +244,11 @@ namespace Controladores
                 fechaNacimiento = perfil.fechaNacimiento,
                 idFotoPerfil = perfil.idFotoPerfil,
                 idioma = perfil.idioma,
-                atributo1 = perfil.atributo1,
-                atributo2 = perfil.atributo2
+                atributo1 = perfil.suscripcion.ToString()
             };
 
             return pf;
         }
-
-
         public class PerfilPrincipal
         {
             public int idPerfil { get; set; }

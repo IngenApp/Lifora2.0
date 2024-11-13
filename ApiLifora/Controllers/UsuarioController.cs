@@ -24,6 +24,21 @@ namespace ApiLifora.Controllers
 
         }
 
+        [Route("api/Usuario/PorApodo/{apodo}/")]
+        [HttpGet]
+        public IHttpActionResult ObtenerPerfilPorApodo(string apodo)
+        {
+            Dictionary<string, string> perfil = ControladorCuentaUsuario.ObtenerPerfilPorApodo(apodo);
+
+            if (perfil["resultado"] == "false")
+                return NotFound();
+
+            return Ok(perfil);
+        }
+
+
+
+
         [Route("api/Usuario/MeSiguen/{idPerfil:int}")]
         [HttpGet]
         public IHttpActionResult MeSiguen(int idPerfil)
@@ -114,7 +129,7 @@ namespace ApiLifora.Controllers
                     usuario.idioma = "espanol";
                 }
                 ControladorCuentaUsuario.ModificarPerfil(
-                    usuario.email, usuario.apodo, usuario.idFotoPerfil, usuario.idioma, usuario.atributo1, usuario.atributo2, usuario.contrasena
+                    usuario.email, usuario.apodo, usuario.idFotoPerfil, usuario.idioma, usuario.suscripcion,  usuario.contrasena
                 );
                 Dictionary<string, string> resultado = new Dictionary<string, string>
     {
@@ -180,8 +195,7 @@ namespace ApiLifora.Controllers
                         contrasena = usuario["contrasena"].ToString(),
                         fechaNacimiento = usuario["Fecha Nacimiento"].ToString(),
                         idioma = usuario["Idioma"].ToString(),
-                        atributo1 = usuario["Atributo1"].ToString(),
-                        atributo2 = usuario["Atributo2"].ToString()
+                        suscripcion = bool.Parse(usuario["suscripcion"].ToString()),
 
                     };
                     listaUsuarios.Add(u);

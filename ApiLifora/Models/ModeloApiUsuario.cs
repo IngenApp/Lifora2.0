@@ -8,8 +8,8 @@ namespace ApiLifora.Models
     public class ModeloApiUsuario
     {
         public int idPerfil, idUsuario;
-        public string nombre, apellido, fechaNacimiento, email, emailNuevo, telefono, contrasena, apodo, idioma, atributo1, atributo2, idFotoPerfil;
-        public bool habilitacion;
+        public string nombre, apellido, fechaNacimiento, email, emailNuevo, telefono, contrasena, apodo, idioma, idFotoPerfil;
+        public bool habilitacion, suscripcion;
 
     }
 }
