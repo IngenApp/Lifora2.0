@@ -217,27 +217,43 @@ namespace Modelo
                 Console.WriteLine($"Error al eliminar el like: {ex.Message}");
             }
         }
+
         public int ContarLikes()
         {
-            string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post;";
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            try
+            {
+                string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post;";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
 
-            int contadorLikes = Convert.ToInt32(this.Comando.ExecuteScalar());
-            return contadorLikes;
+                int contadorLikes = Convert.ToInt32(this.Comando.ExecuteScalar());
+                return contadorLikes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al contar los likes en la base de datos.", ex);
+            }
         }
 
         public int ContarComentarios()
         {
-            string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post;";
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            try
+            {
+                string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post;";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
 
-            int contadorComentarios = Convert.ToInt32(this.Comando.ExecuteScalar());
-            return contadorComentarios;
+                int contadorComentarios = Convert.ToInt32(this.Comando.ExecuteScalar());
+                return contadorComentarios;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al contar los comentarios en la base de datos.", ex);
+            }
         }
+
         public bool VerificarSiDioLike(int idPost, int idPerfil)
         {
             string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil;";
@@ -259,34 +275,52 @@ namespace Modelo
         }
 
         //mostrar likes
-        public List<ModeloPost> ObtenerPost()
+        public List<ModeloPost> ObtenerListaPost()
         {
-            List<ModeloPost> ListaPost = new List<ModeloPost>();
+            List<ModeloPost> listaPost = new List<ModeloPost>();
 
-            string sql = "SELECT p.id_post, p.descripcion, p.fecha_hora, p.habilitado, pf.apodo, pf.id_perfil FROM post p LEFT JOIN perfil pf ON p.id_perfil = pf.id_perfil";
-
-            this.Comando.CommandText = sql;
-            using (this.Lector = this.Comando.ExecuteReader())
+            try
             {
-                while (this.Lector.Read())
-                {
-                    ModeloPost mp = new ModeloPost
-                    {
-                        idPost = Convert.ToInt32(this.Lector["id_post"]),
-                        descripcion = this.Lector["descripcion"].ToString(),
-                        fecha = this.Lector["fecha_hora"].ToString(),
-                        habilitado = Convert.ToBoolean(this.Lector["habilitado"]),
-                        apodo = this.Lector["apodo"].ToString(),
-                        idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
-                    };
+                string sql = @"SELECT 
+                        p.id_post AS ID_Post, 
+                        p.descripcion AS Descripcion, 
+                        p.fecha_hora AS Fecha, 
+                        p.habilitado AS Habilitado, 
+                        pf.apodo AS Apodo, 
+                        pf.id_perfil AS ID_Perfil
+                   FROM
+                        post p
+                   LEFT JOIN
+                        perfil pf ON p.id_perfil = pf.id_perfil";
 
-                    ListaPost.Add(mp);
+                this.Comando.CommandText = sql;
+
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    while (this.Lector.Read())
+                    {
+                        ModeloPost mp = new ModeloPost
+                        {
+                            idPost = Convert.ToInt32(this.Lector["ID_Post"]),
+                            descripcion = this.Lector["Descripcion"].ToString(),
+                            fecha = Convert.ToDateTime(this.Lector["Fecha"]).ToString("yyyy-MM-dd HH:mm:ss"),
+                            habilitado = Convert.ToBoolean(this.Lector["Habilitado"]),
+                            apodo = this.Lector["Apodo"].ToString(),
+                            idPerfil = Convert.ToInt32(this.Lector["ID_Perfil"])
+                        };
+
+                        listaPost.Add(mp);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los posts: {ex.Message}");
+            }
 
-            return ListaPost;
-
+            return listaPost;
         }
+
 
         public List<ModeloPost> ObtenerPostsPorPerfil(int idPerfil)
         {

@@ -59,7 +59,6 @@ namespace Controladores
                 grupoInfo.Add("idFotoGrupo", grupo.idFotoGrupo ?? "null");
                 grupoInfo.Add("fecha", grupo.fecha);
                 grupoInfo.Add("idPerfil", grupo.idPerfil.ToString());
-                grupoInfo.Add("habilitado", grupo.habilitado.ToString());
             }
             else
             {
@@ -82,7 +81,6 @@ namespace Controladores
                 grupoInfo.Add("idFotoGrupo", grupo.idFotoGrupo ?? "null");
                 grupoInfo.Add("fecha", grupo.fecha);
                 grupoInfo.Add("idPerfil", grupo.idPerfil.ToString());
-                grupoInfo.Add("habilitado", grupo.habilitado.ToString());
             }
             else
             {

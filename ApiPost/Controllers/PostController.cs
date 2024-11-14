@@ -16,20 +16,21 @@ namespace ApiPost.Controllers
         [HttpGet]
         public IHttpActionResult ListarPost()
         {
-            List<ModeloApiPost> listaPosts = new List<ModeloApiPost>();
             try
             {
+                List<ModeloApiPost> listaPosts = new List<ModeloApiPost>();
                 DataTable posts = ControladorPost.ListarPost();
+
                 foreach (DataRow post in posts.Rows)
                 {
                     ModeloApiPost p = new ModeloApiPost
                     {
-                        IdPost = Int32.Parse(post["id_post"].ToString()),
-                        Descripcion = post["descripcion"].ToString(),
-                        Fecha = post["fecha"].ToString(),
-                        Habilitado = bool.Parse(post["habilitado"].ToString()),
-                        Apodo = post["apodo"].ToString(),
-                        IdPerfil = Int32.Parse(post["id_perfil"].ToString())
+                        IdPost = Convert.ToInt32(post["ID_Post"]),
+                        Descripcion = post["Descripcion"].ToString(),
+                        Fecha = Convert.ToDateTime(post["Fecha"]).ToString("yyyy-MM-dd HH:mm:ss"),
+                        Habilitado = Convert.ToBoolean(post["Habilitado"]),
+                        Apodo = post["Apodo"].ToString(),
+                        IdPerfil = Convert.ToInt32(post["ID_Perfil"])
                     };
 
                     listaPosts.Add(p);
@@ -42,6 +43,7 @@ namespace ApiPost.Controllers
                 return InternalServerError(new Exception("Error al listar los posts.", ex));
             }
         }
+
 
         [Route("api/Post/ObtenerTexto/{idPerfil:int}")]
         [HttpGet]
@@ -73,6 +75,21 @@ namespace ApiPost.Controllers
             }
         }
 
+        [Route("api/Post/ContarLikes/{id:int}")]
+        [HttpGet]
+        public IHttpActionResult ContarLikes(int id)
+        {
+            try
+            {
+                int cantidad = ControladorPost.ContarLikes(id);
+                return Ok(new { cantidad });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("Error al contar los likes.", ex));
+            }
+        }
+
         [Route("api/Post/ContarComentarios/{id:int}")]
         [HttpGet]
         public IHttpActionResult ContarComentarios(int id)
@@ -88,20 +105,6 @@ namespace ApiPost.Controllers
             }
         }
 
-        [Route("api/Post/ContarLikes/{id:int}")]
-        [HttpGet]
-        public IHttpActionResult ContarLikes(int id)
-        {
-            try
-            {
-                int cantidad = ControladorPost.ContarLikes(id);
-                return Ok(new { cantidad });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception("Error al contar los likes.", ex));
-            }
-        }
 
 
         [Route("api/Post/DarLike")]
@@ -185,7 +188,7 @@ namespace ApiPost.Controllers
         [HttpPost]
         public IHttpActionResult CrearPostTexto(ModeloApiPost post)
         {
-            if (post == null || string.IsNullOrEmpty(post.Descripcion)) // Propiedad con auto-property
+            if (post == null || string.IsNullOrEmpty(post.Descripcion)) 
             {
                 return BadRequest("El contenido del post es requerido.");
             }

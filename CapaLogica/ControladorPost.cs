@@ -24,29 +24,30 @@ namespace Controladores
         public static DataTable ListarPost()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("ID_Post", typeof(string));
+            tabla.Columns.Add("ID_Post", typeof(int));
             tabla.Columns.Add("Descripcion", typeof(string));
             tabla.Columns.Add("Fecha", typeof(DateTime));
             tabla.Columns.Add("Habilitado", typeof(bool));
             tabla.Columns.Add("Apodo", typeof(string));
             tabla.Columns.Add("ID_Perfil", typeof(int));
 
-            ModeloPost ListarPost = new ModeloPost();
+            ModeloPost modeloPost = new ModeloPost();
 
-            foreach (ModeloPost p in ListarPost.ObtenerPost())
+            foreach (ModeloPost p in modeloPost.ObtenerListaPost())
             {
                 DataRow fila = tabla.NewRow();
                 fila["ID_Post"] = p.idPost;
+                fila["Descripcion"] = p.descripcion;
+                fila["Fecha"] = p.fecha;
+                fila["Habilitado"] = p.habilitado;
                 fila["Apodo"] = p.apodo;
                 fila["ID_Perfil"] = p.idPerfil;
-                fila["Descripcion"] = p.descripcion;
-                fila["Habilitado"] = p.habilitado;
-                fila["Fecha"] = p.fecha;
                 tabla.Rows.Add(fila);
             }
 
             return tabla;
         }
+
         public static DataTable ObtenerTextoPost(int idPost)
         {
             DataTable tabla = new DataTable();
@@ -210,13 +211,13 @@ namespace Controladores
             modeloPost.idPost = idPost;
             return modeloPost.ContarLikes();
         }
-
         public static int ContarComentarios(int idPost)
         {
             ModeloPost modeloPost = new ModeloPost();
             modeloPost.idPost = idPost;
             return modeloPost.ContarComentarios();
         }
+
         public static void ComentarPost(string idPost, string idPerfil, string comentario)
         {
             ModeloPost ComentarPost = new ModeloPost();

@@ -5,7 +5,7 @@ using RestSharp;
 
 namespace InterfazUsuario
 {
-    public static class DatosDePerfil
+    public class DatosDePerfil
     {
         public static int idPost { get; set; }
         public static int idPerfil { get; set; }

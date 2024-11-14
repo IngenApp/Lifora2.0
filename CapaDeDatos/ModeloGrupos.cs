@@ -88,7 +88,6 @@ namespace Modelo
                         this.idFotoGrupo = this.Lector["id_foto_grupo"] != DBNull.Value ? this.Lector["id_foto_grupo"].ToString() : null;
                         this.fecha = this.Lector["fecha_hora"].ToString();
                         this.idPerfil = Convert.ToInt32(this.Lector["id_perfil"]);
-                        this.habilitado = Convert.ToBoolean(this.Lector["habilitado"]);
 
                         return this;
                     }
@@ -259,8 +258,7 @@ namespace Modelo
                             informacion = this.Lector["informacion"].ToString(),
                             idFotoGrupo = this.Lector["id_foto_grupo"] != DBNull.Value ? this.Lector["id_foto_grupo"].ToString() : null,
                             fecha = this.Lector["fecha_hora"].ToString(),
-                            idPerfil = Convert.ToInt32(this.Lector["id_perfil"]),
-                            habilitado = Convert.ToBoolean(this.Lector["habilitado"])
+                            idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
                         };
                     }
                 }

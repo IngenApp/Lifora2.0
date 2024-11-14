@@ -24,13 +24,14 @@ namespace ApiGrupo.Controllers
 
                 foreach (DataRow grupos in grupo.Rows)
                 {
-                    ModeloApiGrupo mag = new ModeloApiGrupo();
-
-                    mag.idGrupo = grupos["ID_Grupo"] != DBNull.Value ? Convert.ToInt32(grupos["ID_Grupo"]) : 0;
-                    mag.nombre = grupos["Nombre_Grupo"].ToString();
-                    mag.informacion = grupos["Informacion"].ToString();
-                    mag.fecha = grupos["Fecha"].ToString(); 
-                    mag.idPerfil = grupos["ID_Perfil"] != DBNull.Value ? Convert.ToInt32(grupos["ID_Perfil"]) : 0;
+                    ModeloApiGrupo mag = new ModeloApiGrupo
+                    {
+                        IdGrupo = grupos["ID_Grupo"] != DBNull.Value ? Convert.ToInt32(grupos["ID_Grupo"]) : 0,
+                        Nombre = grupos["Nombre_Grupo"].ToString(),
+                        Informacion = grupos["Informacion"].ToString(),
+                        Fecha = grupos["Fecha"].ToString(),
+                        IdPerfil = grupos["ID_Perfil"] != DBNull.Value ? Convert.ToInt32(grupos["ID_Perfil"]) : 0
+                    };
 
                     listarGrupos.Add(mag);
                 }
@@ -49,19 +50,15 @@ namespace ApiGrupo.Controllers
         {
             try
             {
-                if (grupo.idPerfil <= 0 ||
-                    string.IsNullOrWhiteSpace(grupo.nombre) ||
-                    string.IsNullOrWhiteSpace(grupo.informacion))
+                if (grupo.IdPerfil <= 0 ||
+                    string.IsNullOrWhiteSpace(grupo.Nombre) ||
+                    string.IsNullOrWhiteSpace(grupo.Informacion))
                 {
                     return BadRequest("Complete todos los campos.");
                 }
-                ControladorGrupos.CrearGrupo(grupo.idPerfil, grupo.nombre, grupo.informacion);
+                ControladorGrupos.CrearGrupo(grupo.IdPerfil, grupo.Nombre, grupo.Informacion);
 
-                var resultado = new Dictionary<string, string>
-        {
-            { "mensaje", "Grupo creado exitosamente" }
-        };
-                return Ok(resultado);
+                return Ok(new { mensaje = "Grupo creado exitosamente" });
             }
             catch (Exception ex)
             {
@@ -69,24 +66,19 @@ namespace ApiGrupo.Controllers
             }
         }
 
-
         [Route("api/Grupo/UnirseAGrupo")]
         [HttpPost]
         public IHttpActionResult UnirseAGrupo(ModeloApiGrupo unirseGrupo)
         {
             try
             {
-                if (unirseGrupo.idGrupo <= 0 || unirseGrupo.idPerfil <= 0)
+                if (unirseGrupo.IdGrupo <= 0 || unirseGrupo.IdPerfil <= 0)
                 {
                     return BadRequest("El ID de grupo y el ID de perfil deben ser mayores a cero.");
                 }
-                ControladorGrupos.UnirseAGrupo(unirseGrupo.idGrupo, unirseGrupo.idPerfil, unirseGrupo.silenciar);
+                ControladorGrupos.UnirseAGrupo(unirseGrupo.IdGrupo, unirseGrupo.IdPerfil, unirseGrupo.silenciar); 
 
-                var resultado = new Dictionary<string, string>
-        {
-            { "mensaje", "Te has unido al grupo exitosamente" }
-        };
-                return Ok(resultado);
+                return Ok(new { mensaje = "Te has unido al grupo exitosamente" });
             }
             catch (Exception ex)
             {
@@ -101,7 +93,7 @@ namespace ApiGrupo.Controllers
             try
             {
                 int cantidad = ControladorGrupos.ObtenerCantidadDeIntegrantes(idGrupo);
-                return Ok(new { cantidad = cantidad });
+                return Ok(new { cantidad });
             }
             catch (Exception ex)
             {
@@ -136,17 +128,13 @@ namespace ApiGrupo.Controllers
         {
             try
             {
-                if (salirDeGrupo.idGrupo <= 0 || salirDeGrupo.idPerfil <= 0)
+                if (salirDeGrupo.IdGrupo <= 0 || salirDeGrupo.IdPerfil <= 0)
                 {
                     return BadRequest("El ID de grupo y el ID de perfil deben ser mayores a cero.");
                 }
-                ControladorGrupos.SalirDeGrupo(salirDeGrupo.idGrupo, salirDeGrupo.idPerfil);
+                ControladorGrupos.SalirDeGrupo(salirDeGrupo.IdGrupo, salirDeGrupo.IdPerfil);
 
-                var resultado = new Dictionary<string, string>
-        {
-            { "mensaje", "Has salido del grupo exitosamente" }
-        };
-                return Ok(resultado);
+                return Ok(new { mensaje = "Has salido del grupo exitosamente" });
             }
             catch (Exception ex)
             {
@@ -160,17 +148,13 @@ namespace ApiGrupo.Controllers
         {
             try
             {
-                if (silenciarGrupo.idGrupo <= 0 || silenciarGrupo.idPerfil <= 0)
+                if (silenciarGrupo.IdGrupo <= 0 || silenciarGrupo.IdPerfil <= 0)
                 {
                     return BadRequest("El ID de grupo y el ID de perfil deben ser mayores a cero.");
                 }
-                ControladorGrupos.SilenciarGrupo(silenciarGrupo.idGrupo, silenciarGrupo.idPerfil, silenciarGrupo.silenciar);
+                ControladorGrupos.SilenciarGrupo(silenciarGrupo.IdGrupo, silenciarGrupo.IdPerfil, silenciarGrupo.dFotoGrupo == "true");
 
-                var resultado = new Dictionary<string, string>
-        {
-            { "mensaje", silenciarGrupo.silenciar ? "Grupo silenciado exitosamente" : "Grupo des-silenciado exitosamente" }
-        };
-                return Ok(resultado);
+                return Ok(new { mensaje = silenciarGrupo.dFotoGrupo == "true" ? "Grupo silenciado exitosamente" : "Grupo des-silenciado exitosamente" });
             }
             catch (Exception ex)
             {
@@ -202,110 +186,17 @@ namespace ApiGrupo.Controllers
         {
             try
             {
-                    Dictionary<string, string> grupo = ControladorGrupos.BuscarGrupoPorId(id);
-                    if (grupo == null || !grupo.Any())
-                        return NotFound();
-
-                    return Ok(grupo);
-                }
-                catch (Exception ex)
-                {
-                    return InternalServerError(new Exception($"Error al buscar el grupo por nombre: {ex.Message}", ex));
-                }
-            }
-
-
-/*
-        [Route("api/Post/AsociarPostAGrupo")]
-        [HttpPost]
-        public IHttpActionResult AsociarPostAGrupo(ModeloApiPost post)
-        {
-            ModeloApiGrupo modeloApiGrupo = new ModeloApiGrupo();
-            try
-            {
-                if (modeloApiGrupo.idGrupo <= 0 || post.idPost <= 0)
-                {
-                    return BadRequest("El ID del grupo y el ID del post deben ser mayores a cero.");
-                }
-
-                ControladorGrupos.AsociarPostAGrupo(modeloApiGrupo.idGrupo, post.idPost);
-
-                var resultado = new Dictionary<string, string>
-                {
-                    { "mensaje", "El post ha sido asociado al grupo exitosamente." }
-                };
-                return Ok(resultado);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception($"Error al asociar el post al grupo: {ex.Message}", ex));
-            }
-        }
-
-        [Route("api/Post/EliminarPostDeGrupo")]
-        [HttpPost]
-        public IHttpActionResult EliminarPostDeGrupo(ModeloApiPost post)
-        {
-            ModeloApiGrupo modeloApiGrupo = new ModeloApiGrupo();
-            try
-            {
-                if (modeloApiGrupo.idGrupo <= 0 || post.idPost <= 0)
-                {
-                    return BadRequest("El ID del grupo y el ID del post deben ser mayores a cero.");
-                }
-
-                ControladorGrupos.EliminarPostDeGrupo(modeloApiGrupo.idGrupo, post.idPost);
-
-                var resultado = new Dictionary<string, string>
-                {
-                    { "mensaje", "El post ha sido eliminado del grupo exitosamente." }
-                };
-                return Ok(resultado);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception($"Error al eliminar el post del grupo: {ex.Message}", ex));
-            }
-        }
-
-        [Route("api/Post/ObtenerPostsDeGrupo/{idGrupo}")]
-        [HttpGet]
-        public IHttpActionResult ObtenerPostsDeGrupo(int idGrupo)
-        {
-            try
-            {
-                List<int> posts = ControladorGrupos.ObtenerPostsDeGrupo(idGrupo);
-
-                if (posts == null || !posts.Any())
-                {
+                Dictionary<string, string> grupo = ControladorGrupos.BuscarGrupoPorId(id);
+                if (grupo == null || !grupo.Any())
                     return NotFound();
-                }
 
-                return Ok(posts);
+                return Ok(grupo);
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception($"Error al obtener los posts del grupo: {ex.Message}", ex));
+                return InternalServerError(new Exception($"Error al buscar el grupo por ID: {ex.Message}", ex));
             }
         }
-
-        [Route("api/Post/EsPostDeGrupo")]
-        [HttpGet]
-        public IHttpActionResult EsPostDeGrupo(int idGrupo, int idPost)
-        {
-            try
-            {
-                bool esPost = ControladorGrupos.EsPostDeGrupo(idGrupo, idPost);
-                return Ok(new { esPost = esPost });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(new Exception($"Error al verificar si el post pertenece al grupo: {ex.Message}", ex));
-            }
-        }
-*/
-
-
 
         [Route("api/Grupo/ModificarGrupo/{id:int}")]
         [HttpPut]
@@ -313,20 +204,15 @@ namespace ApiGrupo.Controllers
         {
             try
             {
-                if (
-                    string.IsNullOrEmpty(grupo.idGrupo.ToString()) ||
-                    string.IsNullOrEmpty(grupo.nombre) ||
-                    string.IsNullOrEmpty(grupo.informacion) ||
-                    string.IsNullOrEmpty(grupo.idFotoGrupo.ToString()))
+                if (string.IsNullOrEmpty(grupo.IdGrupo.ToString()) ||
+                    string.IsNullOrEmpty(grupo.Nombre) ||
+                    string.IsNullOrEmpty(grupo.Informacion) ||
+                    string.IsNullOrEmpty(grupo.dFotoGrupo))
                 {
                     return BadRequest("Complete todos los campos.");
                 }
-                ControladorGrupos.ModificarGrupo(grupo.idGrupo, grupo.nombre, grupo.informacion, grupo.idFotoGrupo);
-                Dictionary<string, string> resultado = new Dictionary<string, string>
-    {
-        { "mensaje", "Grupo modificado exitosamente" }
-    };
-                return Ok(resultado);
+                ControladorGrupos.ModificarGrupo(grupo.IdGrupo, grupo.Nombre, grupo.Informacion, grupo.dFotoGrupo);
+                return Ok(new { mensaje = "Grupo modificado exitosamente" });
             }
             catch (Exception ex)
             {
@@ -334,39 +220,33 @@ namespace ApiGrupo.Controllers
             }
         }
 
-
         [Route("api/Grupo/BloquearGrupo/{id:int}")]
         [HttpDelete]
         public IHttpActionResult BloquearGrupo(int id)
         {
-            Dictionary<string, string> resultado = new Dictionary<string, string>();
             try
             {
                 ControladorGrupos.BloquearGrupo(id);
-                resultado.Add("mensaje", "Grupo bloquear exitosamente");
-                return Ok(resultado);
+                return Ok(new { mensaje = "Grupo bloqueado exitosamente" });
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("Error al bloquar el grupo.", ex));
+                return InternalServerError(new Exception("Error al bloquear el grupo.", ex));
             }
-
         }
 
-        [Route("api/Grupo/DesbloquearGrupo{id:int}")]
+        [Route("api/Grupo/DesbloquearGrupo/{id:int}")]
         [HttpDelete]
         public IHttpActionResult DesbloquearGrupo(int id)
         {
-            Dictionary<string, string> resultado = new Dictionary<string, string>();
             try
             {
                 ControladorGrupos.HabilitarGrupo(id);
-                resultado.Add("mensaje", "Grupo Desbloqueado exitosamente");
-                return Ok(resultado);
+                return Ok(new { mensaje = "Grupo desbloqueado exitosamente" });
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("Error al Desbloquear el grupo.", ex));
+                return InternalServerError(new Exception("Error al desbloquear el grupo.", ex));
             }
         }
 

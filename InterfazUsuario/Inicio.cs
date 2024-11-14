@@ -48,14 +48,16 @@ namespace InterfazUsuario
             }
         }
          private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            
+        { 
             PerfilPrincipal perfil = new PerfilPrincipal();
             perfil.Show();
             perfil.inicio = this;
             this.Hide();
-
         }
+       
+
+
+
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
             Login.Show();
@@ -168,43 +170,68 @@ namespace InterfazUsuario
         private static List<ModeloApiPost> ListarTodosLosPost()
         {
             RestClient client = new RestClient("https://localhost:44358/");
-            RestRequest request = new RestRequest("api/Post/ListarPost/", Method.Get);
+            RestRequest request = new RestRequest("api/Post/ListarPost", Method.Get);
             request.AddHeader("Accept", "application/json");
             RestResponse response = client.Execute(request);
 
-            if (!response.IsSuccessful)
-                throw new Exception("Error al obtener los posts.");
+            if (!response.IsSuccessful || string.IsNullOrWhiteSpace(response.Content))
+                throw new Exception("Error al obtener los posts o el contenido está vacío.");
 
-            List<ModeloApiPost> posts = JsonConvert.DeserializeObject<List<ModeloApiPost>>(response.Content);
+            List<ModeloApiPost> posts;
+            try
+            {
+                posts = JsonConvert.DeserializeObject<List<ModeloApiPost>>(response.Content);
+            }
+            catch (JsonException ex)
+            {
+                throw new Exception("Error al deserializar la respuesta de los posts.", ex);
+            }
 
             return posts;
         }
+
         public static int ContarLikes(int idPost)
         {
-            RestClient client = new RestClient("https://localhost:44358/"); 
+            RestClient client = new RestClient("https://localhost:44358/");
             RestRequest request = new RestRequest($"api/Post/ContarLikes/{idPost}/", Method.Get);
             request.AddHeader("Accept", "application/json");
-            RestResponse response = client.Execute(request);
 
-            if (!response.IsSuccessful)
-                throw new Exception("Error al contar los likes.");
+            var response = client.Execute(request);
 
-            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
-            return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+            if (!response.IsSuccessful || string.IsNullOrEmpty(response.Content))
+                throw new Exception("Error al contar los likes. Respuesta no válida del servidor.");
+
+            try
+            {
+                dynamic resultado = JsonConvert.DeserializeObject<dynamic>(response.Content);
+                return (int)resultado.cantidad;
+            }
+            catch (JsonReaderException ex)
+            {
+                throw new Exception($"Error al deserializar el conteo de likes. Respuesta del servidor: {response.Content}", ex);
+            }
         }
 
         public static int ContarComentarios(int idPost)
         {
-            RestClient client = new RestClient("https://localhost:44358/"); 
+            RestClient client = new RestClient("https://localhost:44358/");
             RestRequest request = new RestRequest($"api/Post/ContarComentarios/{idPost}/", Method.Get);
             request.AddHeader("Accept", "application/json");
-            RestResponse response = client.Execute(request);
 
-            if (!response.IsSuccessful)
-                throw new Exception("Error al contar los comentarios.");
+            var response = client.Execute(request);
 
-            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
-            return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+            if (!response.IsSuccessful || string.IsNullOrEmpty(response.Content))
+                throw new Exception("Error al contar los comentarios. Respuesta no válida del servidor.");
+
+            try
+            {
+                dynamic resultado = JsonConvert.DeserializeObject<dynamic>(response.Content);
+                return (int)resultado.cantidad;
+            }
+            catch (JsonReaderException ex)
+            {
+                throw new Exception($"Error al deserializar el conteo de comentarios. Respuesta del servidor: {response.Content}", ex);
+            }
         }
 
 

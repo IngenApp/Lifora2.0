@@ -135,7 +135,6 @@ namespace InterfazUsuario
             this.btnMisGrupos.TabIndex = 61;
             this.btnMisGrupos.Text = "Mis Grupos";
             this.btnMisGrupos.UseVisualStyleBackColor = false;
-            this.btnMisGrupos.Click += new System.EventHandler(this.btnMisGrupos_Click);
             // 
             // btnTodosGrupos
             // 
@@ -149,7 +148,6 @@ namespace InterfazUsuario
             this.btnTodosGrupos.TabIndex = 62;
             this.btnTodosGrupos.Text = "Todos Grupo";
             this.btnTodosGrupos.UseVisualStyleBackColor = false;
-            this.btnTodosGrupos.Click += new System.EventHandler(this.btnTodosGrupos_Click);
             // 
             // GruposMenu
             // 

@@ -13,5 +13,6 @@ namespace ApiGrupo.Models
             public string Fecha { get; set; }
             public string dFotoGrupo { get; set; }
             public int IdPerfil { get; set; }
+            public bool silenciar { get; set; }
         }
 }

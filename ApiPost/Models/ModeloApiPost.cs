@@ -16,6 +16,7 @@ namespace ApiPost.Models
         public string Apodo { get; set; }
         public string Fecha { get; set; }
         public string Comentario { get; set; }
+        public int cantidad { get; set; }
         public string IdAudio { get; set; }
         public string IdImagen { get; set; }
         public string IdVideo { get; set; }
