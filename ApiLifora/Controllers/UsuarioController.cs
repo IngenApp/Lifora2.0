@@ -11,8 +11,7 @@ namespace ApiLifora.Controllers
 {
     public class UsuarioController : ApiController
     {
-
-        [Route("api/Usuario/{email}")]
+        [Route("api/Usuario/{email}/")]
         [HttpGet]
         public IHttpActionResult ObtenerPerfilPorMail(string email)
         {
@@ -24,6 +23,20 @@ namespace ApiLifora.Controllers
             return Ok(perfil);
 
         }
+
+        [Route("api/Usuario/PorApodo/{apodo}/")]
+        [HttpGet]
+        public IHttpActionResult ObtenerPerfilPorApodo(string apodo)
+        {
+            Dictionary<string, string> perfil = ControladorCuentaUsuario.ObtenerPerfilPorApodo(apodo);
+
+            if (perfil["resultado"] == "false")
+                return NotFound();
+
+            return Ok(perfil);
+        }
+
+
 
 
         [Route("api/Usuario/MeSiguen/{idPerfil:int}")]
@@ -45,8 +58,7 @@ namespace ApiLifora.Controllers
             }
         }
 
-
-        [Route("api/Usuario/CantidadSeguidores/{idPerfil:int}/")]
+        [Route("api/Usuario/CantidadSeguidores/{idPerfil:int}")]
         [HttpGet]
         public IHttpActionResult ObtenerCantidadSeguidores(int idPerfil)
         {
@@ -102,9 +114,63 @@ namespace ApiLifora.Controllers
             }
         }
 
+        [Route("api/Usuario/ModificarPerfil/{email}")]
+        [HttpPut]
+        public IHttpActionResult ModificarUsuario(string email, ModeloApiUsuario usuario)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(usuario.apodo))
+                {
+                    return BadRequest("Complete todos los campos.");
+                }
+                if (string.IsNullOrEmpty(usuario.idioma))
+                {
+                    usuario.idioma = "espanol";
+                }
+                ControladorCuentaUsuario.ModificarPerfil(
+                    usuario.email, usuario.apodo, usuario.idFotoPerfil, usuario.idioma, usuario.suscripcion,  usuario.contrasena
+                );
+                Dictionary<string, string> resultado = new Dictionary<string, string>
+    {
+        { "mensaje", "Usuario modificado exitosamente" }
+    };
 
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception($"Error al modificar el usuario: {ex.Message}", ex));
+            }
+        }
 
+        [Route("api/Usuario/ModificarCuenta/{id:int}")]
+        [HttpPut]
+        public IHttpActionResult ModificarCuenta(int id, ModeloApiUsuario usuario)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(usuario.email))
+                {
+                    return BadRequest("El campo 'email' es obligatorio.");
+                }
+                usuario.emailNuevo = string.IsNullOrEmpty(usuario.emailNuevo) ? usuario.email : usuario.email;
 
+                ControladorCuentaUsuario.ModificarCuenta(
+                    usuario.email, usuario.emailNuevo, usuario.nombre, usuario.apellido, usuario.telefono
+                    );
+                Dictionary<string, string> resultado = new Dictionary<string, string>
+        {
+            { "mensaje", "Cuenta modificada exitosamente" }
+        };
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception($"Error al modificar la cuenta: {ex.Message}", ex));
+            }
+        }
 
         [Route("api/Usuario/ListarUsuarios")]
         [HttpGet]
@@ -129,8 +195,7 @@ namespace ApiLifora.Controllers
                         contrasena = usuario["contrasena"].ToString(),
                         fechaNacimiento = usuario["Fecha Nacimiento"].ToString(),
                         idioma = usuario["Idioma"].ToString(),
-                        atributo1 = usuario["Atributo1"].ToString(),
-                        atributo2 = usuario["Atributo2"].ToString()
+                        suscripcion = bool.Parse(usuario["suscripcion"].ToString()),
 
                     };
                     listaUsuarios.Add(u);
@@ -142,7 +207,6 @@ namespace ApiLifora.Controllers
                 return InternalServerError(new Exception($"Error al listar los usuarios: {ex.Message}", ex));
             }
         }
-
 
         [Route("api/Usuario/CrearUsuario")]
         [HttpPost]
@@ -183,7 +247,6 @@ namespace ApiLifora.Controllers
             }
         }
 
-
         [Route("api/Usuario/Login")]
         [HttpPost]
         public IHttpActionResult Login(ModeloApiUsuario login)
@@ -202,42 +265,42 @@ namespace ApiLifora.Controllers
             }
         }
 
-
-        [Route("api/Usuario/ModificarUsuario/{id:int}")]
-        [HttpPut]
-        public IHttpActionResult ModificarUsuario(int id, ModeloApiUsuario usuario)
-        {
-            try
+        /*    [Route("api/Usuario/ModificarUsuario/{id:int}/")]
+            [HttpPut]
+            public IHttpActionResult ModificarPerfil(string email, ModeloApiUsuario usuario)
             {
-                if (
-                    string.IsNullOrEmpty(usuario.email) ||
-                    string.IsNullOrEmpty(usuario.apodo) ||
-                    string.IsNullOrEmpty(usuario.atributo1) ||
-                    string.IsNullOrEmpty(usuario.atributo2) ||
-                    string.IsNullOrEmpty(usuario.contrasena))
+                try
                 {
-                    return BadRequest("Complete todos los campos.");
-                }
-                if (string.IsNullOrEmpty(usuario.idioma))
-                {
-                    usuario.idioma = "espanol";
-                }
-                ControladorCuentaUsuario.ModificarPerfil(
-                    usuario.email, usuario.apodo, usuario.idFotoPerfil, usuario.idioma, usuario.atributo1, usuario.atributo2, usuario.contrasena
-                );
-                Dictionary<string, string> resultado = new Dictionary<string, string>
-    {
-        { "mensaje", "Usuario modificado exitosamente" }
-    };
-
-                return Ok(resultado);
-            }
-            catch (Exception ex)
+                    if (string.IsNullOrEmpty(usuario.apodo))
+                    {
+                        return BadRequest("Complete todos los campos obligatorios: email, nombre, apellido, apodo y contrasena.");
+                    }
+                    if (string.IsNullOrEmpty(usuario.idioma))
+                    {
+                        usuario.idioma = "espanol"; 
+                    }
+                    ControladorCuentaUsuario.ModificarPerfil(
+                        usuario.email,
+                        usuario.apodo,
+                        usuario.idFotoPerfil,
+                        usuario.idioma,
+                        usuario.atributo1,
+                        usuario.atributo2,
+                        usuario.contrasena
+                    );
+                    Dictionary<string, string> resultado = new Dictionary<string, string>
             {
-                return InternalServerError(new Exception($"Error al modificar el usuario: {ex.Message}", ex));
-            }
-        }
+                { "mensaje", "Usuario modificado exitosamente" }
+            };
 
+                    return Ok(resultado);
+                }
+                catch (Exception ex)
+                {
+                    return InternalServerError(new Exception($"Error al modificar el usuario: {ex.Message}", ex));
+                }
+            }
+        */
 
         [Route("api/Usuario/DeshabilitarUsuario/{id:int}")]
         [HttpPut]
@@ -249,7 +312,6 @@ namespace ApiLifora.Controllers
             return Ok(resultado);
         }
 
-
         [Route("api/Usuario/HabilitarUsuario{id:int}")]
         [HttpPut]
         public IHttpActionResult HabilitarCuentaUsuario(int id)
@@ -259,34 +321,6 @@ namespace ApiLifora.Controllers
             resultado.Add("mensaje", "Usuario habilitado exitosamente");
             return Ok(resultado);
         }
-
-
-
-
-
-        /*[Route("api/Usuario/BuscarUsuario/{id:int}")]
-        [HttpGet]
-        public IHttpActionResult BuscarUsuarioPorId(int id)
-        {
-            Dictionary<string, string> datosUsuario = ControladorCuentaUsuario.BuscarPorId(id);
-            if (datosUsuario != null && datosUsuario.ContainsKey("resultado") && datosUsuario["resultado"] == "true")
-            {
-                ModeloApiUsuario usuario = new ModeloApiUsuario();
-                usuario.idUsuario = Int32.Parse(datosUsuario["id_usuario"]);
-                usuario.nombre = datosUsuario["nombre"];
-                usuario.apellido = datosUsuario["apellido"];
-                usuario.telefono = datosUsuario["telefono"];
-                usuario.email = datosUsuario["email"];
-                usuario.fechaNacimiento = datosUsuario["fecha_nacimiento"];
-                if (datosUsuario.ContainsKey("habilitado"))
-                {
-                    usuario.habilitacion = Boolean.Parse(datosUsuario["habilitado"]);
-                }
-                return Ok(usuario);
-            }
-            return NotFound();
-        }*/
-
 
     }
 }

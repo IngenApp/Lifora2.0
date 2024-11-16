@@ -172,8 +172,9 @@ namespace InterfazUsuario
             List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
             List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
             List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
+            List<string> fecha = new List<string>();
             //con los post de los que sigo
-            gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios);
+            gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios, fecha);
         }
    
 

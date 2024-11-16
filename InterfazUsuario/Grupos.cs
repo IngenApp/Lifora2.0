@@ -12,6 +12,8 @@ using System.Threading;
 using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
 using System.Drawing.Drawing2D;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace InterfazUsuario
 {
@@ -31,13 +33,10 @@ namespace InterfazUsuario
        
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {
-            // Crear un objeto GraphicsPath para definir la forma circular
             GraphicsPath path = new GraphicsPath();
 
-            // Añadir una elipse al path con el tamaño del PictureBox
             path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
 
-            // Asignar la región circular al PictureBox
             pictureBox2.Region = new Region(path);
         }
 
@@ -60,10 +59,36 @@ namespace InterfazUsuario
                 CrearPost.PostInstancia.BringToFront();
             }
         }
+        public string UnirseAGrupo(int idGrupo, int idPerfil, bool silenciar)
+        {
+            RestClient client = new RestClient("https://localhost:44325/");
+            RestRequest request = new RestRequest("api/Grupo/UnirseAGrupo", Method.Post);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "application/json");
 
+            var unirseGrupo = new
+            {
+                idGrupo = idGrupo,
+                idPerfil = idPerfil,
+                silenciar = silenciar
+            };
+            request.AddJsonBody(unirseGrupo);
+
+            RestResponse response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+            {
+                throw new Exception("Error al unirse al grupo: " + response.ErrorMessage);
+            }
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        // UnirseAGrupo(int idGrupo, DatosDePerfil.idPerfil, silenciar);
         private void btnSeguir_Click(object sender, System.EventArgs e)
         {
             //Seguir grupo
+           
         }
 
         private void btnDejarSeguir_Click(object sender, System.EventArgs e)

@@ -13,8 +13,6 @@ namespace Modelo
         public string post, descripcion, apodo, fecha, comentario, idAudio, idImagen, idVideo;
         public bool habilitado, comparteHabilitado;
         public DateTime fechaHora, fechaComparte;
-
-
         public void CrearPostTexto()
         {
             string sql = $"insert into post (id_perfil, descripcion, fecha_hora) values(@id_perfil, @descripcion, now()); insert into texto (id_post) values (last_insert_id()); commit;";
@@ -24,16 +22,40 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-      
-        public void CrearPostImagen()
+        public void CrearPostImagen(int idPerfil, string descripcion, string idImagen)
         {
-            string sql = $"insert into post (id_perfil, descripcion, fecha_hora) values(@id_perfil, @descripcion, now()); insert into multimedia (id_post) values (last_insert_id()); insert into imagen (id_post, id_imagen) values (last_insert_id(), @id_imagen)); commit;";
-            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
-            this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
-            this.Comando.Parameters.AddWithValue("@id_imagen", idImagen);
-            this.Comando.Prepare();
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
+            using (var transaction = this.Comando.Connection.BeginTransaction())
+            {
+                this.Comando.Transaction = transaction;
+
+                try
+                {
+                    string sql = @"
+                INSERT INTO post (id_perfil, descripcion, fecha_hora) 
+                VALUES (@id_perfil, @descripcion, NOW());
+
+                INSERT INTO multimedia (id_post) 
+                VALUES (LAST_INSERT_ID());
+
+                INSERT INTO imagen (id_post, id_imagen) 
+                VALUES (LAST_INSERT_ID(), @id_imagen);
+            ";
+
+                    this.Comando.Parameters.Clear();
+                    this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+                    this.Comando.Parameters.AddWithValue("@descripcion", descripcion);
+                    this.Comando.Parameters.AddWithValue("@id_imagen", idImagen);
+
+                    this.Comando.CommandText = sql;
+                    this.Comando.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
         }
         public void CrearPostVideo()
         {
@@ -55,8 +77,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-
-
         public void ModificarPost()
         {
             string sql = $"UPDATE post SET descripcion = @descripcion WHERE id_post = @id_post; commit;";
@@ -83,18 +103,102 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
-
         public void DarLike(int idPost, int idPerfil)
         {
-           
-            string sqlInsert = $"INSERT INTO likes (id_post, id_perfil, fecha) VALUES (@id_post, @id_perfil, NOW()); commit;";
-            this.Comando.CommandText = sqlInsert;
+            // Verificar si existe un "me gusta" habilitado para el id_post e id_perfil dados
+            string sqlCheck = "SELECT habilitado FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil";
+            this.Comando.CommandText = sqlCheck;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
-            this.Comando.ExecuteNonQuery();
 
+            object resultado = this.Comando.ExecuteScalar();
+
+            if (resultado != null)
+            {
+                // Si existe un registro, cambiar el estado de "habilitado"
+                bool habilitadoActual = Convert.ToBoolean(resultado);
+                int nuevoHabilitado = habilitadoActual ? 0 : 1;
+
+                string sqlUpdate = "UPDATE likes SET habilitado = @nuevoHabilitado, fecha_hora = NOW() " +
+                                   "WHERE id_post = @id_post AND id_perfil = @id_perfil";
+                this.Comando.CommandText = sqlUpdate;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@nuevoHabilitado", nuevoHabilitado);
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+                this.Comando.ExecuteNonQuery();
+
+                // Actualizar el contador de likes en la tabla post según el valor de `nuevoHabilitado`
+                string sqlUpdateContador = "UPDATE post SET contador_like = contador_like + @incremento WHERE id_post = @id_post";
+                this.Comando.CommandText = sqlUpdateContador;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@incremento", nuevoHabilitado == 1 ? 1 : -1);
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                this.Comando.ExecuteNonQuery();
+            }
+            else
+            {
+                // Si no existe un "me gusta", insertar uno nuevo y habilitarlo
+                string sqlInsert = "INSERT INTO likes (id_post, id_perfil, fecha_hora, habilitado) " +
+                                   "VALUES (@id_post, @id_perfil, NOW(), 1)";
+                this.Comando.CommandText = sqlInsert;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+                this.Comando.ExecuteNonQuery();
+
+                // Incrementar el contador de likes en la tabla post
+                string sqlUpdateAdd = "UPDATE post SET contador_like = contador_like + 1 WHERE id_post = @id_post";
+                this.Comando.CommandText = sqlUpdateAdd;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                this.Comando.ExecuteNonQuery();
+            }
         }
+
+
+        /*
+                public void DarLike(int idPost, int idPerfil)
+                {
+                    string sqlCheck = "SELECT habilitado FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil";
+                    this.Comando.CommandText = sqlCheck;
+                    this.Comando.Parameters.Clear();
+                    this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                    this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+                    object resultado = this.Comando.ExecuteScalar();
+
+                    if (resultado != null)
+                    {
+                        // Convertir el resultado a booleano
+                        bool habilitadoActual = Convert.ToBoolean(resultado);
+
+                        // Actualizar el estado de 'habilitado'
+                        string sqlUpdate = $"UPDATE likes SET habilitado = @nuevoHabilitado, fecha_hora = NOW() " +
+                                           "WHERE id_post = @id_post AND id_perfil = @id_perfil";
+                        this.Comando.CommandText = sqlUpdate;
+                        this.Comando.Parameters.Clear();
+                        this.Comando.Parameters.AddWithValue("@nuevoHabilitado", !habilitadoActual); // Cambiar el estado
+                        this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                        this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+                        this.Comando.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        // Si no existe el like, insertarlo
+                        string sqlInsert = "INSERT INTO likes (id_post, id_perfil, fecha_hora, habilitado) " +
+                                           "VALUES (@id_post, @id_perfil, NOW(), 1)";
+                        this.Comando.CommandText = sqlInsert;
+                        this.Comando.Parameters.Clear();
+                        this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                        this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+                        this.Comando.ExecuteNonQuery();
+                    }
+                }
+        */
         public void EliminarLike(int idPost, int idPerfil)
         {
             string sql = "DELETE FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil;";
@@ -116,81 +220,151 @@ namespace Modelo
 
         public int ContarLikes()
         {
-            string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post;";
+            try
+            {
+                string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post;";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+
+                int contadorLikes = Convert.ToInt32(this.Comando.ExecuteScalar());
+                return contadorLikes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al contar los likes en la base de datos.", ex);
+            }
+        }
+
+        public int ContarComentarios()
+        {
+            try
+            {
+                string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post;";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+
+                int contadorComentarios = Convert.ToInt32(this.Comando.ExecuteScalar());
+                return contadorComentarios;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al contar los comentarios en la base de datos.", ex);
+            }
+        }
+
+        public bool VerificarSiDioLike(int idPost, int idPerfil)
+        {
+            string sql = "SELECT COUNT(*) FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil;";
             this.Comando.CommandText = sql;
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            int contadorLikes = Convert.ToInt32(this.Comando.ExecuteScalar());
-            return contadorLikes;
-        }
-        //mostrar likes
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
 
- 
-
-        public List<ModeloPost> ObtenerPost()
-        {
-            List<ModeloPost> ListaPost = new List<ModeloPost>();
-
-            string sql = "SELECT p.id_post, p.descripcion, p.fecha_hora, p.habilitado, pf.apodo, pf.id_perfil FROM post p LEFT JOIN perfil pf ON p.id_perfil = pf.id_perfil";
-
-            this.Comando.CommandText = sql;
-            using (this.Lector = this.Comando.ExecuteReader())
+            try
             {
-                while (this.Lector.Read())
+                int count = Convert.ToInt32(this.Comando.ExecuteScalar());
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al verificar si dio like: {ex.Message}");
+                return false;
+            }
+        }
+
+        //mostrar likes
+        public List<ModeloPost> ObtenerListaPost()
+        {
+            List<ModeloPost> listaPost = new List<ModeloPost>();
+
+            try
+            {
+                string sql = @"SELECT 
+                        p.id_post AS ID_Post, 
+                        p.descripcion AS Descripcion, 
+                        p.fecha_hora AS Fecha, 
+                        p.habilitado AS Habilitado, 
+                        pf.apodo AS Apodo, 
+                        pf.id_perfil AS ID_Perfil
+                   FROM
+                        post p
+                   LEFT JOIN
+                        perfil pf ON p.id_perfil = pf.id_perfil";
+
+                this.Comando.CommandText = sql;
+
+                using (this.Lector = this.Comando.ExecuteReader())
                 {
-                    ModeloPost mp = new ModeloPost
+                    while (this.Lector.Read())
                     {
-                        idPost = Convert.ToInt32(this.Lector["id_post"]),
-                        descripcion = this.Lector["descripcion"].ToString(),
-                        fecha = this.Lector["fecha_hora"].ToString(),
-                        habilitado = Convert.ToBoolean(this.Lector["habilitado"]),
-                        apodo = this.Lector["apodo"].ToString(),
-                        idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
-                    };
+                        ModeloPost mp = new ModeloPost
+                        {
+                            idPost = Convert.ToInt32(this.Lector["ID_Post"]),
+                            descripcion = this.Lector["Descripcion"].ToString(),
+                            fecha = Convert.ToDateTime(this.Lector["Fecha"]).ToString("yyyy-MM-dd HH:mm:ss"),
+                            habilitado = Convert.ToBoolean(this.Lector["Habilitado"]),
+                            apodo = this.Lector["Apodo"].ToString(),
+                            idPerfil = Convert.ToInt32(this.Lector["ID_Perfil"])
+                        };
 
-                    ListaPost.Add(mp);
+                        listaPost.Add(mp);
+                    }
                 }
-            } 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los posts: {ex.Message}");
+            }
 
-            return ListaPost;
-
+            return listaPost;
         }
 
 
-        public List<ModeloPost> ObtenerPostTexto(int idPerfil)
+        public List<ModeloPost> ObtenerPostsPorPerfil(int idPerfil)
         {
-            List<ModeloPost> ListaPost = new List<ModeloPost>();
+            List<ModeloPost> listaPosts = new List<ModeloPost>();
 
             string sql = @"SELECT p.id_post, p.descripcion, p.fecha_hora, pf.apodo, pf.id_perfil
                    FROM post p
                    LEFT JOIN perfil pf ON p.id_perfil = pf.id_perfil
                    WHERE p.habilitado = TRUE AND p.id_perfil = @id_perfil;";
 
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
-
-            using (this.Lector = this.Comando.ExecuteReader())
+            try
             {
-                while (this.Lector.Read())
-                {
-                    ModeloPost mp = new ModeloPost
-                    {
-                        idPost = Convert.ToInt32(this.Lector["id_post"]),
-                        descripcion = this.Lector["descripcion"].ToString(),
-                        fecha = this.Lector["fecha_hora"].ToString(),
-                        apodo = this.Lector["apodo"] != DBNull.Value ? this.Lector["apodo"].ToString() : string.Empty,
-                        idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
-                    };
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
 
-                    ListaPost.Add(mp);
+                using (this.Lector = this.Comando.ExecuteReader())
+                {
+                    while (this.Lector.Read())
+                    {
+                        ModeloPost mp = new ModeloPost
+                        {
+                            idPost = Convert.ToInt32(this.Lector["id_post"]),
+                            descripcion = this.Lector["descripcion"].ToString(),
+                            fecha = Convert.ToDateTime(this.Lector["fecha_hora"]).ToString("yyyy-MM-dd HH:mm:ss"),
+                            apodo = this.Lector["apodo"].ToString(),
+                            idPerfil = Convert.ToInt32(this.Lector["id_perfil"])
+                        };
+
+                        listaPosts.Add(mp);
+                    }
                 }
             }
-            return ListaPost;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar los posts: {ex.Message}");
+            }
+            finally
+            {
+                this.Lector?.Close();
+            }
+
+            return listaPosts;
         }
-
-
-
 
         public List<ModeloPost> ObtenerPostImagen()
         {
@@ -324,8 +498,6 @@ namespace Modelo
 
             return listaPost;
         }
-
-
         public List<ModeloPost> ObtenerComentarios()
         {
             List<ModeloPost> Listacomentarios = new List<ModeloPost>();
@@ -381,7 +553,7 @@ namespace Modelo
             this.Comando.Parameters.Clear();
             this.Comando.Parameters.AddWithValue("@id_comentario", idComentario);
             this.Comando.ExecuteNonQuery();
-        } 
+        }
         public void ModificarComentario()
         {
             string sql = $"UPDATE comentario SET comentario = @comentario WHERE id_comentario = @id_comentario; commit;";
@@ -391,18 +563,6 @@ namespace Modelo
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
-        public int ContarComentarios()
-        {
-            string sql = "SELECT COUNT(*) FROM comentario WHERE id_post = @id_post; commit";
-            this.Comando.CommandText = sql;
-            this.Comando.Parameters.Clear();
-            this.Comando.Parameters.AddWithValue("@id_post", idPost);
-            int contadorComentarios = Convert.ToInt32(this.Comando.ExecuteScalar());
-            return contadorComentarios;
-        }
-
-
-
         public void CompartirPost(int idPost, int idPerfil)
         {
             string sql = $"INSERT INTO comparte (id_perfil, id_post, fecha_hora) VALUES (@id_perfil, @id_post, NOW()); commit;";
@@ -413,7 +573,6 @@ namespace Modelo
             this.Comando.Parameters.AddWithValue("@id_post", idPost);
             this.Comando.ExecuteNonQuery();
         }
-       
         public void DeshabilitarComparte()
         {
             string sql = $"UPDATE comparte SET habilitado = FALSE WHERE id_post = @id_post; commit";
@@ -424,8 +583,107 @@ namespace Modelo
             this.Comando.ExecuteNonQuery();
         }
 
- 
 
     }
+
 }
+
+/*        public void DarLike(int idPost, int idPerfil)
+        {
+            string sqlCheck = $"SELECT habilitado FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil";
+            this.Comando.CommandText = sqlCheck;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+            object resultado = this.Comando.ExecuteScalar();
+
+            if (resultado != null) 
+            {
+                bool habilitadoActual = Convert.ToBoolean(resultado);
+                int nuevoHabilitado = habilitadoActual ? 0 : 1; 
+                string sqlUpdate = $"UPDATE likes SET habilitado = @nuevoHabilitado, fecha_hora = NOW() " +
+                                   "WHERE id_post = @id_post AND id_perfil = @id_perfil";
+                this.Comando.CommandText = sqlUpdate;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@nuevoHabilitado", nuevoHabilitado);
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+                this.Comando.ExecuteNonQuery();
+            }
+            else 
+            {
+                string sqlInsert = $"INSERT INTO likes (id_post, id_perfil, fecha_hora, habilitado) " +
+                                   "VALUES (@id_post, @id_perfil, NOW(), 1)";
+                this.Comando.CommandText = sqlInsert;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+                this.Comando.ExecuteNonQuery();
+            }
+        }*/
+
+/*     public void DarLike(int idPost, int idPerfil)
+        {
+            string sqlCheck = $"SELECT habilitado FROM likes WHERE id_post = @id_post AND id_perfil = @id_perfil";
+            this.Comando.CommandText = sqlCheck;
+            this.Comando.Parameters.Clear();
+            this.Comando.Parameters.AddWithValue("@id_post", idPost);
+            this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+            object resultado = this.Comando.ExecuteScalar();
+
+            if (resultado != null)
+            {
+                if(resultado.Equals(true))
+                {
+                    // MySqlRowUpdatedEventArgs as false
+                    string sql = $"UPDATE likes SET habilitado = false, fecha_hora = NOW() " +
+                                    "WHERE id_post = @id_post AND id_perfil = @id_perfil";
+                    this.Comando.CommandText = sql;
+                    this.Comando.Parameters.Clear();
+                    this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                    this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+                    this.Comando.ExecuteNonQuery();
+                }
+                if (resultado.Equals(false))
+                {
+                    string sql = $"UPDATE likes SET habilitado = true, fecha_hora = NOW() " +
+                                    "WHERE id_post = @id_post AND id_perfil = @id_perfil";
+                    this.Comando.CommandText = sql;
+                    this.Comando.Parameters.Clear();
+                    this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                    this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+                    this.Comando.ExecuteNonQuery();
+                }
+                
+                bool habilitadoActual = Convert.ToBoolean(resultado);
+                int nuevoHabilitado = habilitadoActual ? 0 : 1;
+
+                string sqlUpdate = $"UPDATE likes SET habilitado = @nuevoHabilitado, fecha_hora = NOW() " +
+                                   "WHERE id_post = @id_post AND id_perfil = @id_perfil";
+                this.Comando.CommandText = sqlUpdate;
+                this.Comando.Parameters.Clear();
+                this.Comando.Parameters.AddWithValue("@nuevoHabilitado", nuevoHabilitado);
+                this.Comando.Parameters.AddWithValue("@id_post", idPost);
+                this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+                this.Comando.ExecuteNonQuery(); 
+            }
+            else
+{
+    string sqlInsert = $"INSERT INTO likes (id_post, id_perfil, fecha_hora, habilitado) " +
+                       "VALUES (@id_post, @id_perfil, NOW(), 1)";
+    this.Comando.CommandText = sqlInsert;
+    this.Comando.Parameters.Clear();
+    this.Comando.Parameters.AddWithValue("@id_post", idPost);
+    this.Comando.Parameters.AddWithValue("@id_perfil", idPerfil);
+
+    this.Comando.ExecuteNonQuery();
+}
+        }*/
 

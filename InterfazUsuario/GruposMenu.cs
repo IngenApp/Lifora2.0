@@ -17,12 +17,12 @@ namespace InterfazUsuario
 {
     public partial class GruposMenu : Form
     {
+     
         public static GruposMenu menuGruposInstancia = null;
         public GruposMenu()
         {
             InitializeComponent();
             MakeCircularPictureBox(pictureBox1);
-            CargarIdioma();
             
         }
 
@@ -30,7 +30,6 @@ namespace InterfazUsuario
         {
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             AbrirCrearGrupo();
@@ -50,34 +49,18 @@ namespace InterfazUsuario
         }
         private void MakeCircularPictureBox(PictureBox pictureBox2)
         {
-            // Crear un objeto GraphicsPath para definir la forma circular
             GraphicsPath path = new GraphicsPath();
 
-            // Añadir una elipse al path con el tamaño del PictureBox
             path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
 
-            // Asignar la región circular al PictureBox
             pictureBox2.Region = new Region(path);
         }
-        public void CargarIdioma()
-        {
-            try
-            {
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Idioma);
-
-                Idioma.CambiarTexto(this.Controls);
-            }
-            catch (CultureNotFoundException)
-            {
-                Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
-            }
-        }
-
         private void btnGrupo_Click(object sender, EventArgs e)
         {
-            // verificar en el datagrid q grupo esta seleccionado
             Grupos grupos = new Grupos();
             grupos.Show();
         }
+       
+       
     }
 }

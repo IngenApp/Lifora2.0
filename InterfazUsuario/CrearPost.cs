@@ -44,7 +44,17 @@ namespace InterfazUsuario
             texto.crearPost = this;
             this.Hide();
         }
+/*        private void CrearPostTexto(int idPerfil, string descripcion)
+        {
+            var client = new RestClient("https://localhost:44358/");
+            var request = new RestRequest("api/Post/CrearPostTexto/", Method.Post);
+            request.AddJsonBody(new { idPerfil, descripcion });
 
+            var response = client.Execute(request);
+            if (!response.IsSuccessful)
+                throw new Exception("Error al crear el post de texto.");
+        }
+*/
         private void button2_Click(object sender, EventArgs e)
         {
             CrearPostImagen imagen = new CrearPostImagen();

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,39 +32,124 @@ namespace InterfazUsuario
         {
 
         }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //if (el eprfil es el mio, actualiza; si es distinto al mio)
             PerfilSecundario perfilSecundario = new PerfilSecundario();
             perfilSecundario.Show();
         }
-
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //cantidad de likes
+            ContLikes.Text = ContarLikes(DatosDePerfil.idPost).ToString();
         }
-
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //cantidad de comentarios
+            contComentarios.Text = ContarComentarios(DatosDePerfil.idPost).ToString();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //like
-        }
+            try
+            {
+                bool yaDioLike = VerificarLike(DatosDePerfil.idPost, DatosDePerfil.idPerfil);
 
+                if (yaDioLike)
+                {
+                    string mensaje = EliminarLike(DatosDePerfil.idPost, DatosDePerfil.idPerfil);
+                    MessageBox.Show(mensaje);
+                }
+                else
+                {
+                    string mensaje = DarLike(DatosDePerfil.idPost, DatosDePerfil.idPerfil);
+                    MessageBox.Show(mensaje);
+                }
+                ContLikes.Text = ContarLikes(DatosDePerfil.idPost).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al procesar el like: " + ex.Message);
+            }
+        }
+ 
         private void button2_Click(object sender, EventArgs e)
         {
             //comentar
+        }
+
+        public int ContarComentarios(int idPost)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ContarComentarios/{idPost}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al contar los comentarios.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
+            return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+        }
+        public int ContarLikes(int idPost)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest($"api/Post/ContarLikes/{idPost}", Method.Get);
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al contar los likes.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response.Content);
+            return result.ContainsKey("cantidad") ? result["cantidad"] : 0;
+        }
+        private bool VerificarLike(int idPost, int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest("api/Post/VerificarLike", Method.Get);
+            request.AddParameter("idPost", idPost);
+            request.AddParameter("idPerfil", idPerfil);
+
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+            {
+                throw new Exception("Error al verificar el like.");
+            }
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, bool>>(response.Content);
+            return result.ContainsKey("yaDioLike") && result["yaDioLike"];
+        }
+        public string DarLike(int idPost, int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest("api/Post/DarLike", Method.Post);
+            request.AddJsonBody(new { idPost = idPost, idPerfil = idPerfil });
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al dar like.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
+        }
+        public string EliminarLike(int idPost, int idPerfil)
+        {
+            RestClient client = new RestClient("https://localhost:44358/");
+            RestRequest request = new RestRequest("api/Post/EliminarLike", Method.Post);
+            request.AddJsonBody(new { idPost = idPost, idPerfil = idPerfil });
+            var response = client.Execute(request);
+
+            if (!response.IsSuccessful)
+                throw new Exception("Error al eliminar like.");
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
+            return result.ContainsKey("mensaje") ? result["mensaje"] : "Error desconocido";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             //compartir
         }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             VerComentarPost comentar = new VerComentarPost();
@@ -70,7 +157,6 @@ namespace InterfazUsuario
 
             // Pasarle id_post para comentar
         }
-
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("¿Deseas compartir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -82,20 +168,17 @@ namespace InterfazUsuario
 
             }
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Reportar reportar = new Reportar();
             //reportar.id_post = id_post;
             reportar.Show();
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             PostImagenAmpliar imagenForm = new PostImagenAmpliar(pictureBox1.Image);
             imagenForm.ShowDialog();
         }
-
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             if (EditarPost.eventoInstancia == null || EditarPost.eventoInstancia.IsDisposed)

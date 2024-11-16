@@ -159,7 +159,7 @@ namespace Lifora
             {
                 DataGridViewRow seleccion = dataGridViewInfoUser.SelectedRows[0];
                 string email = seleccion.Cells[2].Value?.ToString();
-                ControladorCuentaUsuario.ModificarPerfil(email, textBoxApodo.Text, 0, textBoxIdioma.Text, textBoxAtributo1.Text, textBoxAtributo2.Text, textBoxContrasena.Text);
+                ControladorCuentaUsuario.ModificarPerfil(email, textBoxApodo.Text, "0", textBoxIdioma.Text, textBoxAtributo1.Text, textBoxAtributo2.Text, textBoxContrasena.Text);
                 MessageBox.Show("Cambios realizados con exito");
             }
             if (pregunta == DialogResult.No)
