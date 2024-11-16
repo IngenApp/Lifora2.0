@@ -54,10 +54,6 @@ namespace InterfazUsuario
             perfil.inicio = this;
             this.Hide();
         }
-       
-
-
-
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
             Login.Show();
@@ -67,8 +63,7 @@ namespace InterfazUsuario
             AbrirPost();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
+        { 
             // actualizar muro
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
