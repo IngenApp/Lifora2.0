@@ -30,83 +30,106 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearPostImagen));
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCrearPost = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelCrearPost = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCrearPost
             // 
-            this.button1.Location = new System.Drawing.Point(224, 494);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 88);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 400);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.btnCrearPost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnCrearPost.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCrearPost.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearPost.ForeColor = System.Drawing.Color.White;
+            this.btnCrearPost.Location = new System.Drawing.Point(212, 499);
+            this.btnCrearPost.Name = "btnCrearPost";
+            this.btnCrearPost.Size = new System.Drawing.Size(150, 50);
+            this.btnCrearPost.TabIndex = 0;
+            this.btnCrearPost.Text = "button1";
+            this.btnCrearPost.UseVisualStyleBackColor = false;
+            this.btnCrearPost.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox1.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(20, 70);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(350, 70);
+            this.richTextBox1.Size = new System.Drawing.Size(342, 51);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::InterfazUsuario.Properties.Resources.black_paperclip_icon_realistic_paper_clip_attachment_with_shadow_attach_file_business_document_illustration_isolated_on_white_background_vector;
-            this.pictureBox2.Location = new System.Drawing.Point(189, 494);
+            this.pictureBox2.Image = global::InterfazUsuario.Properties.Resources.adjunto;
+            this.pictureBox2.Location = new System.Drawing.Point(156, 499);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(29, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 17;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 127);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(342, 366);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelCrearPost
+            // 
+            this.labelCrearPost.AutoSize = true;
+            this.labelCrearPost.BackColor = System.Drawing.Color.Transparent;
+            this.labelCrearPost.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCrearPost.Location = new System.Drawing.Point(20, 30);
+            this.labelCrearPost.Name = "labelCrearPost";
+            this.labelCrearPost.Size = new System.Drawing.Size(235, 28);
+            this.labelCrearPost.TabIndex = 60;
+            this.labelCrearPost.Text = "Que quieres compartir?";
+            this.labelCrearPost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CrearPostImagen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallpaperEmergente;
             this.ClientSize = new System.Drawing.Size(384, 561);
+            this.Controls.Add(this.labelCrearPost);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCrearPost);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CrearPostImagen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Post Imagen";
+            this.Text = "Lifora";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CrearPostImagen_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCrearPost;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label labelCrearPost;
     }
 }

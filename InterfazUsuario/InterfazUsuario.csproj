@@ -117,6 +117,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvisoPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AvisoPass.Designer.cs">
+      <DependentUpon>AvisoPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosDePerfil.cs" />
+    <Compile Include="CambiarPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarPass.Designer.cs">
+      <DependentUpon>CambiarPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfPerfil.Designer.cs">
+      <DependentUpon>ConfPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarPost.Designer.cs">
+      <DependentUpon>EditarPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eventos.Designer.cs">
+      <DependentUpon>Eventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestorDePosts.cs" />
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +184,12 @@
     </Compile>
     <Compile Include="CrearPostVideo.Designer.cs">
       <DependentUpon>CrearPostVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventosMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventosMenu.Designer.cs">
+      <DependentUpon>EventosMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Grupos.cs">
       <SubType>Form</SubType>
@@ -229,6 +267,12 @@
     <Compile Include="PostAudioMostrar.Designer.cs">
       <DependentUpon>PostAudioMostrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostImagenAmpliar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostImagenAmpliar.Designer.cs">
+      <DependentUpon>PostImagenAmpliar.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostImagenMostrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +284,12 @@
     </Compile>
     <Compile Include="PostTextoMostrar.Designer.cs">
       <DependentUpon>PostTextoMostrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostVideoAmpliar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostVideoAmpliar.Designer.cs">
+      <DependentUpon>PostVideoAmpliar.cs</DependentUpon>
     </Compile>
     <Compile Include="PostVideoMostrar.cs">
       <SubType>Form</SubType>
@@ -261,6 +311,27 @@
     <Compile Include="Registrarse2.Designer.cs">
       <DependentUpon>Registrarse2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportar.Designer.cs">
+      <DependentUpon>Reportar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerComentarPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerComentarPost.Designer.cs">
+      <DependentUpon>VerComentarPost.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AvisoPass.resx">
+      <DependentUpon>AvisoPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambiarPass.resx">
+      <DependentUpon>CambiarPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfPerfil.resx">
+      <DependentUpon>ConfPerfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +349,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearPostVideo.resx">
       <DependentUpon>CrearPostVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarPost.resx">
+      <DependentUpon>EditarPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eventos.resx">
+      <DependentUpon>Eventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventosMenu.resx">
+      <DependentUpon>EventosMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Grupos.resx">
       <DependentUpon>Grupos.cs</DependentUpon>
@@ -321,11 +401,17 @@
     <EmbeddedResource Include="PostAudioMostrar.resx">
       <DependentUpon>PostAudioMostrar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PostImagenAmpliar.resx">
+      <DependentUpon>PostImagenAmpliar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PostImagenMostrar.resx">
       <DependentUpon>PostImagenMostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostTextoMostrar.resx">
       <DependentUpon>PostTextoMostrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostVideoAmpliar.resx">
+      <DependentUpon>PostVideoAmpliar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostVideoMostrar.resx">
       <DependentUpon>PostVideoMostrar.cs</DependentUpon>
@@ -345,6 +431,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrarse2.resx">
       <DependentUpon>Registrarse2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportar.resx">
+      <DependentUpon>Reportar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerComentarPost.resx">
+      <DependentUpon>VerComentarPost.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -369,6 +461,51 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    <COMReference Include="MediaPlayer">
+      <Guid>{22D6F304-B0F6-11D0-94AB-0080C74C7E95}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMLSS">
+      <Guid>{C21E9CE5-B317-463B-A1B1-B5E36EED59D0}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPDXMLib">
+      <Guid>{73F0DD5C-D071-46B6-A8BF-897C84EAAC49}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLauncher">
+      <Guid>{5CB42160-CD7C-4806-9367-1C4A65153F4A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="WMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -392,10 +529,68 @@
     <None Include="Resources\black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-business-document-illustration-isolated-on-white-background-vector.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApiGrupo\ApiGrupo.csproj">
+      <Project>{1C936101-76EF-4B29-92FB-BC14680DDDD0}</Project>
+      <Name>ApiGrupo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApiPost\ApiPost.csproj">
+      <Project>{C09A4EA9-BCE0-4F70-B47F-5BEC42F991B5}</Project>
+      <Name>ApiPost</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaLogica\Controladores.csproj">
       <Project>{AD87CD6D-FCD9-42BA-B697-A86F541333D2}</Project>
       <Name>Controladores</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\post.png" />
+    <None Include="Resources\mensaje.png" />
+    <None Include="Resources\grupos.png" />
+    <None Include="Resources\eventos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adjunto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paleta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comentario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compartir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperEmergente.png" />
+    <None Include="Resources\wallppaerLifora.png" />
+    <None Include="Resources\Sin título-3.png" />
+    <None Include="Resources\alerta.png" />
+    <None Include="Resources\Buscar.png" />
+    <None Include="Resources\comentar.png" />
+    <None Include="Resources\conf.png" />
+    <None Include="Resources\cerrar.png" />
+    <Content Include="Resources\DejarDeSeguir.png" />
+    <None Include="Resources\Seguir1.png" />
+    <None Include="Resources\DejarDeSeguir1.png" />
+    <None Include="Resources\fondo.png" />
+    <None Include="Resources\fondo1.png" />
+    <None Include="Resources\perfil.png" />
+    <None Include="Resources\fondo inicio.png" />
+    <None Include="Resources\fondogrupos.png" />
+    <None Include="Resources\Like.png" />
+    <None Include="Resources\Reportar.png" />
+    <None Include="Resources\fondoGaleria.png" />
+    <None Include="Resources\Fondo Fotos.png" />
+    <None Include="Resources\Fondo Fotos1.png" />
+    <None Include="Resources\FondoPostImagen.jpg" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Lugar.png" />
+    <None Include="Resources\GustaEvento.png" />
+    <None Include="Resources\No me gusta evento.png" />
+    <Content Include="Resources\Seguir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

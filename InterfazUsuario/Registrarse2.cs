@@ -49,10 +49,16 @@ namespace InterfazUsuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtBoxName.Text.Equals("") || txtBoxSurName.Text.Equals("") || txtBoxDateOfBirth.Text.Equals("") || txtBoxNickName.Text.Equals(""))
+            if (txtBoxNombre.Text.Equals("") || txtBoxApellido.Text.Equals("") || txtBoxFechaNAc.Text.Equals("") || txtBoxApodo.Text.Equals(""))
             {
-                MessageBox.Show("Complete los campos");
-                return;
+                if (Settings.Default.Idioma == "es-UY")
+                {
+                    MessageBox.Show("LComplete los campos");
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("Fill in the fields");
+                }
             }
 
             try
@@ -60,12 +66,12 @@ namespace InterfazUsuario
                 Dictionary<string, string> loginData = new Dictionary<string, string>()
         {
             { "email", email },
-            { "nombre", txtBoxName.Text },
-            { "apellido", txtBoxSurName.Text },
+            { "nombre", txtBoxNombre.Text },
+            { "apellido", txtBoxApellido.Text },
             { "telefono", telefono },
             { "contrasena", contrasena },
-            { "fechaNacimiento", txtBoxDateOfBirth.Text },
-            { "apodo", txtBoxNickName.Text },
+            { "fechaNacimiento", txtBoxFechaNAc.Text },
+            { "apodo", txtBoxApodo.Text },
             { "idioma", "espanol" }
         };
                 string requestBody = JsonConvert.SerializeObject(loginData);
@@ -78,27 +84,35 @@ namespace InterfazUsuario
                 request.AddHeader("Content-Type", "application/json");
 
                 RestResponse response = client.Execute(request);
+
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Usuario creado correctamente");
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Usuario creado correctamente");
+                    }
+                    if (Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("User created correctly");
+                    }
+
                     this.Close();
                     if (Registrarse1 != null)
                     {
                         Registrarse1.Close();
                     }
-                    return;
                 }
-                MessageBox.Show("Error al crear el usuario: " + response.Content);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
+            }
+        
+            private void Registrarse2_FormClosing(object sender, FormClosingEventArgs e)
+            {
+                Registrarse1.Show();
+            }
         }
-
-        private void Registrarse2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Registrarse1.Show();
-        }
-    }
+    
 }

@@ -117,20 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnCambiar" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="btnComentarPost" xml:space="preserve">
+    <value>Comentar</value>
+  </data>
+  <data name="btnCrearEvento" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="btnCrearGrupo" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="btnCrearPost" xml:space="preserve">
+    <value>Crear</value>
+  </data>
   <data name="btnCreateEvents" xml:space="preserve">
     <value>Eventos</value>
   </data>
   <data name="btnCreatePost" xml:space="preserve">
     <value>Post</value>
   </data>
+  <data name="btnEvento" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
   <data name="btnGroups" xml:space="preserve">
     <value>Grupos</value>
+  </data>
+  <data name="btnGrupo" xml:space="preserve">
+    <value>Ir a</value>
   </data>
   <data name="btnLogin" xml:space="preserve">
     <value>Iniciar sesión</value>
   </data>
   <data name="btnMessages" xml:space="preserve">
-    <value>Mensajes</value>
+    <value>Chats</value>
+  </data>
+  <data name="btnMisGrupos" xml:space="preserve">
+    <value>Mis grupos</value>
   </data>
   <data name="btnMusic" xml:space="preserve">
     <value>Musica</value>
@@ -138,11 +162,29 @@
   <data name="btnNext" xml:space="preserve">
     <value>Siguiente</value>
   </data>
+  <data name="btnOk" xml:space="preserve">
+    <value>Entiendo</value>
+  </data>
   <data name="btnPhotos" xml:space="preserve">
     <value>Fotos</value>
   </data>
   <data name="btnRegister" xml:space="preserve">
     <value>Registrarse</value>
+  </data>
+  <data name="btnReportarNo" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="btnReportarSi" xml:space="preserve">
+    <value>SI</value>
+  </data>
+  <data name="btnSeguidores" xml:space="preserve">
+    <value>FANS</value>
+  </data>
+  <data name="btnSeguidos" xml:space="preserve">
+    <value>IDOLS</value>
+  </data>
+  <data name="btnTodosGrupos" xml:space="preserve">
+    <value>Todos</value>
   </data>
   <data name="btnVideo" xml:space="preserve">
     <value>Video</value>
@@ -160,10 +202,76 @@
     <value>Seguidos</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>informacion</value>
+    <value>Info</value>
+  </data>
+  <data name="labelActualizarPost" xml:space="preserve">
+    <value>Actualizar post</value>
+  </data>
+  <data name="labelApellido" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="labelApodo" xml:space="preserve">
+    <value>Apodo</value>
+  </data>
+  <data name="labelBuscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="labelCrearPost" xml:space="preserve">
+    <value>Que deseas compartir?</value>
+  </data>
+  <data name="labelEmail" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="labelEventos" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
+  <data name="labelFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="labelFechaDeNac" xml:space="preserve">
+    <value>Fecha de Nacimiento</value>
+  </data>
+  <data name="labelGrupos" xml:space="preserve">
+    <value>Grupos</value>
+  </data>
+  <data name="labelInfo" xml:space="preserve">
+    <value>Informacion</value>
+  </data>
+  <data name="labelLugarEvento" xml:space="preserve">
+    <value>Lugar</value>
+  </data>
+  <data name="labelMensajes" xml:space="preserve">
+    <value>Mensajes</value>
+  </data>
+  <data name="labelNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="labelNombreEvento" xml:space="preserve">
+    <value>Nombre del Evento</value>
+  </data>
+  <data name="labelNombreGrupo" xml:space="preserve">
+    <value>Nombre de grupo</value>
+  </data>
+  <data name="labelPass2" xml:space="preserve">
+    <value>Confirmar Contrasenia</value>
+  </data>
+  <data name="labelPassword" xml:space="preserve">
+    <value>Contrasena</value>
+  </data>
+  <data name="labelPostInfo" xml:space="preserve">
+    <value>Seleccione el Post que desee compartir!</value>
+  </data>
+  <data name="labelReportar" xml:space="preserve">
+    <value>Reportar?</value>
+  </data>
+  <data name="labelTelefono" xml:space="preserve">
+    <value>Telefono</value>
+  </data>
+  <data name="lblCambiarContrasena" xml:space="preserve">
+    <value>Cambiar Contrasena</value>
   </data>
   <data name="lblSubTituloRegistro" xml:space="preserve">
-    <value>Para compartir y ver arte juntos</value>
+    <value>Para compartir y ver artes juntos!</value>
   </data>
   <data name="lblTituloRegister" xml:space="preserve">
     <value>Registrate</value>
@@ -175,7 +283,7 @@
     <value>Ingles</value>
   </data>
   <data name="linklblRegitrarse" xml:space="preserve">
-    <value>No Tienes una Cuenta?</value>
+    <value>No tienes una Cuenta?</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -195,41 +303,17 @@
   <data name="Publicity" xml:space="preserve">
     <value>Publicidad</value>
   </data>
+  <data name="richTextBoxAvisoPass" xml:space="preserve">
+    <value>Las contrasenas deben tener entre 8 y 24 caracteres, ademas deben contener una mayuscula, una minuscula, un numero y un caracter especial!</value>
+  </data>
   <data name="tituloCrearPost" xml:space="preserve">
     <value>Crear Post</value>
-  </data>
-  <data name="txtBoxConfirmPassword" xml:space="preserve">
-    <value>Confirmar Contrasenia</value>
-  </data>
-  <data name="txtBoxDateOfBirth" xml:space="preserve">
-    <value>Fecha de Nacimiento</value>
-  </data>
-  <data name="txtBoxMail" xml:space="preserve">
-    <value>Correo</value>
   </data>
   <data name="txtBoxMailCode" xml:space="preserve">
     <value>Codigo Correo</value>
   </data>
-  <data name="txtBoxName" xml:space="preserve">
-    <value>Nombre</value>
-  </data>
-  <data name="txtBoxNickName" xml:space="preserve">
-    <value>Apodo</value>
-  </data>
-  <data name="txtBoxPassword" xml:space="preserve">
-    <value>Contrasenia</value>
-  </data>
-  <data name="txtBoxPhone" xml:space="preserve">
-    <value>Telefono</value>
-  </data>
   <data name="txtBoxPhoneCode" xml:space="preserve">
     <value>Codigo Telefonico</value>
-  </data>
-  <data name="txtBoxSearch" xml:space="preserve">
-    <value>Buscar</value>
-  </data>
-  <data name="txtBoxSurName" xml:space="preserve">
-    <value>Apellido</value>
   </data>
   <data name="World" xml:space="preserve">
     <value>Mundo</value>

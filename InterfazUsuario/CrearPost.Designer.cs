@@ -30,78 +30,93 @@ namespace InterfazUsuario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearPost));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnWriting = new System.Windows.Forms.Button();
+            this.btnPhotos = new System.Windows.Forms.Button();
+            this.btnVideo = new System.Windows.Forms.Button();
+            this.btnMusic = new System.Windows.Forms.Button();
+            this.labelPostInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnWriting
             // 
-            this.button1.Location = new System.Drawing.Point(12, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 52);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnWriting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnWriting.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWriting.ForeColor = System.Drawing.Color.White;
+            this.btnWriting.Location = new System.Drawing.Point(14, 99);
+            this.btnWriting.Name = "btnWriting";
+            this.btnWriting.Size = new System.Drawing.Size(150, 50);
+            this.btnWriting.TabIndex = 5;
+            this.btnWriting.Text = "button1";
+            this.btnWriting.UseVisualStyleBackColor = false;
+            this.btnWriting.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnPhotos
             // 
-            this.button2.Location = new System.Drawing.Point(152, 90);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 52);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnPhotos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhotos.ForeColor = System.Drawing.Color.White;
+            this.btnPhotos.Location = new System.Drawing.Point(170, 99);
+            this.btnPhotos.Name = "btnPhotos";
+            this.btnPhotos.Size = new System.Drawing.Size(150, 50);
+            this.btnPhotos.TabIndex = 6;
+            this.btnPhotos.Text = "button2";
+            this.btnPhotos.UseVisualStyleBackColor = false;
+            this.btnPhotos.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnVideo
             // 
-            this.button3.Location = new System.Drawing.Point(291, 90);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 52);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVideo.ForeColor = System.Drawing.Color.White;
+            this.btnVideo.Location = new System.Drawing.Point(326, 99);
+            this.btnVideo.Name = "btnVideo";
+            this.btnVideo.Size = new System.Drawing.Size(150, 50);
+            this.btnVideo.TabIndex = 7;
+            this.btnVideo.Text = "button3";
+            this.btnVideo.UseVisualStyleBackColor = false;
+            this.btnVideo.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnMusic
             // 
-            this.button4.Location = new System.Drawing.Point(426, 90);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 52);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.btnMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(109)))), ((int)(((byte)(206)))));
+            this.btnMusic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMusic.ForeColor = System.Drawing.Color.White;
+            this.btnMusic.Location = new System.Drawing.Point(482, 99);
+            this.btnMusic.Name = "btnMusic";
+            this.btnMusic.Size = new System.Drawing.Size(150, 50);
+            this.btnMusic.TabIndex = 8;
+            this.btnMusic.Text = "button4";
+            this.btnMusic.UseVisualStyleBackColor = false;
+            this.btnMusic.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // label1
+            // labelPostInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "label1";
+            this.labelPostInfo.AutoSize = true;
+            this.labelPostInfo.BackColor = System.Drawing.Color.Transparent;
+            this.labelPostInfo.Font = new System.Drawing.Font("Arial Unicode MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPostInfo.Location = new System.Drawing.Point(122, 27);
+            this.labelPostInfo.Name = "labelPostInfo";
+            this.labelPostInfo.Size = new System.Drawing.Size(395, 28);
+            this.labelPostInfo.TabIndex = 9;
+            this.labelPostInfo.Text = "Seleccione el Post que desee compartir!";
             // 
             // CrearPost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 161);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.BackgroundImage = global::InterfazUsuario.Properties.Resources.wallpaperEmergente;
+            this.ClientSize = new System.Drawing.Size(644, 161);
+            this.Controls.Add(this.labelPostInfo);
+            this.Controls.Add(this.btnMusic);
+            this.Controls.Add(this.btnVideo);
+            this.Controls.Add(this.btnPhotos);
+            this.Controls.Add(this.btnWriting);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CrearPost";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Post";
+            this.Text = "Lifora";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,10 +124,10 @@ namespace InterfazUsuario
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnWriting;
+        private System.Windows.Forms.Button btnPhotos;
+        private System.Windows.Forms.Button btnVideo;
+        private System.Windows.Forms.Button btnMusic;
+        private System.Windows.Forms.Label labelPostInfo;
     }
 }

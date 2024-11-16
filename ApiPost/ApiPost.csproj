@@ -314,6 +314,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDeDatos\Modelo.csproj">
+      <Project>{60747B4D-667B-41C7-AE25-4F051CD35F60}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaLogica\Controladores.csproj">
       <Project>{AD87CD6D-FCD9-42BA-B697-A86F541333D2}</Project>
       <Name>Controladores</Name>

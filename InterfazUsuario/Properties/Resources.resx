@@ -118,16 +118,118 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="silent-hill-2-remake-maria-1024x576" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silent-hill-2-remake-maria-1024x576.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fondo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="alerta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alerta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ingo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ingo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="comentar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\comentar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-business-document-illustration-isolated-on-white-background-vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-business-document-illustration-isolated-on-white-background-vector.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sin título-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sin título-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondoGaleria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondoGaleria.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="perfil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perfil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondogrupos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondogrupos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reportar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reportar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fondo Fotos1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fondo Fotos1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paleta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paleta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grupos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grupos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo horizontal2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo horizontal21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-business-document-illustration-isolated-on-white-background-vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\black-paperclip-icon-realistic-paper-clip-attachment-with-shadow-attach-file-business-document-illustration-isolated-on-white-background-vector.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="compartir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compartir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DejarDeSeguir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DejarDeSeguir1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="adjunto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\adjunto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="comentario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\comentario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallpaperEmergente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperEmergente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Seguir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Seguir1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fondo Fotos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fondo Fotos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mensaje" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mensaje.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silent-hill-2-remake-maria-1024x576" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silent-hill-2-remake-maria-1024x576.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eventos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eventos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallppaerLifora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallppaerLifora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Like" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Like.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GustaEvento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GustaEvento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FondoPostImagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FondoPostImagen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lugar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lugar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="No me gusta evento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\No me gusta evento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

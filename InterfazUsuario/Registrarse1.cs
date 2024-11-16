@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
+using System.Text.RegularExpressions;
 
 namespace InterfazUsuario
 {
@@ -36,34 +29,58 @@ namespace InterfazUsuario
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!txtBoxMail.Text.Equals("") && !txtBoxPhone.Text.Equals("") && !txtBoxPassword.Text.Equals(""))
+            string input = txtBoxPass.Text;
+            string emailInput = txtBoxEmail.Text;
+            string passPattern = @"^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$";
+            string emailPattern = @"^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$";
+            if (!txtBoxEmail.Text.Equals("") && !txtBoxTelefono.Text.Equals("") && !txtBoxPass.Text.Equals("") && Regex.IsMatch(input, passPattern) && Regex.IsMatch(emailInput, emailPattern))
             {
-                if (txtBoxPassword.Text.Equals(txtBoxConfirmPassword.Text)) 
-                {
-                    Registrarse2 Registrarse2 = new Registrarse2();
-                    Registrarse2.email = txtBoxMail.Text;
-                    Registrarse2.telefono = txtBoxPhone.Text;
-                    Registrarse2.contrasena = txtBoxPassword.Text;
-                    Registrarse2.Show();
-                    Registrarse2.Registrarse1 = this;
-                    this.Hide();
-            
-                    //se debe generar el codigo del mail y al telefono para el siguiente paso
-                }
-                else
-                {
-                    MessageBox.Show("Las contrasenas no cohinciden");
-                }
+                
+                    if (txtBoxPass.Text.Equals(txtBoxConfPass.Text))
+                    {
+                        Registrarse2 Registrarse2 = new Registrarse2();
+                        Registrarse2.email = txtBoxEmail.Text;
+                        Registrarse2.telefono = txtBoxTelefono.Text;
+                        Registrarse2.contrasena = txtBoxPass.Text;
+                        Registrarse2.Show();
+                        Registrarse2.Registrarse1 = this;
+                        this.Hide();
+
+                    }              
+                    else
+                    {
+                    if (Settings.Default.Idioma == "es-UY")
+                    {
+                        MessageBox.Show("Las contrasenas no cohinciden");
+                    }
+                     if(Settings.Default.Idioma == "en-US")
+                    {
+                        MessageBox.Show("Passwords don't match");
+                    } 
+                    }
+                
+                
             }
             else
             {
-                MessageBox.Show("Complete los campos");
+                if (Settings.Default.Idioma == "es-UY")
+                {
+                    MessageBox.Show("Los campos no pueden estar vacios, el mail debe ser correcto y la contrasena cumplir con los requisitos de seguridad");
+                }
+                if (Settings.Default.Idioma == "en-US")
+                {
+                    MessageBox.Show("The fields cannot be empty, the email must be correct and the password must meet the security requirements");
+                }
             }
         }
-
         private void Registrarse1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.Save();
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            AvisoPass aviso = new AvisoPass();
+            aviso.Show();
         }
     }
 }

@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using InterfazUsuario.Lenguas;
 using InterfazUsuario.Properties;
+using System.Drawing.Drawing2D;
 
 namespace InterfazUsuario
 {
@@ -18,13 +13,17 @@ namespace InterfazUsuario
     {
         public Form inicio;
         string rutaImagen;
+        private GestorDePosts gestorDePosts;
+
+
         public PerfilPrincipal()
         {
             InitializeComponent();
             CargarIdioma();
-
-
-
+            gestorDePosts = new GestorDePosts(panel1, panel2, panel3, panel4);
+            MakeCircularPictureBox(pictureBox2);
+            MakeCircularPictureBox(pictureBox1);
+            Nickname.Text = DatosDePerfil.apodo;
         }
         public void CargarIdioma()
         {
@@ -38,6 +37,12 @@ namespace InterfazUsuario
             {
                 Console.WriteLine("El idioma seleccionado no es válido. Por favor, selecciona otro.");
             }
+        }
+        private void MakeCircularPictureBox(PictureBox pictureBox2)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(0, 0, pictureBox2.Width, pictureBox2.Height);
+            pictureBox2.Region = new Region(path);
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -76,12 +81,11 @@ namespace InterfazUsuario
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //cantidad de gente que me sigo
+           
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // cantidad de gente que sigo
         }
 
         private void PerfilPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -128,19 +132,19 @@ namespace InterfazUsuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AbrirEvento();
+            AbrirEventoMenu();
         }
-        private void AbrirEvento()
+        private void AbrirEventoMenu()
         {
-            if (CrearEvento.eventoInstancia == null || CrearEvento.eventoInstancia.IsDisposed)
+            if(EventosMenu.eventoInstancia == null || EventosMenu.eventoInstancia.IsDisposed)
             {
-                CrearEvento.eventoInstancia = new CrearEvento();
-                CrearEvento.eventoInstancia.Show();
+                EventosMenu.eventoInstancia = new EventosMenu();
+                EventosMenu.eventoInstancia.Show();
             }
             else
             {
-                CrearEvento.eventoInstancia.WindowState = FormWindowState.Normal;
-                CrearEvento.eventoInstancia.BringToFront();
+                EventosMenu.eventoInstancia.WindowState = FormWindowState.Normal;
+                EventosMenu.eventoInstancia.BringToFront();
             }
         }
 
@@ -157,141 +161,118 @@ namespace InterfazUsuario
                 GruposMenu.menuGruposInstancia.BringToFront();
             }
         }
-        private void AgregarPostTexto(Form PostTextoMostrar)
+    
+        private void MuroTextos(object sender, EventArgs e)
         {
-            PostTextoMostrar.TopLevel = false;
-            PostTextoMostrar.Dock = DockStyle.Top;
-
-            panel1.Controls.Add(PostTextoMostrar);
-            panel1.Tag = PostTextoMostrar;
-            PostTextoMostrar.Show();
-        }
-        private void button5_Click(object sender, EventArgs e)
-        {
-            panel2.Hide();
             panel1.Show();
+            panel2.Hide();
             panel3.Hide();
             panel4.Hide();
-            //con los post de MI PERFIL
-            List<String> Apodo = new List<string> { "Apodo", "Apodo", "Apodo" };
-            List<String> contenido = new List<string> { "post1", "post2", "post3" };
-            List<String> cantidadLikes = new List<string> { "10", "15", "20" };
-            List<String> cantidadComentarios = new List<string> { "15", "20", "30" };
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostTextoMostrar form = new PostTextoMostrar(Apodo[i], contenido[i], cantidadLikes[i], cantidadComentarios[i]);
-                AgregarPostTexto(form);
-
-            }
+            List<string> apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo6" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
+            List<string> fecha = new List<string>();
+            //con los post de los que sigo
+            gestorDePosts.PostTexto(apodo, descripcion, cantidadLikes, cantidadComentarios, fecha);
         }
+   
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Apodo Actualizar
         }
-        private void AgregarPostImagen(Form PostImagenMostrar)
-        {
-            PostImagenMostrar.TopLevel = false;
-            PostImagenMostrar.Dock = DockStyle.None;
 
-            int count = panel2.Controls.Count;
-            int x = (count % 2) * PostImagenMostrar.Width;
-            int y = (count / 2) * PostImagenMostrar.Height;
 
-            PostImagenMostrar.Location = new Point(x, y);
-            panel2.Controls.Add(PostImagenMostrar);
-            panel2.Tag = PostImagenMostrar;
-
-            PostImagenMostrar.Show();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
+        private void MuroImagenes(object sender, EventArgs e)
         {
             panel1.Hide();
             panel2.Show();
             panel3.Hide();
             panel4.Hide();
-            //post de MI perfil
-            List<String> Apodo = new List<string> { "Apodo", "Apodo", "Apodo", "Apodo" };
-            panel2.Controls.Clear();
+            List<string> apodos = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4", "Apodo5", "Apodo6", "Apodo7", "Apodo8" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3", "post2", "post3" };
+            List<string> idImagenes = new List<string> { @"D:\Azir Cosp\1.jpg", @"D:\Azir Cosp\3.jpg", @"D:\Azir Cosp\6.jpg", @"D:\Azir Cosp\7.jpg", @"D:\Azir Cosp\8.jpg", @"D:\Azir Cosp\11.jpg", @"D:\Azir Cosp\9.jpg", @"D:\Azir Cosp\12.jpg" };
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30", "15", "20" };
 
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostImagenMostrar form = new PostImagenMostrar(Apodo[i]);
-                AgregarPostImagen(form);
-            }
-        }
-        private void AgregarPostVideo(Form PostVideoMostrar)
-        {
-            PostVideoMostrar.TopLevel = false;
-            PostVideoMostrar.Dock = DockStyle.None;
-
-            int count = panel3.Controls.Count;
-            int x = (count % 2) * PostVideoMostrar.Width;
-            int y = (count / 2) * PostVideoMostrar.Height;
-
-            PostVideoMostrar.Location = new Point(x, y);
-            panel3.Controls.Add(PostVideoMostrar);
-            panel3.Tag = PostVideoMostrar;
-
-            PostVideoMostrar.Show();
+            gestorDePosts.CargarImagenes(apodos, descripcion, idImagenes, cantidadLikes, cantidadComentarios);
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void MuroVideos(object sender, EventArgs e)
         {
             panel1.Hide();
             panel2.Hide();
             panel3.Show();
             panel4.Hide();
-            List<String> Apodo = new List<string> { "Apodo", "Apodo", "Apodo", "Apodo" };
-            panel3.Controls.Clear();
-
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostVideoMostrar form = new PostVideoMostrar(Apodo[i]);
-                AgregarPostVideo(form);
-            }
-        }
-        private void AgregarPostAudio(Form PostAudioMostrar)
-        {
-            PostAudioMostrar.TopLevel = false;
-            PostAudioMostrar.Dock = DockStyle.None;
-
-            int count = panel4.Controls.Count;
-            int x = (count % 2) * PostAudioMostrar.Width;
-            int y = (count / 2) * PostAudioMostrar.Height;
-
-            PostAudioMostrar.Location = new Point(x, y);
-            panel4.Controls.Add(PostAudioMostrar);
-            panel4.Tag = PostAudioMostrar;
-
-            PostAudioMostrar.Show();
+            List<string> apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
+            List<string> idVideo = new List<string> { @"C:\Users\stive\OneDrive\Escritorio\ME GUSTA EL ARTE - Cancion.mp4", @"D:\Azir Cosp\Azir.mp4", @"C:\Users\stive\OneDrive\Escritorio\ME GUSTA EL ARTE - Cancion.mp4", @"D:\Azir Cosp\Azir.mp4" };
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
+            gestorDePosts.CargarVideos(apodo, descripcion, idVideo, cantidadLikes, cantidadComentarios);
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void MuroAudios(object sender, EventArgs e)
         {
             panel1.Hide();
             panel2.Hide();
             panel3.Hide();
             panel4.Show();
-            List<String> Apodo = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
-            panel4.Controls.Clear();
 
-            for (int i = 0; i < Apodo.Count; i++)
-            {
-                PostAudioMostrar form = new PostAudioMostrar(Apodo[i]);
-                AgregarPostAudio(form);
-            }
+            List<string> apodos = new List<string> { "Apodo1", "Apodo2", "Apodo3", "Apodo4" };
+            List<string> descripcion = new List<string> { "post1", "post2", "post3", "post1", "post2", "post3" };
+            List<string> idAudios = new List<string> { @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\01 - Silent Hill.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\02 - All.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\03 - The Wait.mp3", @"C:\Users\stive\OneDrive\Escritorio\Silent Hill Original Soundtrack\04 - Until Death.mp3" };
+            List<string> cantidadLikes = new List<string> { "10", "15", "20", "10", "15", "20" };
+            List<string> cantidadComentarios = new List<string> { "15", "20", "30", "15", "20", "30" };
+            gestorDePosts.CargarAudios(apodos, descripcion, idAudios, cantidadLikes, cantidadComentarios);
         }
 
-        private void PerfilPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void PerfilPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.Save();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PerfilPrincipal_Load(object sender, EventArgs e)
+        {
+            MuroTextos(this, EventArgs.Empty);
+            ReproductorPublicidad.URL = @"C:\Users\stive\OneDrive\Escritorio\MEGUSTA.mp4";
+            ReproductorPublicidad.uiMode = "none";
+            ReproductorPublicidad.settings.mute = true;
+        }
+
+        private void btnSeguidos_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnSeguidores_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (ConfPerfil.PostInstancia == null || ConfPerfil.PostInstancia.IsDisposed)
+            {
+                ConfPerfil.PostInstancia = new ConfPerfil();
+                ConfPerfil.PostInstancia.Show();
+            }
+            else
+            {
+                ConfPerfil.PostInstancia.WindowState = FormWindowState.Normal;
+                ConfPerfil.PostInstancia.BringToFront();
+            }
         }
     }
 }

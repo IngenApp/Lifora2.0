@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,48 +14,59 @@ namespace InterfazUsuario
 {
     public partial class PostTextoMostrar : Form
     {
-        public PostTextoMostrar(string Apodo, string contenido, string cantidadLikes, string cantidadComentarios)
+        public Inicio form;
+        public PostTextoMostrar(string Apodo, string contenido, string cantidadLikes, string cantidadComentarios,  string fecha)
         {
             InitializeComponent();
+            richTextBox1.SelectionChanged += (s, e) => richTextBox1.SelectionLength = 0;
             this.ControlBox = false;
             this.Text = "";
-            linkLabel4.Text = Apodo;
-            label1.Text = contenido;
-            linkLabel1.Text = cantidadLikes;
-            linkLabel2.Text = cantidadComentarios;
-
-        }
-     
+            labelApodo.Text = Apodo;
+            richTextBox1.Text = contenido;
+            lblLikes.Text = cantidadLikes;
+            lblComentarios.Text = cantidadComentarios;
+            labelFecha.Text = fecha;
+        }   
         private void PostTextoMostrar_Load(object sender, EventArgs e)
         {
 
         }
-
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //if (el eprfil es el mio, actualiza; si es distinto al mio)
-            PerfilSecundario perfilSecundario = new PerfilSecundario();
-            perfilSecundario.Show();
+            PerfilSecundario perfil = new PerfilSecundario();
+            perfil.Show();
+            //if (el eprfil es el mio, actualiza; si es distinto al mio, abre)
         }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-            //cantidad de likes
+            VerComentarPost comentar = new VerComentarPost();
+            comentar.Show();
+
+            // Pasarle id_post para comentar
         }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-            //cantidad de comentarios
+            // darle like
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Report_Click(object sender, EventArgs e)
         {
-            //like
+            Reportar reportar = new Reportar();
+            //reportar.id_post = id_post;
+            reportar.Show();
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void pictureBox6_Click(object sender, EventArgs e)
         {
-            //comentar
+            if (EditarPost.eventoInstancia == null || EditarPost.eventoInstancia.IsDisposed)
+            {
+                EditarPost.eventoInstancia = new EditarPost();
+                EditarPost.eventoInstancia.Show();
+            }
+            else
+            {
+                EditarPost.eventoInstancia.Close();
+                EditarPost.eventoInstancia = new EditarPost();
+                EditarPost.eventoInstancia.Show();
+            }
         }
     }
 }

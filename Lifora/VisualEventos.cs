@@ -17,8 +17,8 @@ namespace Lifora
         {
             InitializeComponent();
             dataGridViewEventos.DataSource = ControladorEventos.ListarEventos();
+           
         }
-
         private void BtnCrearEvento_Click(object sender, EventArgs e)
         {
             CrearEventoBackoffice ceb = new CrearEventoBackoffice();
